@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Barbari_Db" Class="DataClassBarbariDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Barbari_Db;Integrated Security=True" SettingsObjectName="Barbari_DAL.Properties.Settings" SettingsPropertyName="Barbari_DbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BarErsali_Tbl" Member="BarErsali_Tbls">
+    <Type Name="BarErsali_Tbl">
+      <Column Name="BarErsaliBarname" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BarErsaliCodeFerestande" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="BarErsaliNamFerestande" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliFamilyFerestande" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliMobileFerestande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliNamGerande" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliFamilyGerande" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliMobileGerande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliShahreMabda" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliAnbarMabda" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliShahreMaghsad1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliAnbarMaghsad1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliShahreMaghsad2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BarErsaliAnbarMaghsad2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BarErsaliTarikh" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliSaat" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliCodeRanande" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="BarErsaliNamRanande" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="BarErsaliFamilyRanande" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="BarErsaliMobileRanande" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="BarErsaliKerayeRanande" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="BarErsaliPishKeraye" Type="System.Decimal" DbType="Decimal(12,0) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliPasKeraye" Type="System.Decimal" DbType="Decimal(12,0) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliBime" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="BarErsaliAnbardari" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="BarErsaliShahri" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="BarErsaliBastebandi" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="BarErsaliUserNameKarmand" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="BarErsali_Tbl_KalaDaryafti_Tbl" Member="KalaDaryafti_Tbls" ThisKey="BarErsaliBarname" OtherKey="KalaDaryaftiBarname" Type="KalaDaryafti_Tbl" />
+      <Association Name="Customers_Tbl_BarErsali_Tbl" Member="Customers_Tbl" ThisKey="BarErsaliCodeFerestande" OtherKey="CustomersCode" Type="Customers_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Ranande_Tbl_BarErsali_Tbl" Member="Ranande_Tbl" ThisKey="BarErsaliCodeRanande" OtherKey="RanandeCodeRanande" Type="Ranande_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Users_Tbl_BarErsali_Tbl" Member="Users_Tbl" ThisKey="BarErsaliUserNameKarmand" OtherKey="UsersUserName" Type="Users_Tbl" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers_Tbl" Member="Customers_Tbls">
+    <Type Name="Customers_Tbl">
+      <Column Name="CustomersCode" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomersFirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomersLastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomersMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomersCity" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Customers_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="CustomersCode" OtherKey="BarErsaliCodeFerestande" Type="BarErsali_Tbl" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KalaDaryafti_Tbl" Member="KalaDaryafti_Tbls">
+    <Type Name="KalaDaryafti_Tbl">
+      <Column Name="KalaDaryaftiCodeKala" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KalaDaryaftiBarname" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KalaDaryaftiNamKala" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="KalaDaryaftiTedadKala" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KalaDaryaftiArzeshKala" Type="System.Decimal" DbType="Decimal(15,0)" CanBeNull="true" />
+      <Association Name="BarErsali_Tbl_KalaDaryafti_Tbl" Member="BarErsali_Tbl" ThisKey="KalaDaryaftiBarname" OtherKey="BarErsaliBarname" Type="BarErsali_Tbl" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ranande_Tbl" Member="Ranande_Tbls">
+    <Type Name="Ranande_Tbl">
+      <Column Name="RanandeCodeRanande" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RanandeFirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="RanandeLastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="RanandeMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Association Name="Ranande_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="RanandeCodeRanande" OtherKey="BarErsaliCodeRanande" Type="BarErsali_Tbl" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users_Tbl" Member="Users_Tbls">
+    <Type Name="Users_Tbl">
+      <Column Name="UsersFirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="UsersLastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="UsersUserName" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UsersPassWord" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UsersMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="UsersDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UsersRoll" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Users_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="UsersUserName" OtherKey="BarErsaliUserNameKarmand" Type="BarErsali_Tbl" />
+    </Type>
+  </Table>
+</Database>
