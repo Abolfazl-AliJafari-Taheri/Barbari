@@ -149,7 +149,6 @@ namespace Barbari_BLL
                     return new OperationResult<Users_Tbl>
                     {
                         Success = true,
-                        Message = "خوش آمدید" + result.Data.UsersFirstName + " " + result.Data.UsersLastName,
                         Data= result.Data
                     };
                 }

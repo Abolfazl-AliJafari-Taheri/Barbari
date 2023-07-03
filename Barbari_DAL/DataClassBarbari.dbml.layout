@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.75" name="DataClassBarbari">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.5" name="DataClassBarbari">
   <DataContextMoniker Name="/DataClassBarbariDataContext" />
   <nestedChildShapes>
     <classShape Id="daf7fb4a-009a-406d-9d1d-89274f26bbdd" absoluteBounds="4.875, 1.25, 2, 6.1938297526041666">
@@ -60,5 +60,11 @@
         <classShapeMoniker Id="daf7fb4a-009a-406d-9d1d-89274f26bbdd" />
       </nodes>
     </associationConnector>
+    <classShape Id="bb2bd56b-4905-4284-a4b4-d55fb1a3ae7e" absoluteBounds="4.875, 8, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataClassBarbariDataContext/City_Tbl" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e3a1fe3-1345-4b96-8302-1ec25f69c538" absoluteBounds="4.8900000000000006, 8.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

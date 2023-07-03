@@ -77,4 +77,10 @@
       <Association Name="Users_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="UsersUserName" OtherKey="BarErsaliUserNameKarmand" Type="BarErsali_Tbl" />
     </Type>
   </Table>
+  <Table Name="dbo.City_Tbl" Member="City_Tbls">
+    <Type Name="City_Tbl">
+      <Column Name="CityShahr" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CityAnbar" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>
