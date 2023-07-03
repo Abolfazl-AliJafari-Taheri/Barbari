@@ -33,12 +33,6 @@ namespace Barbari_DAL
     partial void InsertBarErsali_Tbl(BarErsali_Tbl instance);
     partial void UpdateBarErsali_Tbl(BarErsali_Tbl instance);
     partial void DeleteBarErsali_Tbl(BarErsali_Tbl instance);
-    partial void InsertKalaDaryafti_Tbl(KalaDaryafti_Tbl instance);
-    partial void UpdateKalaDaryafti_Tbl(KalaDaryafti_Tbl instance);
-    partial void DeleteKalaDaryafti_Tbl(KalaDaryafti_Tbl instance);
-    partial void InsertRanande_Tbl(Ranande_Tbl instance);
-    partial void UpdateRanande_Tbl(Ranande_Tbl instance);
-    partial void DeleteRanande_Tbl(Ranande_Tbl instance);
     partial void InsertUsers_Tbl(Users_Tbl instance);
     partial void UpdateUsers_Tbl(Users_Tbl instance);
     partial void DeleteUsers_Tbl(Users_Tbl instance);
@@ -48,6 +42,12 @@ namespace Barbari_DAL
     partial void InsertCustomers_Tbl(Customers_Tbl instance);
     partial void UpdateCustomers_Tbl(Customers_Tbl instance);
     partial void DeleteCustomers_Tbl(Customers_Tbl instance);
+    partial void InsertKalaDaryafti_Tbl(KalaDaryafti_Tbl instance);
+    partial void UpdateKalaDaryafti_Tbl(KalaDaryafti_Tbl instance);
+    partial void DeleteKalaDaryafti_Tbl(KalaDaryafti_Tbl instance);
+    partial void InsertRanande_Tbl(Ranande_Tbl instance);
+    partial void UpdateRanande_Tbl(Ranande_Tbl instance);
+    partial void DeleteRanande_Tbl(Ranande_Tbl instance);
     #endregion
 		
 		public DataClassBarbariDataContext() : 
@@ -88,22 +88,6 @@ namespace Barbari_DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<KalaDaryafti_Tbl> KalaDaryafti_Tbls
-		{
-			get
-			{
-				return this.GetTable<KalaDaryafti_Tbl>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Ranande_Tbl> Ranande_Tbls
-		{
-			get
-			{
-				return this.GetTable<Ranande_Tbl>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Users_Tbl> Users_Tbls
 		{
 			get
@@ -127,6 +111,22 @@ namespace Barbari_DAL
 				return this.GetTable<Customers_Tbl>();
 			}
 		}
+		
+		public System.Data.Linq.Table<KalaDaryafti_Tbl> KalaDaryafti_Tbls
+		{
+			get
+			{
+				return this.GetTable<KalaDaryafti_Tbl>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Ranande_Tbl> Ranande_Tbls
+		{
+			get
+			{
+				return this.GetTable<Ranande_Tbl>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BarErsali_Tbl")]
@@ -135,7 +135,7 @@ namespace Barbari_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _BarErsaliBarname;
+		private int _BarErsaliBarname;
 		
 		private string _BarErsaliCodeFerestande;
 		
@@ -193,17 +193,17 @@ namespace Barbari_DAL
 		
 		private EntitySet<KalaDaryafti_Tbl> _KalaDaryafti_Tbls;
 		
-		private EntityRef<Ranande_Tbl> _Ranande_Tbl;
-		
 		private EntityRef<Users_Tbl> _Users_Tbl;
 		
 		private EntityRef<Customers_Tbl> _Customers_Tbl;
+		
+		private EntityRef<Ranande_Tbl> _Ranande_Tbl;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnBarErsaliBarnameChanging(string value);
+    partial void OnBarErsaliBarnameChanging(int value);
     partial void OnBarErsaliBarnameChanged();
     partial void OnBarErsaliCodeFerestandeChanging(string value);
     partial void OnBarErsaliCodeFerestandeChanged();
@@ -264,14 +264,14 @@ namespace Barbari_DAL
 		public BarErsali_Tbl()
 		{
 			this._KalaDaryafti_Tbls = new EntitySet<KalaDaryafti_Tbl>(new Action<KalaDaryafti_Tbl>(this.attach_KalaDaryafti_Tbls), new Action<KalaDaryafti_Tbl>(this.detach_KalaDaryafti_Tbls));
-			this._Ranande_Tbl = default(EntityRef<Ranande_Tbl>);
 			this._Users_Tbl = default(EntityRef<Users_Tbl>);
 			this._Customers_Tbl = default(EntityRef<Customers_Tbl>);
+			this._Ranande_Tbl = default(EntityRef<Ranande_Tbl>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliBarname", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BarErsaliBarname
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliBarname", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int BarErsaliBarname
 		{
 			get
 			{
@@ -290,7 +290,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeFerestande", DbType="VarChar(12)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeFerestande", DbType="VarChar(10)")]
 		public string BarErsaliCodeFerestande
 		{
 			get
@@ -314,7 +314,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliNamFerestande", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliNamFerestande", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliNamFerestande
 		{
 			get
@@ -334,7 +334,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliFamilyFerestande", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliFamilyFerestande", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliFamilyFerestande
 		{
 			get
@@ -374,7 +374,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliNamGerande", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliNamGerande", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliNamGerande
 		{
 			get
@@ -394,7 +394,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliFamilyGerande", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliFamilyGerande", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliFamilyGerande
 		{
 			get
@@ -434,7 +434,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliShahreMabda", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliShahreMabda", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliShahreMabda
 		{
 			get
@@ -454,7 +454,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliAnbarMabda", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliAnbarMabda", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliAnbarMabda
 		{
 			get
@@ -474,7 +474,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliShahreMaghsad1", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliShahreMaghsad1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliShahreMaghsad1
 		{
 			get
@@ -494,7 +494,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliAnbarMaghsad1", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliAnbarMaghsad1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliAnbarMaghsad1
 		{
 			get
@@ -514,7 +514,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliShahreMaghsad2", DbType="NVarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliShahreMaghsad2", DbType="NVarChar(50)")]
 		public string BarErsaliShahreMaghsad2
 		{
 			get
@@ -534,7 +534,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliAnbarMaghsad2", DbType="NVarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliAnbarMaghsad2", DbType="NVarChar(50)")]
 		public string BarErsaliAnbarMaghsad2
 		{
 			get
@@ -594,7 +594,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeRanande", DbType="VarChar(12)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeRanande", DbType="VarChar(10)")]
 		public string BarErsaliCodeRanande
 		{
 			get
@@ -618,7 +618,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliNamRanande", DbType="NVarChar(150)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliNamRanande", DbType="NVarChar(50)")]
 		public string BarErsaliNamRanande
 		{
 			get
@@ -638,7 +638,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliFamilyRanande", DbType="NVarChar(150)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliFamilyRanande", DbType="NVarChar(50)")]
 		public string BarErsaliFamilyRanande
 		{
 			get
@@ -855,40 +855,6 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ranande_Tbl_BarErsali_Tbl", Storage="_Ranande_Tbl", ThisKey="BarErsaliCodeRanande", OtherKey="RanandeCodeRanande", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Ranande_Tbl Ranande_Tbl
-		{
-			get
-			{
-				return this._Ranande_Tbl.Entity;
-			}
-			set
-			{
-				Ranande_Tbl previousValue = this._Ranande_Tbl.Entity;
-				if (((previousValue != value) 
-							|| (this._Ranande_Tbl.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Ranande_Tbl.Entity = null;
-						previousValue.BarErsali_Tbls.Remove(this);
-					}
-					this._Ranande_Tbl.Entity = value;
-					if ((value != null))
-					{
-						value.BarErsali_Tbls.Add(this);
-						this._BarErsaliCodeRanande = value.RanandeCodeRanande;
-					}
-					else
-					{
-						this._BarErsaliCodeRanande = default(string);
-					}
-					this.SendPropertyChanged("Ranande_Tbl");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Users_Tbl_BarErsali_Tbl", Storage="_Users_Tbl", ThisKey="BarErsaliUserNameKarmand", OtherKey="UsersUserName", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Users_Tbl Users_Tbl
 		{
@@ -957,6 +923,40 @@ namespace Barbari_DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ranande_Tbl_BarErsali_Tbl", Storage="_Ranande_Tbl", ThisKey="BarErsaliCodeRanande", OtherKey="RanandeCodeRanande", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Ranande_Tbl Ranande_Tbl
+		{
+			get
+			{
+				return this._Ranande_Tbl.Entity;
+			}
+			set
+			{
+				Ranande_Tbl previousValue = this._Ranande_Tbl.Entity;
+				if (((previousValue != value) 
+							|| (this._Ranande_Tbl.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Ranande_Tbl.Entity = null;
+						previousValue.BarErsali_Tbls.Remove(this);
+					}
+					this._Ranande_Tbl.Entity = value;
+					if ((value != null))
+					{
+						value.BarErsali_Tbls.Add(this);
+						this._BarErsaliCodeRanande = value.RanandeCodeRanande;
+					}
+					else
+					{
+						this._BarErsaliCodeRanande = default(string);
+					}
+					this.SendPropertyChanged("Ranande_Tbl");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -987,367 +987,6 @@ namespace Barbari_DAL
 		{
 			this.SendPropertyChanging();
 			entity.BarErsali_Tbl = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KalaDaryafti_Tbl")]
-	public partial class KalaDaryafti_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _KalaDaryaftiCodeKala;
-		
-		private string _KalaDaryaftiBarname;
-		
-		private string _KalaDaryaftiNamKala;
-		
-		private int _KalaDaryaftiTedadKala;
-		
-		private System.Nullable<decimal> _KalaDaryaftiArzeshKala;
-		
-		private EntityRef<BarErsali_Tbl> _BarErsali_Tbl;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnKalaDaryaftiCodeKalaChanging(string value);
-    partial void OnKalaDaryaftiCodeKalaChanged();
-    partial void OnKalaDaryaftiBarnameChanging(string value);
-    partial void OnKalaDaryaftiBarnameChanged();
-    partial void OnKalaDaryaftiNamKalaChanging(string value);
-    partial void OnKalaDaryaftiNamKalaChanged();
-    partial void OnKalaDaryaftiTedadKalaChanging(int value);
-    partial void OnKalaDaryaftiTedadKalaChanged();
-    partial void OnKalaDaryaftiArzeshKalaChanging(System.Nullable<decimal> value);
-    partial void OnKalaDaryaftiArzeshKalaChanged();
-    #endregion
-		
-		public KalaDaryafti_Tbl()
-		{
-			this._BarErsali_Tbl = default(EntityRef<BarErsali_Tbl>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiCodeKala", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string KalaDaryaftiCodeKala
-		{
-			get
-			{
-				return this._KalaDaryaftiCodeKala;
-			}
-			set
-			{
-				if ((this._KalaDaryaftiCodeKala != value))
-				{
-					this.OnKalaDaryaftiCodeKalaChanging(value);
-					this.SendPropertyChanging();
-					this._KalaDaryaftiCodeKala = value;
-					this.SendPropertyChanged("KalaDaryaftiCodeKala");
-					this.OnKalaDaryaftiCodeKalaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiBarname", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string KalaDaryaftiBarname
-		{
-			get
-			{
-				return this._KalaDaryaftiBarname;
-			}
-			set
-			{
-				if ((this._KalaDaryaftiBarname != value))
-				{
-					if (this._BarErsali_Tbl.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnKalaDaryaftiBarnameChanging(value);
-					this.SendPropertyChanging();
-					this._KalaDaryaftiBarname = value;
-					this.SendPropertyChanged("KalaDaryaftiBarname");
-					this.OnKalaDaryaftiBarnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiNamKala", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string KalaDaryaftiNamKala
-		{
-			get
-			{
-				return this._KalaDaryaftiNamKala;
-			}
-			set
-			{
-				if ((this._KalaDaryaftiNamKala != value))
-				{
-					this.OnKalaDaryaftiNamKalaChanging(value);
-					this.SendPropertyChanging();
-					this._KalaDaryaftiNamKala = value;
-					this.SendPropertyChanged("KalaDaryaftiNamKala");
-					this.OnKalaDaryaftiNamKalaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiTedadKala", DbType="Int NOT NULL")]
-		public int KalaDaryaftiTedadKala
-		{
-			get
-			{
-				return this._KalaDaryaftiTedadKala;
-			}
-			set
-			{
-				if ((this._KalaDaryaftiTedadKala != value))
-				{
-					this.OnKalaDaryaftiTedadKalaChanging(value);
-					this.SendPropertyChanging();
-					this._KalaDaryaftiTedadKala = value;
-					this.SendPropertyChanged("KalaDaryaftiTedadKala");
-					this.OnKalaDaryaftiTedadKalaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiArzeshKala", DbType="Decimal(15,0)")]
-		public System.Nullable<decimal> KalaDaryaftiArzeshKala
-		{
-			get
-			{
-				return this._KalaDaryaftiArzeshKala;
-			}
-			set
-			{
-				if ((this._KalaDaryaftiArzeshKala != value))
-				{
-					this.OnKalaDaryaftiArzeshKalaChanging(value);
-					this.SendPropertyChanging();
-					this._KalaDaryaftiArzeshKala = value;
-					this.SendPropertyChanged("KalaDaryaftiArzeshKala");
-					this.OnKalaDaryaftiArzeshKalaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BarErsali_Tbl_KalaDaryafti_Tbl", Storage="_BarErsali_Tbl", ThisKey="KalaDaryaftiBarname", OtherKey="BarErsaliBarname", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public BarErsali_Tbl BarErsali_Tbl
-		{
-			get
-			{
-				return this._BarErsali_Tbl.Entity;
-			}
-			set
-			{
-				BarErsali_Tbl previousValue = this._BarErsali_Tbl.Entity;
-				if (((previousValue != value) 
-							|| (this._BarErsali_Tbl.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BarErsali_Tbl.Entity = null;
-						previousValue.KalaDaryafti_Tbls.Remove(this);
-					}
-					this._BarErsali_Tbl.Entity = value;
-					if ((value != null))
-					{
-						value.KalaDaryafti_Tbls.Add(this);
-						this._KalaDaryaftiBarname = value.BarErsaliBarname;
-					}
-					else
-					{
-						this._KalaDaryaftiBarname = default(string);
-					}
-					this.SendPropertyChanged("BarErsali_Tbl");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ranande_Tbl")]
-	public partial class Ranande_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _RanandeCodeRanande;
-		
-		private string _RanandeFirstName;
-		
-		private string _RanandeLastName;
-		
-		private string _RanandeMobile;
-		
-		private EntitySet<BarErsali_Tbl> _BarErsali_Tbls;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRanandeCodeRanandeChanging(string value);
-    partial void OnRanandeCodeRanandeChanged();
-    partial void OnRanandeFirstNameChanging(string value);
-    partial void OnRanandeFirstNameChanged();
-    partial void OnRanandeLastNameChanging(string value);
-    partial void OnRanandeLastNameChanged();
-    partial void OnRanandeMobileChanging(string value);
-    partial void OnRanandeMobileChanged();
-    #endregion
-		
-		public Ranande_Tbl()
-		{
-			this._BarErsali_Tbls = new EntitySet<BarErsali_Tbl>(new Action<BarErsali_Tbl>(this.attach_BarErsali_Tbls), new Action<BarErsali_Tbl>(this.detach_BarErsali_Tbls));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeCodeRanande", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string RanandeCodeRanande
-		{
-			get
-			{
-				return this._RanandeCodeRanande;
-			}
-			set
-			{
-				if ((this._RanandeCodeRanande != value))
-				{
-					this.OnRanandeCodeRanandeChanging(value);
-					this.SendPropertyChanging();
-					this._RanandeCodeRanande = value;
-					this.SendPropertyChanged("RanandeCodeRanande");
-					this.OnRanandeCodeRanandeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeFirstName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		public string RanandeFirstName
-		{
-			get
-			{
-				return this._RanandeFirstName;
-			}
-			set
-			{
-				if ((this._RanandeFirstName != value))
-				{
-					this.OnRanandeFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._RanandeFirstName = value;
-					this.SendPropertyChanged("RanandeFirstName");
-					this.OnRanandeFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeLastName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		public string RanandeLastName
-		{
-			get
-			{
-				return this._RanandeLastName;
-			}
-			set
-			{
-				if ((this._RanandeLastName != value))
-				{
-					this.OnRanandeLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._RanandeLastName = value;
-					this.SendPropertyChanged("RanandeLastName");
-					this.OnRanandeLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeMobile", DbType="VarChar(11) NOT NULL", CanBeNull=false)]
-		public string RanandeMobile
-		{
-			get
-			{
-				return this._RanandeMobile;
-			}
-			set
-			{
-				if ((this._RanandeMobile != value))
-				{
-					this.OnRanandeMobileChanging(value);
-					this.SendPropertyChanging();
-					this._RanandeMobile = value;
-					this.SendPropertyChanged("RanandeMobile");
-					this.OnRanandeMobileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ranande_Tbl_BarErsali_Tbl", Storage="_BarErsali_Tbls", ThisKey="RanandeCodeRanande", OtherKey="BarErsaliCodeRanande")]
-		public EntitySet<BarErsali_Tbl> BarErsali_Tbls
-		{
-			get
-			{
-				return this._BarErsali_Tbls;
-			}
-			set
-			{
-				this._BarErsali_Tbls.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_BarErsali_Tbls(BarErsali_Tbl entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ranande_Tbl = this;
-		}
-		
-		private void detach_BarErsali_Tbls(BarErsali_Tbl entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ranande_Tbl = null;
 		}
 	}
 	
@@ -1399,7 +1038,7 @@ namespace Barbari_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersFirstName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersFirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string UsersFirstName
 		{
 			get
@@ -1419,7 +1058,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersLastName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersLastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string UsersLastName
 		{
 			get
@@ -1610,7 +1249,7 @@ namespace Barbari_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityShahr", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityShahr", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CityShahr
 		{
 			get
@@ -1630,7 +1269,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityAnbar", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityAnbar", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CityAnbar
 		{
 			get
@@ -1715,7 +1354,7 @@ namespace Barbari_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersCode", DbType="VarChar(12) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersCode", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string CustomersCode
 		{
 			get
@@ -1735,7 +1374,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersFirstName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersFirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string CustomersFirstName
 		{
 			get
@@ -1755,7 +1394,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersLastName", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersLastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string CustomersLastName
 		{
 			get
@@ -1795,7 +1434,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersCity", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersCity", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string CustomersCity
 		{
 			get
@@ -1878,6 +1517,391 @@ namespace Barbari_DAL
 		{
 			this.SendPropertyChanging();
 			entity.Customers_Tbl = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KalaDaryafti_Tbl")]
+	public partial class KalaDaryafti_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _KalaDaryaftiCodeKala;
+		
+		private int _KalaDaryaftiBarname;
+		
+		private string _KalaDaryaftiNamKala;
+		
+		private int _KalaDaryaftiTedadKala;
+		
+		private System.Nullable<decimal> _KalaDaryaftiArzeshKala;
+		
+		private EntityRef<BarErsali_Tbl> _BarErsali_Tbl;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnKalaDaryaftiCodeKalaChanging(string value);
+    partial void OnKalaDaryaftiCodeKalaChanged();
+    partial void OnKalaDaryaftiBarnameChanging(int value);
+    partial void OnKalaDaryaftiBarnameChanged();
+    partial void OnKalaDaryaftiNamKalaChanging(string value);
+    partial void OnKalaDaryaftiNamKalaChanged();
+    partial void OnKalaDaryaftiTedadKalaChanging(int value);
+    partial void OnKalaDaryaftiTedadKalaChanged();
+    partial void OnKalaDaryaftiArzeshKalaChanging(System.Nullable<decimal> value);
+    partial void OnKalaDaryaftiArzeshKalaChanged();
+    #endregion
+		
+		public KalaDaryafti_Tbl()
+		{
+			this._BarErsali_Tbl = default(EntityRef<BarErsali_Tbl>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiCodeKala", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string KalaDaryaftiCodeKala
+		{
+			get
+			{
+				return this._KalaDaryaftiCodeKala;
+			}
+			set
+			{
+				if ((this._KalaDaryaftiCodeKala != value))
+				{
+					this.OnKalaDaryaftiCodeKalaChanging(value);
+					this.SendPropertyChanging();
+					this._KalaDaryaftiCodeKala = value;
+					this.SendPropertyChanged("KalaDaryaftiCodeKala");
+					this.OnKalaDaryaftiCodeKalaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiBarname", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int KalaDaryaftiBarname
+		{
+			get
+			{
+				return this._KalaDaryaftiBarname;
+			}
+			set
+			{
+				if ((this._KalaDaryaftiBarname != value))
+				{
+					if (this._BarErsali_Tbl.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnKalaDaryaftiBarnameChanging(value);
+					this.SendPropertyChanging();
+					this._KalaDaryaftiBarname = value;
+					this.SendPropertyChanged("KalaDaryaftiBarname");
+					this.OnKalaDaryaftiBarnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiNamKala", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KalaDaryaftiNamKala
+		{
+			get
+			{
+				return this._KalaDaryaftiNamKala;
+			}
+			set
+			{
+				if ((this._KalaDaryaftiNamKala != value))
+				{
+					this.OnKalaDaryaftiNamKalaChanging(value);
+					this.SendPropertyChanging();
+					this._KalaDaryaftiNamKala = value;
+					this.SendPropertyChanged("KalaDaryaftiNamKala");
+					this.OnKalaDaryaftiNamKalaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiTedadKala", DbType="Int NOT NULL")]
+		public int KalaDaryaftiTedadKala
+		{
+			get
+			{
+				return this._KalaDaryaftiTedadKala;
+			}
+			set
+			{
+				if ((this._KalaDaryaftiTedadKala != value))
+				{
+					this.OnKalaDaryaftiTedadKalaChanging(value);
+					this.SendPropertyChanging();
+					this._KalaDaryaftiTedadKala = value;
+					this.SendPropertyChanged("KalaDaryaftiTedadKala");
+					this.OnKalaDaryaftiTedadKalaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaDaryaftiArzeshKala", DbType="Decimal(15,0)")]
+		public System.Nullable<decimal> KalaDaryaftiArzeshKala
+		{
+			get
+			{
+				return this._KalaDaryaftiArzeshKala;
+			}
+			set
+			{
+				if ((this._KalaDaryaftiArzeshKala != value))
+				{
+					this.OnKalaDaryaftiArzeshKalaChanging(value);
+					this.SendPropertyChanging();
+					this._KalaDaryaftiArzeshKala = value;
+					this.SendPropertyChanged("KalaDaryaftiArzeshKala");
+					this.OnKalaDaryaftiArzeshKalaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BarErsali_Tbl_KalaDaryafti_Tbl", Storage="_BarErsali_Tbl", ThisKey="KalaDaryaftiBarname", OtherKey="BarErsaliBarname", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public BarErsali_Tbl BarErsali_Tbl
+		{
+			get
+			{
+				return this._BarErsali_Tbl.Entity;
+			}
+			set
+			{
+				BarErsali_Tbl previousValue = this._BarErsali_Tbl.Entity;
+				if (((previousValue != value) 
+							|| (this._BarErsali_Tbl.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BarErsali_Tbl.Entity = null;
+						previousValue.KalaDaryafti_Tbls.Remove(this);
+					}
+					this._BarErsali_Tbl.Entity = value;
+					if ((value != null))
+					{
+						value.KalaDaryafti_Tbls.Add(this);
+						this._KalaDaryaftiBarname = value.BarErsaliBarname;
+					}
+					else
+					{
+						this._KalaDaryaftiBarname = default(int);
+					}
+					this.SendPropertyChanged("BarErsali_Tbl");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ranande_Tbl")]
+	public partial class Ranande_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _RanandeCodeRanande;
+		
+		private string _RanandeFirstName;
+		
+		private string _RanandeLastName;
+		
+		private string _RanandeMobile;
+		
+		private bool _RanandeIsDelete;
+		
+		private EntitySet<BarErsali_Tbl> _BarErsali_Tbls;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRanandeCodeRanandeChanging(string value);
+    partial void OnRanandeCodeRanandeChanged();
+    partial void OnRanandeFirstNameChanging(string value);
+    partial void OnRanandeFirstNameChanged();
+    partial void OnRanandeLastNameChanging(string value);
+    partial void OnRanandeLastNameChanged();
+    partial void OnRanandeMobileChanging(string value);
+    partial void OnRanandeMobileChanged();
+    partial void OnRanandeIsDeleteChanging(bool value);
+    partial void OnRanandeIsDeleteChanged();
+    #endregion
+		
+		public Ranande_Tbl()
+		{
+			this._BarErsali_Tbls = new EntitySet<BarErsali_Tbl>(new Action<BarErsali_Tbl>(this.attach_BarErsali_Tbls), new Action<BarErsali_Tbl>(this.detach_BarErsali_Tbls));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeCodeRanande", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string RanandeCodeRanande
+		{
+			get
+			{
+				return this._RanandeCodeRanande;
+			}
+			set
+			{
+				if ((this._RanandeCodeRanande != value))
+				{
+					this.OnRanandeCodeRanandeChanging(value);
+					this.SendPropertyChanging();
+					this._RanandeCodeRanande = value;
+					this.SendPropertyChanged("RanandeCodeRanande");
+					this.OnRanandeCodeRanandeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeFirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RanandeFirstName
+		{
+			get
+			{
+				return this._RanandeFirstName;
+			}
+			set
+			{
+				if ((this._RanandeFirstName != value))
+				{
+					this.OnRanandeFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._RanandeFirstName = value;
+					this.SendPropertyChanged("RanandeFirstName");
+					this.OnRanandeFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeLastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RanandeLastName
+		{
+			get
+			{
+				return this._RanandeLastName;
+			}
+			set
+			{
+				if ((this._RanandeLastName != value))
+				{
+					this.OnRanandeLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._RanandeLastName = value;
+					this.SendPropertyChanged("RanandeLastName");
+					this.OnRanandeLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeMobile", DbType="VarChar(11) NOT NULL", CanBeNull=false)]
+		public string RanandeMobile
+		{
+			get
+			{
+				return this._RanandeMobile;
+			}
+			set
+			{
+				if ((this._RanandeMobile != value))
+				{
+					this.OnRanandeMobileChanging(value);
+					this.SendPropertyChanging();
+					this._RanandeMobile = value;
+					this.SendPropertyChanged("RanandeMobile");
+					this.OnRanandeMobileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeIsDelete", DbType="Bit NOT NULL")]
+		public bool RanandeIsDelete
+		{
+			get
+			{
+				return this._RanandeIsDelete;
+			}
+			set
+			{
+				if ((this._RanandeIsDelete != value))
+				{
+					this.OnRanandeIsDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._RanandeIsDelete = value;
+					this.SendPropertyChanged("RanandeIsDelete");
+					this.OnRanandeIsDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ranande_Tbl_BarErsali_Tbl", Storage="_BarErsali_Tbls", ThisKey="RanandeCodeRanande", OtherKey="BarErsaliCodeRanande")]
+		public EntitySet<BarErsali_Tbl> BarErsali_Tbls
+		{
+			get
+			{
+				return this._BarErsali_Tbls;
+			}
+			set
+			{
+				this._BarErsali_Tbls.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BarErsali_Tbls(BarErsali_Tbl entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ranande_Tbl = this;
+		}
+		
+		private void detach_BarErsali_Tbls(BarErsali_Tbl entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ranande_Tbl = null;
 		}
 	}
 }

@@ -69,6 +69,27 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult Delete_Back(string code)
+        {
+            try
+            {
+                var query = linq.Users_Tbls.Where(p => p.UsersUserName == code).Single();
+                query.UsersDelete = false;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+            
+        }
         public static OperationResult Insert(Users_Tbl user)
         {
             try

@@ -55,6 +55,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Ranande.cs" />
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>

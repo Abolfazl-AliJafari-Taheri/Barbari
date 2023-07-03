@@ -31,19 +31,9 @@
       <Column Name="BarErsaliBastebandi" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
       <Column Name="BarErsaliUserNameKarmand" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="BarErsali_Tbl_KalaDaryafti_Tbl" Member="KalaDaryafti_Tbls" ThisKey="BarErsaliBarname" OtherKey="KalaDaryaftiBarname" Type="KalaDaryafti_Tbl" />
-      <Association Name="Customers_Tbl_BarErsali_Tbl" Member="Customers_Tbl" ThisKey="BarErsaliCodeFerestande" OtherKey="CustomersCode" Type="Customers_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Ranande_Tbl_BarErsali_Tbl" Member="Ranande_Tbl" ThisKey="BarErsaliCodeRanande" OtherKey="RanandeCodeRanande" Type="Ranande_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Users_Tbl_BarErsali_Tbl" Member="Users_Tbl" ThisKey="BarErsaliUserNameKarmand" OtherKey="UsersUserName" Type="Users_Tbl" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Customers_Tbl" Member="Customers_Tbls">
-    <Type Name="Customers_Tbl">
-      <Column Name="CustomersCode" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CustomersFirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="CustomersLastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="CustomersMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="CustomersCity" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="Customers_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="CustomersCode" OtherKey="BarErsaliCodeFerestande" Type="BarErsali_Tbl" />
+      <Association Name="Customers_Tbl_BarErsali_Tbl" Member="Customers_Tbl" ThisKey="BarErsaliCodeFerestande" OtherKey="CustomersCode" Type="Customers_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.KalaDaryafti_Tbl" Member="KalaDaryafti_Tbls">
@@ -81,6 +71,17 @@
     <Type Name="City_Tbl">
       <Column Name="CityShahr" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CityAnbar" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers_Tbl" Member="Customers_Tbls">
+    <Type Name="Customers_Tbl">
+      <Column Name="CustomersCode" Type="System.String" DbType="VarChar(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomersFirstName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomersLastName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomersMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomersCity" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomersIsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Customers_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="CustomersCode" OtherKey="BarErsaliCodeFerestande" Type="BarErsali_Tbl" />
     </Type>
   </Table>
 </Database>

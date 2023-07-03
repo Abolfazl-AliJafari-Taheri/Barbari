@@ -25,6 +25,25 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult Delete(string code)
+        {
+            var result = Barbari_DAL.Customers.Delete(code);
+            if (result.Success == true)
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Insert(Customers_Tbl customers)
         {
             var result1 = Validation.Customers_Validation(customers);

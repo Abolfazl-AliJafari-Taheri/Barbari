@@ -13,7 +13,7 @@ namespace Barbari_DAL
         {
             try
             {
-                var query = linq.Customers_Tbls.Where(p => p.CustomersCode.Contains(search)).ToList();
+                var query = linq.Customers_Tbls.Where(p => p.CustomersCode.Contains(search) && p.CustomersIsDelete == false).ToList();
                 return new OperationResult<List<Customers_Tbl>>
                 {
                     Data = query,
@@ -42,6 +42,25 @@ namespace Barbari_DAL
             catch
             {
                 return new OperationResult<List<Customers_Tbl>>
+                {
+                    Success = false,
+                };
+            }
+        }
+        public static OperationResult Delete(string code)
+        {
+            try
+            {
+                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
+                query.CustomersIsDelete = true;
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            catch
+            {
+                return new OperationResult
                 {
                     Success = false,
                 };

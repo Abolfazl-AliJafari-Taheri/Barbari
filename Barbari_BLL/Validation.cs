@@ -87,20 +87,20 @@ namespace Barbari_BLL
                     Message = "شماره تلفن را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(user.UsersFirstName,150))
+            else if (CheckRangeDataType(user.UsersFirstName, 50))
             {
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "نام نباید بیشتر از 150 حرف باشد"
+                    Message = "نام نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(user.UsersLastName, 150))
+            else if (CheckRangeDataType(user.UsersLastName, 50))
             {
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "نام خانوادگی نباید بیشتر از 150 حرف باشد"
+                    Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
                 };
             }
             else if (CheckRangeDataType(user.UsersUserName, 50))
@@ -193,36 +193,36 @@ namespace Barbari_BLL
                     Message = "شماره تلفن را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(customer.CustomersFirstName, 150))
+            else if (CheckRangeDataType(customer.CustomersFirstName, 50))
             {
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "نام نباید بیشتر از 150 حرف باشد"
+                    Message = "نام نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(customer.CustomersLastName, 150))
+            else if (CheckRangeDataType(customer.CustomersLastName, 50))
             {
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "نام خانوادگی نباید بیشتر از 150 حرف باشد"
+                    Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(customer.CustomersCode, 12))
+            else if (CheckRangeDataType(customer.CustomersCode, 10))
             {
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "کد مشتری نباید بیشتر از 12 رقم باشه"
+                    Message = "کد مشتری نباید بیشتر از 10 رقم باشه"
                 };
             }
-            else if (CheckRangeDataType(customer.CustomersCity, 100))
+            else if (CheckRangeDataType(customer.CustomersCity, 50))
             {
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "نام شهر نباید بیشتر از 100 حرف باشد"
+                    Message = "نام شهر نباید بیشتر از 50 حرف باشد"
                 };
             }
             else if (!CheckNumberFormat(customer.CustomersCode))
@@ -234,6 +234,88 @@ namespace Barbari_BLL
                 };
             }
             else if (CheckMobileFormat(customer.CustomersMobile))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره موبایل را درست وارد کنید"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult Ranande_Validation(Ranande_Tbl Ranande)
+        {
+            if (string.IsNullOrEmpty(Ranande.RanandeFirstName))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(Ranande.RanandeLastName))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(Ranande.RanandeCodeRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "کد راننده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(Ranande.RanandeMobile))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره تلفن را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(Ranande.RanandeFirstName, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(Ranande.RanandeLastName, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(Ranande.RanandeCodeRanande, 10))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "کد راننده نباید بیشتر از 10 رقم باشه"
+                };
+            }
+            else if (!CheckNumberFormat(Ranande.RanandeCodeRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل کد راننده فقط باید عدد وارد کرد"
+                };
+            }
+            else if (CheckMobileFormat(Ranande.RanandeMobile))
             {
                 return new OperationResult
                 {
