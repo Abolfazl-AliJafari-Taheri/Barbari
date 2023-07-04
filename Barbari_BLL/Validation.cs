@@ -331,5 +331,47 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult City_Validation(City_Tbl city)
+        {
+            if (string.IsNullOrEmpty(city.CityShahr))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(city.CityAnbar))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(city.CityShahr, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(city.CityAnbar, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
     }
 }

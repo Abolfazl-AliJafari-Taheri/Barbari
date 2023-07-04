@@ -66,6 +66,25 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult Delete_Back(string code)
+        {
+            try
+            {
+                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
+                query.CustomersIsDelete = false;
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                };
+            }
+        }
         public static OperationResult Insert(Customers_Tbl customer)
         {
             try

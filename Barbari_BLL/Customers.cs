@@ -44,6 +44,25 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult Delete_Back(string code)
+        {
+            var result = Barbari_DAL.Customers.Delete_Back(code);
+            if (result.Success == true)
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Insert(Customers_Tbl customers)
         {
             var result1 = Validation.Customers_Validation(customers);
@@ -63,6 +82,15 @@ namespace Barbari_BLL
                     Success = false,
                     Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
                 };
+            }
+            else if (result2.Data.Any(p => p.CustomersIsDelete == true))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "این نام کاربری قبلا پاک شده میخوای برات برگردونم ؟"
+                };
+
             }
             else if (result2.Data.Count != 0)
             {

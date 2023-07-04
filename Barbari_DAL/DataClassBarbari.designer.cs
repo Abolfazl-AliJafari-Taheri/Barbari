@@ -48,6 +48,9 @@ namespace Barbari_DAL
     partial void InsertRanande_Tbl(Ranande_Tbl instance);
     partial void UpdateRanande_Tbl(Ranande_Tbl instance);
     partial void DeleteRanande_Tbl(Ranande_Tbl instance);
+    partial void InsertRole(Role instance);
+    partial void UpdateRole(Role instance);
+    partial void DeleteRole(Role instance);
     #endregion
 		
 		public DataClassBarbariDataContext() : 
@@ -125,6 +128,14 @@ namespace Barbari_DAL
 			get
 			{
 				return this.GetTable<Ranande_Tbl>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Role> Roles
+		{
+			get
+			{
+				return this.GetTable<Role>();
 			}
 		}
 	}
@@ -855,7 +866,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Users_Tbl_BarErsali_Tbl", Storage="_Users_Tbl", ThisKey="BarErsaliUserNameKarmand", OtherKey="UsersUserName", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Users_Tbl_BarErsali_Tbl", Storage="_Users_Tbl", ThisKey="BarErsaliUserNameKarmand", OtherKey="UsersUserName", IsForeignKey=true)]
 		public Users_Tbl Users_Tbl
 		{
 			get
@@ -1008,9 +1019,11 @@ namespace Barbari_DAL
 		
 		private bool _UsersDelete;
 		
-		private bool _UsersRoll;
+		private string _UsersRoles;
 		
 		private EntitySet<BarErsali_Tbl> _BarErsali_Tbls;
+		
+		private EntityRef<Role> _Role;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1028,13 +1041,14 @@ namespace Barbari_DAL
     partial void OnUsersMobileChanged();
     partial void OnUsersDeleteChanging(bool value);
     partial void OnUsersDeleteChanged();
-    partial void OnUsersRollChanging(bool value);
-    partial void OnUsersRollChanged();
+    partial void OnUsersRolesChanging(string value);
+    partial void OnUsersRolesChanged();
     #endregion
 		
 		public Users_Tbl()
 		{
 			this._BarErsali_Tbls = new EntitySet<BarErsali_Tbl>(new Action<BarErsali_Tbl>(this.attach_BarErsali_Tbls), new Action<BarErsali_Tbl>(this.detach_BarErsali_Tbls));
+			this._Role = default(EntityRef<Role>);
 			OnCreated();
 		}
 		
@@ -1158,22 +1172,26 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersRoll", DbType="Bit NOT NULL")]
-		public bool UsersRoll
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersRoles", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UsersRoles
 		{
 			get
 			{
-				return this._UsersRoll;
+				return this._UsersRoles;
 			}
 			set
 			{
-				if ((this._UsersRoll != value))
+				if ((this._UsersRoles != value))
 				{
-					this.OnUsersRollChanging(value);
+					if (this._Role.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUsersRolesChanging(value);
 					this.SendPropertyChanging();
-					this._UsersRoll = value;
-					this.SendPropertyChanged("UsersRoll");
-					this.OnUsersRollChanged();
+					this._UsersRoles = value;
+					this.SendPropertyChanged("UsersRoles");
+					this.OnUsersRolesChanged();
 				}
 			}
 		}
@@ -1188,6 +1206,40 @@ namespace Barbari_DAL
 			set
 			{
 				this._BarErsali_Tbls.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Users_Tbl", Storage="_Role", ThisKey="UsersRoles", OtherKey="RolesNamRole", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Role Role
+		{
+			get
+			{
+				return this._Role.Entity;
+			}
+			set
+			{
+				Role previousValue = this._Role.Entity;
+				if (((previousValue != value) 
+							|| (this._Role.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Role.Entity = null;
+						previousValue.Users_Tbls.Remove(this);
+					}
+					this._Role.Entity = value;
+					if ((value != null))
+					{
+						value.Users_Tbls.Add(this);
+						this._UsersRoles = value.RolesNamRole;
+					}
+					else
+					{
+						this._UsersRoles = default(string);
+					}
+					this.SendPropertyChanged("Role");
+				}
 			}
 		}
 		
@@ -1902,6 +1954,696 @@ namespace Barbari_DAL
 		{
 			this.SendPropertyChanging();
 			entity.Ranande_Tbl = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Roles")]
+	public partial class Role : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _RolesNamRole;
+		
+		private bool _RolesTanzimat;
+		
+		private bool _TanzimatShahrAndAnbar;
+		
+		private bool _TanzimatlogoAndName;
+		
+		private bool _TanzimatRoles;
+		
+		private bool _RolesUsers;
+		
+		private bool _UsersInsert;
+		
+		private bool _UsersUpdate;
+		
+		private bool _UsersDelete;
+		
+		private bool _RolesRanande;
+		
+		private bool _RanandeInsert;
+		
+		private bool _RanandeUpdate;
+		
+		private bool _RanandeDelete;
+		
+		private bool _RolesCustomers;
+		
+		private bool _CustomersInsert;
+		
+		private bool _CustomersUpdate;
+		
+		private bool _CustomersDelete;
+		
+		private bool _RolesBarErsali;
+		
+		private bool _BarErsaliInsert;
+		
+		private bool _BarErsaliUpdate;
+		
+		private bool _BarErsaliDelete;
+		
+		private bool _RolesBarTahvili;
+		
+		private bool _BarTahviliInsert;
+		
+		private bool _BarTahviliUpdate;
+		
+		private bool _BarTahviliDelete;
+		
+		private bool _RolesGozaresh;
+		
+		private EntitySet<Users_Tbl> _Users_Tbls;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRolesNamRoleChanging(string value);
+    partial void OnRolesNamRoleChanged();
+    partial void OnRolesTanzimatChanging(bool value);
+    partial void OnRolesTanzimatChanged();
+    partial void OnTanzimatShahrAndAnbarChanging(bool value);
+    partial void OnTanzimatShahrAndAnbarChanged();
+    partial void OnTanzimatlogoAndNameChanging(bool value);
+    partial void OnTanzimatlogoAndNameChanged();
+    partial void OnTanzimatRolesChanging(bool value);
+    partial void OnTanzimatRolesChanged();
+    partial void OnRolesUsersChanging(bool value);
+    partial void OnRolesUsersChanged();
+    partial void OnUsersInsertChanging(bool value);
+    partial void OnUsersInsertChanged();
+    partial void OnUsersUpdateChanging(bool value);
+    partial void OnUsersUpdateChanged();
+    partial void OnUsersDeleteChanging(bool value);
+    partial void OnUsersDeleteChanged();
+    partial void OnRolesRanandeChanging(bool value);
+    partial void OnRolesRanandeChanged();
+    partial void OnRanandeInsertChanging(bool value);
+    partial void OnRanandeInsertChanged();
+    partial void OnRanandeUpdateChanging(bool value);
+    partial void OnRanandeUpdateChanged();
+    partial void OnRanandeDeleteChanging(bool value);
+    partial void OnRanandeDeleteChanged();
+    partial void OnRolesCustomersChanging(bool value);
+    partial void OnRolesCustomersChanged();
+    partial void OnCustomersInsertChanging(bool value);
+    partial void OnCustomersInsertChanged();
+    partial void OnCustomersUpdateChanging(bool value);
+    partial void OnCustomersUpdateChanged();
+    partial void OnCustomersDeleteChanging(bool value);
+    partial void OnCustomersDeleteChanged();
+    partial void OnRolesBarErsaliChanging(bool value);
+    partial void OnRolesBarErsaliChanged();
+    partial void OnBarErsaliInsertChanging(bool value);
+    partial void OnBarErsaliInsertChanged();
+    partial void OnBarErsaliUpdateChanging(bool value);
+    partial void OnBarErsaliUpdateChanged();
+    partial void OnBarErsaliDeleteChanging(bool value);
+    partial void OnBarErsaliDeleteChanged();
+    partial void OnRolesBarTahviliChanging(bool value);
+    partial void OnRolesBarTahviliChanged();
+    partial void OnBarTahviliInsertChanging(bool value);
+    partial void OnBarTahviliInsertChanged();
+    partial void OnBarTahviliUpdateChanging(bool value);
+    partial void OnBarTahviliUpdateChanged();
+    partial void OnBarTahviliDeleteChanging(bool value);
+    partial void OnBarTahviliDeleteChanged();
+    partial void OnRolesGozareshChanging(bool value);
+    partial void OnRolesGozareshChanged();
+    #endregion
+		
+		public Role()
+		{
+			this._Users_Tbls = new EntitySet<Users_Tbl>(new Action<Users_Tbl>(this.attach_Users_Tbls), new Action<Users_Tbl>(this.detach_Users_Tbls));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesNamRole", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string RolesNamRole
+		{
+			get
+			{
+				return this._RolesNamRole;
+			}
+			set
+			{
+				if ((this._RolesNamRole != value))
+				{
+					this.OnRolesNamRoleChanging(value);
+					this.SendPropertyChanging();
+					this._RolesNamRole = value;
+					this.SendPropertyChanged("RolesNamRole");
+					this.OnRolesNamRoleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesTanzimat", DbType="Bit NOT NULL")]
+		public bool RolesTanzimat
+		{
+			get
+			{
+				return this._RolesTanzimat;
+			}
+			set
+			{
+				if ((this._RolesTanzimat != value))
+				{
+					this.OnRolesTanzimatChanging(value);
+					this.SendPropertyChanging();
+					this._RolesTanzimat = value;
+					this.SendPropertyChanged("RolesTanzimat");
+					this.OnRolesTanzimatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TanzimatShahrAndAnbar", DbType="Bit NOT NULL")]
+		public bool TanzimatShahrAndAnbar
+		{
+			get
+			{
+				return this._TanzimatShahrAndAnbar;
+			}
+			set
+			{
+				if ((this._TanzimatShahrAndAnbar != value))
+				{
+					this.OnTanzimatShahrAndAnbarChanging(value);
+					this.SendPropertyChanging();
+					this._TanzimatShahrAndAnbar = value;
+					this.SendPropertyChanged("TanzimatShahrAndAnbar");
+					this.OnTanzimatShahrAndAnbarChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TanzimatlogoAndName", DbType="Bit NOT NULL")]
+		public bool TanzimatlogoAndName
+		{
+			get
+			{
+				return this._TanzimatlogoAndName;
+			}
+			set
+			{
+				if ((this._TanzimatlogoAndName != value))
+				{
+					this.OnTanzimatlogoAndNameChanging(value);
+					this.SendPropertyChanging();
+					this._TanzimatlogoAndName = value;
+					this.SendPropertyChanged("TanzimatlogoAndName");
+					this.OnTanzimatlogoAndNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TanzimatRoles", DbType="Bit NOT NULL")]
+		public bool TanzimatRoles
+		{
+			get
+			{
+				return this._TanzimatRoles;
+			}
+			set
+			{
+				if ((this._TanzimatRoles != value))
+				{
+					this.OnTanzimatRolesChanging(value);
+					this.SendPropertyChanging();
+					this._TanzimatRoles = value;
+					this.SendPropertyChanged("TanzimatRoles");
+					this.OnTanzimatRolesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesUsers", DbType="Bit NOT NULL")]
+		public bool RolesUsers
+		{
+			get
+			{
+				return this._RolesUsers;
+			}
+			set
+			{
+				if ((this._RolesUsers != value))
+				{
+					this.OnRolesUsersChanging(value);
+					this.SendPropertyChanging();
+					this._RolesUsers = value;
+					this.SendPropertyChanged("RolesUsers");
+					this.OnRolesUsersChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersInsert", DbType="Bit NOT NULL")]
+		public bool UsersInsert
+		{
+			get
+			{
+				return this._UsersInsert;
+			}
+			set
+			{
+				if ((this._UsersInsert != value))
+				{
+					this.OnUsersInsertChanging(value);
+					this.SendPropertyChanging();
+					this._UsersInsert = value;
+					this.SendPropertyChanged("UsersInsert");
+					this.OnUsersInsertChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersUpdate", DbType="Bit NOT NULL")]
+		public bool UsersUpdate
+		{
+			get
+			{
+				return this._UsersUpdate;
+			}
+			set
+			{
+				if ((this._UsersUpdate != value))
+				{
+					this.OnUsersUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._UsersUpdate = value;
+					this.SendPropertyChanged("UsersUpdate");
+					this.OnUsersUpdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersDelete", DbType="Bit NOT NULL")]
+		public bool UsersDelete
+		{
+			get
+			{
+				return this._UsersDelete;
+			}
+			set
+			{
+				if ((this._UsersDelete != value))
+				{
+					this.OnUsersDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._UsersDelete = value;
+					this.SendPropertyChanged("UsersDelete");
+					this.OnUsersDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesRanande", DbType="Bit NOT NULL")]
+		public bool RolesRanande
+		{
+			get
+			{
+				return this._RolesRanande;
+			}
+			set
+			{
+				if ((this._RolesRanande != value))
+				{
+					this.OnRolesRanandeChanging(value);
+					this.SendPropertyChanging();
+					this._RolesRanande = value;
+					this.SendPropertyChanged("RolesRanande");
+					this.OnRolesRanandeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeInsert", DbType="Bit NOT NULL")]
+		public bool RanandeInsert
+		{
+			get
+			{
+				return this._RanandeInsert;
+			}
+			set
+			{
+				if ((this._RanandeInsert != value))
+				{
+					this.OnRanandeInsertChanging(value);
+					this.SendPropertyChanging();
+					this._RanandeInsert = value;
+					this.SendPropertyChanged("RanandeInsert");
+					this.OnRanandeInsertChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeUpdate", DbType="Bit NOT NULL")]
+		public bool RanandeUpdate
+		{
+			get
+			{
+				return this._RanandeUpdate;
+			}
+			set
+			{
+				if ((this._RanandeUpdate != value))
+				{
+					this.OnRanandeUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._RanandeUpdate = value;
+					this.SendPropertyChanged("RanandeUpdate");
+					this.OnRanandeUpdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeDelete", DbType="Bit NOT NULL")]
+		public bool RanandeDelete
+		{
+			get
+			{
+				return this._RanandeDelete;
+			}
+			set
+			{
+				if ((this._RanandeDelete != value))
+				{
+					this.OnRanandeDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._RanandeDelete = value;
+					this.SendPropertyChanged("RanandeDelete");
+					this.OnRanandeDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesCustomers", DbType="Bit NOT NULL")]
+		public bool RolesCustomers
+		{
+			get
+			{
+				return this._RolesCustomers;
+			}
+			set
+			{
+				if ((this._RolesCustomers != value))
+				{
+					this.OnRolesCustomersChanging(value);
+					this.SendPropertyChanging();
+					this._RolesCustomers = value;
+					this.SendPropertyChanged("RolesCustomers");
+					this.OnRolesCustomersChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersInsert", DbType="Bit NOT NULL")]
+		public bool CustomersInsert
+		{
+			get
+			{
+				return this._CustomersInsert;
+			}
+			set
+			{
+				if ((this._CustomersInsert != value))
+				{
+					this.OnCustomersInsertChanging(value);
+					this.SendPropertyChanging();
+					this._CustomersInsert = value;
+					this.SendPropertyChanged("CustomersInsert");
+					this.OnCustomersInsertChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersUpdate", DbType="Bit NOT NULL")]
+		public bool CustomersUpdate
+		{
+			get
+			{
+				return this._CustomersUpdate;
+			}
+			set
+			{
+				if ((this._CustomersUpdate != value))
+				{
+					this.OnCustomersUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._CustomersUpdate = value;
+					this.SendPropertyChanged("CustomersUpdate");
+					this.OnCustomersUpdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersDelete", DbType="Bit NOT NULL")]
+		public bool CustomersDelete
+		{
+			get
+			{
+				return this._CustomersDelete;
+			}
+			set
+			{
+				if ((this._CustomersDelete != value))
+				{
+					this.OnCustomersDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._CustomersDelete = value;
+					this.SendPropertyChanged("CustomersDelete");
+					this.OnCustomersDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesBarErsali", DbType="Bit NOT NULL")]
+		public bool RolesBarErsali
+		{
+			get
+			{
+				return this._RolesBarErsali;
+			}
+			set
+			{
+				if ((this._RolesBarErsali != value))
+				{
+					this.OnRolesBarErsaliChanging(value);
+					this.SendPropertyChanging();
+					this._RolesBarErsali = value;
+					this.SendPropertyChanged("RolesBarErsali");
+					this.OnRolesBarErsaliChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliInsert", DbType="Bit NOT NULL")]
+		public bool BarErsaliInsert
+		{
+			get
+			{
+				return this._BarErsaliInsert;
+			}
+			set
+			{
+				if ((this._BarErsaliInsert != value))
+				{
+					this.OnBarErsaliInsertChanging(value);
+					this.SendPropertyChanging();
+					this._BarErsaliInsert = value;
+					this.SendPropertyChanged("BarErsaliInsert");
+					this.OnBarErsaliInsertChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliUpdate", DbType="Bit NOT NULL")]
+		public bool BarErsaliUpdate
+		{
+			get
+			{
+				return this._BarErsaliUpdate;
+			}
+			set
+			{
+				if ((this._BarErsaliUpdate != value))
+				{
+					this.OnBarErsaliUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._BarErsaliUpdate = value;
+					this.SendPropertyChanged("BarErsaliUpdate");
+					this.OnBarErsaliUpdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliDelete", DbType="Bit NOT NULL")]
+		public bool BarErsaliDelete
+		{
+			get
+			{
+				return this._BarErsaliDelete;
+			}
+			set
+			{
+				if ((this._BarErsaliDelete != value))
+				{
+					this.OnBarErsaliDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._BarErsaliDelete = value;
+					this.SendPropertyChanged("BarErsaliDelete");
+					this.OnBarErsaliDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesBarTahvili", DbType="Bit NOT NULL")]
+		public bool RolesBarTahvili
+		{
+			get
+			{
+				return this._RolesBarTahvili;
+			}
+			set
+			{
+				if ((this._RolesBarTahvili != value))
+				{
+					this.OnRolesBarTahviliChanging(value);
+					this.SendPropertyChanging();
+					this._RolesBarTahvili = value;
+					this.SendPropertyChanged("RolesBarTahvili");
+					this.OnRolesBarTahviliChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarTahviliInsert", DbType="Bit NOT NULL")]
+		public bool BarTahviliInsert
+		{
+			get
+			{
+				return this._BarTahviliInsert;
+			}
+			set
+			{
+				if ((this._BarTahviliInsert != value))
+				{
+					this.OnBarTahviliInsertChanging(value);
+					this.SendPropertyChanging();
+					this._BarTahviliInsert = value;
+					this.SendPropertyChanged("BarTahviliInsert");
+					this.OnBarTahviliInsertChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarTahviliUpdate", DbType="Bit NOT NULL")]
+		public bool BarTahviliUpdate
+		{
+			get
+			{
+				return this._BarTahviliUpdate;
+			}
+			set
+			{
+				if ((this._BarTahviliUpdate != value))
+				{
+					this.OnBarTahviliUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._BarTahviliUpdate = value;
+					this.SendPropertyChanged("BarTahviliUpdate");
+					this.OnBarTahviliUpdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarTahviliDelete", DbType="Bit NOT NULL")]
+		public bool BarTahviliDelete
+		{
+			get
+			{
+				return this._BarTahviliDelete;
+			}
+			set
+			{
+				if ((this._BarTahviliDelete != value))
+				{
+					this.OnBarTahviliDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._BarTahviliDelete = value;
+					this.SendPropertyChanged("BarTahviliDelete");
+					this.OnBarTahviliDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesGozaresh", DbType="Bit NOT NULL")]
+		public bool RolesGozaresh
+		{
+			get
+			{
+				return this._RolesGozaresh;
+			}
+			set
+			{
+				if ((this._RolesGozaresh != value))
+				{
+					this.OnRolesGozareshChanging(value);
+					this.SendPropertyChanging();
+					this._RolesGozaresh = value;
+					this.SendPropertyChanged("RolesGozaresh");
+					this.OnRolesGozareshChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Users_Tbl", Storage="_Users_Tbls", ThisKey="RolesNamRole", OtherKey="UsersRoles")]
+		public EntitySet<Users_Tbl> Users_Tbls
+		{
+			get
+			{
+				return this._Users_Tbls;
+			}
+			set
+			{
+				this._Users_Tbls.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Users_Tbls(Users_Tbl entity)
+		{
+			this.SendPropertyChanging();
+			entity.Role = this;
+		}
+		
+		private void detach_Users_Tbls(Users_Tbl entity)
+		{
+			this.SendPropertyChanging();
+			entity.Role = null;
 		}
 	}
 }

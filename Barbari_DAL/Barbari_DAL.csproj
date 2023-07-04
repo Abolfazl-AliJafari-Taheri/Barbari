@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="City.cs" />
     <Compile Include="Customers.cs" />
     <Compile Include="DataClassBarbari.designer.cs">
       <AutoGen>True</AutoGen>
