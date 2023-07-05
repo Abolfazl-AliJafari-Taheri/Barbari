@@ -139,7 +139,7 @@ namespace Barbari_DAL
             try
             {
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == userName &&
-                p.UsersPassWord == passWord).Single();
+                p.UsersPassWord == passWord && p.UsersDelete == false).Single();
                 return new OperationResult<Users_Tbl>
                 {
                     Data = query,

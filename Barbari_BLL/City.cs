@@ -26,22 +26,22 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult<List<string>> Select_Anbar(string Shahr)
-        {
-            var result = Barbari_DAL.City.Select_Anbar(Shahr);
-            if (result.Success == true)
-            {
-                return result;
-            }
-            else
-            {
-                return new OperationResult<List<string>>
-                {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
-            }
-        }
+        //public static OperationResult<List<string>> Select_Anbar(string Shahr)
+        //{
+        //    var result = Barbari_DAL.City.Select_Anbar(Shahr);
+        //    if (result.Success == true)
+        //    {
+        //        return result;
+        //    }
+        //    else
+        //    {
+        //        return new OperationResult<List<string>>
+        //        {
+        //            Success = false,
+        //            Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+        //        };
+        //    }
+        //}
         public static OperationResult Delete(string shahr , string anbar)
         {
             var result = Barbari_DAL.City.Delete(shahr, anbar);

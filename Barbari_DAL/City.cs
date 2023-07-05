@@ -33,45 +33,45 @@ namespace Barbari_DAL
             }
             
         }
-        public static OperationResult<List<string>> Select_Shahr()
-        {
-            try
-            {
-                var query = linq.City_Tbls.Select(p => p.CityShahr).Distinct().ToList();
-                return new OperationResult<List<string>>
-                {
-                    Data = query,
-                    Success = true,
-                };
-            }
-            catch
-            {
-                return new OperationResult<List<string>>
-                {
-                    Success = false
-                };
-            }
-        }
-        public static OperationResult<List<string>> Select_Anbar(string Shahr)
-        {
-            try
-            {
-                var query = linq.City_Tbls.Where(p => p.CityShahr == Shahr).OrderBy(p =>p.CityAnbar).
-                    Select(p => p.CityAnbar).ToList();
-                return new OperationResult<List<string>>
-                {
-                    Data = query,
-                    Success = true,
-                };
-            }
-            catch
-            {
-                return new OperationResult<List<string>>
-                {
-                    Success = false
-                };
-            }
-        }
+        //public static OperationResult<List<string>> Select_Shahr()
+        //{
+        //    try
+        //    {
+        //        var query = linq.City_Tbls.Select(p => p.CityShahr).Distinct().ToList();
+        //        return new OperationResult<List<string>>
+        //        {
+        //            Data = query,
+        //            Success = true,
+        //        };
+        //    }
+        //    catch
+        //    {
+        //        return new OperationResult<List<string>>
+        //        {
+        //            Success = false
+        //        };
+        //    }
+        //}
+        //public static OperationResult<List<string>> Select_Anbar(string Shahr)
+        //{
+        //    try
+        //    {
+        //        var query = linq.City_Tbls.Where(p => p.CityShahr == Shahr).OrderBy(p =>p.CityAnbar).
+        //            Select(p => p.CityAnbar).ToList();
+        //        return new OperationResult<List<string>>
+        //        {
+        //            Data = query,
+        //            Success = true,
+        //        };
+        //    }
+        //    catch
+        //    {
+        //        return new OperationResult<List<string>>
+        //        {
+        //            Success = false
+        //        };
+        //    }
+        //}
         public static OperationResult<int> Select_Shahr_Anbar(string shahr,string anbar)
         {
             try
