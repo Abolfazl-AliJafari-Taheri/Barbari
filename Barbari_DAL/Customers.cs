@@ -13,7 +13,8 @@ namespace Barbari_DAL
         {
             try
             {
-                var query = linq.Customers_Tbls.Where(p => p.CustomersCode.Contains(search) && p.CustomersIsDelete == false).ToList();
+                var query = linq.Customers_Tbls.Where(p => p.CustomersCode.Contains(search) && p.CustomersIsDelete == false).
+                    OrderBy(p => p.CustomersLastName).ThenBy(p => p.CustomersFirstName).ToList();
                 return new OperationResult<List<Customers_Tbl>>
                 {
                     Data = query,

@@ -10,7 +10,7 @@ namespace Barbari_BLL
 {
     public class City
     {
-        public static OperationResult<List<City_Tbl>> Select(string search = "")
+        public static OperationResult<IEnumerable<IGrouping<string, City_Tbl>>> Select(string search = "")
         {
             var result = Barbari_DAL.City.Select(search);
             if (result.Success == true)
@@ -19,23 +19,7 @@ namespace Barbari_BLL
             }
             else
             {
-                return new OperationResult<List<City_Tbl>>
-                {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
-            }
-        }
-        public static OperationResult<List<string>> Select_Shahr()
-        {
-            var result = Barbari_DAL.City.Select_Shahr();
-            if (result.Success == true)
-            {
-                return result;
-            }
-            else
-            {
-                return new OperationResult<List<string>>
+                return new OperationResult<IEnumerable<IGrouping<string, City_Tbl>>>
                 {
                     Success = false,
                     Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
@@ -97,7 +81,7 @@ namespace Barbari_BLL
                     Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
                 };
             }
-            else if (result2.Data.Count != 0)
+            else if (result2.Data != 0)
             {
                 return new OperationResult
                 {

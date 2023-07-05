@@ -14,7 +14,8 @@ namespace Barbari_DAL
         {
             try
             {
-                var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande.Contains(search) && p.RanandeIsDelete == false).ToList();
+                var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande.Contains(search) && p.RanandeIsDelete == false).
+                    OrderBy(p => p.RanandeLastName).ThenBy(p => p.RanandeFirstName).ToList();
                 return new OperationResult<List<Ranande_Tbl>>
                 {
                     Success = true,

@@ -14,7 +14,8 @@ namespace Barbari_DAL
         {
             try
             {
-                var query = linq.Users_Tbls.Where(p => p.UsersUserName.Contains(search) && p.UsersDelete == false).ToList();
+                var query = linq.Users_Tbls.Where(p => p.UsersUserName.Contains(search) && p.UsersDelete == false).
+                    OrderBy(p => p.UsersLastName).ThenBy(p => p.UsersFirstName).ToList();
                 return new OperationResult<List<Users_Tbl>>
                 {
                     Data = query,
