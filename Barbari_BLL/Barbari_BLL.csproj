@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarErsali.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Customers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

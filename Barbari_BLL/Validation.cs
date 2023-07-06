@@ -373,5 +373,276 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult BarErsali_Validation_EtelatFerestande(BarErsali_Tbl barErsali , bool moshtariSabet)
+        {
+            if (string.IsNullOrEmpty(barErsali.BarErsaliShahreMabda))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر مبدا را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliAnbarMabda))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار مبدا را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliNamFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام فرستنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliFamilyFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی فرستنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliMobileFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره تلفن فرستنده را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliShahreMabda, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر مبدا نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliAnbarMabda, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار مبدا نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliNamFerestande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام فرستنده نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliFamilyFerestande , 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی فرستنده نباید بیشتر از 50 حرف باشه"
+                };
+            }
+            else if (CheckMobileFormat(barErsali.BarErsaliMobileFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره موبایل را درست وارد کنید"
+                };
+            }
+            else if (moshtariSabet == true)
+            {
+                if (!string.IsNullOrEmpty(barErsali.BarErsaliCodeFerestande))
+                {
+                    var result = Barbari_DAL.Customers.Select_Code(barErsali.BarErsaliCodeFerestande);
+                    if (result.Success == true)
+                    {
+                        if (result.Data.Any(p => p.CustomersIsDelete == true))
+                        {
+                            return new OperationResult
+                            {
+                                Success = false,
+                                Message = "این مشتری در جدول مشتری پاک شدند"
+                            };
+                        }
+                        else if (result.Data.Count == 0)
+                        {
+                            return new OperationResult
+                            {
+                                Success = false,
+                                Message = "این کد مشتری در جدول مشتری ثبت نشده"
+                            };
+                        }
+                        else
+                        {
+                            return new OperationResult
+                            {
+                                Success = true,
+                            };
+                        }
+                    }
+                    else
+                    {
+                        return new OperationResult
+                        {
+                            Success = false,
+                            Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                        };
+                    }
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "کد مشتری ثابت را وارد کنید"
+                    };
+                }
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult BarErsali_Validation_EtelatGerande(BarErsali_Tbl barErsali , bool maghsadNahayi)
+        {
+            if (string.IsNullOrEmpty(barErsali.BarErsaliShahreMaghsad1))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر مقصد را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliAnbarMaghsad1))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار مقصد را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliNamGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام گیرنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliFamilyGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی گیرنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliMobileGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره تلفن فرستنده را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliShahreMaghsad1, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر مقصد نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliAnbarMaghsad1, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار مقصد نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliNamGerande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام گیرنده نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliFamilyGerande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی گیرنده نباید بیشتر از 50 حرف باشه"
+                };
+            }
+            else if (CheckMobileFormat(barErsali.BarErsaliMobileGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره موبایل را درست وارد کنید"
+                };
+            }
+            else if (maghsadNahayi == true)
+            {
+                if (string.IsNullOrEmpty(barErsali.BarErsaliShahreMaghsad2))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "شهر مقصد نهایی را وارد کنید"
+                    };
+                }
+                else if (string.IsNullOrEmpty(barErsali.BarErsaliAnbarMaghsad2))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "انبار مقصد نهایی را وارد کنید"
+                    };
+                }
+                else if (CheckRangeDataType(barErsali.BarErsaliShahreMaghsad2, 50))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "شهر مقصد نهایی نباید بیشتر از 50 حرف باشد"
+                    };
+                }
+                else if (CheckRangeDataType(barErsali.BarErsaliAnbarMaghsad2, 50))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "انبار مقصد نهایی نباید بیشتر از 50 حرف باشد"
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = true,
+                    };
+                }
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
     }
 }
