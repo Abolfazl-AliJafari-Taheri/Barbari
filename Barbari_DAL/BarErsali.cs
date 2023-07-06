@@ -10,11 +10,11 @@ namespace Barbari_DAL
     public class BarErsali
     {
         public static DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-        public static OperationResult<List<BarErsali_Tbl>> Select(int search)
+        public static OperationResult<List<BarErsali_Tbl>> Select()
         {
             try
             {
-                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == search).OrderBy(p => p.BarErsaliBarname).ToList();
+                var query = linq.BarErsali_Tbls.ToList();
                 return new OperationResult<List<BarErsali_Tbl>>
                 {
                     Success = true,
@@ -29,11 +29,11 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<int> Select_Barname(int search)
+        public static OperationResult<int> Select_Barname_Last()
         {
             try
             {
-                var query = linq.BarErsali_Tbls.Count(p => p.BarErsaliBarname == search);
+                var query = linq.BarErsali_Tbls.Select(p => p.BarErsaliBarname).LastOrDefault();
                 return new OperationResult<int>
                 {
                     Success = true,
@@ -48,7 +48,7 @@ namespace Barbari_DAL
                 };
 
             }
-            
+
 
         }
         public static OperationResult Delete(int search)
