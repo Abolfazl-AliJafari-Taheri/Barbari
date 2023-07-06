@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Barbari_UI"
         mc:Ignorable="d"
         Title="Login" Height="1024px" Width="1440"
-        WindowStartupLocation="CenterScreen"s>
+        WindowStartupLocation="CenterScreen">
     <Border Background="#F7F7F7">
         <Border.Resources>
             <ResourceDictionary>
