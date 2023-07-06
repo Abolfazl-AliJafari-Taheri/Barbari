@@ -644,5 +644,127 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult BarErsali_Validation_EtelatBar(BarErsali_Tbl barErsali)
+        {
+            if (string.IsNullOrEmpty(barErsali.BarErsaliPishKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پیش کرایه را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliPasKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پس کرایه را وارد کنید"
+                };
+            }
+            else if (CheckNumberFormat(barErsali.BarErsaliPishKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل پیش کرایه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckNumberFormat(barErsali.BarErsaliPasKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل پس کرایه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckNumberFormat(barErsali.BarErsaliBime.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل بیمه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckNumberFormat(barErsali.BarErsaliAnbardari.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل انبارداری فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckNumberFormat(barErsali.BarErsaliShahri.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل شهری فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckNumberFormat(barErsali.BarErsaliBastebandi.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل بسته بندی فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliPishKeraye.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پیش کرایه نباید بیشتر از 12 عدد باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliPasKeraye.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پس کرایه نباید بیشتر از 12 عدد باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliBime.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "بیمه نباید بیشتر از 12 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliAnbardari.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار داری نباید بیشتر از 12 حرف باشه"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliShahri.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهری نباید بیشتر از 12 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliBastebandi.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "بسته بندی نباید بیشتر از 12 حرف باشه"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
     }
 }

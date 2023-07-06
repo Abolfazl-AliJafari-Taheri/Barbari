@@ -71,7 +71,7 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult Insert(BarErsali_Tbl barErsali, KalaDaryafti_Tbl kalaDaryafti)
+        public static OperationResult Insert(BarErsali_Tbl barErsali, List<KalaDaryafti_Tbl> kalaDaryafti)
         {
             using (var transaction = linq.Transaction)
             {
@@ -80,7 +80,13 @@ namespace Barbari_DAL
                     linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
                     linq.SubmitChanges();
 
-                    linq.KalaDaryafti_Tbls.InsertOnSubmit(kalaDaryafti);
+                    var result = Select_Barname_Last();
+                    for (int i = 0; i < kalaDaryafti.Count; i++)
+                    {
+                        kalaDaryafti[i].KalaDaryaftiBarname = result.Data;
+                    }
+                    
+                    linq.KalaDaryafti_Tbls.InsertAllOnSubmit(kalaDaryafti);
                     linq.SubmitChanges();
 
                     transaction.Commit();

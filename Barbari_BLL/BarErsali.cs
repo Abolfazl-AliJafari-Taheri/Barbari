@@ -44,10 +44,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public OperationResult Insert(BarErsali_Tbl barErsali)
-        {
+        //public OperationResult Insert(BarErsali_Tbl barErsali)
+        //{
 
-        }
+        //}
 
     }
 }
