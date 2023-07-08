@@ -108,5 +108,31 @@ namespace Barbari_DAL
 
             }
         }
+        public static OperationResult Insert_TavilBeRanande(BarErsali_Tbl barErsali)
+        {
+            try
+            {
+                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == barErsali.BarErsaliBarname).Single();
+                query.BarErsaliCodeRanande = barErsali.BarErsaliCodeRanande;
+                query.BarErsaliNamRanande = barErsali.BarErsaliNamRanande;
+                query.BarErsaliFamilyRanande = barErsali.BarErsaliFamilyRanande;
+                query.BarErsaliMobileRanande = barErsali.BarErsaliMobileRanande;
+                query.BarErsaliKerayeRanande = barErsali.BarErsaliKerayeRanande;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch 
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+            
+
+        }
     }
 }
