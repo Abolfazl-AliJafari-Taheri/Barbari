@@ -662,7 +662,7 @@ namespace Barbari_BLL
                     Message = "پس کرایه را وارد کنید"
                 };
             }
-            else if (CheckNumberFormat(barErsali.BarErsaliPishKeraye.ToString()))
+            else if (!CheckNumberFormat(barErsali.BarErsaliPishKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -670,7 +670,7 @@ namespace Barbari_BLL
                     Message = "داخل پیش کرایه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckNumberFormat(barErsali.BarErsaliPasKeraye.ToString()))
+            else if (!CheckNumberFormat(barErsali.BarErsaliPasKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -678,7 +678,7 @@ namespace Barbari_BLL
                     Message = "داخل پس کرایه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckNumberFormat(barErsali.BarErsaliBime.ToString()))
+            else if (!CheckNumberFormat(barErsali.BarErsaliBime.ToString()))
             {
                 return new OperationResult
                 {
@@ -686,7 +686,7 @@ namespace Barbari_BLL
                     Message = "داخل بیمه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckNumberFormat(barErsali.BarErsaliAnbardari.ToString()))
+            else if (!CheckNumberFormat(barErsali.BarErsaliAnbardari.ToString()))
             {
                 return new OperationResult
                 {
@@ -694,7 +694,7 @@ namespace Barbari_BLL
                     Message = "داخل انبارداری فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckNumberFormat(barErsali.BarErsaliShahri.ToString()))
+            else if (!CheckNumberFormat(barErsali.BarErsaliShahri.ToString()))
             {
                 return new OperationResult
                 {
@@ -702,7 +702,7 @@ namespace Barbari_BLL
                     Message = "داخل شهری فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckNumberFormat(barErsali.BarErsaliBastebandi.ToString()))
+            else if (!CheckNumberFormat(barErsali.BarErsaliBastebandi.ToString()))
             {
                 return new OperationResult
                 {
@@ -947,7 +947,7 @@ namespace Barbari_BLL
                     Message = "ارزش کالا نباید بیشتر از 15 عدد باشد"
                 };
             }
-            else if (CheckNumberFormat(kalaDaryafti.KalaDaryaftiTedadKala.ToString()))
+            else if (!CheckNumberFormat(kalaDaryafti.KalaDaryaftiTedadKala.ToString()))
             {
                 return new OperationResult
                 {
@@ -955,7 +955,7 @@ namespace Barbari_BLL
                     Message = "درون تعداد کالا فقط باید عدد وارد شود"
                 };
             }
-            else if (CheckNumberFormat(kalaDaryafti.KalaDaryaftiArzeshKala.ToString()))
+            else if (!CheckNumberFormat(kalaDaryafti.KalaDaryaftiArzeshKala.ToString()))
             {
                 return new OperationResult
                 {

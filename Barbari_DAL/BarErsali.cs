@@ -80,10 +80,9 @@ namespace Barbari_DAL
                     linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
                     linq.SubmitChanges();
 
-                    var result = Select_Barname_Last();
                     for (int i = 0; i < kalaDaryafti.Count; i++)
                     {
-                        kalaDaryafti[i].KalaDaryaftiBarname = result.Data;
+                        kalaDaryafti[i].KalaDaryaftiBarname = barErsali.BarErsaliBarname;
                     }
                     
                     linq.KalaDaryafti_Tbls.InsertAllOnSubmit(kalaDaryafti);
@@ -131,8 +130,6 @@ namespace Barbari_DAL
                     Success = false
                 };
             }
-            
-
         }
     }
 }
