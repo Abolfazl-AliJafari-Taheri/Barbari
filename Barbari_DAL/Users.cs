@@ -139,12 +139,23 @@ namespace Barbari_DAL
             try
             {
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == userName &&
-                p.UsersPassWord == passWord && p.UsersDelete == false).Single();
-                return new OperationResult<Users_Tbl>
+                p.UsersPassWord == passWord && p.UsersDelete == false).FirstOrDefault();
+                if(query!=null)
                 {
-                    Data = query,
-                    Success = true
-                };
+                    return new OperationResult<Users_Tbl>
+                    {
+                        Data = query,
+                        Success = true
+                    };
+                }
+                else
+                {
+                    return new OperationResult<Users_Tbl>
+                    {
+                        Data = null,
+                        Success = false
+                    };
+                }
             }
             catch 
             {

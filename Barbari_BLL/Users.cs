@@ -152,7 +152,7 @@ namespace Barbari_BLL
         }
         public static OperationResult<Users_Tbl> SearchUserAndPassWord(string userName , string passWord)
         {
-            if (string.IsNullOrEmpty(userName))
+            if (string.IsNullOrEmpty(userName) || userName == "نام کاربری")
             {
                 return new OperationResult<Users_Tbl>
                 {
@@ -160,7 +160,7 @@ namespace Barbari_BLL
                     Message = "لطفا نام کاربری را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(passWord))
+            else if (string.IsNullOrEmpty(passWord) || passWord == "رمز عبور")
             {
                 return new OperationResult<Users_Tbl>
                 {
@@ -171,22 +171,35 @@ namespace Barbari_BLL
             else
             {
                 var result = Barbari_DAL.Users.SearchUserAndPassWord(userName, passWord);
-                if (result.Success == true)
+                if (result.Data != null)
                 {
-                    return new OperationResult<Users_Tbl>
+                    if (result.Success == true)
                     {
-                        Success = true,
-                        Data= result.Data
-                    };
+
+                        return new OperationResult<Users_Tbl>
+                        {
+                            Success = true,
+                            Data = result.Data
+                        };
+                    }
+                    else
+                    {
+                        return new OperationResult<Users_Tbl>
+                        {
+                            Success = false,
+                            Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                        };
+                    }
                 }
                 else
                 {
                     return new OperationResult<Users_Tbl>
                     {
                         Success = false,
-                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                        Message = "نام کاربری یا رمز عبور اشتباه است"
                     };
                 }
+                
             }
         }
     }

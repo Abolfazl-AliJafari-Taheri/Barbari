@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Barbari_BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,53 @@ namespace Barbari_UI
             {
                 Password_PassBx.Password = "";
                 Password_PassBx.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            }
+        }
+
+        private void Login_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string userName = Username_Txt.Text.Trim();
+            string passWord = Password_PassBx.Password.Trim();
+            var result = Users.SearchUserAndPassWord(userName, passWord);
+            if (!result.Success)
+            {
+                MessageBox.Show(result.Message);
+            }
+            else
+            {
+                if(WindowsAndPages.home_Window == null)
+                {
+                    WindowsAndPages.home_Window = new Home();
+                    WindowsAndPages.home_Window.ShowDialog();
+                }
+                else
+                {
+                    WindowsAndPages.home_Window.ShowDialog();
+                }
+            }
+        }
+
+        private void Username_Txt_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Password_PassBx.Focus();
+            }
+        }
+
+        private void Password_PassBx_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Login_Btn_Click(null, null);
+            }
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Username_Txt.Focus();
             }
         }
     }
