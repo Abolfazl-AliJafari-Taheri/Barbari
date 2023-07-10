@@ -71,7 +71,7 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult Insert(BarErsali_Tbl barErsali, KalaDaryafti_Tbl kalaDaryafti)
+        public static OperationResult Insert(BarErsali_Tbl barErsali, List<KalaDaryafti_Tbl> kalaDaryafti)
         {
             using (var transaction = linq.Transaction)
             {
@@ -80,7 +80,12 @@ namespace Barbari_DAL
                     linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
                     linq.SubmitChanges();
 
-                    linq.KalaDaryafti_Tbls.InsertOnSubmit(kalaDaryafti);
+                    for (int i = 0; i < kalaDaryafti.Count; i++)
+                    {
+                        kalaDaryafti[i].KalaDaryaftiBarname = barErsali.BarErsaliBarname;
+                    }
+                    
+                    linq.KalaDaryafti_Tbls.InsertAllOnSubmit(kalaDaryafti);
                     linq.SubmitChanges();
 
                     transaction.Commit();
@@ -100,6 +105,30 @@ namespace Barbari_DAL
                 }
 
 
+            }
+        }
+        public static OperationResult Insert_TavilBeRanande(BarErsali_Tbl barErsali)
+        {
+            try
+            {
+                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == barErsali.BarErsaliBarname).Single();
+                query.BarErsaliCodeRanande = barErsali.BarErsaliCodeRanande;
+                query.BarErsaliNamRanande = barErsali.BarErsaliNamRanande;
+                query.BarErsaliFamilyRanande = barErsali.BarErsaliFamilyRanande;
+                query.BarErsaliMobileRanande = barErsali.BarErsaliMobileRanande;
+                query.BarErsaliKerayeRanande = barErsali.BarErsaliKerayeRanande;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch 
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
             }
         }
     }

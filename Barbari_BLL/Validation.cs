@@ -644,5 +644,332 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult BarErsali_Validation_EtelatBar(BarErsali_Tbl barErsali)
+        {
+            if (string.IsNullOrEmpty(barErsali.BarErsaliPishKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پیش کرایه را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliPasKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پس کرایه را وارد کنید"
+                };
+            }
+            else if (!CheckNumberFormat(barErsali.BarErsaliPishKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل پیش کرایه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barErsali.BarErsaliPasKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل پس کرایه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barErsali.BarErsaliBime.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل بیمه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barErsali.BarErsaliAnbardari.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل انبارداری فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barErsali.BarErsaliShahri.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل شهری فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barErsali.BarErsaliBastebandi.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل بسته بندی فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliPishKeraye.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پیش کرایه نباید بیشتر از 12 عدد باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliPasKeraye.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پس کرایه نباید بیشتر از 12 عدد باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliBime.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "بیمه نباید بیشتر از 12 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliAnbardari.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار داری نباید بیشتر از 12 حرف باشه"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliShahri.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهری نباید بیشتر از 12 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliBastebandi.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "بسته بندی نباید بیشتر از 12 حرف باشه"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult BarErsali_Validation_TahvilRanande(BarErsali_Tbl barErsali)
+        {
+            if (string.IsNullOrEmpty(barErsali.BarErsaliNamRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام راننده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliFamilyRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی راننده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliMobileRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "موبایل راننده راننده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barErsali.BarErsaliKerayeRanande.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "کرایه راننده را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliNamRanande,50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تام راننده نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliFamilyRanande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckMobileFormat(barErsali.BarErsaliMobileRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره موبایل را درست وارد کنید"
+                };
+            }
+            else if (!CheckNumberFormat(barErsali.BarErsaliKerayeRanande.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل کرایه راننده فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckRangeDataType(barErsali.BarErsaliKerayeRanande.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "کرایه راننده نباید بیشتر از 12 عدد باشد"
+                };
+            }
+            else if (!string.IsNullOrEmpty(barErsali.BarErsaliCodeRanande))
+            {
+                if (CheckRangeDataType(barErsali.BarErsaliCodeRanande,10))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "کد راننده نباید بیشتر از 12 عدد باشد"
+                    };
+                }
+                else if (!CheckNumberFormat(barErsali.BarErsaliCodeRanande))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "داخل کد راننده فقط میشه عدد وارد کرد"
+                    };
+                }
+                else
+                {
+                    var result = Barbari_DAL.Ranande.Select_Code(barErsali.BarErsaliCodeRanande);
+                    if (result.Success == true)
+                    {
+                        if (result.Data.Any(p => p.RanandeIsDelete == true))
+                        {
+                            return new OperationResult
+                            {
+                                Success = false,
+                                Message = "این راننده در جدول مشتری پاک شدند"
+                            };
+                        }
+                        else if (result.Data.Count == 0)
+                        {
+                            return new OperationResult
+                            {
+                                Success = false,
+                                Message = "این کد راننده در جدول مشتری ثبت نشده"
+                            };
+                        }
+                        else
+                        {
+                            return new OperationResult
+                            {
+                                Success = true,
+                            };
+                        }
+                    }
+                    else
+                    {
+                        return new OperationResult
+                        {
+                            Success = false,
+                            Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                        };
+                    }
+                }
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult BarErsali_Validation_KalaDaryafti(KalaDaryafti_Tbl kalaDaryafti)
+        {
+            if (string.IsNullOrEmpty(kalaDaryafti.KalaDaryaftiNamKala))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام کالا را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(kalaDaryafti.KalaDaryaftiTedadKala.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تعداد کالا را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(kalaDaryafti.KalaDaryaftiNamKala, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام کالا نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(kalaDaryafti.KalaDaryaftiTedadKala.ToString(), 9))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تعداد کالا نباید بیشتر از 9 عدد باشد"
+                };
+            }
+            else if (CheckRangeDataType(kalaDaryafti.KalaDaryaftiArzeshKala.ToString(), 15))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "ارزش کالا نباید بیشتر از 15 عدد باشد"
+                };
+            }
+            else if (!CheckNumberFormat(kalaDaryafti.KalaDaryaftiTedadKala.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "درون تعداد کالا فقط باید عدد وارد شود"
+                };
+            }
+            else if (!CheckNumberFormat(kalaDaryafti.KalaDaryaftiArzeshKala.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "درون ارزش کالا فقط باید عدد وارد شود"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
     }
 }
