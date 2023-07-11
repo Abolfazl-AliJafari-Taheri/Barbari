@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Login" Height="1024px" Width="1440"
         WindowStartupLocation="CenterScreen"
-        PreviewKeyDown="Window_PreviewKeyDown">
+        PreviewKeyDown="Window_PreviewKeyDown"
+        Closing="Window_Closing">
     <Border Background="#F7F7F7">
         <Border.Resources>
             <ResourceDictionary>
@@ -40,7 +41,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <!--<Image Grid.Column="0"   Width="20"  Margin="8,4,0,4" />-->
-                        <TextBox Name="Username_Txt" PreviewKeyDown="Username_Txt_PreviewKeyDown" Margin="0" Grid.Column="1" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" Width="311" Height="48" Tag="نام کاربری"  GotFocus="RemoveText" LostFocus="AddText" BorderThickness="0" Text="نام کاربری" FontSize="14" HorizontalScrollBarVisibility="Disabled" BorderBrush="#FF0040FF" Background="#FFFFFF" Foreground="#BFBFBF" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Right" FontFamily="Anjoman" FlowDirection="LeftToRight" />
+                        <TextBox Name="Username_Txt" PreviewKeyDown="Username_Txt_PreviewKeyDown" Margin="0" Grid.Column="1" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" Width="311" Height="48" Tag="نام کاربری"  GotFocus="RemoveText" LostFocus="AddText" BorderThickness="0" Text="نام کاربری" FontSize="14" HorizontalScrollBarVisibility="Disabled" BorderBrush="#FF0040FF" Background="#FFFFFF" Foreground="#BFBFBF" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Right" FontFamily="IRANSansX" FlowDirection="LeftToRight" />
 
                     </Grid>
                 </Border>
@@ -52,7 +53,7 @@
 
                             </Grid.ColumnDefinitions>
                             <!--<Image Grid.Column="0" Source="/Lock.png" Width="20"  Margin="8,0,0,0"/>-->
-                        <PasswordBox Margin="0" PreviewKeyDown="Password_PassBx_PreviewKeyDown" Style="{StaticResource  MaterialDesignOutlinedRevealPasswordBox}" Padding="5 0 5 0" Name="Password_PassBx"  Width="311" Height="48"  Grid.Column="1" Tag="رمز عبور" Cursor="IBeam" GotFocus="PassWord_PassBx_GotFocus" LostFocus="PassWord_PassBx_LostFocus" BorderThickness="0" Password="رمز عبور" HorizontalContentAlignment="Left"  FontSize="14"   BorderBrush="#FF0040FF" Background="#ffff" Foreground="#BFBFBF" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"  FontFamily="Anjoman" FlowDirection="RightToLeft" >
+                        <PasswordBox Margin="0" PreviewKeyDown="Password_PassBx_PreviewKeyDown" Style="{StaticResource  MaterialDesignOutlinedRevealPasswordBox}" Padding="5 0 5 0" Name="Password_PassBx"  Width="311" Height="48"  Grid.Column="1" Tag="رمز عبور" Cursor="IBeam" GotFocus="PassWord_PassBx_GotFocus" LostFocus="PassWord_PassBx_LostFocus" BorderThickness="0" Password="رمز عبور" HorizontalContentAlignment="Left"  FontSize="14"   BorderBrush="#FF0040FF" Background="#ffff" Foreground="#BFBFBF" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"  FontFamily="IRANSansX" FlowDirection="RightToLeft" >
 
                             </PasswordBox>
                             <!--<Button Name="ShowPass_Btn" Cursor="Hand" Height="12" Width="12" Style="{StaticResource ButtonStyle1}" BorderThickness="0" Grid.Column="2" Background="#ffff"  Click="ShowPass_Btn_Click" MouseEnter="ShowPass_Btn_MouseEnter_1" Margin="0,7,8,7">
@@ -62,13 +63,13 @@
                 </Border>
                 <Border Grid.Row="3" Background="#2B54A3" VerticalAlignment="Top" Margin="0 24 0 0" CornerRadius="8" Height="48" Width="343">
                     <Button x:Name="Login_Btn" BorderThickness="0"  Cursor="Hand" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="343" Height="48" Click="Login_Btn_Click" >
-                        <TextBlock Text="ورود" FontSize="14" FontFamily="Anjoman"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="ورود" FontSize="14" FontFamily="Estedad-VF"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Button>
                 </Border>
             </Grid>
 
             <Grid Grid.Column="1" Background="#2B54A3">
-                
+                <Image Height="320" Width="320" Source="/Source/Icones/AppIcon(White Border).png" />
             </Grid>
 
         </Grid>

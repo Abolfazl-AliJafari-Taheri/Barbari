@@ -126,6 +126,60 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\AppIcon%28White Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\AppIcon%28Black Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Bar Ersali Menu Icon%28Blue Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Menu Select Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\City Anbar Menu Icon%28Gray Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Ranande Menu Icon%28Gray Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Moshtari Menu Icon%28Gray Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Karmandan Menu Icon%28Gray Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Bar Tahvili Menu Icon%28Blue Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Bar Ersali Menu Icon%28Gray Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Moshtari Menu Icon%28Blue Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Karmandan Menu Icon%28Blue Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Ranande Menu Icon%28Blue Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\City Anbar Menu Icon%28Blue Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Setting Menu Icon%28Gray Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Setting Menu Icon%28Blue Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Logout Menu Icon%28Red Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Bar Tahvili Menu Icon%28Gray Border%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

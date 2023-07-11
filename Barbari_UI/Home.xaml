@@ -7,8 +7,129 @@
         mc:Ignorable="d"
         Title="Home" Height="1024" Width="1440"
         WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
         Closing="Window_Closing">
-    <Grid>
-        
+    <Grid FlowDirection="RightToLeft" Background="#F7F7F7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="249"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#FFFFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="139"/>
+                <RowDefinition Height="76"/>
+                <RowDefinition Height="76"/>
+                <RowDefinition Height="76"/>
+                <RowDefinition Height="76"/>
+                <RowDefinition Height="76"/>
+                <RowDefinition Height="76"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Height="107" Width="107" Source="/Source/Icones/AppIcon(Black Border).png"/>
+            <Button Name="BarErsaliMenu_Btn" Click="BarErsaliMenu_Btn_Click" Grid.Row="1" Height="52" VerticalAlignment="Bottom" Background="#D5DDED" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                <Grid Width="249">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="BarErsaliMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Bar Ersali Menu Icon(Blue Border).png" />
+                    <TextBlock Name="BarErsaliMenuBtn_Text" Grid.Column="1" Height="30" Width="114" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#2B54A3" Margin="16 0 0 0" VerticalAlignment="Center">بار های ارسالی</TextBlock>
+                    <Image Name="BarErsaliMenuBtn_Line" Grid.Column="2" Height="52" Width="4" Source="/Source/Icones/Menu Select Line.png"/>
+                </Grid>
+            </Button>
+            <Button Name="BarTahviliMenu_Btn" Click="BarTahviliMenu_Btn_Click"  Grid.Row="2" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                <Grid Width="249">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="BarTahviliMenuBtn_Icon" Grid.Column="0" Height="32" Width="32"  HorizontalAlignment="Right" Source="/Source/Icones/Bar Tahvili Menu Icon(Gray Border).png" />
+                    <TextBlock Name="BarTahviliMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#404040" Margin="16 0 0 0" VerticalAlignment="Center">بار های تحویلی</TextBlock>
+                    <Image Name="BarTahviliMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
+                </Grid>
+            </Button>
+            <Button Name="MoshtariMenu_Btn" Click="MoshtariMenu_Btn_Click" Grid.Row="3" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                <Grid Width="249">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="MoshtariMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Moshtari Menu Icon(Gray Border).png" />
+                    <TextBlock Name="MoshtariMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#404040" Margin="16 0 0 0" VerticalAlignment="Center">مشتریان ثابت</TextBlock>
+                    <Image Name="MoshtariMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
+                </Grid>
+            </Button>
+            <Button Name="KarmandanMenu_Btn" Click="KarmandanMenu_Btn_Click"  Grid.Row="4" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                <Grid Width="249">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="KarmandanMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Karmandan Menu Icon(Gray Border).png" />
+                    <TextBlock Name="KarmandanMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#404040" Margin="16 0 0 0" VerticalAlignment="Center">کارمندان</TextBlock>
+                    <Image Name="KarmandanMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
+                </Grid>
+            </Button>
+            <Button Name="RanandeganMenu_Btn" Click="RanandeganMenu_Btn_Click" Grid.Row="5" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                <Grid Width="249">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="RanandeganMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Ranande Menu Icon(Gray Border).png" />
+                    <TextBlock Name="RanandeganMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#404040" Margin="16 0 0 0" VerticalAlignment="Center">رانندگان</TextBlock>
+                    <Image Name="RanandeganMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
+                </Grid>
+            </Button>
+            <Button Name="CityAnbarMenu_Btn" Click="CityAnbarMenu_Btn_Click" Grid.Row="6" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                <Grid Width="249">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="CityAnbarMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/City Anbar Menu Icon(Gray Border).png" />
+                    <TextBlock Name="CityAnbarMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#404040" Margin="16 0 0 0" VerticalAlignment="Center">شهر ها و انبار ها</TextBlock>
+                    <Image Name="CityAnbarMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
+                </Grid>
+            </Button>
+            <Button Name="SettingMenu_Btn" Click="SettingMenu_Btn_Click" Grid.Row="7" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                <Grid Width="249">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="SettingMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Setting Menu Icon(Gray Border).png" />
+                    <TextBlock Name="SettingMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#404040" Margin="16 0 0 0" VerticalAlignment="Center">تنظیمات</TextBlock>
+                    <Image Name="SettingMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
+                </Grid>
+            </Button>
+            <Button Name="LogoutMenu_Btn" Click="LogoutMenu_Btn_Click" Grid.Row="8" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Margin="0 0 0 32">
+                <Grid Width="249">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Name="LogoutMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Logout Menu Icon(Red Border).png" />
+                    <TextBlock Name="LogoutMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#BF0F0F" Margin="16 0 0 0" VerticalAlignment="Center">خروج از حساب کاربری</TextBlock>
+                </Grid>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="94"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#FFFFFF">
+                
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
