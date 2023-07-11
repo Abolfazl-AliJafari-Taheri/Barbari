@@ -46,9 +46,9 @@ namespace Barbari_BLL
 
             }
         }
-        public OperationResult Delete_Back(string code)
+        public OperationResult Recovery(string code)
         {
-            var result = Barbari_DAL.Ranande.Delete_Back(code);
+            var result = Barbari_DAL.Ranande.Recovery(code);
             if (result.Success == true)
             {
                 return new OperationResult

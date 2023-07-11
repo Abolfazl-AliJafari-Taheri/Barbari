@@ -44,9 +44,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Delete_Back(string code)
+        public static OperationResult Recovery(string code)
         {
-            var result = Barbari_DAL.Users.Delete_Back(code);
+            var result = Barbari_DAL.Users.Recovery(code);
             if (result.Success == true)
             {
                 return new OperationResult
@@ -63,13 +63,13 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Insert(Users_Tbl user)
+        public static OperationResult<List<Users_Tbl>> Insert(Users_Tbl user)
         {
             var result1 = Validation.Users_Validation(user);
             var result2 = Barbari_DAL.Users.Select_UserName(user.UsersUserName);
             if (result1.Success == false)
             {
-                return new OperationResult
+                return new OperationResult<List<Users_Tbl>>
                 {
                     Success = false,
                     Message = result1.Message
@@ -77,7 +77,7 @@ namespace Barbari_BLL
             }
             else if (result2.Success == false)
             {
-                return new OperationResult
+                return new OperationResult<List<Users_Tbl>>
                 {
                     Success = false,
                     Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
@@ -85,15 +85,16 @@ namespace Barbari_BLL
             }
             else if (result2.Data.Any(p => p.UsersDelete == true))
             {
-                return new OperationResult
+                return new OperationResult<List<Users_Tbl>>
                 {
                     Success = false,
-                    Message = "این نام کاربری قبلا پاک شده میخوای برات برگردونم ؟"
+                    Message = "این نام کاربری قبلا پاک شده میخواهید براتون برگردونده شود ؟",
+                    Data= result2.Data
                 };
             }
             else if (result2.Data.Count != 0)
             {
-                return new OperationResult
+                return new OperationResult<List<Users_Tbl>>
                 {
                     Success = false,
                     Message = "نام کاربری تکراری است"
@@ -104,14 +105,14 @@ namespace Barbari_BLL
                 var result = Barbari_DAL.Users.Insert(user);
                 if (result.Success == true)
                 {
-                    return new OperationResult
+                    return new OperationResult<List<Users_Tbl>>
                     {
                         Success = true,
                     };
                 }
                 else
                 {
-                    return new OperationResult
+                    return new OperationResult<List<Users_Tbl>>
                     {
                         Success = false,
                         Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"

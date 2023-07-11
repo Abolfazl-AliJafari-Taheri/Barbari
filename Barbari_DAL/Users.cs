@@ -70,7 +70,7 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult Delete_Back(string code)
+        public static OperationResult Recovery(string code)
         {
             try
             {

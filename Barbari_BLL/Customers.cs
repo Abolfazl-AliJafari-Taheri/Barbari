@@ -44,9 +44,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Delete_Back(string code)
+        public static OperationResult Recovery(string code)
         {
-            var result = Barbari_DAL.Customers.Delete_Back(code);
+            var result = Barbari_DAL.Customers.Recovery(code);
             if (result.Success == true)
             {
                 return new OperationResult
