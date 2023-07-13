@@ -30,7 +30,7 @@ namespace Barbari_UI
             if (textBox.Text == textBox.Tag.ToString())
             {
                 textBox.Text = "";
-                Username_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                textBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             }
         }
         public void AddText(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Barbari_UI
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
                 textBox.Text = textBox.Tag.ToString();
-                Username_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                textBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
             }
         }
         private void PassWord_PassBx_LostFocus(object sender, RoutedEventArgs e)
@@ -74,7 +74,7 @@ namespace Barbari_UI
             {
                 if(WindowsAndPages.home_Window == null)
                 {
-                    WindowsAndPages.home_Window = new Home();
+                    WindowsAndPages.home_Window = new Home(result.Data);
                     WindowsAndPages.home_Window.ShowDialog();
                 }
                 else

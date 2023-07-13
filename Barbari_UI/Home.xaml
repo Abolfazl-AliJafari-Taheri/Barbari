@@ -128,8 +128,35 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="#FFFFFF">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="136"/>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Border Name="UserProfile_Border" Grid.Column="0" FlowDirection="RightToLeft" Margin="0 0 24 0" HorizontalAlignment="Right" CornerRadius="50" Height="56" Width="56">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Source/Icones/User Profile (Default).png"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock Name="UserFullName_TxtBlock" Grid.Column="1" Text="نام و نام خانوادگی" FontSize="16" FontFamily="IRANSansX" Height="29" />
+                <TextBlock Name="CompanyName_TxtBlock" Grid.Column="2" Text="نام شرکت" FontSize="24" HorizontalAlignment="Center" FontFamily="IRANSansX" Height="36" FontWeight="UltraBold" />
+                <Border Grid.Column="3" Height="48" Width="144" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
+                    <Button Name="GetReport_Btn" Height="48" Padding="0" Width="144" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" >
+                        <Grid Width="144">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="42"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 12 0" ><Run Text="گزارش گیری"/></TextBlock>
+                            <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Width="24" Source="/Source/Icones/Get Report Button Icon(White Border).png" />
+                        </Grid>
+                    </Button>
+                </Border>
             </Grid>
+            <Frame Grid.Row="1" Name="MainFrame">
+                
+            </Frame>
         </Grid>
     </Grid>
 </Window>

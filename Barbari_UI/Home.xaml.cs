@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Barbari_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,18 +20,25 @@ namespace Barbari_UI
     /// </summary>
     public partial class Home : Window
     {
-        public Home()
+        public Home(Users_Tbl LoginedUser)
         {
             InitializeComponent();
+            User = LoginedUser;
         }
 
-    
+        bool createBarErsali = false;
+        bool createBarTahvili = false;
+        bool createMoshtari = false;
+        bool createKarmand = false;
+        bool createRanande = false;
+        bool createCityAnbar = false;
+        bool createSetting = false;
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
             WindowsAndPages.home_Window.Visibility= Visibility.Hidden;
         }
-
+        public Users_Tbl User{ get; set; }
         private void SelectBarErsaliMenu()
         {
             BarErsaliMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Bar Ersali Menu Icon(Blue Border).png");
@@ -129,11 +137,13 @@ namespace Barbari_UI
             SettingMenuBtn_Text.Foreground = ConverterColor("#404040");
             SettingMenuBtn_Line.Source = ConverterPhoto("");
         }
+
         BitmapImage ConverterPhoto(string ImageAddress)
         {
             BitmapImage brush = new BitmapImage(new Uri(ImageAddress, UriKind.Relative));
             return brush;
         }
+
         Brush ConverterColor (string ColorCode)
         {
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorCode));
@@ -148,6 +158,16 @@ namespace Barbari_UI
             UnSelectMoshtariMenu();
             UnSelectRanandeMenu();
             UnSelectSettingMenu();
+            if (createBarErsali)
+            {
+               MainFrame.Content= WindowsAndPages.barErsali;
+            }
+            else
+            {
+                createBarErsali = true;
+                WindowsAndPages.barErsali = new BarErsali();
+                MainFrame.Content = WindowsAndPages.barErsali;
+            }
         }
 
         private void BarTahviliMenu_Btn_Click(object sender, RoutedEventArgs e)
@@ -159,6 +179,16 @@ namespace Barbari_UI
             UnSelectMoshtariMenu();
             UnSelectRanandeMenu();
             UnSelectSettingMenu();
+            if (createBarTahvili)
+            {
+                MainFrame.Content = WindowsAndPages.barTahvili;
+            }
+            else
+            {
+                createBarTahvili = true;
+                WindowsAndPages.barTahvili = new BarTahvili();
+                MainFrame.Content = WindowsAndPages.barTahvili;
+            }
         }
 
         private void MoshtariMenu_Btn_Click(object sender, RoutedEventArgs e)
@@ -170,6 +200,16 @@ namespace Barbari_UI
             SelectMoshtariMenu();
             UnSelectRanandeMenu();
             UnSelectSettingMenu();
+            if (createMoshtari)
+            {
+                MainFrame.Content = WindowsAndPages.moshtari;
+            }
+            else
+            {
+                createMoshtari = true;
+                WindowsAndPages.moshtari = new Moshtari();
+                MainFrame.Content = WindowsAndPages.moshtari;
+            }
         }
 
         private void KarmandanMenu_Btn_Click(object sender, RoutedEventArgs e)
@@ -181,6 +221,16 @@ namespace Barbari_UI
             UnSelectMoshtariMenu();
             UnSelectRanandeMenu();
             UnSelectSettingMenu();
+            if (createKarmand)
+            {
+                MainFrame.Content = WindowsAndPages.moshtari;
+            }
+            else
+            {
+                createKarmand = true;
+                WindowsAndPages.karmand = new Karmand();
+                MainFrame.Content = WindowsAndPages.karmand;
+            }
         }
 
         private void RanandeganMenu_Btn_Click(object sender, RoutedEventArgs e)
@@ -192,6 +242,16 @@ namespace Barbari_UI
             UnSelectMoshtariMenu();
             SelectRanandeMenu();
             UnSelectSettingMenu();
+            if (createRanande)
+            {
+                MainFrame.Content = WindowsAndPages.ranandegan;
+            }
+            else
+            {
+                createRanande = true;
+                WindowsAndPages.ranandegan = new Ranandegan();
+                MainFrame.Content = WindowsAndPages.ranandegan;
+            }
         }
 
         private void CityAnbarMenu_Btn_Click(object sender, RoutedEventArgs e)
@@ -203,6 +263,16 @@ namespace Barbari_UI
             UnSelectMoshtariMenu();
             UnSelectRanandeMenu();
             UnSelectSettingMenu();
+            if (createCityAnbar)
+            {
+                MainFrame.Content = WindowsAndPages.cityAnbar;
+            }
+            else
+            {
+                createCityAnbar = true;
+                WindowsAndPages.cityAnbar = new CityAnbar();
+                MainFrame.Content = WindowsAndPages.cityAnbar;
+            }
         }
 
         private void SettingMenu_Btn_Click(object sender, RoutedEventArgs e)
@@ -214,6 +284,16 @@ namespace Barbari_UI
             UnSelectMoshtariMenu();
             UnSelectRanandeMenu();
             SelectSettingMenu();
+            if (createSetting)
+            {
+                MainFrame.Content = WindowsAndPages.setting;
+            }
+            else
+            {
+                createSetting = true;
+                WindowsAndPages.setting = new Setting();
+                MainFrame.Content = WindowsAndPages.setting;
+            }
         }
 
         private void LogoutMenu_Btn_Click(object sender, RoutedEventArgs e)
@@ -221,9 +301,9 @@ namespace Barbari_UI
 
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            UserFullName_TxtBlock.Text = User.UsersFirstName + "  " + User.UsersLastName;
         }
     }
 }
