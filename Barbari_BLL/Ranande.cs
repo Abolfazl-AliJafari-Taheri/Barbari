@@ -9,7 +9,7 @@ namespace Barbari_BLL
 {
     public class Ranande
     {
-        public OperationResult<List<Ranande_Tbl>> Select(string search = "")
+        public static OperationResult<List<Ranande_Tbl>> Select(string search = "")
         {
             var result = Barbari_DAL.Ranande.Select(search);
             if (result.Success == true)
@@ -26,7 +26,7 @@ namespace Barbari_BLL
 
             }
         }
-        public OperationResult Delete(string code)
+        public static OperationResult Delete(string code)
         {
             var result = Barbari_DAL.Ranande.Delete(code);
             if (result.Success == true)
@@ -46,7 +46,7 @@ namespace Barbari_BLL
 
             }
         }
-        public OperationResult Recovery(string code)
+        public static OperationResult Recovery(string code)
         {
             var result = Barbari_DAL.Ranande.Recovery(code);
             if (result.Success == true)
