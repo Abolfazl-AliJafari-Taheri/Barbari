@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Barbari_UI"
              mc:Ignorable="d" 
-             d:DesignHeight="72" d:DesignWidth="1143">
+             d:DesignHeight="72" d:DesignWidth="1143"
+             Loaded="UserControl_Loaded">
     <Border CornerRadius="8" Background="#FFFFFF">
         <Grid FlowDirection="RightToLeft">
             <Grid.ColumnDefinitions>

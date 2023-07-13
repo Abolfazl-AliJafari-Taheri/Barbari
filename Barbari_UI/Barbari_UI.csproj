@@ -86,6 +86,9 @@
     <Compile Include="Moshtari.xaml.cs">
       <DependentUpon>Moshtari.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RanandeComponent.xaml.cs">
+      <DependentUpon>RanandeComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ranandegan.xaml.cs">
       <DependentUpon>Ranandegan.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RanandeComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ranandegan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -240,6 +247,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\Icones\Search Feild Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Add Btn Icon %28White Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Delete Btn Icon%28White Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Edit Btn Icon%28White Border%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

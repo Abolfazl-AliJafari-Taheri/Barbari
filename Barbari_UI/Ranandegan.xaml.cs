@@ -43,6 +43,9 @@ namespace Barbari_UI
             }
         }
 
-        
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

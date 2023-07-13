@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Barbari_UI"
       mc:Ignorable="d" 
       d:DesignHeight="930" d:DesignWidth="1191"
-      Title="Ranandegan">
+      Title="Ranandegan"
+      Loaded="Page_Loaded">
 
     <Grid Background="#F7F7F7">
         <Grid.RowDefinitions>
@@ -33,8 +34,19 @@
 
                     </Button>
                     <TextBox Grid.Column="1" Name="Search_Txt" Tag="جستجو..."  BorderThickness="0" VerticalContentAlignment="Center" Margin="8 0 8 0" Text="جستجو..." FontFamily="IRANSansX" Foreground="#BFBFBF" FontSize="14" LostFocus="AddText" GotFocus="RemoveText"/>
-
                 </Grid>
+            </Border>
+            <Border Grid.Column="3" Height="48" Width="152" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 24 7" CornerRadius="8" Background="#2B54A3"  >
+                <Button Name="GetReport_Btn" Height="48" Padding="0" Width="152" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" >
+                    <Grid Width="144">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="42"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 12 0" ><Run Text="افزودن راننده"/></TextBlock>
+                        <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Width="24" Source="/Source/Icones/Add Btn Icon (White Border).png" />
+                    </Grid>
+                </Button>
             </Border>
         </Grid>
     </Grid>
