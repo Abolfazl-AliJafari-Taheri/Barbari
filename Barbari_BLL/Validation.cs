@@ -373,7 +373,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_EtelatFerestande(BarErsali_Tbl barErsali , bool moshtariSabet)
+        public static OperationResult BarErsali_Validation_EtelatFerestande(BarErsali_Tbl barErsali, bool moshtariSabet)
         {
             if (string.IsNullOrEmpty(barErsali.BarErsaliShahreMabda))
             {
@@ -439,7 +439,7 @@ namespace Barbari_BLL
                     Message = "نام فرستنده نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliFamilyFerestande , 50))
+            else if (CheckRangeDataType(barErsali.BarErsaliFamilyFerestande, 50))
             {
                 return new OperationResult
                 {
@@ -512,7 +512,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_EtelatGerande(BarErsali_Tbl barErsali , bool maghsadNahayi)
+        public static OperationResult BarErsali_Validation_EtelatGerande(BarErsali_Tbl barErsali, bool maghsadNahayi)
         {
             if (string.IsNullOrEmpty(barErsali.BarErsaliShahreMaghsad1))
             {
@@ -800,7 +800,7 @@ namespace Barbari_BLL
                     Message = "کرایه راننده را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliNamRanande,50))
+            else if (CheckRangeDataType(barErsali.BarErsaliNamRanande, 50))
             {
                 return new OperationResult
                 {
@@ -842,7 +842,7 @@ namespace Barbari_BLL
             }
             else if (!string.IsNullOrEmpty(barErsali.BarErsaliCodeRanande))
             {
-                if (CheckRangeDataType(barErsali.BarErsaliCodeRanande,10))
+                if (CheckRangeDataType(barErsali.BarErsaliCodeRanande, 10))
                 {
                     return new OperationResult
                     {
@@ -961,6 +961,384 @@ namespace Barbari_BLL
                 {
                     Success = false,
                     Message = "درون ارزش کالا فقط باید عدد وارد شود"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult BarTahvili_Validation_EtelatFerestande(BarTahvili_Tbl barTahvili)
+        {
+            if (string.IsNullOrEmpty(barTahvili.BarTahviliShahrFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر فرستنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliNamFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام فرستنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliFamilyFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی فرستنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliMobileFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره تلفن فرستنده را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliShahrFerestande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر مبدا نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliNamFerestande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام فرستنده نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliFamilyFerestande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی فرستنده نباید بیشتر از 50 حرف باشه"
+                };
+            }
+            else if (CheckMobileFormat(barTahvili.BarTahviliMobileFerestande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره موبایل را درست وارد کنید"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult BarTahvili_Validation_EtelatGerande(BarTahvili_Tbl barTahvili)
+        {
+            if (string.IsNullOrEmpty(barTahvili.BarTahviliShahrGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر مقصد را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliNamGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام گیرنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliFamilyGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی گیرنده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliMobileGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره تلفن گیرنده را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliShahrGerande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر مقصد نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliNamGerande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام گیرنده نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliFamilyGerande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی گیرنده نباید بیشتر از 50 حرف باشه"
+                };
+            }
+            else if (CheckMobileFormat(barTahvili.BarTahviliMobileGerande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره موبایل را درست وارد کنید"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult barTahvili_Validation_EtelatBar(BarTahvili_Tbl barTahvili)
+        {
+            if (string.IsNullOrEmpty(barTahvili.BarTahviliPishKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پیش کرایه را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliPasKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پس کرایه را وارد کنید"
+                };
+            }
+            else if (!CheckNumberFormat(barTahvili.BarTahviliPishKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل پیش کرایه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barTahvili.BarTahviliPasKeraye.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل پس کرایه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barTahvili.BarTahviliBime.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل بیمه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barTahvili.BarTahviliAnbardari.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل انبارداری فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barTahvili.BarTahviliShahri.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل شهری فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (!CheckNumberFormat(barTahvili.BarTahviliBastebandi.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل بسته بندی فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliPishKeraye.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پیش کرایه نباید بیشتر از 12 عدد باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliPasKeraye.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پس کرایه نباید بیشتر از 12 عدد باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliBime.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "بیمه نباید بیشتر از 12 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliAnbardari.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "انبار داری نباید بیشتر از 12 حرف باشه"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliShahri.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهری نباید بیشتر از 12 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliBastebandi.ToString(), 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "بسته بندی نباید بیشتر از 12 حرف باشه"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult BarTahvili_Validation_EtelatRanande(BarTahvili_Tbl barTahvili)
+        {
+            if (string.IsNullOrEmpty(barTahvili.BarTahviliNamRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام راننده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliFamilyRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی راننده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliMobileRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "موبایل راننده راننده را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliNamRanande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تام راننده نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliFamilyRanande, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckMobileFormat(barTahvili.BarTahviliMobileRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره موبایل را درست وارد کنید"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+        }
+        public static OperationResult BarTahvili_Validation_KalaTahvili(KalaTahvili_Tbl kalaTahvili)
+        {
+            if (string.IsNullOrEmpty(kalaTahvili.KalaTahviliNamKala))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام کالا را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(kalaTahvili.KalaTahviliTedadKala.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تعداد کالا را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(kalaTahvili.KalaTahviliNamKala, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام کالا نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(kalaTahvili.KalaTahviliTedadKala.ToString(), 9))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تعداد کالا نباید بیشتر از 9 عدد باشد"
+                };
+            }
+            else if (!CheckNumberFormat(kalaTahvili.KalaTahviliTedadKala.ToString()))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "درون تعداد کالا فقط باید عدد وارد شود"
                 };
             }
             else

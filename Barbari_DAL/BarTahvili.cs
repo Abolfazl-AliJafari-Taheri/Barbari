@@ -22,14 +22,35 @@ namespace Barbari_DAL
                     Data = query
                 };
             }
-            catch 
+            catch
             {
                 return new OperationResult<List<BarTahvili_Tbl>>
                 {
                     Success = false
                 };
             }
-            
+
+        }
+        public static OperationResult Delete(int code)
+        {
+            try
+            {
+                linq = new DataClassBarbariDataContext();
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == code).Single();
+                linq.BarTahvili_Tbls.DeleteOnSubmit(query);
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
 
         }
 
