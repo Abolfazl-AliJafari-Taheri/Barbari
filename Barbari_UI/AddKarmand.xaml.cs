@@ -26,15 +26,15 @@ namespace Barbari_UI
         {
             InitializeComponent();
         }
-        public AddKarmand(Ranande_Tbl ranande)
+        public AddKarmand(Users_Tbl karmand)
         {
-            Ranande = ranande;
+            Karmand = karmand;
             edit = true;
             InitializeComponent();
 
         }
         bool edit = false;
-        public Ranande_Tbl Ranande { get; set; }
+        public Users_Tbl Karmand { get; set; }
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -54,25 +54,26 @@ namespace Barbari_UI
             }
         }
 
-        void EditMode(Ranande_Tbl ranande)
+        void EditMode(Users_Tbl karmand)
         {
-            Title_TxtBlock.Text = "ویرایش راننده";
-            FirstName_Txt.Text = ranande.RanandeFirstName;
-            LastName_Txt.Text = ranande.RanandeLastName;
-            Code_Txt.Text = ranande.RanandeCodeRanande;
-            Mobile_Txt.Text = ranande.RanandeMobile;
-            Add_Btn.Content = "ویرایش راننده";
-            Code_Txt.IsReadOnly = true;
+            Title_TxtBlock.Text = "ویرایش کارمند";
+            FirstName_Txt.Text = karmand.UsersFirstName;
+            LastName_Txt.Text = karmand.UsersLastName;
+            UserName_Txt.Text = karmand.UsersUserName;
+            UserName_Txt.Text = karmand.UsersMobile;
+            Add_Btn.Content = "ویرایش کارمند";
+            UserName_Txt.IsReadOnly = true;
             FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            PassWord_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             if (edit)
             {
-                EditMode(Ranande);
+                EditMode(Karmand);
             }
         }
 
@@ -82,19 +83,20 @@ namespace Barbari_UI
             {
                 if (Validait())
                 {
-                    Ranande.RanandeFirstName = FirstName_Txt.Text;
-                    Ranande.RanandeLastName = LastName_Txt.Text;
-                    Ranande.RanandeCodeRanande = Code_Txt.Text;
-                    Ranande.RanandeMobile = Mobile_Txt.Text;
+                    Karmand.UsersFirstName = FirstName_Txt.Text;
+                    Karmand.UsersLastName = LastName_Txt.Text;
+                    Karmand.UsersLastName = UserName_Txt.Text;
+                    Karmand.UsersPassWord= PassWord_Txt.Text;
+                    Karmand.UsersMobile = Mobile_Txt.Text;
                 }
-                var result = Barbari_BLL.Ranande.Update(Ranande);
+                var result = Barbari_BLL.Users.Update(Karmand);
                 if (!result.Success)
                 {
                     MessageBox.Show(result.Message);
                 }
                 else
                 {
-                    WindowsAndPages.ranandegan.Refresh();
+                    WindowsAndPages.karmand.Refresh();
                     DialogHost.CloseDialogCommand.Execute(null, null);
                 }
             }
@@ -102,12 +104,13 @@ namespace Barbari_UI
             {
                 if (Validait())
                 {
-                    Ranande.RanandeFirstName = FirstName_Txt.Text;
-                    Ranande.RanandeLastName = LastName_Txt.Text;
-                    Ranande.RanandeCodeRanande = Code_Txt.Text;
-                    Ranande.RanandeMobile = Mobile_Txt.Text;
+                    Karmand.UsersFirstName = FirstName_Txt.Text;
+                    Karmand.UsersLastName = LastName_Txt.Text;
+                    Karmand.UsersLastName = UserName_Txt.Text;
+                    Karmand.UsersPassWord = PassWord_Txt.Text;
+                    Karmand.UsersMobile = Mobile_Txt.Text;
                 }
-                var result = Barbari_BLL.Ranande.Insert(Ranande);
+                var result = Barbari_BLL.Users.Insert(Karmand);
                 if (!result.Success)
                 {
                     MessageBox.Show(result.Message);
@@ -116,7 +119,8 @@ namespace Barbari_UI
                 {
                     FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
                     LastName_Txt.Text = LastName_Txt.Tag.ToString();
-                    Code_Txt.Text = Code_Txt.Tag.ToString();
+                    UserName_Txt.Text = UserName_Txt.Tag.ToString();
+                    PassWord_Txt.Text = PassWord_Txt.Tag.ToString();
                     Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
                 }
 
@@ -132,7 +136,11 @@ namespace Barbari_UI
             {
                 return false;
             }
-            if (Code_Txt.Text == Code_Txt.Tag.ToString())
+            if (UserName_Txt.Text == UserName_Txt.Tag.ToString())
+            {
+                return false;
+            }
+            if (PassWord_Txt.Text == PassWord_Txt.Tag.ToString())
             {
                 return false;
             }

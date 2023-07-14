@@ -29,17 +29,17 @@ namespace Barbari_UI
 
         public void Refresh()
         {
-            var ranandegan = Barbari_BLL.Ranande.Select();
-            if (!ranandegan.Success)
+            var karmandan = Barbari_BLL.Users.Select();
+            if (!karmandan.Success)
             {
-                MessageBox.Show(ranandegan.Message);
+                MessageBox.Show(karmandan.Message);
             }
             else
             {
                 ShowRanade_StckPnl.Children.Clear();
-                foreach (Ranande_Tbl Ranande in ranandegan.Data)
+                foreach (Users_Tbl Karmand in karmandan.Data)
                 {
-                    RanandeComponent ranande = new RanandeComponent(Ranande) { Height = 72, Width = 1143 };
+                    KarmandComponent ranande = new KarmandComponent(Karmand) { Height = 72, Width = 1143 };
                     ShowRanade_StckPnl.Children.Add(ranande);
                 }
             }
@@ -73,13 +73,10 @@ namespace Barbari_UI
 
         private async void AddRanande_Btn_Click(object sender, RoutedEventArgs e)
         {
-            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddRanande() { Height = 317, Width = 622 });
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddKarmand() { Height = 317, Width = 622 });
             Refresh();
         }
 
-        private void Page_Loaded_1(object sender, RoutedEventArgs e)
-        {
-
-        }
+ 
     }
 }

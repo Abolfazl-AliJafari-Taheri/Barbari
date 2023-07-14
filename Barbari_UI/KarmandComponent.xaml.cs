@@ -55,7 +55,7 @@ namespace Barbari_UI
 
         private async void Edit_Btn_Click(object sender, RoutedEventArgs e)
         {
-            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddRanande(Ranande) { Height = 317, Width = 622 });
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddKarmand(Karmand) { Height = 397, Width = 622 });
         }
     }
 }
