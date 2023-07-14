@@ -18,33 +18,34 @@ using System.Windows.Shapes;
 namespace Barbari_UI
 {
     /// <summary>
-    /// Interaction logic for RanandeComponent.xaml
+    /// Interaction logic for KarmandComponent.xaml
     /// </summary>
-    public partial class RanandeComponent : UserControl
+    public partial class KarmandComponent : UserControl
     {
-        public RanandeComponent()
+        public KarmandComponent()
         {
             InitializeComponent();
         }
-        public RanandeComponent(Ranande_Tbl ranande)
+        public KarmandComponent(Users_Tbl karmand)
         {
             InitializeComponent();
-            Ranande = ranande;
+            Karmand = karmand;
         }
-        public Ranande_Tbl Ranande{ get; set; }
+        public Users_Tbl Karmand { get; set; }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Name_TxtBlock.Text = Ranande.RanandeFirstName + " " + Ranande.RanandeLastName;
-            Code_TxtBlock.Text = Ranande.RanandeCodeRanande;
-            MobileNum_TxtBlock.Text = Ranande.RanandeMobile;
+            Name_TxtBlock.Text = Karmand.UsersFirstName + " " + Karmand.UsersLastName;
+            UserName_TxtBlock.Text = Karmand.UsersUserName;
+            MobileNum_TxtBlock.Text = Karmand.UsersMobile;
+            PassWord_TxtBlock.Text = Karmand.UsersPassWord;
         }
 
         private void Delete_Btn_Click(object sender, RoutedEventArgs e)
         {
-            var result = Barbari_BLL.Ranande.Delete(Ranande.RanandeCodeRanande);
-            if(result.Success)
+            var result = Barbari_BLL.Users.Delete(Karmand.UsersUserName);
+            if (result.Success)
             {
-                WindowsAndPages.ranandegan.Refresh();
+                WindowsAndPages.karmand.Refresh();
             }
             else
             {
@@ -54,7 +55,7 @@ namespace Barbari_UI
 
         private async void Edit_Btn_Click(object sender, RoutedEventArgs e)
         {
-          await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddRanande(Ranande) { Height = 317, Width = 622 });
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddRanande(Ranande) { Height = 317, Width = 622 });
         }
     }
 }

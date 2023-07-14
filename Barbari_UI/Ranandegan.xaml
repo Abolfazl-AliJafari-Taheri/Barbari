@@ -10,8 +10,10 @@
       Loaded="Page_Loaded">
 
     <Grid Background="#F7F7F7">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="86"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" FlowDirection="RightToLeft">
@@ -37,7 +39,7 @@
                 </Grid>
             </Border>
             <Border Grid.Column="3" Height="48" Width="152" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 24 7" CornerRadius="8" Background="#2B54A3"  >
-                <Button Name="GetReport_Btn" Height="48" Padding="0" Width="152" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" >
+                <Button Name="AddRanande_Btn" Height="48" Padding="0" Width="152" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="AddRanande_Btn_Click" VerticalAlignment="Top"   >
                     <Grid Width="144">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -49,5 +51,21 @@
                 </Button>
             </Border>
         </Grid>
+        <Grid Grid.Row="1" Width="1143" FlowDirection="RightToLeft" Height="46" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="338.33"/>
+                <ColumnDefinition Width="338.33"/>
+                <ColumnDefinition Width="338.33"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="نام و نام خانوادگی" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="2" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="کد راننده" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="1" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="شماره تلفن" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="3" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="عملیات" HorizontalAlignment="Center" Height="22"/>
+        </Grid>
+        <ScrollViewer Grid.Row="2"  VerticalScrollBarVisibility="Hidden">
+            <StackPanel Name="ShowRanade_StckPnl">
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

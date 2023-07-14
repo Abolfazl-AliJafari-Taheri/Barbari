@@ -67,6 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddKarmand.xaml.cs">
+      <DependentUpon>AddKarmand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddRanande.xaml.cs">
+      <DependentUpon>AddRanande.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -83,6 +89,9 @@
     <Compile Include="Karmand.xaml.cs">
       <DependentUpon>Karmand.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KarmandComponent.xaml.cs">
+      <DependentUpon>KarmandComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Moshtari.xaml.cs">
       <DependentUpon>Moshtari.xaml</DependentUpon>
     </Compile>
@@ -94,6 +103,9 @@
     </Compile>
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitDelete.xaml.cs">
+      <DependentUpon>SubmitDelete.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsAndPages.cs" />
   </ItemGroup>
@@ -141,6 +153,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AddKarmand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddRanande.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BarErsali.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="KarmandComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubmitDelete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

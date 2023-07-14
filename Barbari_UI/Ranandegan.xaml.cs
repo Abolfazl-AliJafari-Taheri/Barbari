@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Barbari_BLL;
+using Barbari_DAL;
+using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +27,27 @@ namespace Barbari_UI
         {
             InitializeComponent();
         }
+
+        public void Refresh()
+        {
+            var ranandegan = Barbari_BLL.Ranande.Select();
+            if (!ranandegan.Success)
+            {
+                MessageBox.Show(ranandegan.Message);
+            }
+            else
+            {
+                ShowRanade_StckPnl.Children.Clear();
+                foreach (Ranande_Tbl Ranande in ranandegan.Data)
+                {
+                    RanandeComponent ranande = new RanandeComponent(Ranande) { Height = 72, Width = 1143 };
+                    ShowRanade_StckPnl.Children.Add(ranande);
+                }
+            }
+            
+
+        }
+
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -45,7 +69,13 @@ namespace Barbari_UI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            Refresh(); 
+        }
+
+        private async void AddRanande_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddRanande() { Height = 317, Width = 622 });
+            Refresh();
         }
     }
 }
