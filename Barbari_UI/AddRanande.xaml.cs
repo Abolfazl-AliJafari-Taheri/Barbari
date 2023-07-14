@@ -95,6 +95,10 @@ namespace Barbari_UI
                 }
                 else
                 {
+                    Ranande.RanandeFirstName = "";
+                    Ranande.RanandeLastName = "";
+                    Ranande.RanandeCodeRanande = "";
+                    Ranande.RanandeMobile = "";
                     WindowsAndPages.ranandegan.Refresh();
                     DialogHost.CloseDialogCommand.Execute(null, null);
                 }
@@ -115,6 +119,10 @@ namespace Barbari_UI
                 }
                 else
                 {
+                    Ranande.RanandeFirstName = "";
+                    Ranande.RanandeLastName = "";
+                    Ranande.RanandeCodeRanande = "";
+                    Ranande.RanandeMobile = "";
                     FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
                     LastName_Txt.Text = LastName_Txt.Tag.ToString();
                     Code_Txt.Text = Code_Txt.Tag.ToString();
