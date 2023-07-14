@@ -14,6 +14,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.BarErsali_Tbls.ToList();
                 return new OperationResult<List<BarErsali_Tbl>>
                 {
@@ -33,6 +34,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.BarErsali_Tbls.Select(p => p.BarErsaliBarname).LastOrDefault();
                 return new OperationResult<int>
                 {
@@ -55,6 +57,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == search).Single();
                 linq.BarErsali_Tbls.DeleteOnSubmit(query);
                 linq.SubmitChanges();
@@ -77,6 +80,7 @@ namespace Barbari_DAL
             {
                 try
                 {
+                    linq = new DataClassBarbariDataContext();
                     linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
                     linq.SubmitChanges();
 
@@ -111,6 +115,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == barErsali.BarErsaliBarname).Single();
                 query.BarErsaliCodeRanande = barErsali.BarErsaliCodeRanande;
                 query.BarErsaliNamRanande = barErsali.BarErsaliNamRanande;

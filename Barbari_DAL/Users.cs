@@ -14,6 +14,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName.Contains(search) && p.UsersDelete == false).
                     OrderBy(p => p.UsersLastName).ThenBy(p => p.UsersFirstName).ToList();
                 return new OperationResult<List<Users_Tbl>>
@@ -34,6 +35,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == search).ToList();
                 return new OperationResult<List<Users_Tbl>>
                 {
@@ -54,6 +56,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == code).Single();
                 query.UsersDelete = true;
                 linq.SubmitChanges();
@@ -74,6 +77,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == code).Single();
                 query.UsersDelete = false;
                 linq.SubmitChanges();
@@ -95,6 +99,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 linq.Users_Tbls.InsertOnSubmit(user);
                 linq.SubmitChanges();
                 return new OperationResult
@@ -115,6 +120,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == user.UsersUserName).Single();
                 query.UsersFirstName = user.UsersFirstName;
                 query.UsersLastName = user.UsersLastName;
@@ -138,6 +144,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == userName &&
                 p.UsersPassWord == passWord && p.UsersDelete == false).FirstOrDefault();
                 if(query!=null)

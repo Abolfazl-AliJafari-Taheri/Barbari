@@ -14,6 +14,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande.Contains(search) && p.RanandeIsDelete == false).
                     OrderBy(p => p.RanandeLastName).ThenBy(p => p.RanandeFirstName).ToList();
                 return new OperationResult<List<Ranande_Tbl>>
@@ -35,6 +36,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == search).ToList();
                 return new OperationResult<List<Ranande_Tbl>>
                 {
@@ -55,6 +57,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == code).Single();
                 query.RanandeIsDelete = true;
                 linq.SubmitChanges();
@@ -75,6 +78,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == code).Single();
                 query.RanandeIsDelete = false;
                 linq.SubmitChanges();
@@ -95,6 +99,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 linq.Ranande_Tbls.InsertOnSubmit(rananade);
                 linq.SubmitChanges();
                 return new OperationResult
@@ -115,6 +120,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == rananade.RanandeCodeRanande).Single();
                 query.RanandeFirstName = rananade.RanandeFirstName;
                 query.RanandeLastName = rananade.RanandeLastName;

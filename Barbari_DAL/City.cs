@@ -16,6 +16,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.City_Tbls.Where(p => p.CityShahr.Contains(search)).OrderBy(p => p.CityShahr)
                     .GroupBy(p => p.CityShahr).ToList();
                 return new OperationResult<IEnumerable<IGrouping<string, City_Tbl>>>
@@ -76,6 +77,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var result = linq.City_Tbls.Count(p => p.CityShahr == shahr && p.CityAnbar == anbar);
                 return new OperationResult<int>
                 {
@@ -97,6 +99,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.City_Tbls.Where(p => p.CityShahr == shahr && p.CityAnbar == anbar).Single();
                 linq.City_Tbls.DeleteOnSubmit(query);
                 linq.SubmitChanges();
@@ -118,6 +121,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 linq.City_Tbls.InsertOnSubmit(city);
                 linq.SubmitChanges();
                 return new OperationResult

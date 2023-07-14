@@ -14,6 +14,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname.ToString().Contains(search)).ToList();
                 return new OperationResult<List<BarTahvili_Tbl>>
                 {

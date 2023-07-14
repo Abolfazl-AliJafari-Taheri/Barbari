@@ -13,6 +13,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode.Contains(search) && p.CustomersIsDelete == false).
                     OrderBy(p => p.CustomersLastName).ThenBy(p => p.CustomersFirstName).ToList();
                 return new OperationResult<List<Customers_Tbl>>
@@ -33,6 +34,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode == search).ToList();
                 return new OperationResult<List<Customers_Tbl>>
                 {
@@ -52,6 +54,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
                 query.CustomersIsDelete = true;
                 return new OperationResult
@@ -71,6 +74,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
                 query.CustomersIsDelete = false;
                 return new OperationResult
@@ -90,6 +94,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 linq.Customers_Tbls.InsertOnSubmit(customer);
                 linq.SubmitChanges();
                 return new OperationResult
@@ -110,6 +115,7 @@ namespace Barbari_DAL
         {
             try
             {
+                linq = new DataClassBarbariDataContext();
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode== customer.CustomersCode).Single();
                 query.CustomersFirstName= customer.CustomersFirstName;
                 query.CustomersLastName = customer.CustomersLastName;
