@@ -24,7 +24,7 @@ namespace Barbari_UI
     {
         public AddRanande()
         {
-            //Ranande = new Ranande_Tbl();
+            Ranande = new Ranande_Tbl();
             InitializeComponent();
         }
         public AddRanande(Ranande_Tbl ranande)
