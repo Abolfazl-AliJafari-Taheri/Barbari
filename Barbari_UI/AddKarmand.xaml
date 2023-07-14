@@ -6,13 +6,14 @@
                          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Barbari_UI"
              mc:Ignorable="d" 
-            d:DesignHeight="317" d:DesignWidth="622"
+            d:DesignHeight="397" d:DesignWidth="622"
              Loaded="UserControl_Loaded">
     <Border Background="#F7F7F7" CornerRadius="8"  >
         <Grid FlowDirection="RightToLeft">
             <Grid.RowDefinitions>
                 <RowDefinition Height="77"/>
                 <RowDefinition Height="72"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -28,12 +29,15 @@
                 <TextBox Name="LastName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام خانوادگی" Text="نام خانوادگی" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="LastName_Txt_TextChanged"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Code_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="کد راننده" Text="کد راننده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="Code_Txt_TextChanged"/>
+                <TextBox Name="UserName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام کاربری" Text="نام کاربری" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="Code_Txt_TextChanged"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <TextBox Name="PassWord_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="رمز عبور" Text="رمز عبور" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="Mobile_Txt_TextChanged"/>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="Mobile_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="شماره تلفن" Text="شماره تلفن" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="Mobile_Txt_TextChanged"/>
             </Border>
-            <Border Grid.Column="0" Grid.Row="3" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 0 0 16" VerticalAlignment="Bottom"  CornerRadius="8" Background="#2B54A3">
+            <Border Grid.Column="0" Grid.Row="4" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 0 0 16" VerticalAlignment="Bottom"  CornerRadius="8" Background="#2B54A3">
                 <Button Name="Add_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Add_Btn_Click">
                     <TextBlock FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right"><Run Text="افزودن راننده"/></TextBlock>
                 </Button>
@@ -46,7 +50,7 @@
                 BorderThickness="0"
                 Content="لغو"
                 Foreground="#D90000"
-                Grid.Row="3"
+                Grid.Row="4"
                 FontSize="14"
                 Width="56"
                 Height="48"

@@ -143,52 +143,5 @@ namespace Barbari_UI
             }
             return true;
         }
-        private void FirstName_Txt_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //if (FirstName_Txt.Text != "نام")
-            //{
-            //    Ranande.RanandeFirstName = FirstName_Txt.Text;
-            //}
-            //else
-            //{
-            //    Ranande.RanandeFirstName = "";
-            //}
-        }
-
-        private void LastName_Txt_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //if (LastName_Txt.Text != "نام خانوادگی")
-            //{
-            //    Ranande.RanandeLastName = LastName_Txt.Text;
-            //}
-            //else
-            //{
-            //    Ranande.RanandeLastName = "";
-            //}
-        }
-
-        private void Code_Txt_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //if (Code_Txt.Text != "کد راننده")
-            //{
-            //    Ranande.RanandeCodeRanande = Code_Txt.Text;
-            //}
-            //else
-            //{
-            //    Ranande.RanandeCodeRanande = "";
-            //}
-        }
-
-        private void Mobile_Txt_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //if (Mobile_Txt.Text != "شماره تلفن")
-            //{
-            //    Ranande.RanandeMobile = Mobile_Txt.Text;
-            //}
-            //else
-            //{
-            //    Ranande.RanandeMobile = "";
-            //}
-        }
     }
 }

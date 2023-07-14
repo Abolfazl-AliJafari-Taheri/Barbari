@@ -55,7 +55,7 @@
   </Table>
   <Table Name="dbo.KalaDaryafti_Tbl" Member="KalaDaryafti_Tbls">
     <Type Name="KalaDaryafti_Tbl">
-      <Column Name="KalaDaryaftiCodeKala" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KalaDaryaftiCodeKala" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="KalaDaryaftiBarname" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="KalaDaryaftiNamKala" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="KalaDaryaftiTedadKala" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -102,33 +102,6 @@
       <Column Name="BarTahviliDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="RolesGozaresh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Role_Users_Tbl" Member="Users_Tbls" ThisKey="RolesNamRole" OtherKey="UsersRoles" Type="Users_Tbl" />
-    </Type>
-  </Table>
-  <Table Name="dbo.BarTahvili_Tbl" Member="BarTahvili_Tbls">
-    <Type Name="BarTahvili_Tbl">
-      <Column Name="BarTahviliBarname" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BarTahviliNamFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliFamilyFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliMobileFerestande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliShahrFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliNamGerande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliFamilyGerande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliMobileGerande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliShahrGerande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliNamRanande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliFamilyRanande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliMobileRanande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliTarikh" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliiSaat" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliPishKeraye" Type="System.Decimal" DbType="Decimal(12,0) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliPasKeraye" Type="System.Decimal" DbType="Decimal(12,0) NOT NULL" CanBeNull="false" />
-      <Column Name="BarTahviliBime" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
-      <Column Name="BarTahviliAnbardari" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
-      <Column Name="BarTahviliShahri" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
-      <Column Name="BarTahviliBastebandi" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
-      <Column Name="BarTahviliRaveshEhrazHoviat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BarTahviliRaveshEhrazHoviatText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BarTahviliUserNameKarmand" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.Users_Tbl" Member="Users_Tbls">
