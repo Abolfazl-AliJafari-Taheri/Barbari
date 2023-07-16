@@ -96,24 +96,26 @@ namespace Barbari_DAL
         }
         public static OperationResult Insert(Users_Tbl user)
         {
-            try
+            using(var linq = new DataClassBarbariDataContext())
             {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-                linq.Users_Tbls.InsertOnSubmit(user);
-                linq.SubmitChanges();
-                return new OperationResult
+                try
                 {
-                    Success = true
-                };
-            }
-            catch 
-            {
-                return new OperationResult
+
+                    linq.Users_Tbls.InsertOnSubmit(user);
+                    linq.SubmitChanges();
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                catch
                 {
-                    Success = false
-                };
+                    return new OperationResult
+                    {
+                        Success = false
+                    };
+                }
             }
-            
         }
         public static OperationResult Update(Users_Tbl user)
         {
