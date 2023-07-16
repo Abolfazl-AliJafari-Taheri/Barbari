@@ -11,9 +11,10 @@ namespace Barbari_DAL
     {
         public static OperationResult<List<Users_Tbl>> Select(string search)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName.Contains(search) && p.UsersDelete == false).
                     OrderBy(p => p.UsersLastName).ThenBy(p => p.UsersFirstName).ToList();
                 return new OperationResult<List<Users_Tbl>>
@@ -32,9 +33,10 @@ namespace Barbari_DAL
         }
         public static OperationResult<List<Users_Tbl>> Select_UserName(string search)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == search).ToList();
                 return new OperationResult<List<Users_Tbl>>
                 {
@@ -53,9 +55,10 @@ namespace Barbari_DAL
         }
         public static OperationResult Delete(string code)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == code).Single();
                 query.UsersDelete = true;
                 linq.SubmitChanges();
@@ -74,9 +77,10 @@ namespace Barbari_DAL
         }
         public static OperationResult Recovery(string code)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == code).Single();
                 query.UsersDelete = false;
                 linq.SubmitChanges();
@@ -96,10 +100,10 @@ namespace Barbari_DAL
         }
         public static OperationResult Insert(Users_Tbl user)
         {
-            using(var linq = new DataClassBarbariDataContext())
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
+            try
             {
-                try
-                {
 
                     linq.Users_Tbls.InsertOnSubmit(user);
                     linq.SubmitChanges();
@@ -115,13 +119,14 @@ namespace Barbari_DAL
                         Success = false
                     };
                 }
-            }
+            
         }
         public static OperationResult Update(Users_Tbl user)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == user.UsersUserName).Single();
                 query.UsersFirstName = user.UsersFirstName;
                 query.UsersLastName = user.UsersLastName;
@@ -143,9 +148,11 @@ namespace Barbari_DAL
         }
         public static OperationResult<Users_Tbl> SearchUserAndPassWord(string userName , string passWord)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+                
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == userName &&
                 p.UsersPassWord == passWord && p.UsersDelete == false).FirstOrDefault();
                 if(query!=null)

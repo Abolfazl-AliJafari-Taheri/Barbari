@@ -9,7 +9,7 @@
             d:DesignHeight="397" d:DesignWidth="622"
              Loaded="UserControl_Loaded">
     <Border Background="#F7F7F7" CornerRadius="8"  >
-        <Grid FlowDirection="RightToLeft">
+        <Grid FlowDirection="RightToLeft" Name="Field_Grid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="77"/>
                 <RowDefinition Height="72"/>

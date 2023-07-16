@@ -111,12 +111,13 @@ namespace Barbari_UI
             {
                 if (Validait())
                 {
-                    Karmand.UsersFirstName = FirstName_Txt.Text;
-                    Karmand.UsersLastName = LastName_Txt.Text;
-                    Karmand.UsersUserName = UserName_Txt.Text;
-                    Karmand.UsersPassWord = PassWord_Txt.Text;
-                    Karmand.UsersMobile = Mobile_Txt.Text;
-                    var result = Barbari_BLL.Users.Insert(Karmand);
+                    Users_Tbl karmand = new Users_Tbl();
+                    karmand.UsersFirstName = FirstName_Txt.Text;
+                    karmand.UsersLastName = LastName_Txt.Text;
+                    karmand.UsersUserName = UserName_Txt.Text;
+                    karmand.UsersPassWord = PassWord_Txt.Text;
+                    karmand.UsersMobile = Mobile_Txt.Text;
+                    var result = Barbari_BLL.Users.Insert(karmand);
                     if (!result.Success)
                     {
                         MessageBox.Show(result.Message);
@@ -128,6 +129,23 @@ namespace Barbari_UI
                         UserName_Txt.Text = UserName_Txt.Tag.ToString();
                         PassWord_Txt.Text = PassWord_Txt.Tag.ToString();
                         Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
+                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        PassWord_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //foreach (object control in Field_Grid.Children)
+                        //{
+                        //    if (control is Border)
+                        //    {
+                        //        if ((control as Border).Child is TextBox)
+                        //        {
+                        //            (((control as Border).Child) as TextBox).Text = (control as TextBox).Tag.ToString();
+                        //            (((control as Border).Child) as TextBox).Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //        }
+                        //    }
+                        //}
+
                     }
                 }
                 else

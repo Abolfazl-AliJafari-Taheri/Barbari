@@ -9,12 +9,11 @@ namespace Barbari_DAL
 {
     public class BarTahvili
     {
-        public static DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
         public static OperationResult<List<BarTahvili_Tbl>> Select(string search)
         {
+                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname.ToString().Contains(search)).ToList();
                 return new OperationResult<List<BarTahvili_Tbl>>
                 {
@@ -33,9 +32,9 @@ namespace Barbari_DAL
         }
         public static OperationResult Delete(int code)
         {
+                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == code).Single();
                 linq.BarTahvili_Tbls.DeleteOnSubmit(query);
                 linq.SubmitChanges();

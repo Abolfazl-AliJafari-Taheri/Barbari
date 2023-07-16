@@ -112,25 +112,27 @@ namespace Barbari_UI
             {
                 if(Validait())
                 {
-                    Ranande.RanandeFirstName = FirstName_Txt.Text;
-                    Ranande.RanandeLastName= LastName_Txt.Text;
-                    Ranande.RanandeCodeRanande = Code_Txt.Text;
-                    Ranande.RanandeMobile= Mobile_Txt.Text;
-                    var result = Barbari_BLL.Ranande.Insert(Ranande);
+                    Ranande_Tbl ranande= new Ranande_Tbl();
+                    ranande.RanandeFirstName = FirstName_Txt.Text;
+                    ranande.RanandeLastName= LastName_Txt.Text;
+                    ranande.RanandeCodeRanande = Code_Txt.Text;
+                    ranande.RanandeMobile= Mobile_Txt.Text;
+                    var result = Barbari_BLL.Ranande.Insert(ranande);
                     if (!result.Success)
                     {
                         MessageBox.Show(result.Message);
                     }
                     else
                     {
-                        Ranande.RanandeFirstName = "";
-                        Ranande.RanandeLastName = "";
-                        Ranande.RanandeCodeRanande = "";
-                        Ranande.RanandeMobile = "";
                         FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
                         LastName_Txt.Text = LastName_Txt.Tag.ToString();
                         Code_Txt.Text = Code_Txt.Tag.ToString();
                         Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
+
+                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                     }
                 }
                 else

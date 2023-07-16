@@ -11,12 +11,11 @@ namespace Barbari_DAL
 {
     public class City
     {
-        public static DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
         public static OperationResult<IEnumerable<IGrouping<string, City_Tbl>>> Select(string search)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.City_Tbls.Where(p => p.CityShahr.Contains(search)).OrderBy(p => p.CityShahr)
                     .GroupBy(p => p.CityShahr).ToList();
                 return new OperationResult<IEnumerable<IGrouping<string, City_Tbl>>>
@@ -75,9 +74,10 @@ namespace Barbari_DAL
         //}
         public static OperationResult<int> Select_Shahr_Anbar(string shahr,string anbar)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var result = linq.City_Tbls.Count(p => p.CityShahr == shahr && p.CityAnbar == anbar);
                 return new OperationResult<int>
                 {
@@ -97,9 +97,10 @@ namespace Barbari_DAL
         }
         public static OperationResult Delete(string shahr,string anbar)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.City_Tbls.Where(p => p.CityShahr == shahr && p.CityAnbar == anbar).Single();
                 linq.City_Tbls.DeleteOnSubmit(query);
                 linq.SubmitChanges();
@@ -119,9 +120,10 @@ namespace Barbari_DAL
         }
         public static OperationResult Insert(City_Tbl city)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 linq.City_Tbls.InsertOnSubmit(city);
                 linq.SubmitChanges();
                 return new OperationResult

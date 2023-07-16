@@ -8,12 +8,12 @@ namespace Barbari_DAL
 {
     public class Customers
     {
-        public static DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
         public static OperationResult<List<Customers_Tbl>> Select(string search)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode.Contains(search) && p.CustomersIsDelete == false).
                     OrderBy(p => p.CustomersLastName).ThenBy(p => p.CustomersFirstName).ToList();
                 return new OperationResult<List<Customers_Tbl>>
@@ -32,6 +32,8 @@ namespace Barbari_DAL
         }
         public static OperationResult<List<Customers_Tbl>> Select_Code(string search)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
                 linq = new DataClassBarbariDataContext();
@@ -52,6 +54,8 @@ namespace Barbari_DAL
         }
         public static OperationResult Delete(string code)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
                 linq = new DataClassBarbariDataContext();
@@ -72,6 +76,8 @@ namespace Barbari_DAL
         }
         public static OperationResult Recovery(string code)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
                 linq = new DataClassBarbariDataContext();
@@ -92,6 +98,8 @@ namespace Barbari_DAL
         }
         public static OperationResult Insert(Customers_Tbl customer)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
                 linq = new DataClassBarbariDataContext();
@@ -113,6 +121,8 @@ namespace Barbari_DAL
         }
         public static OperationResult Update(Customers_Tbl customer)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
                 linq = new DataClassBarbariDataContext();

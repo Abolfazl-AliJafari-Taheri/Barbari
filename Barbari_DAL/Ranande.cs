@@ -9,12 +9,12 @@ namespace Barbari_DAL
 {
     public class Ranande
     {
-        public static DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
         public static OperationResult<List<Ranande_Tbl>> Select(string search)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande.Contains(search) && p.RanandeIsDelete == false).
                     OrderBy(p => p.RanandeLastName).ThenBy(p => p.RanandeFirstName).ToList();
                 return new OperationResult<List<Ranande_Tbl>>
@@ -34,9 +34,10 @@ namespace Barbari_DAL
         }
         public static OperationResult<List<Ranande_Tbl>> Select_Code(string search)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == search).ToList();
                 return new OperationResult<List<Ranande_Tbl>>
                 {
@@ -55,9 +56,10 @@ namespace Barbari_DAL
         }
         public static OperationResult Delete(string code)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == code).Single();
                 query.RanandeIsDelete = true;
                 linq.SubmitChanges();
@@ -76,9 +78,10 @@ namespace Barbari_DAL
         }
         public static OperationResult Recovery(string code)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == code).Single();
                 query.RanandeIsDelete = false;
                 linq.SubmitChanges();
@@ -97,9 +100,9 @@ namespace Barbari_DAL
         }
         public static OperationResult Insert(Ranande_Tbl rananade)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq = new DataClassBarbariDataContext();
                 linq.Ranande_Tbls.InsertOnSubmit(rananade);
                 linq.SubmitChanges();
                 return new OperationResult
@@ -118,9 +121,10 @@ namespace Barbari_DAL
         }
         public static OperationResult Update(Ranande_Tbl rananade)
         {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == rananade.RanandeCodeRanande).Single();
                 query.RanandeFirstName = rananade.RanandeFirstName;
                 query.RanandeLastName = rananade.RanandeLastName;
