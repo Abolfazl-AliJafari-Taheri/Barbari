@@ -39,8 +39,8 @@ namespace Barbari_UI
                 ShowRanade_StckPnl.Children.Clear();
                 foreach (Users_Tbl Karmand in karmandan.Data)
                 {
-                    KarmandComponent ranande = new KarmandComponent(Karmand) { Height = 72, Width = 1143 };
-                    ShowRanade_StckPnl.Children.Add(ranande);
+                    KarmandComponent karmand = new KarmandComponent(Karmand) { Height = 72, Width = 1143 };
+                    ShowRanade_StckPnl.Children.Add(karmand);
                 }
             }
 

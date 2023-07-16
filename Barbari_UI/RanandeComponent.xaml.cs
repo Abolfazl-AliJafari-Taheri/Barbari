@@ -39,17 +39,9 @@ namespace Barbari_UI
             MobileNum_TxtBlock.Text = Ranande.RanandeMobile;
         }
 
-        private void Delete_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Delete_Btn_Click(object sender, RoutedEventArgs e)
         {
-            var result = Barbari_BLL.Ranande.Delete(Ranande.RanandeCodeRanande);
-            if(result.Success)
-            {
-                WindowsAndPages.ranandegan.Refresh();
-            }
-            else
-            {
-                MessageBox.Show(result.Message);
-            }
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new SubmitDelete(Driver: Ranande) { Height = 160 ,Width = 400 });
         }
 
         private async void Edit_Btn_Click(object sender, RoutedEventArgs e)

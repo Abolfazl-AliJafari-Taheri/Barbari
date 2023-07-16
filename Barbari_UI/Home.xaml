@@ -162,7 +162,7 @@
                                 </Button>
                             </Border>
                         </Grid>
-                        <Frame Grid.Row="1" Name="MainFrame">
+                        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden">
 
                         </Frame>
                     </Grid>

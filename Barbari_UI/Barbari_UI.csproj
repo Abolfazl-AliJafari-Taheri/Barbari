@@ -67,6 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddAnbar.xaml.cs">
+      <DependentUpon>AddAnbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddCustomer.xaml.cs">
+      <DependentUpon>AddCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddKarmand.xaml.cs">
       <DependentUpon>AddKarmand.xaml</DependentUpon>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="CityAnbar.xaml.cs">
       <DependentUpon>CityAnbar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CityAnbarComponent.xaml.cs">
+      <DependentUpon>CityAnbarComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Karmand.xaml.cs">
       <DependentUpon>Karmand.xaml</DependentUpon>
     </Compile>
@@ -94,6 +103,9 @@
     </Compile>
     <Compile Include="Moshtari.xaml.cs">
       <DependentUpon>Moshtari.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MoshtariComponent.xaml.cs">
+      <DependentUpon>MoshtariComponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="RanandeComponent.xaml.cs">
       <DependentUpon>RanandeComponent.xaml</DependentUpon>
@@ -153,6 +165,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AddAnbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddKarmand.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,6 +193,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CityAnbarComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Moshtari.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MoshtariComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
