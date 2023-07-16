@@ -40,10 +40,15 @@ namespace Barbari_BLL
         {
             foreach (char c in input)
             {
-                if (!(char.IsLetter(c) || char.IsDigit(c)))
+                if (!IsEnglishLetter(c))
                     return true;
             }
             return false;
+        }
+
+        private static bool IsEnglishLetter(char c)
+        {
+            return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
         }
         public static OperationResult Users_Validation(Users_Tbl user)
         {
