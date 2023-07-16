@@ -26,12 +26,12 @@ namespace Barbari_UI
         {
             InitializeComponent();
         }
-        public CityAnbarComponent(IGrouping<string, City_Tbl> anbar)
+        public CityAnbarComponent(City_Tbl anbar)
         {
             InitializeComponent();
             Anbar = anbar;
         }
-        public IGrouping<string, City_Tbl> Anbar { get; set; }
+        public City_Tbl Anbar { get; set; }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             AnbarName_TxtBlock.Text = Anbar.CityAnbar;
@@ -43,6 +43,7 @@ namespace Barbari_UI
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(new SubmitDelete(City: Anbar) { Height = 160, Width = 400 });
 
         }
+
 
     }
 }
