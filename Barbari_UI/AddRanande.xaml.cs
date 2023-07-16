@@ -87,21 +87,26 @@ namespace Barbari_UI
                     Ranande.RanandeLastName = LastName_Txt.Text;
                     Ranande.RanandeCodeRanande = Code_Txt.Text;
                     Ranande.RanandeMobile = Mobile_Txt.Text;
-                }
-                var result = Barbari_BLL.Ranande.Update(Ranande);
-                if(!result.Success)
-                {
-                    MessageBox.Show(result.Message);
+                    var result = Barbari_BLL.Ranande.Update(Ranande);
+                    if (!result.Success)
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        Ranande.RanandeFirstName = "";
+                        Ranande.RanandeLastName = "";
+                        Ranande.RanandeCodeRanande = "";
+                        Ranande.RanandeMobile = "";
+                        WindowsAndPages.ranandegan.Refresh();
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                    }
                 }
                 else
                 {
-                    Ranande.RanandeFirstName = "";
-                    Ranande.RanandeLastName = "";
-                    Ranande.RanandeCodeRanande = "";
-                    Ranande.RanandeMobile = "";
-                    WindowsAndPages.ranandegan.Refresh();
-                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
                 }
+                
             }
             else
             {
@@ -111,23 +116,28 @@ namespace Barbari_UI
                     Ranande.RanandeLastName= LastName_Txt.Text;
                     Ranande.RanandeCodeRanande = Code_Txt.Text;
                     Ranande.RanandeMobile= Mobile_Txt.Text;
-                }
-                var result = Barbari_BLL.Ranande.Insert(Ranande);
-                if(!result.Success)
-                {
-                    MessageBox.Show(result.Message);
+                    var result = Barbari_BLL.Ranande.Insert(Ranande);
+                    if (!result.Success)
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        Ranande.RanandeFirstName = "";
+                        Ranande.RanandeLastName = "";
+                        Ranande.RanandeCodeRanande = "";
+                        Ranande.RanandeMobile = "";
+                        FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
+                        LastName_Txt.Text = LastName_Txt.Tag.ToString();
+                        Code_Txt.Text = Code_Txt.Tag.ToString();
+                        Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
+                    }
                 }
                 else
                 {
-                    Ranande.RanandeFirstName = "";
-                    Ranande.RanandeLastName = "";
-                    Ranande.RanandeCodeRanande = "";
-                    Ranande.RanandeMobile = "";
-                    FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
-                    LastName_Txt.Text = LastName_Txt.Tag.ToString();
-                    Code_Txt.Text = Code_Txt.Tag.ToString();
-                    Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
+                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
                 }
+                
 
             }
         }

@@ -79,6 +79,8 @@ namespace Barbari_UI
                 }
                 else
                 {
+                    WindowsAndPages.home_Window.User= result.Data;
+                    WindowsAndPages.home_Window.Window_Loaded(null,null);
                     WindowsAndPages.home_Window.ShowDialog();
                 }
             }

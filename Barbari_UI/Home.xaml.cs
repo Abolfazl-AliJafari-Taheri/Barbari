@@ -223,7 +223,7 @@ namespace Barbari_UI
             UnSelectSettingMenu();
             if (createKarmand)
             {
-                MainFrame.Content = WindowsAndPages.moshtari;
+                MainFrame.Content = WindowsAndPages.karmand;
             }
             else
             {

@@ -24,6 +24,7 @@ namespace Barbari_UI
     {
         public AddKarmand()
         {
+            Karmand = new Users_Tbl();
             InitializeComponent();
         }
         public AddKarmand(Users_Tbl karmand)
@@ -60,7 +61,8 @@ namespace Barbari_UI
             FirstName_Txt.Text = karmand.UsersFirstName;
             LastName_Txt.Text = karmand.UsersLastName;
             UserName_Txt.Text = karmand.UsersUserName;
-            UserName_Txt.Text = karmand.UsersMobile;
+            Mobile_Txt.Text = karmand.UsersMobile;
+            PassWord_Txt.Text = karmand.UsersPassWord;
             Add_Btn.Content = "ویرایش کارمند";
             UserName_Txt.IsReadOnly = true;
             FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
@@ -85,20 +87,25 @@ namespace Barbari_UI
                 {
                     Karmand.UsersFirstName = FirstName_Txt.Text;
                     Karmand.UsersLastName = LastName_Txt.Text;
-                    Karmand.UsersLastName = UserName_Txt.Text;
+                    Karmand.UsersUserName = UserName_Txt.Text;
                     Karmand.UsersPassWord= PassWord_Txt.Text;
                     Karmand.UsersMobile = Mobile_Txt.Text;
-                }
-                var result = Barbari_BLL.Users.Update(Karmand);
-                if (!result.Success)
-                {
-                    MessageBox.Show(result.Message);
+                    var result = Barbari_BLL.Users.Update(Karmand);
+                    if (!result.Success)
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        WindowsAndPages.karmand.Refresh();
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                    }
                 }
                 else
                 {
-                    WindowsAndPages.karmand.Refresh();
-                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
                 }
+              
             }
             else
             {
@@ -106,24 +113,27 @@ namespace Barbari_UI
                 {
                     Karmand.UsersFirstName = FirstName_Txt.Text;
                     Karmand.UsersLastName = LastName_Txt.Text;
-                    Karmand.UsersLastName = UserName_Txt.Text;
+                    Karmand.UsersUserName = UserName_Txt.Text;
                     Karmand.UsersPassWord = PassWord_Txt.Text;
                     Karmand.UsersMobile = Mobile_Txt.Text;
-                }
-                var result = Barbari_BLL.Users.Insert(Karmand);
-                if (!result.Success)
-                {
-                    MessageBox.Show(result.Message);
+                    var result = Barbari_BLL.Users.Insert(Karmand);
+                    if (!result.Success)
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
+                        LastName_Txt.Text = LastName_Txt.Tag.ToString();
+                        UserName_Txt.Text = UserName_Txt.Tag.ToString();
+                        PassWord_Txt.Text = PassWord_Txt.Tag.ToString();
+                        Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
+                    }
                 }
                 else
                 {
-                    FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
-                    LastName_Txt.Text = LastName_Txt.Tag.ToString();
-                    UserName_Txt.Text = UserName_Txt.Tag.ToString();
-                    PassWord_Txt.Text = PassWord_Txt.Tag.ToString();
-                    Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
+                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
                 }
-
             }
         }
         bool Validait()
