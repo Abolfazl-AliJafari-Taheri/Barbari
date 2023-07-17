@@ -11,14 +11,13 @@ namespace Barbari_DAL
 {
     public class City
     {
-        public static OperationResult<IEnumerable<IGrouping<string, City_Tbl>>> Select(string search)
+        public static OperationResult<List<City_Tbl>> Select(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.City_Tbls.Where(p => p.CityShahr.Contains(search)).OrderBy(p => p.CityShahr)
-                    .GroupBy(p => p.CityShahr).ToList();
-                return new OperationResult<IEnumerable<IGrouping<string, City_Tbl>>>
+                var query = linq.City_Tbls.Where(p => p.CityShahr.Contains(search)).OrderBy(p => p.CityShahr).ToList();
+                return new OperationResult<List<City_Tbl>>
                 {
                     Data = query,
                     Success = true,
@@ -26,52 +25,54 @@ namespace Barbari_DAL
             }
             catch 
             {
-                return new OperationResult<IEnumerable<IGrouping<string, City_Tbl>>>
+                return new OperationResult<List<City_Tbl>>
                 {
                     Success = false
                 };
             }
             
         }
-        //public static OperationResult<List<string>> Select_Shahr()
-        //{
-        //    try
-        //    {
-        //        var query = linq.City_Tbls.Select(p => p.CityShahr).Distinct().ToList();
-        //        return new OperationResult<List<string>>
-        //        {
-        //            Data = query,
-        //            Success = true,
-        //        };
-        //    }
-        //    catch
-        //    {
-        //        return new OperationResult<List<string>>
-        //        {
-        //            Success = false
-        //        };
-        //    }
-        //}
-        //public static OperationResult<List<string>> Select_Anbar(string Shahr)
-        //{
-        //    try
-        //    {
-        //        var query = linq.City_Tbls.Where(p => p.CityShahr == Shahr).OrderBy(p =>p.CityAnbar).
-        //            Select(p => p.CityAnbar).ToList();
-        //        return new OperationResult<List<string>>
-        //        {
-        //            Data = query,
-        //            Success = true,
-        //        };
-        //    }
-        //    catch
-        //    {
-        //        return new OperationResult<List<string>>
-        //        {
-        //            Success = false
-        //        };
-        //    }
-        //}
+        public static OperationResult<List<string>> Select_Shahr()
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.City_Tbls.Select(p => p.CityShahr).Distinct().ToList();
+                return new OperationResult<List<string>>
+                {
+                    Data = query,
+                    Success = true,
+                };
+            }
+            catch
+            {
+                return new OperationResult<List<string>>
+                {
+                    Success = false
+                };
+            }
+        }
+        public static OperationResult<List<string>> Select_Anbar(string Shahr)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.City_Tbls.Where(p => p.CityShahr == Shahr).OrderBy(p => p.CityAnbar).
+                    Select(p => p.CityAnbar).ToList();
+                return new OperationResult<List<string>>
+                {
+                    Data = query,
+                    Success = true,
+                };
+            }
+            catch
+            {
+                return new OperationResult<List<string>>
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult<int> Select_Shahr_Anbar(string shahr,string anbar)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
