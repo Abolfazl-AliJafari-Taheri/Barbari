@@ -11,7 +11,7 @@ namespace Barbari_DAL
     {
         public static OperationResult<List<BarErsali_Tbl>> Select()
         {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
                 var query = linq.BarErsali_Tbls.ToList();
@@ -31,7 +31,7 @@ namespace Barbari_DAL
         }
         public static OperationResult<int> Select_Barname_Last()
         {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
                 var query = linq.BarErsali_Tbls.Select(p => p.BarErsaliBarname).LastOrDefault();
@@ -55,7 +55,6 @@ namespace Barbari_DAL
         public static OperationResult Delete(int search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == search).Single();

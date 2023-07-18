@@ -11,7 +11,7 @@ namespace Barbari_DAL
     {
         public static OperationResult<List<BarTahvili_Tbl>> Select(string search)
         {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
                 var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname.ToString().Contains(search)).ToList();
@@ -32,7 +32,7 @@ namespace Barbari_DAL
         }
         public static OperationResult Delete(int code)
         {
-                DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
                 var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == code).Single();
@@ -51,6 +51,39 @@ namespace Barbari_DAL
                 };
             }
 
+        }
+        public static OperationResult Insert(BarTahvili_Tbl barTahvili ,List<KalaTahvili_Tbl> kalaTahvili)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            var transaction = linq.Transaction;
+            try
+            {
+                linq.BarTahvili_Tbls.InsertOnSubmit(barTahvili);
+                linq.SubmitChanges();
+
+                for (int i = 0; i < kalaTahvili.Count; i++)
+                {
+                    kalaTahvili[i].KalaTahviliBarname = barTahvili.BarTahviliBarname;
+                }
+
+                linq.KalaTahvili_Tbls.InsertAllOnSubmit(kalaTahvili);
+                linq.SubmitChanges();
+
+                transaction.Commit();
+
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                transaction.Rollback();
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
         }
 
     }
