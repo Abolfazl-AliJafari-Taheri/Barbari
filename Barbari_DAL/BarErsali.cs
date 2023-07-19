@@ -79,7 +79,6 @@ namespace Barbari_DAL
             var transaction = linq.Transaction;
             try
             {
-                linq = new DataClassBarbariDataContext();
                 linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
                 linq.SubmitChanges();
 
@@ -112,7 +111,6 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == barErsali.BarErsaliBarname).Single();
                 query.BarErsaliCodeRanande = barErsali.BarErsaliCodeRanande;
                 query.BarErsaliNamRanande = barErsali.BarErsaliNamRanande;

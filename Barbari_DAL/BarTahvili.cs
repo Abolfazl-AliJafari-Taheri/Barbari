@@ -85,6 +85,28 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult Insert_TavilBeMoshtari(BarTahvili_Tbl barTahvili)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == barTahvili.BarTahviliBarname).Single();
+                query.BarTahviliRaveshEhrazHoviat = barTahvili.BarTahviliRaveshEhrazHoviat;
+                query.BarTahviliRaveshEhrazHoviatText = barTahvili.BarTahviliRaveshEhrazHoviatText;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+        }
 
     }
 }

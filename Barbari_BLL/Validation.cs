@@ -1354,5 +1354,48 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult BarErsali_Validation_TahvilMoshtari(BarTahvili_Tbl barTahvili)
+        {
+            if (string.IsNullOrEmpty(barTahvili.BarTahviliRaveshEhrazHoviat))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "روش احراز هویت را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(barTahvili.BarTahviliRaveshEhrazHoviatText))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "روش احراز هویت متن را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliRaveshEhrazHoviat, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "روش احراز هویت نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(barTahvili.BarTahviliRaveshEhrazHoviatText, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "روش احراز هویت متن نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
     }
+    
 }
