@@ -30,6 +30,26 @@ namespace Barbari_DAL
             }
 
         }
+        public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBarname)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.KalaTahvili_Tbls.Where(p => p.KalaTahviliBarname == codeBarname).ToList();
+                return new OperationResult<List<KalaTahvili_Tbl>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch (Exception)
+            {
+                return new OperationResult<List<KalaTahvili_Tbl>>
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult Delete(int code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
@@ -51,6 +71,28 @@ namespace Barbari_DAL
                 };
             }
 
+        }
+        public static OperationResult Delete_KalaTahvili(int codeBarname, int codeKalaTahvili)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.KalaTahvili_Tbls.Where(p => p.KalaTahviliBarname == codeBarname &&
+                p.KalaTahviliCodeKala == codeKalaTahvili).Single();
+                linq.KalaTahvili_Tbls.DeleteOnSubmit(query);
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
         }
         public static OperationResult Insert(BarTahvili_Tbl barTahvili ,List<KalaTahvili_Tbl> kalaTahvili)
         {

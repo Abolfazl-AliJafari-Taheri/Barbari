@@ -25,6 +25,22 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBarname)
+        {
+            var result = Barbari_DAL.BarTahvili.Select_KalaTahvili(codeBarname);
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else
+            {
+                return new OperationResult<List<KalaTahvili_Tbl>>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Delete(int code)
         {
             var result = Barbari_DAL.BarTahvili.Delete(code);
@@ -33,6 +49,25 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = true
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
+        public static OperationResult Delete_KalaTahvili(int CodeBarname, int codeKalaTahvili)
+        {
+            var result = Barbari_DAL.BarTahvili.Delete_KalaTahvili(CodeBarname, codeKalaTahvili);
+            if (result.Success == true)
+            {
+                return new OperationResult
+                {
+                    Success = true,
                 };
             }
             else
