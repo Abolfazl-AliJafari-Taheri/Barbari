@@ -242,7 +242,7 @@
     <Resource Include="Source\Icones\AppIcon%28White Border%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Source\Icones\AppIcon%28Black Border%29.png" />
+    <Resource Include="Source\Icones\AppIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\Icones\Bar Ersali Menu Icon%28Blue Border%29.png" />
@@ -312,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\Icones\Edit Btn Icon%28White Border%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Insert Icon Setting%28Gray Border%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

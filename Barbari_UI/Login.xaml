@@ -8,6 +8,7 @@
         Title="Login" Height="1024px" Width="1440"
         WindowStartupLocation="CenterScreen"
         PreviewKeyDown="Window_PreviewKeyDown"
+        Loaded="Window_Loaded"
         Closing="Window_Closing">
     <Border Background="#F7F7F7">
         <Border.Resources>
@@ -61,7 +62,7 @@
             </Grid>
 
             <Grid Grid.Column="1" Background="#2B54A3">
-                <Image Height="320" Width="320" Source="/Source/Icones/AppIcon(White Border).png" />
+                <Image Name="Logo_Img" Height="320" Width="320"  />
             </Grid>
 
         </Grid>
