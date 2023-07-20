@@ -42,8 +42,6 @@ namespace Barbari_UI
                     ShowRanade_StckPnl.Children.Add(anbar);
                 }
             }
-
-
         }
 
         public void RemoveText(object sender, EventArgs e)

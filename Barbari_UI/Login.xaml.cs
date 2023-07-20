@@ -114,5 +114,16 @@ namespace Barbari_UI
         {
            Application.Current.Shutdown();
         }
+        BitmapImage ConverterPhoto(string ImageAddress)
+        {
+            BitmapImage brush = new BitmapImage(new Uri(ImageAddress, UriKind.Relative));
+            return brush;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+          
+            Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon.png");
+        }
     }
 }
