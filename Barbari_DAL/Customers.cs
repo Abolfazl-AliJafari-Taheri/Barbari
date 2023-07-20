@@ -11,7 +11,6 @@ namespace Barbari_DAL
         public static OperationResult<List<Customers_Tbl>> Select(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode.Contains(search) && p.CustomersIsDelete == false).
@@ -33,7 +32,6 @@ namespace Barbari_DAL
         public static OperationResult<List<Customers_Tbl>> Select_Code(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 linq = new DataClassBarbariDataContext();
@@ -55,7 +53,6 @@ namespace Barbari_DAL
         public static OperationResult Delete(string code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
@@ -76,7 +73,6 @@ namespace Barbari_DAL
         public static OperationResult Recovery(string code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
@@ -97,7 +93,6 @@ namespace Barbari_DAL
         public static OperationResult Insert(Customers_Tbl customer)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 linq.Customers_Tbls.InsertOnSubmit(customer);
@@ -119,7 +114,6 @@ namespace Barbari_DAL
         public static OperationResult Update(Customers_Tbl customer)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode== customer.CustomersCode).Single();

@@ -76,7 +76,6 @@ namespace Barbari_DAL
         public static OperationResult<int> Select_Shahr_Anbar(string shahr,string anbar)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var result = linq.City_Tbls.Count(p => p.CityShahr == shahr && p.CityAnbar == anbar);
@@ -99,7 +98,6 @@ namespace Barbari_DAL
         public static OperationResult Delete(string shahr,string anbar)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.City_Tbls.Where(p => p.CityShahr == shahr && p.CityAnbar == anbar).Single();
@@ -122,7 +120,6 @@ namespace Barbari_DAL
         public static OperationResult Insert(City_Tbl city)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 linq.City_Tbls.InsertOnSubmit(city);

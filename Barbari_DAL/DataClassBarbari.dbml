@@ -31,9 +31,23 @@
       <Column Name="BarErsaliBastebandi" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
       <Column Name="BarErsaliUserNameKarmand" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="BarErsali_Tbl_KalaDaryafti_Tbl" Member="KalaDaryafti_Tbls" ThisKey="BarErsaliBarname" OtherKey="KalaDaryaftiBarname" Type="KalaDaryafti_Tbl" />
+      <Association Name="Users_Tbl_BarErsali_Tbl" Member="Users_Tbl" ThisKey="BarErsaliUserNameKarmand" OtherKey="UsersUserName" Type="Users_Tbl" IsForeignKey="true" />
       <Association Name="Customers_Tbl_BarErsali_Tbl" Member="Customers_Tbl" ThisKey="BarErsaliCodeFerestande" OtherKey="CustomersCode" Type="Customers_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Ranande_Tbl_BarErsali_Tbl" Member="Ranande_Tbl" ThisKey="BarErsaliCodeRanande" OtherKey="RanandeCodeRanande" Type="Ranande_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Users_Tbl_BarErsali_Tbl" Member="Users_Tbl" ThisKey="BarErsaliUserNameKarmand" OtherKey="UsersUserName" Type="Users_Tbl" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users_Tbl" Member="Users_Tbls">
+    <Type Name="Users_Tbl">
+      <Column Name="UsersFirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UsersLastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UsersUserName" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UsersPassWord" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UsersMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="UsersDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UsersRoles" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Users_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="UsersUserName" OtherKey="BarErsaliUserNameKarmand" Type="BarErsali_Tbl" />
+      <Association Name="Users_Tbl_BarTahvili_Tbl" Member="BarTahvili_Tbls" ThisKey="UsersUserName" OtherKey="BarTahviliUserNameKarmand" Type="BarTahvili_Tbl" />
+      <Association Name="Role_Users_Tbl" Member="Role" ThisKey="UsersRoles" OtherKey="RolesNamRole" Type="Role" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.BarTahvili_Tbl" Member="BarTahvili_Tbls">
@@ -140,20 +154,6 @@
       <Column Name="BarTahviliDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="RolesGozaresh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Role_Users_Tbl" Member="Users_Tbls" ThisKey="RolesNamRole" OtherKey="UsersRoles" Type="Users_Tbl" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Users_Tbl" Member="Users_Tbls">
-    <Type Name="Users_Tbl">
-      <Column Name="UsersFirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UsersLastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UsersUserName" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="UsersPassWord" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UsersMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="UsersDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="UsersRoles" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Users_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="UsersUserName" OtherKey="BarErsaliUserNameKarmand" Type="BarErsali_Tbl" />
-      <Association Name="Users_Tbl_BarTahvili_Tbl" Member="BarTahvili_Tbls" ThisKey="UsersUserName" OtherKey="BarTahviliUserNameKarmand" Type="BarTahvili_Tbl" />
-      <Association Name="Role_Users_Tbl" Member="Role" ThisKey="UsersRoles" OtherKey="RolesNamRole" Type="Role" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
 </Database>

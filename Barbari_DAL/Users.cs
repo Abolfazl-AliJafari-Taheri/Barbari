@@ -12,7 +12,6 @@ namespace Barbari_DAL
         public static OperationResult<List<Users_Tbl>> Select(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName.Contains(search) && p.UsersDelete == false).
@@ -34,7 +33,6 @@ namespace Barbari_DAL
         public static OperationResult<List<Users_Tbl>> Select_UserName(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == search).ToList();
@@ -56,7 +54,6 @@ namespace Barbari_DAL
         public static OperationResult Delete(string code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == code).Single();
@@ -78,7 +75,6 @@ namespace Barbari_DAL
         public static OperationResult Recovery(string code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == code).Single();
@@ -101,7 +97,6 @@ namespace Barbari_DAL
         public static OperationResult Insert(Users_Tbl user)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
 
@@ -124,7 +119,6 @@ namespace Barbari_DAL
         public static OperationResult Update(Users_Tbl user)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Users_Tbls.Where(p => p.UsersUserName == user.UsersUserName).Single();
@@ -149,7 +143,6 @@ namespace Barbari_DAL
         public static OperationResult<Users_Tbl> SearchUserAndPassWord(string userName , string passWord)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 

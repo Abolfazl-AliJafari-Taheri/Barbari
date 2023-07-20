@@ -12,7 +12,6 @@ namespace Barbari_DAL
         public static OperationResult<List<Ranande_Tbl>> Select(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande.Contains(search) && p.RanandeIsDelete == false).
@@ -35,7 +34,6 @@ namespace Barbari_DAL
         public static OperationResult<List<Ranande_Tbl>> Select_Code(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == search).ToList();
@@ -57,7 +55,6 @@ namespace Barbari_DAL
         public static OperationResult Delete(string code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == code).Single();
@@ -79,7 +76,6 @@ namespace Barbari_DAL
         public static OperationResult Recovery(string code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == code).Single();
@@ -122,7 +118,6 @@ namespace Barbari_DAL
         public static OperationResult Update(Ranande_Tbl rananade)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-
             try
             {
                 var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == rananade.RanandeCodeRanande).Single();
