@@ -44,6 +44,7 @@
     <Compile Include="BarErsali.cs" />
     <Compile Include="BarTahvili.cs" />
     <Compile Include="City.cs" />
+    <Compile Include="Company.cs" />
     <Compile Include="Customers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ranande.cs" />

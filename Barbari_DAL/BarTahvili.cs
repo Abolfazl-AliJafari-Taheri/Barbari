@@ -149,6 +149,48 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult Update(BarTahvili_Tbl barTahvili)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == barTahvili.BarTahviliBarname).Single();
+                query.BarTahviliShahrFerestande = barTahvili.BarTahviliShahrFerestande;
+                query.BarTahviliNamFerestande = barTahvili.BarTahviliNamFerestande;
+                query.BarTahviliFamilyFerestande = barTahvili.BarTahviliFamilyFerestande;
+                query.BarTahviliMobileFerestande = barTahvili.BarTahviliMobileFerestande;
+                query.BarTahviliShahrGerande = barTahvili.BarTahviliShahrGerande;
+                query.BarTahviliNamGerande = barTahvili.BarTahviliNamGerande;
+                query.BarTahviliFamilyGerande = barTahvili.BarTahviliFamilyGerande;
+                query.BarTahviliMobileGerande = barTahvili.BarTahviliMobileGerande;
+                query.BarTahviliNamRanande = barTahvili.BarTahviliNamRanande;
+                query.BarTahviliFamilyRanande = barTahvili.BarTahviliFamilyRanande;
+                query.BarTahviliMobileRanande = barTahvili.BarTahviliMobileRanande;
+                query.BarTahviliTarikh = barTahvili.BarTahviliTarikh;
+                query.BarTahviliiSaat = barTahvili.BarTahviliiSaat;
+                query.BarTahviliPishKeraye = barTahvili.BarTahviliPishKeraye;
+                query.BarTahviliPasKeraye = barTahvili.BarTahviliPasKeraye;
+                query.BarTahviliBime = barTahvili.BarTahviliBime;
+                query.BarTahviliAnbardari = barTahvili.BarTahviliAnbardari;
+                query.BarTahviliShahri = barTahvili.BarTahviliShahri;
+                query.BarTahviliBastebandi = barTahvili.BarTahviliBastebandi;
+                query.BarTahviliRaveshEhrazHoviat = barTahvili.BarTahviliRaveshEhrazHoviat;
+                query.BarTahviliRaveshEhrazHoviatText = barTahvili.BarTahviliRaveshEhrazHoviatText;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+        }
 
     }
 }

@@ -85,6 +85,15 @@
       <Column Name="CityAnbar" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.Company_Tbl" Member="Company_Tbls">
+    <Type Name="Company_Tbl">
+      <Column Name="CompanyCode" Type="System.String" DbType="NVarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CompanyIogo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompanyCity" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompanyRules" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Customers_Tbl" Member="Customers_Tbls">
     <Type Name="Customers_Tbl">
       <Column Name="CustomersCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

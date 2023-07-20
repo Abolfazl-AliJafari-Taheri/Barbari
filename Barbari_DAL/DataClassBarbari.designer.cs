@@ -57,6 +57,9 @@ namespace Barbari_DAL
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
+    partial void InsertCompany_Tbl(Company_Tbl instance);
+    partial void UpdateCompany_Tbl(Company_Tbl instance);
+    partial void DeleteCompany_Tbl(Company_Tbl instance);
     #endregion
 		
 		public DataClassBarbariDataContext() : 
@@ -158,6 +161,14 @@ namespace Barbari_DAL
 			get
 			{
 				return this.GetTable<Role>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Company_Tbl> Company_Tbls
+		{
+			get
+			{
+				return this.GetTable<Company_Tbl>();
 			}
 		}
 	}
@@ -3528,6 +3539,164 @@ namespace Barbari_DAL
 		{
 			this.SendPropertyChanging();
 			entity.Role = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Company_Tbl")]
+	public partial class Company_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CompanyCode;
+		
+		private string _CompanyIogo;
+		
+		private string _CompanyName;
+		
+		private string _CompanyCity;
+		
+		private string _CompanyRules;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCompanyCodeChanging(int value);
+    partial void OnCompanyCodeChanged();
+    partial void OnCompanyIogoChanging(string value);
+    partial void OnCompanyIogoChanged();
+    partial void OnCompanyNameChanging(string value);
+    partial void OnCompanyNameChanged();
+    partial void OnCompanyCityChanging(string value);
+    partial void OnCompanyCityChanged();
+    partial void OnCompanyRulesChanging(string value);
+    partial void OnCompanyRulesChanged();
+    #endregion
+		
+		public Company_Tbl()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyCode", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CompanyCode
+		{
+			get
+			{
+				return this._CompanyCode;
+			}
+			set
+			{
+				if ((this._CompanyCode != value))
+				{
+					this.OnCompanyCodeChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyCode = value;
+					this.SendPropertyChanged("CompanyCode");
+					this.OnCompanyCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyIogo", DbType="NVarChar(MAX)")]
+		public string CompanyIogo
+		{
+			get
+			{
+				return this._CompanyIogo;
+			}
+			set
+			{
+				if ((this._CompanyIogo != value))
+				{
+					this.OnCompanyIogoChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyIogo = value;
+					this.SendPropertyChanged("CompanyIogo");
+					this.OnCompanyIogoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyName", DbType="NVarChar(50)")]
+		public string CompanyName
+		{
+			get
+			{
+				return this._CompanyName;
+			}
+			set
+			{
+				if ((this._CompanyName != value))
+				{
+					this.OnCompanyNameChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyName = value;
+					this.SendPropertyChanged("CompanyName");
+					this.OnCompanyNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyCity", DbType="NVarChar(50)")]
+		public string CompanyCity
+		{
+			get
+			{
+				return this._CompanyCity;
+			}
+			set
+			{
+				if ((this._CompanyCity != value))
+				{
+					this.OnCompanyCityChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyCity = value;
+					this.SendPropertyChanged("CompanyCity");
+					this.OnCompanyCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyRules", DbType="NVarChar(MAX)")]
+		public string CompanyRules
+		{
+			get
+			{
+				return this._CompanyRules;
+			}
+			set
+			{
+				if ((this._CompanyRules != value))
+				{
+					this.OnCompanyRulesChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyRules = value;
+					this.SendPropertyChanged("CompanyRules");
+					this.OnCompanyRulesChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

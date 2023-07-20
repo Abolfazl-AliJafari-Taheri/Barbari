@@ -1396,6 +1396,48 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult Company_Validation(Company_Tbl company)
+        {
+            if (string.IsNullOrEmpty(company.CompanyName))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام شرکت را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(company.CompanyCity))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام شهر را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(company.CompanyName, 100))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام شرکت نباید بیشتر از 100 حرف باشد"
+                };
+            }
+            else if (CheckRangeDataType(company.CompanyCity, 100))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شهر نباید بیشتر از 100 حرف باشد"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
     }
     
 }
