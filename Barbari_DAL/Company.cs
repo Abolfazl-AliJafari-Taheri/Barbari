@@ -14,12 +14,24 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Company_Tbls.LastOrDefault();
-                return new OperationResult<Company_Tbl>
+                var query = linq.Company_Tbls.ToList().LastOrDefault();
+                if (query != null)
                 {
-                    Success = true,
-                    Data = query
-                };
+                    return new OperationResult<Company_Tbl>
+                    {
+                        Success = true,
+                        Data = query
+                    };
+                }
+                else
+                {
+                    return new OperationResult<Company_Tbl>
+                    {
+                        Success = false
+                    };
+                }
+                
+                
             }
             catch 
             {
