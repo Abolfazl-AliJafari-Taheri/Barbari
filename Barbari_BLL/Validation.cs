@@ -1414,20 +1414,20 @@ namespace Barbari_BLL
                     Message = "نام شهر را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(company.CompanyName, 100))
+            else if (CheckRangeDataType(company.CompanyName, 50))
             {
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "نام شرکت نباید بیشتر از 100 حرف باشد"
+                    Message = "نام شرکت نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(company.CompanyCity, 100))
+            else if (CheckRangeDataType(company.CompanyCity, 50))
             {
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "شهر نباید بیشتر از 100 حرف باشد"
+                    Message = "شهر نباید بیشتر از 50 حرف باشد"
                 };
             }
             else

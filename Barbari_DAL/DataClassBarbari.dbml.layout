@@ -26,12 +26,6 @@
         <elementListCompartment Id="4838b08d-2a9c-4845-ac90-630583859a00" absoluteBounds="0.765, 2.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e35b068f-436e-4097-a54b-a64b42c2f44f" absoluteBounds="9.75, 11.125, 2, 1.7708968098958344">
-      <DataClassMoniker Name="/DataClassBarbariDataContext/Company_Tbl" />
-      <nestedChildShapes>
-        <elementListCompartment Id="3bc64a7d-b62e-436a-a842-1fddd4c758c8" absoluteBounds="9.765, 11.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="90a7621f-8b4b-4c64-a192-1f38df240591" absoluteBounds="6.5, 12.875, 2, 1.9631982421874987">
       <DataClassMoniker Name="/DataClassBarbariDataContext/Customers_Tbl" />
       <nestedChildShapes>
@@ -62,54 +56,60 @@
         <elementListCompartment Id="0713829e-d1c6-47e8-a599-3c2e2d6f1fd8" absoluteBounds="0.765, 6.46, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.5 : 7.75); (4.5 : 2.03125); (9.25 : 2.03125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 7.75); (4.5 : 2.03125); (9.25 : 2.03125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Users_Tbl/Users_Tbl_BarErsali_Tbl" />
       <nodes>
         <classShapeMoniker Id="21d98568-8e43-4dca-a8ad-f3bdf1293c98" />
         <classShapeMoniker Id="1ad7f687-f24f-4af2-a7cc-5b13376bee95" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.82774983723958); (6.25 : 8.82774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 8.82774983723958); (6.25 : 8.82774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Users_Tbl/Users_Tbl_BarTahvili_Tbl" />
       <nodes>
         <classShapeMoniker Id="21d98568-8e43-4dca-a8ad-f3bdf1293c98" />
         <classShapeMoniker Id="11b95159-2f62-4462-815c-69c6b76e9313" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 13.8565991210937); (9.5 : 13.8565991210937); (9.5 : 9.82859537760417); (11.25 : 9.82859537760417); (11.25 : 7.31882975260417); (10.25 : 7.31882975260417); (10.25 : 6.94382975260417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 13.8565991210937); (9.25 : 13.8565991210937); (9.25 : 9.82859537760417); (11.25 : 9.82859537760417); (11.25 : 7.31882975260417); (10.25 : 7.31882975260417); (10.25 : 6.94382975260417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Customers_Tbl/Customers_Tbl_BarErsali_Tbl" />
       <nodes>
         <classShapeMoniker Id="90a7621f-8b4b-4c64-a192-1f38df240591" />
         <classShapeMoniker Id="1ad7f687-f24f-4af2-a7cc-5b13376bee95" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 3.88544840494792); (12 : 3.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.25 : 3.88544840494792); (12 : 3.88544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassBarbariDataContext/BarErsali_Tbl/BarErsali_Tbl_KalaDaryafti_Tbl" />
       <nodes>
         <classShapeMoniker Id="1ad7f687-f24f-4af2-a7cc-5b13376bee95" />
         <classShapeMoniker Id="dcf510dc-53b9-4c3b-8810-3bd9fea6ac9f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 8.78929768880208); (9 : 8.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 8.78929768880208); (9 : 8.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassBarbariDataContext/BarTahvili_Tbl/BarTahvili_Tbl_KalaTahvili_Tbl" />
       <nodes>
         <classShapeMoniker Id="11b95159-2f62-4462-815c-69c6b76e9313" />
         <classShapeMoniker Id="88d54155-4d8b-462a-96cb-454ea418a353" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 4.26044840494792); (9.25 : 4.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 4.26044840494792); (9.25 : 4.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Ranande_Tbl/Ranande_Tbl_BarErsali_Tbl" />
       <nodes>
         <classShapeMoniker Id="a2a176c2-f19c-4aba-af05-bdd8711b3c19" />
         <classShapeMoniker Id="1ad7f687-f24f-4af2-a7cc-5b13376bee95" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.82774983723958); (3.5 : 8.82774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.82774983723958); (3.5 : 8.82774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Role/Role_Users_Tbl" />
       <nodes>
         <classShapeMoniker Id="efd5b784-260c-4d2e-b416-4223b725c177" />
         <classShapeMoniker Id="21d98568-8e43-4dca-a8ad-f3bdf1293c98" />
       </nodes>
     </associationConnector>
+    <classShape Id="6b6d0edc-aeaa-4422-a412-c36db7a28479" absoluteBounds="9.5, 11.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClassBarbariDataContext/Company_Tbl" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f05988db-dca1-4d43-89e8-e78e7066e2dd" absoluteBounds="9.515, 11.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

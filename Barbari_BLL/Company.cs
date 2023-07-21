@@ -28,7 +28,35 @@ namespace Barbari_BLL
         }
         public static OperationResult Insert(Company_Tbl company)
         {
+            var result1 = Validation.Company_Validation(company);
+            if (result1.Success == false)
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = result1.Message
+                };
+            }
+            else
+            {
+                var result = Barbari_DAL.Company.Insert(company);
+                if (result.Success == true)
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
 
+                    };
+                }
+            }
         }
     }
 }
