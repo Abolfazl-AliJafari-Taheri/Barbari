@@ -1,4 +1,5 @@
 ﻿using Barbari_DAL;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -378,9 +379,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_EtelatFerestande(BarErsali_Tbl barErsali, bool moshtariSabet)
+        public static OperationResult BarErsali_Validation_EtelatFerestande(string BarErsaliShahreMabda , string BarErsaliAnbarMabda,
+           string BarErsaliNamFerestande, string BarErsaliFamilyFerestande, string BarErsaliMobileFerestande, string BarErsaliCodeFerestande, bool moshtariSabet)
         {
-            if (string.IsNullOrEmpty(barErsali.BarErsaliShahreMabda))
+            if (string.IsNullOrEmpty(BarErsaliShahreMabda))
             {
                 return new OperationResult
                 {
@@ -388,7 +390,7 @@ namespace Barbari_BLL
                     Message = "شهر مبدا را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliAnbarMabda))
+            else if (string.IsNullOrEmpty(BarErsaliAnbarMabda))
             {
                 return new OperationResult
                 {
@@ -396,7 +398,7 @@ namespace Barbari_BLL
                     Message = "انبار مبدا را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliNamFerestande))
+            else if (string.IsNullOrEmpty(BarErsaliNamFerestande))
             {
                 return new OperationResult
                 {
@@ -404,7 +406,7 @@ namespace Barbari_BLL
                     Message = "نام فرستنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliFamilyFerestande))
+            else if (string.IsNullOrEmpty(BarErsaliFamilyFerestande))
             {
                 return new OperationResult
                 {
@@ -412,7 +414,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی فرستنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliMobileFerestande))
+            else if (string.IsNullOrEmpty(BarErsaliMobileFerestande))
             {
                 return new OperationResult
                 {
@@ -420,7 +422,7 @@ namespace Barbari_BLL
                     Message = "شماره تلفن فرستنده را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliShahreMabda, 50))
+            else if (CheckRangeDataType(BarErsaliShahreMabda, 50))
             {
                 return new OperationResult
                 {
@@ -428,7 +430,7 @@ namespace Barbari_BLL
                     Message = "شهر مبدا نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliAnbarMabda, 50))
+            else if (CheckRangeDataType(BarErsaliAnbarMabda, 50))
             {
                 return new OperationResult
                 {
@@ -436,7 +438,7 @@ namespace Barbari_BLL
                     Message = "انبار مبدا نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliNamFerestande, 50))
+            else if (CheckRangeDataType(BarErsaliNamFerestande, 50))
             {
                 return new OperationResult
                 {
@@ -444,7 +446,7 @@ namespace Barbari_BLL
                     Message = "نام فرستنده نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliFamilyFerestande, 50))
+            else if (CheckRangeDataType(BarErsaliFamilyFerestande, 50))
             {
                 return new OperationResult
                 {
@@ -452,7 +454,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی فرستنده نباید بیشتر از 50 حرف باشه"
                 };
             }
-            else if (CheckMobileFormat(barErsali.BarErsaliMobileFerestande))
+            else if (CheckMobileFormat(BarErsaliMobileFerestande))
             {
                 return new OperationResult
                 {
@@ -462,9 +464,9 @@ namespace Barbari_BLL
             }
             else if (moshtariSabet == true)
             {
-                if (!string.IsNullOrEmpty(barErsali.BarErsaliCodeFerestande))
+                if (!string.IsNullOrEmpty(BarErsaliCodeFerestande))
                 {
-                    var result = Barbari_DAL.Customers.Select_Code(barErsali.BarErsaliCodeFerestande);
+                    var result = Barbari_DAL.Customers.Select_Code(BarErsaliCodeFerestande);
                     if (result.Success == true)
                     {
                         if (result.Data.Any(p => p.CustomersIsDelete == true))
@@ -517,9 +519,11 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_EtelatGerande(BarErsali_Tbl barErsali, bool maghsadNahayi)
+        public static OperationResult BarErsali_Validation_EtelatGerande(string BarErsaliShahreMaghsad1,string BarErsaliAnbarMaghsad1,
+           string BarErsaliNamGerande,string BarErsaliFamilyGerande,string BarErsaliMobileGerande,string BarErsaliShahreMaghsad2,
+           string BarErsaliAnbarMaghsad2, bool maghsadNahayi)
         {
-            if (string.IsNullOrEmpty(barErsali.BarErsaliShahreMaghsad1))
+            if (string.IsNullOrEmpty(BarErsaliShahreMaghsad1))
             {
                 return new OperationResult
                 {
@@ -527,7 +531,7 @@ namespace Barbari_BLL
                     Message = "شهر مقصد را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliAnbarMaghsad1))
+            else if (string.IsNullOrEmpty(BarErsaliAnbarMaghsad1))
             {
                 return new OperationResult
                 {
@@ -535,7 +539,7 @@ namespace Barbari_BLL
                     Message = "انبار مقصد را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliNamGerande))
+            else if (string.IsNullOrEmpty(BarErsaliNamGerande))
             {
                 return new OperationResult
                 {
@@ -543,7 +547,7 @@ namespace Barbari_BLL
                     Message = "نام گیرنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliFamilyGerande))
+            else if (string.IsNullOrEmpty(BarErsaliFamilyGerande))
             {
                 return new OperationResult
                 {
@@ -551,7 +555,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی گیرنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliMobileGerande))
+            else if (string.IsNullOrEmpty(BarErsaliMobileGerande))
             {
                 return new OperationResult
                 {
@@ -559,7 +563,7 @@ namespace Barbari_BLL
                     Message = "شماره تلفن فرستنده را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliShahreMaghsad1, 50))
+            else if (CheckRangeDataType(BarErsaliShahreMaghsad1, 50))
             {
                 return new OperationResult
                 {
@@ -567,7 +571,7 @@ namespace Barbari_BLL
                     Message = "شهر مقصد نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliAnbarMaghsad1, 50))
+            else if (CheckRangeDataType(BarErsaliAnbarMaghsad1, 50))
             {
                 return new OperationResult
                 {
@@ -575,7 +579,7 @@ namespace Barbari_BLL
                     Message = "انبار مقصد نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliNamGerande, 50))
+            else if (CheckRangeDataType(BarErsaliNamGerande, 50))
             {
                 return new OperationResult
                 {
@@ -583,7 +587,7 @@ namespace Barbari_BLL
                     Message = "نام گیرنده نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliFamilyGerande, 50))
+            else if (CheckRangeDataType(BarErsaliFamilyGerande, 50))
             {
                 return new OperationResult
                 {
@@ -591,7 +595,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی گیرنده نباید بیشتر از 50 حرف باشه"
                 };
             }
-            else if (CheckMobileFormat(barErsali.BarErsaliMobileGerande))
+            else if (CheckMobileFormat(BarErsaliMobileGerande))
             {
                 return new OperationResult
                 {
@@ -601,7 +605,7 @@ namespace Barbari_BLL
             }
             else if (maghsadNahayi == true)
             {
-                if (string.IsNullOrEmpty(barErsali.BarErsaliShahreMaghsad2))
+                if (string.IsNullOrEmpty(BarErsaliShahreMaghsad2))
                 {
                     return new OperationResult
                     {
@@ -609,7 +613,7 @@ namespace Barbari_BLL
                         Message = "شهر مقصد نهایی را وارد کنید"
                     };
                 }
-                else if (string.IsNullOrEmpty(barErsali.BarErsaliAnbarMaghsad2))
+                else if (string.IsNullOrEmpty(BarErsaliAnbarMaghsad2))
                 {
                     return new OperationResult
                     {
@@ -617,7 +621,7 @@ namespace Barbari_BLL
                         Message = "انبار مقصد نهایی را وارد کنید"
                     };
                 }
-                else if (CheckRangeDataType(barErsali.BarErsaliShahreMaghsad2, 50))
+                else if (CheckRangeDataType(BarErsaliShahreMaghsad2, 50))
                 {
                     return new OperationResult
                     {
@@ -625,7 +629,7 @@ namespace Barbari_BLL
                         Message = "شهر مقصد نهایی نباید بیشتر از 50 حرف باشد"
                     };
                 }
-                else if (CheckRangeDataType(barErsali.BarErsaliAnbarMaghsad2, 50))
+                else if (CheckRangeDataType(BarErsaliAnbarMaghsad2, 50))
                 {
                     return new OperationResult
                     {
@@ -649,9 +653,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_EtelatBar(BarErsali_Tbl barErsali)
+        public static OperationResult BarErsali_Validation_EtelatBar(decimal BarErsaliPishKeraye , decimal BarErsaliPasKeraye , decimal? BarErsaliBime,
+            decimal? BarErsaliAnbardari , decimal? BarErsaliShahri , decimal? BarErsaliBastebandi)
         {
-            if (string.IsNullOrEmpty(barErsali.BarErsaliPishKeraye.ToString()))
+            if (string.IsNullOrEmpty(BarErsaliPishKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -659,7 +664,7 @@ namespace Barbari_BLL
                     Message = "پیش کرایه را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliPasKeraye.ToString()))
+            else if (string.IsNullOrEmpty(BarErsaliPasKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -667,7 +672,7 @@ namespace Barbari_BLL
                     Message = "پس کرایه را وارد کنید"
                 };
             }
-            else if (!CheckNumberFormat(barErsali.BarErsaliPishKeraye.ToString()))
+            else if (!CheckNumberFormat(BarErsaliPishKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -675,7 +680,7 @@ namespace Barbari_BLL
                     Message = "داخل پیش کرایه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barErsali.BarErsaliPasKeraye.ToString()))
+            else if (!CheckNumberFormat(BarErsaliPasKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -683,7 +688,7 @@ namespace Barbari_BLL
                     Message = "داخل پس کرایه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barErsali.BarErsaliBime.ToString()))
+            else if (!CheckNumberFormat(BarErsaliBime.ToString()))
             {
                 return new OperationResult
                 {
@@ -691,7 +696,7 @@ namespace Barbari_BLL
                     Message = "داخل بیمه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barErsali.BarErsaliAnbardari.ToString()))
+            else if (!CheckNumberFormat(BarErsaliAnbardari.ToString()))
             {
                 return new OperationResult
                 {
@@ -699,7 +704,7 @@ namespace Barbari_BLL
                     Message = "داخل انبارداری فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barErsali.BarErsaliShahri.ToString()))
+            else if (!CheckNumberFormat(BarErsaliShahri.ToString()))
             {
                 return new OperationResult
                 {
@@ -707,7 +712,7 @@ namespace Barbari_BLL
                     Message = "داخل شهری فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barErsali.BarErsaliBastebandi.ToString()))
+            else if (!CheckNumberFormat(BarErsaliBastebandi.ToString()))
             {
                 return new OperationResult
                 {
@@ -715,7 +720,7 @@ namespace Barbari_BLL
                     Message = "داخل بسته بندی فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliPishKeraye.ToString(), 12))
+            else if (CheckRangeDataType(BarErsaliPishKeraye.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -723,7 +728,7 @@ namespace Barbari_BLL
                     Message = "پیش کرایه نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliPasKeraye.ToString(), 12))
+            else if (CheckRangeDataType(BarErsaliPasKeraye.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -731,7 +736,7 @@ namespace Barbari_BLL
                     Message = "پس کرایه نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliBime.ToString(), 12))
+            else if (CheckRangeDataType(BarErsaliBime.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -739,7 +744,7 @@ namespace Barbari_BLL
                     Message = "بیمه نباید بیشتر از 12 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliAnbardari.ToString(), 12))
+            else if (CheckRangeDataType(BarErsaliAnbardari.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -747,7 +752,7 @@ namespace Barbari_BLL
                     Message = "انبار داری نباید بیشتر از 12 حرف باشه"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliShahri.ToString(), 12))
+            else if (CheckRangeDataType(BarErsaliShahri.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -755,7 +760,7 @@ namespace Barbari_BLL
                     Message = "شهری نباید بیشتر از 12 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliBastebandi.ToString(), 12))
+            else if (CheckRangeDataType(BarErsaliBastebandi.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -771,9 +776,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_TahvilRanande(BarErsali_Tbl barErsali)
+        public static OperationResult BarErsali_Validation_TahvilRanande(string BarErsaliNamRanande , string BarErsaliFamilyRanande ,
+            string BarErsaliMobileRanande , decimal? BarErsaliKerayeRanande , string BarErsaliCodeRanande)
         {
-            if (string.IsNullOrEmpty(barErsali.BarErsaliNamRanande))
+            if (string.IsNullOrEmpty(BarErsaliNamRanande))
             {
                 return new OperationResult
                 {
@@ -781,7 +787,7 @@ namespace Barbari_BLL
                     Message = "نام راننده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliFamilyRanande))
+            else if (string.IsNullOrEmpty(BarErsaliFamilyRanande))
             {
                 return new OperationResult
                 {
@@ -789,7 +795,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی راننده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliMobileRanande))
+            else if (string.IsNullOrEmpty(BarErsaliMobileRanande))
             {
                 return new OperationResult
                 {
@@ -797,7 +803,7 @@ namespace Barbari_BLL
                     Message = "موبایل راننده راننده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barErsali.BarErsaliKerayeRanande.ToString()))
+            else if (string.IsNullOrEmpty(BarErsaliKerayeRanande.ToString()))
             {
                 return new OperationResult
                 {
@@ -805,7 +811,7 @@ namespace Barbari_BLL
                     Message = "کرایه راننده را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliNamRanande, 50))
+            else if (CheckRangeDataType(BarErsaliNamRanande, 50))
             {
                 return new OperationResult
                 {
@@ -813,7 +819,7 @@ namespace Barbari_BLL
                     Message = "تام راننده نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliFamilyRanande, 50))
+            else if (CheckRangeDataType(BarErsaliFamilyRanande, 50))
             {
                 return new OperationResult
                 {
@@ -821,7 +827,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckMobileFormat(barErsali.BarErsaliMobileRanande))
+            else if (CheckMobileFormat(BarErsaliMobileRanande))
             {
                 return new OperationResult
                 {
@@ -829,7 +835,7 @@ namespace Barbari_BLL
                     Message = "شماره موبایل را درست وارد کنید"
                 };
             }
-            else if (!CheckNumberFormat(barErsali.BarErsaliKerayeRanande.ToString()))
+            else if (!CheckNumberFormat(BarErsaliKerayeRanande.ToString()))
             {
                 return new OperationResult
                 {
@@ -837,7 +843,7 @@ namespace Barbari_BLL
                     Message = "داخل کرایه راننده فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckRangeDataType(barErsali.BarErsaliKerayeRanande.ToString(), 12))
+            else if (CheckRangeDataType(BarErsaliKerayeRanande.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -845,9 +851,9 @@ namespace Barbari_BLL
                     Message = "کرایه راننده نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (!string.IsNullOrEmpty(barErsali.BarErsaliCodeRanande))
+            else if (!string.IsNullOrEmpty(BarErsaliCodeRanande))
             {
-                if (CheckRangeDataType(barErsali.BarErsaliCodeRanande, 10))
+                if (CheckRangeDataType(BarErsaliCodeRanande, 10))
                 {
                     return new OperationResult
                     {
@@ -855,7 +861,7 @@ namespace Barbari_BLL
                         Message = "کد راننده نباید بیشتر از 12 عدد باشد"
                     };
                 }
-                else if (!CheckNumberFormat(barErsali.BarErsaliCodeRanande))
+                else if (!CheckNumberFormat(BarErsaliCodeRanande))
                 {
                     return new OperationResult
                     {
@@ -865,7 +871,7 @@ namespace Barbari_BLL
                 }
                 else
                 {
-                    var result = Barbari_DAL.Ranande.Select_Code(barErsali.BarErsaliCodeRanande);
+                    var result = Barbari_DAL.Ranande.Select_Code(BarErsaliCodeRanande);
                     if (result.Success == true)
                     {
                         if (result.Data.Any(p => p.RanandeIsDelete == true))
@@ -910,9 +916,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_KalaDaryafti(KalaDaryafti_Tbl kalaDaryafti)
+        public static OperationResult BarErsali_Validation_KalaDaryafti(string KalaDaryaftiNamKala , int KalaDaryaftiTedadKala ,
+            decimal KalaDaryaftiArzeshKala)
         {
-            if (string.IsNullOrEmpty(kalaDaryafti.KalaDaryaftiNamKala))
+            if (string.IsNullOrEmpty(KalaDaryaftiNamKala))
             {
                 return new OperationResult
                 {
@@ -920,7 +927,7 @@ namespace Barbari_BLL
                     Message = "نام کالا را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(kalaDaryafti.KalaDaryaftiTedadKala.ToString()))
+            else if (string.IsNullOrEmpty(KalaDaryaftiTedadKala.ToString()))
             {
                 return new OperationResult
                 {
@@ -928,7 +935,7 @@ namespace Barbari_BLL
                     Message = "تعداد کالا را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(kalaDaryafti.KalaDaryaftiNamKala, 50))
+            else if (CheckRangeDataType(KalaDaryaftiNamKala, 50))
             {
                 return new OperationResult
                 {
@@ -936,7 +943,7 @@ namespace Barbari_BLL
                     Message = "نام کالا نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(kalaDaryafti.KalaDaryaftiTedadKala.ToString(), 9))
+            else if (CheckRangeDataType(KalaDaryaftiTedadKala.ToString(), 9))
             {
                 return new OperationResult
                 {
@@ -944,7 +951,7 @@ namespace Barbari_BLL
                     Message = "تعداد کالا نباید بیشتر از 9 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(kalaDaryafti.KalaDaryaftiArzeshKala.ToString(), 15))
+            else if (CheckRangeDataType(KalaDaryaftiArzeshKala.ToString(), 15))
             {
                 return new OperationResult
                 {
@@ -952,7 +959,7 @@ namespace Barbari_BLL
                     Message = "ارزش کالا نباید بیشتر از 15 عدد باشد"
                 };
             }
-            else if (!CheckNumberFormat(kalaDaryafti.KalaDaryaftiTedadKala.ToString()))
+            else if (!CheckNumberFormat(KalaDaryaftiTedadKala.ToString()))
             {
                 return new OperationResult
                 {
@@ -960,7 +967,7 @@ namespace Barbari_BLL
                     Message = "درون تعداد کالا فقط باید عدد وارد شود"
                 };
             }
-            else if (!CheckNumberFormat(kalaDaryafti.KalaDaryaftiArzeshKala.ToString()))
+            else if (!CheckNumberFormat(KalaDaryaftiArzeshKala.ToString()))
             {
                 return new OperationResult
                 {
