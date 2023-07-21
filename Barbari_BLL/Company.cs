@@ -16,12 +16,12 @@ namespace Barbari_BLL
             {
                 return result;
             }
-            else if(result.Success == false && result.Data != null)
+            else if(result.Success == false && result.Data == null)
             {
                 return new OperationResult<Company_Tbl>
                 { 
                     Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    Message = "لطفا اطلاعات شرکت را وارد کنید"
 
                 };
             }
@@ -30,7 +30,7 @@ namespace Barbari_BLL
                 return new OperationResult<Company_Tbl>
                 {
                     Success = false,
-                    Message = "لطفا اطلاعات شرکت را وارد کنید"
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
 
                 };
             }
