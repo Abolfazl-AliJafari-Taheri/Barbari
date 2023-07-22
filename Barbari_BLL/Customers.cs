@@ -25,6 +25,31 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<int> Select_CodeLast()
+        {
+            var result = Barbari_DAL.Customers.Select_CodeLast();
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else if (result.Success == false && result.Data == null)
+            {
+                return new OperationResult<int>
+                {
+                    Success = true,
+                    // کد از 100 شروع میشه
+                    Data = 99
+                };
+            }
+            else
+            {
+                return new OperationResult<int>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Delete(int code)
         {
             var result = Barbari_DAL.Customers.Delete(code);

@@ -26,6 +26,31 @@ namespace Barbari_BLL
 
             }
         }
+        public static OperationResult<int> Select_CodeLast()
+        {
+            var result = Barbari_DAL.Ranande.Select_CodeLast();
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else if (result.Success == false && result.Data == null)
+            {
+                return new OperationResult<int>
+                {
+                    Success = true,
+                    // کد از 1 شروع میشه
+                    Data = 0
+                };
+            }
+            else
+            {
+                return new OperationResult<int>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Delete(int code)
         {
             var result = Barbari_DAL.Ranande.Delete(code);
@@ -63,7 +88,6 @@ namespace Barbari_BLL
         //            Success = false,
         //            Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
         //        };
-
         //    }
         //}
         public static OperationResult Insert(Ranande_Tbl ranande)

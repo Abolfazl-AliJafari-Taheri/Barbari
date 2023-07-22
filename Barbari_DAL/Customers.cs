@@ -50,22 +50,32 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<List<Customers_Tbl>> Select_CodeLast(int search)
+        public static OperationResult<int> Select_CodeLast()
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
                 linq = new DataClassBarbariDataContext();
-                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == search).ToList();
-                return new OperationResult<List<Customers_Tbl>>
+                var query = linq.Customers_Tbls.Select(p => p.CustomersCode).LastOrDefault();
+                if (query != null)
                 {
-                    Success = true,
-                    Data = query
-                };
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = query
+                    };
+                }
+                else
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = false
+                    };
+                }
             }
             catch
             {
-                return new OperationResult<List<Customers_Tbl>>
+                return new OperationResult<int>
                 {
                     Success = false,
                 };

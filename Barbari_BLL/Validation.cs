@@ -380,7 +380,7 @@ namespace Barbari_BLL
             }
         }
         public static OperationResult BarErsali_Validation_EtelatFerestande(string BarErsaliShahreMabda, string BarErsaliAnbarMabda,
-           string BarErsaliNamFerestande, string BarErsaliFamilyFerestande, string BarErsaliMobileFerestande, int BarErsaliCodeFerestande, bool moshtariSabet)
+           string BarErsaliNamFerestande, string BarErsaliFamilyFerestande, string BarErsaliMobileFerestande, int? BarErsaliCodeFerestande, bool moshtariSabet)
         {
             if (string.IsNullOrEmpty(BarErsaliShahreMabda))
             {
@@ -466,7 +466,7 @@ namespace Barbari_BLL
             {
                 if (!string.IsNullOrEmpty(BarErsaliCodeFerestande.ToString()))
                 {
-                    var result = Barbari_DAL.Customers.Select_Code(BarErsaliCodeFerestande);
+                    var result = Barbari_DAL.Customers.Select_Code((int)BarErsaliCodeFerestande);
                     if (result.Success == true)
                     {
                         if (result.Data.Any(p => p.CustomersIsDelete == true))
@@ -777,7 +777,7 @@ namespace Barbari_BLL
             }
         }
         public static OperationResult BarErsali_Validation_TahvilRanande(string BarErsaliNamRanande, string BarErsaliFamilyRanande,
-            string BarErsaliMobileRanande , decimal? BarErsaliKerayeRanande , int BarErsaliCodeRanande)
+            string BarErsaliMobileRanande , decimal? BarErsaliKerayeRanande , int? BarErsaliCodeRanande)
         {
             if (string.IsNullOrEmpty(BarErsaliNamRanande))
             {
@@ -853,7 +853,7 @@ namespace Barbari_BLL
             }
             else if (!string.IsNullOrEmpty(BarErsaliCodeRanande.ToString()))
             {
-                var result = Barbari_DAL.Ranande.Select_Code(BarErsaliCodeRanande);
+                var result = Barbari_DAL.Ranande.Select_Code((int)BarErsaliCodeRanande);
                 if (result.Success == true)
                 {
                     if (result.Data.Any(p => p.RanandeIsDelete == true))

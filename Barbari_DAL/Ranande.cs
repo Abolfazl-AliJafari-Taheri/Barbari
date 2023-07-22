@@ -52,6 +52,37 @@ namespace Barbari_DAL
             }
 
         }
+        public static OperationResult<int> Select_CodeLast()
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                linq = new DataClassBarbariDataContext();
+                var query = linq.Ranande_Tbls.Select(p => p.RanandeCodeRanande).LastOrDefault();
+                if (query != null)
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = query
+                    };
+                }
+                else
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = false
+                    };
+                }
+            }
+            catch
+            {
+                return new OperationResult<int>
+                {
+                    Success = false,
+                };
+            }
+        }
         public static OperationResult Delete(int code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
