@@ -303,7 +303,21 @@ namespace Barbari_UI
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            var company = Barbari_BLL.Company.Select();
+            CompanyName_TxtBlock.Text = company.Data.CompanyName;
             UserFullName_TxtBlock.Text = User.UsersFirstName + "  " + User.UsersLastName;
+            if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
+            {
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
+                Logo_Img.Background = brush;
+            }
+            else
+            {
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri("/Source/Icones/AppIcon(Black Border).png", UriKind.Relative));
+                Logo_Img.Background = brush;
+            }
         }
     }
 }

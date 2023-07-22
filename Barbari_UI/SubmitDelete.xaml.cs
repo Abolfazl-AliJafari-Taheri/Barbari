@@ -98,7 +98,20 @@ namespace Barbari_UI
                     WindowsAndPages.cityAnbar.Refresh();
                 }
             }
-          
+            else if (barErsali != null)
+            {
+                var result = Barbari_BLL.BarErsali.Delete(barErsali.BarErsaliBarname);
+                if (!result.Success)
+                {
+                    MessageBox.Show(result.Message);
+                }
+                else
+                {
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    WindowsAndPages.barErsali.Refresh();
+                }
+            }
+
         }
     }
 }

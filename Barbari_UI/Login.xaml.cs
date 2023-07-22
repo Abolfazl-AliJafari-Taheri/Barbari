@@ -1,4 +1,5 @@
 ﻿using Barbari_BLL;
+using Barbari_DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +66,7 @@ namespace Barbari_UI
         {
             string userName = Username_Txt.Text.Trim();
             string passWord = Password_PassBx.Password.Trim();
-            var result = Users.SearchUserAndPassWord(userName, passWord);
+            var result = Barbari_BLL.Users.SearchUserAndPassWord(userName, passWord);
             if (!result.Success)
             {
                 MessageBox.Show(result.Message);
@@ -122,8 +123,30 @@ namespace Barbari_UI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-          
-            Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon.png");
+            var company = Barbari_BLL.Company.Select();
+            if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
+            {
+                //BitmapImage bitmapImage = new BitmapImage();
+                //bitmapImage.BeginInit();
+                //bitmapImage.UriSource = new Uri(company.Data.CompanyIogo, UriKind.Relative);
+                //bitmapImage.EndInit();
+                //Logo_Img.Background = bitmapImage;
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
+                Logo_Img.Background = brush;
+            }
+            else
+            {
+                //BitmapImage bitmapImage = new BitmapImage();
+                //bitmapImage.BeginInit();
+                //bitmapImage.UriSource = new Uri(, UriKind.Relative);
+                //bitmapImage.EndInit();
+                //Logo_Img.Background = bitmapImage;
+
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri("/Source/Icones/AppIcon(White Border).png", UriKind.Relative));
+                Logo_Img.Background = brush;
+            }
         }
     }
 }

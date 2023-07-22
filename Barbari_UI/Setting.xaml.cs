@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
+using Barbari_DAL;
+using Barbari_BLL;
 
 namespace Barbari_UI
 {
@@ -26,9 +28,6 @@ namespace Barbari_UI
             InitializeComponent();
         }
         string logoAddress;
-        string companyName;
-        string companyCity;
-        string companyRules;
 
         public void RemoveText(object sender, EventArgs e)
         {
@@ -51,37 +50,88 @@ namespace Barbari_UI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            var company = Barbari_BLL.Company.Select();
+            logoAddress = company.Data.CompanyIogo;
+            CompanyCity_Txt.Text = company.Data.CompanyCity;
+            CompanyName_Txt.Text = company.Data.CompanyName;
+            CompanyRules_Txt.Text = company.Data.CompanyRules;
+            if (CompanyCity_Txt.Text != CompanyCity_Txt.Tag.ToString())
+            {
+                CompanyCity_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
 
+            }
+            if (CompanyName_Txt.Text != CompanyName_Txt.Tag.ToString())
+            {
+                CompanyName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+
+            }
+            if (CompanyRules_Txt.Text != CompanyRules_Txt.Tag.ToString())
+            {
+                CompanyRules_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            }
+
+
+
+            if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
+            {
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
+                Logo_Border.Background = brush;
+                Logo_Img.Source = null;
+            }
+            else
+            {
+                BitmapImage bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri("/Source/Icones/Insert Icon Setting(Gray Border).png", UriKind.Relative);
+                bitmapImage.EndInit();
+                Logo_Img.Source = bitmapImage;
+                Logo_Border.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#E6E6E6"));
+            }
         }
 
         private void Save_Btn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                companyCity = CompanyCity_Txt.Text;
-                companyName = CompanyName_Txt.Text;
-                companyRules = CompanyRules_Txt.Text;
-                string directoryPath = "";
-                List<string> directory = Environment.CurrentDirectory.Split('\\').ToList();
-                directory.RemoveAt(directory.Count-1);
-                directory.RemoveAt(directory.Count-1);
-                for (int i = 0; i < directory.Count; i++)
+                Company_Tbl company = new Company_Tbl();
+                if(Validate())
                 {
-                    directory[i] = directory[i] + "\\";
-                    directoryPath += directory[i];
+                    company.CompanyCity = CompanyCity_Txt.Text;
+                    company.CompanyName = CompanyName_Txt.Text;
+                    company.CompanyRules = CompanyRules_Txt.Text; 
+                    company.CompanyIogo = logoAddress;
+                    var result = Barbari_BLL.Company.Insert(company);
+                    if (!result.Success)
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        MessageBox.Show("برای اعمال تغییرات برنامه را کامل ببندید و دباره اجرا کنید.");
+                    }
                 }
-             directoryPath += "Source\\Icones";
-                string fileName = "AppIcon.png";
-                string destinationFilePath = Path.Combine(directoryPath, fileName);
-
-                File.Copy(logoAddress, destinationFilePath,true);
+               
+                
             }
             catch(Exception) 
             {
                 
             }
         }
-
+        bool Validate()
+        {
+            if(CompanyCity_Txt.Text == CompanyCity_Txt.Tag.ToString())
+            {
+                return false;
+            }
+            if (CompanyName_Txt.Text == CompanyName_Txt.Tag.ToString())
+            {  
+                return false;  
+            }
+          
+            return true;
+        }
         private void Logo_Btn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
