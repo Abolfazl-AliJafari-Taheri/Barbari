@@ -102,9 +102,17 @@ namespace Barbari_UI
                 Company_Tbl company = new Company_Tbl();
                 if(Validate())
                 {
+                    if (CompanyRules_Txt.Text == CompanyRules_Txt.Tag.ToString())
+                    {
+                        company.CompanyRules = "";
+
+                    }
+                    else
+                    {
+                        company.CompanyRules = CompanyRules_Txt.Text;
+                    }
                     company.CompanyCity = CompanyCity_Txt.Text;
                     company.CompanyName = CompanyName_Txt.Text;
-                    company.CompanyRules = CompanyRules_Txt.Text; 
                     company.CompanyIogo = logoAddress;
                     var result = Barbari_BLL.Company.Insert(company);
                     if (!result.Success)
@@ -115,6 +123,10 @@ namespace Barbari_UI
                     {
                         MessageBox.Show("برای اعمال تغییرات برنامه را کامل ببندید و دباره اجرا کنید.");
                     }
+                }
+                else
+                {
+                    MessageBox.Show("فیلد های ضروری را باید وارد کنید .");
                 }
                
                 
@@ -134,7 +146,7 @@ namespace Barbari_UI
             {  
                 return false;  
             }
-          
+            
             return true;
         }
         private void Logo_Btn_Click(object sender, RoutedEventArgs e)

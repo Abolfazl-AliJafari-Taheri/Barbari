@@ -47,7 +47,7 @@
                                     <ColumnDefinition Width="4"/>
                                 </Grid.ColumnDefinitions>
                                 <Image Name="BarErsaliMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Bar Ersali Menu Icon(Blue Border).png" />
-                                <TextBlock Name="BarErsaliMenuBtn_Text" Grid.Column="1" Height="30" Width="114" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#2B54A3" Margin="16 0 0 0" VerticalAlignment="Center">بار های ارسالی</TextBlock>
+                                <TextBlock Name="BarErsaliMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#2B54A3" Margin="16 0 0 0" VerticalAlignment="Center">بار های ارسالی</TextBlock>
                                 <Image Name="BarErsaliMenuBtn_Line" Grid.Column="2" Height="52" Width="4" Source="/Source/Icones/Menu Select Line.png"/>
                             </Grid>
                         </Button>
