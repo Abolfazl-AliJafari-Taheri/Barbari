@@ -51,43 +51,48 @@ namespace Barbari_UI
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var company = Barbari_BLL.Company.Select();
-            logoAddress = company.Data.CompanyIogo;
-            CompanyCity_Txt.Text = company.Data.CompanyCity;
-            CompanyName_Txt.Text = company.Data.CompanyName;
-            CompanyRules_Txt.Text = company.Data.CompanyRules;
-            if (CompanyCity_Txt.Text != CompanyCity_Txt.Tag.ToString())
+            if(company.Data != null)
             {
-                CompanyCity_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                logoAddress = company.Data.CompanyIogo;
+                CompanyCity_Txt.Text = company.Data.CompanyCity;
+                CompanyName_Txt.Text = company.Data.CompanyName;
+                CompanyRules_Txt.Text = company.Data.CompanyRules;
+                if (CompanyCity_Txt.Text != CompanyCity_Txt.Tag.ToString())
+                {
+                    CompanyCity_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
 
-            }
-            if (CompanyName_Txt.Text != CompanyName_Txt.Tag.ToString())
-            {
-                CompanyName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                }
+                if (CompanyName_Txt.Text != CompanyName_Txt.Tag.ToString())
+                {
+                    CompanyName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
 
+                }
+                if (CompanyRules_Txt.Text != CompanyRules_Txt.Tag.ToString())
+                {
+                    CompanyRules_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                }
+                if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
+                {
+                    var brush = new ImageBrush();
+                    brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
+                    Logo_Border.Background = brush;
+                    Logo_Img.Source = null;
+                }
+                else
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.UriSource = new Uri("/Source/Icones/Insert Icon Setting(Gray Border).png", UriKind.Relative);
+                    bitmapImage.EndInit();
+                    Logo_Img.Source = bitmapImage;
+                    Logo_Border.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#E6E6E6"));
+                }
             }
-            if (CompanyRules_Txt.Text != CompanyRules_Txt.Tag.ToString())
-            {
-                CompanyRules_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            }
+            
 
 
 
-            if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
-            {
-                var brush = new ImageBrush();
-                brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
-                Logo_Border.Background = brush;
-                Logo_Img.Source = null;
-            }
-            else
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri("/Source/Icones/Insert Icon Setting(Gray Border).png", UriKind.Relative);
-                bitmapImage.EndInit();
-                Logo_Img.Source = bitmapImage;
-                Logo_Border.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#E6E6E6"));
-            }
+            
         }
 
         private void Save_Btn_Click(object sender, RoutedEventArgs e)
