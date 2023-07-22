@@ -25,7 +25,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Delete(string code)
+        public static OperationResult Delete(int code)
         {
             var result = Barbari_DAL.Customers.Delete(code);
             if (result.Success == true)
@@ -44,29 +44,29 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Recovery(string code)
-        {
-            var result = Barbari_DAL.Customers.Recovery(code);
-            if (result.Success == true)
-            {
-                return new OperationResult
-                {
-                    Success = true,
-                };
-            }
-            else
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
-            }
-        }
+        //public static OperationResult Recovery(string code)
+        //{
+        //    var result = Barbari_DAL.Customers.Recovery(code);
+        //    if (result.Success == true)
+        //    {
+        //        return new OperationResult
+        //        {
+        //            Success = true,
+        //        };
+        //    }
+        //    else
+        //    {
+        //        return new OperationResult
+        //        {
+        //            Success = false,
+        //            Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+        //        };
+        //    }
+        //}
         public static OperationResult Insert(Customers_Tbl customers)
         {
             var result1 = Validation.Customers_Validation(customers);
-            var result2 = Barbari_DAL.Customers.Select_Code(customers.CustomersCode);
+            //var result2 = Barbari_DAL.Customers.Select_Code(customers.CustomersCode);
             if (result1.Success == false)
             {
                 return new OperationResult
@@ -75,31 +75,31 @@ namespace Barbari_BLL
                     Message = result1.Message
                 };
             }
-            else if (result2.Success == false)
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
-            }
-            else if (result2.Data.Any(p => p.CustomersIsDelete == true))
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "این نام کاربری قبلا پاک شده میخوای برات برگردونم ؟"
-                };
+            //else if (result2.Success == false)
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+            //    };
+            //}
+            //else if (result2.Data.Any(p => p.CustomersIsDelete == true))
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "این نام کاربری قبلا پاک شده میخوای برات برگردونم ؟"
+            //    };
 
-            }
-            else if (result2.Data.Count != 0)
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "کد مشتری تکراری است"
-                };
-            }
+            //}
+            //else if (result2.Data.Count != 0)
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "کد مشتری تکراری است"
+            //    };
+            //}
             else
             {
                 var result = Barbari_DAL.Customers.Insert(customers);

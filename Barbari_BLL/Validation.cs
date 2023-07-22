@@ -175,14 +175,14 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(customer.CustomersCode))
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "کد مشتری را وارد کنید"
-                };
-            }
+            //else if (string.IsNullOrEmpty(customer.CustomersCode))
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "کد مشتری را وارد کنید"
+            //    };
+            //}
             else if (string.IsNullOrEmpty(customer.CustomersCity))
             {
                 return new OperationResult
@@ -215,14 +215,14 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(customer.CustomersCode, 10))
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "کد مشتری نباید بیشتر از 10 رقم باشه"
-                };
-            }
+            //else if (CheckRangeDataType(customer.CustomersCode, 10))
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "کد مشتری نباید بیشتر از 10 رقم باشه"
+            //    };
+            //}
             else if (CheckRangeDataType(customer.CustomersCity, 50))
             {
                 return new OperationResult
@@ -231,14 +231,14 @@ namespace Barbari_BLL
                     Message = "نام شهر نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (!CheckNumberFormat(customer.CustomersCode))
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "داخل کد مشتری فقط باید عدد وارد کرد"
-                };
-            }
+            //else if (!CheckNumberFormat(customer.CustomersCode))
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "داخل کد مشتری فقط باید عدد وارد کرد"
+            //    };
+            //}
             else if (CheckMobileFormat(customer.CustomersMobile))
             {
                 return new OperationResult
@@ -273,14 +273,14 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(Ranande.RanandeCodeRanande))
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "کد راننده را وارد کنید"
-                };
-            }
+            //else if (string.IsNullOrEmpty(Ranande.RanandeCodeRanande))
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "کد راننده را وارد کنید"
+            //    };
+            //}
             else if (string.IsNullOrEmpty(Ranande.RanandeMobile))
             {
                 return new OperationResult
@@ -305,22 +305,22 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(Ranande.RanandeCodeRanande, 10))
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "کد راننده نباید بیشتر از 10 رقم باشه"
-                };
-            }
-            else if (!CheckNumberFormat(Ranande.RanandeCodeRanande))
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "داخل کد راننده فقط باید عدد وارد کرد"
-                };
-            }
+            //else if (CheckRangeDataType(Ranande.RanandeCodeRanande, 10))
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "کد راننده نباید بیشتر از 10 رقم باشه"
+            //    };
+            //}
+            //else if (!CheckNumberFormat(Ranande.RanandeCodeRanande))
+            //{
+            //    return new OperationResult
+            //    {
+            //        Success = false,
+            //        Message = "داخل کد راننده فقط باید عدد وارد کرد"
+            //    };
+            //}
             else if (CheckMobileFormat(Ranande.RanandeMobile))
             {
                 return new OperationResult
@@ -379,8 +379,8 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_EtelatFerestande(string BarErsaliShahreMabda , string BarErsaliAnbarMabda,
-           string BarErsaliNamFerestande, string BarErsaliFamilyFerestande, string BarErsaliMobileFerestande, string BarErsaliCodeFerestande, bool moshtariSabet)
+        public static OperationResult BarErsali_Validation_EtelatFerestande(string BarErsaliShahreMabda, string BarErsaliAnbarMabda,
+           string BarErsaliNamFerestande, string BarErsaliFamilyFerestande, string BarErsaliMobileFerestande, int BarErsaliCodeFerestande, bool moshtariSabet)
         {
             if (string.IsNullOrEmpty(BarErsaliShahreMabda))
             {
@@ -464,7 +464,7 @@ namespace Barbari_BLL
             }
             else if (moshtariSabet == true)
             {
-                if (!string.IsNullOrEmpty(BarErsaliCodeFerestande))
+                if (!string.IsNullOrEmpty(BarErsaliCodeFerestande.ToString()))
                 {
                     var result = Barbari_DAL.Customers.Select_Code(BarErsaliCodeFerestande);
                     if (result.Success == true)
@@ -519,7 +519,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_EtelatGerande(string BarErsaliShahreMaghsad1,string BarErsaliAnbarMaghsad1,
+        public static OperationResult BarErsali_Validation_EtelatGerande(string BarErsaliShahreMaghsad1, string BarErsaliAnbarMaghsad1,
            string BarErsaliNamGerande,string BarErsaliFamilyGerande,string BarErsaliMobileGerande,string BarErsaliShahreMaghsad2,
            string BarErsaliAnbarMaghsad2, bool maghsadNahayi)
         {
@@ -653,7 +653,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_EtelatBar(decimal BarErsaliPishKeraye , decimal BarErsaliPasKeraye , decimal? BarErsaliBime,
+        public static OperationResult BarErsali_Validation_EtelatBar(decimal BarErsaliPishKeraye, decimal BarErsaliPasKeraye, decimal? BarErsaliBime,
             decimal? BarErsaliAnbardari , decimal? BarErsaliShahri , decimal? BarErsaliBastebandi)
         {
             if (string.IsNullOrEmpty(BarErsaliPishKeraye.ToString()))
@@ -776,8 +776,8 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_TahvilRanande(string BarErsaliNamRanande , string BarErsaliFamilyRanande ,
-            string BarErsaliMobileRanande , decimal? BarErsaliKerayeRanande , string BarErsaliCodeRanande)
+        public static OperationResult BarErsali_Validation_TahvilRanande(string BarErsaliNamRanande, string BarErsaliFamilyRanande,
+            string BarErsaliMobileRanande , decimal? BarErsaliKerayeRanande , int BarErsaliCodeRanande)
         {
             if (string.IsNullOrEmpty(BarErsaliNamRanande))
             {
@@ -851,61 +851,42 @@ namespace Barbari_BLL
                     Message = "کرایه راننده نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (!string.IsNullOrEmpty(BarErsaliCodeRanande))
+            else if (!string.IsNullOrEmpty(BarErsaliCodeRanande.ToString()))
             {
-                if (CheckRangeDataType(BarErsaliCodeRanande, 10))
+                var result = Barbari_DAL.Ranande.Select_Code(BarErsaliCodeRanande);
+                if (result.Success == true)
                 {
-                    return new OperationResult
+                    if (result.Data.Any(p => p.RanandeIsDelete == true))
                     {
-                        Success = false,
-                        Message = "کد راننده نباید بیشتر از 12 عدد باشد"
-                    };
-                }
-                else if (!CheckNumberFormat(BarErsaliCodeRanande))
-                {
-                    return new OperationResult
+                        return new OperationResult
+                        {
+                            Success = false,
+                            Message = "این راننده در جدول مشتری پاک شدند"
+                        };
+                    }
+                    else if (result.Data.Count == 0)
                     {
-                        Success = false,
-                        Message = "داخل کد راننده فقط میشه عدد وارد کرد"
-                    };
-                }
-                else
-                {
-                    var result = Barbari_DAL.Ranande.Select_Code(BarErsaliCodeRanande);
-                    if (result.Success == true)
-                    {
-                        if (result.Data.Any(p => p.RanandeIsDelete == true))
+                        return new OperationResult
                         {
-                            return new OperationResult
-                            {
-                                Success = false,
-                                Message = "این راننده در جدول مشتری پاک شدند"
-                            };
-                        }
-                        else if (result.Data.Count == 0)
-                        {
-                            return new OperationResult
-                            {
-                                Success = false,
-                                Message = "این کد راننده در جدول مشتری ثبت نشده"
-                            };
-                        }
-                        else
-                        {
-                            return new OperationResult
-                            {
-                                Success = true,
-                            };
-                        }
+                            Success = false,
+                            Message = "این کد راننده در جدول مشتری ثبت نشده"
+                        };
                     }
                     else
                     {
                         return new OperationResult
                         {
-                            Success = false,
-                            Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                            Success = true,
                         };
                     }
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
                 }
             }
             else
@@ -916,7 +897,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_KalaDaryafti(string KalaDaryaftiNamKala , int KalaDaryaftiTedadKala ,
+        public static OperationResult BarErsali_Validation_KalaDaryafti(string KalaDaryaftiNamKala, int KalaDaryaftiTedadKala,
             decimal KalaDaryaftiArzeshKala)
         {
             if (string.IsNullOrEmpty(KalaDaryaftiNamKala))

@@ -42,6 +42,9 @@ namespace Barbari_DAL
     partial void InsertCity_Tbl(City_Tbl instance);
     partial void UpdateCity_Tbl(City_Tbl instance);
     partial void DeleteCity_Tbl(City_Tbl instance);
+    partial void InsertCompany_Tbl(Company_Tbl instance);
+    partial void UpdateCompany_Tbl(Company_Tbl instance);
+    partial void DeleteCompany_Tbl(Company_Tbl instance);
     partial void InsertCustomers_Tbl(Customers_Tbl instance);
     partial void UpdateCustomers_Tbl(Customers_Tbl instance);
     partial void DeleteCustomers_Tbl(Customers_Tbl instance);
@@ -57,9 +60,6 @@ namespace Barbari_DAL
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
-    partial void InsertCompany_Tbl(Company_Tbl instance);
-    partial void UpdateCompany_Tbl(Company_Tbl instance);
-    partial void DeleteCompany_Tbl(Company_Tbl instance);
     #endregion
 		
 		public DataClassBarbariDataContext() : 
@@ -124,6 +124,14 @@ namespace Barbari_DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<Company_Tbl> Company_Tbls
+		{
+			get
+			{
+				return this.GetTable<Company_Tbl>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Customers_Tbl> Customers_Tbls
 		{
 			get
@@ -163,14 +171,6 @@ namespace Barbari_DAL
 				return this.GetTable<Role>();
 			}
 		}
-		
-		public System.Data.Linq.Table<Company_Tbl> Company_Tbls
-		{
-			get
-			{
-				return this.GetTable<Company_Tbl>();
-			}
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BarErsali_Tbl")]
@@ -181,7 +181,7 @@ namespace Barbari_DAL
 		
 		private int _BarErsaliBarname;
 		
-		private string _BarErsaliCodeFerestande;
+		private System.Nullable<int> _BarErsaliCodeFerestande;
 		
 		private string _BarErsaliNamFerestande;
 		
@@ -211,7 +211,7 @@ namespace Barbari_DAL
 		
 		private string _BarErsaliSaat;
 		
-		private string _BarErsaliCodeRanande;
+		private System.Nullable<int> _BarErsaliCodeRanande;
 		
 		private string _BarErsaliNamRanande;
 		
@@ -249,7 +249,7 @@ namespace Barbari_DAL
     partial void OnCreated();
     partial void OnBarErsaliBarnameChanging(int value);
     partial void OnBarErsaliBarnameChanged();
-    partial void OnBarErsaliCodeFerestandeChanging(string value);
+    partial void OnBarErsaliCodeFerestandeChanging(System.Nullable<int> value);
     partial void OnBarErsaliCodeFerestandeChanged();
     partial void OnBarErsaliNamFerestandeChanging(string value);
     partial void OnBarErsaliNamFerestandeChanged();
@@ -279,7 +279,7 @@ namespace Barbari_DAL
     partial void OnBarErsaliTarikhChanged();
     partial void OnBarErsaliSaatChanging(string value);
     partial void OnBarErsaliSaatChanged();
-    partial void OnBarErsaliCodeRanandeChanging(string value);
+    partial void OnBarErsaliCodeRanandeChanging(System.Nullable<int> value);
     partial void OnBarErsaliCodeRanandeChanged();
     partial void OnBarErsaliNamRanandeChanging(string value);
     partial void OnBarErsaliNamRanandeChanged();
@@ -334,8 +334,8 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeFerestande", DbType="VarChar(10)")]
-		public string BarErsaliCodeFerestande
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeFerestande", DbType="Int")]
+		public System.Nullable<int> BarErsaliCodeFerestande
 		{
 			get
 			{
@@ -638,8 +638,8 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeRanande", DbType="VarChar(10)")]
-		public string BarErsaliCodeRanande
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeRanande", DbType="Int")]
+		public System.Nullable<int> BarErsaliCodeRanande
 		{
 			get
 			{
@@ -960,7 +960,7 @@ namespace Barbari_DAL
 					}
 					else
 					{
-						this._BarErsaliCodeFerestande = default(string);
+						this._BarErsaliCodeFerestande = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Customers_Tbl");
 				}
@@ -994,7 +994,7 @@ namespace Barbari_DAL
 					}
 					else
 					{
-						this._BarErsaliCodeRanande = default(string);
+						this._BarErsaliCodeRanande = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Ranande_Tbl");
 				}
@@ -2006,6 +2006,10 @@ namespace Barbari_DAL
 		
 		private string _CityAnbar;
 		
+		private string _CityMobile;
+		
+		private string _CityAdres;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2014,6 +2018,10 @@ namespace Barbari_DAL
     partial void OnCityShahrChanged();
     partial void OnCityAnbarChanging(string value);
     partial void OnCityAnbarChanged();
+    partial void OnCityMobileChanging(string value);
+    partial void OnCityMobileChanged();
+    partial void OnCityAdresChanging(string value);
+    partial void OnCityAdresChanged();
     #endregion
 		
 		public City_Tbl()
@@ -2061,6 +2069,204 @@ namespace Barbari_DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityMobile", DbType="VarChar(11) NOT NULL", CanBeNull=false)]
+		public string CityMobile
+		{
+			get
+			{
+				return this._CityMobile;
+			}
+			set
+			{
+				if ((this._CityMobile != value))
+				{
+					this.OnCityMobileChanging(value);
+					this.SendPropertyChanging();
+					this._CityMobile = value;
+					this.SendPropertyChanged("CityMobile");
+					this.OnCityMobileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityAdres", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string CityAdres
+		{
+			get
+			{
+				return this._CityAdres;
+			}
+			set
+			{
+				if ((this._CityAdres != value))
+				{
+					this.OnCityAdresChanging(value);
+					this.SendPropertyChanging();
+					this._CityAdres = value;
+					this.SendPropertyChanged("CityAdres");
+					this.OnCityAdresChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Company_Tbl")]
+	public partial class Company_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CompanyCode;
+		
+		private string _CompanyIogo;
+		
+		private string _CompanyName;
+		
+		private string _CompanyCity;
+		
+		private string _CompanyRules;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCompanyCodeChanging(int value);
+    partial void OnCompanyCodeChanged();
+    partial void OnCompanyIogoChanging(string value);
+    partial void OnCompanyIogoChanged();
+    partial void OnCompanyNameChanging(string value);
+    partial void OnCompanyNameChanged();
+    partial void OnCompanyCityChanging(string value);
+    partial void OnCompanyCityChanged();
+    partial void OnCompanyRulesChanging(string value);
+    partial void OnCompanyRulesChanged();
+    #endregion
+		
+		public Company_Tbl()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyCode", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CompanyCode
+		{
+			get
+			{
+				return this._CompanyCode;
+			}
+			set
+			{
+				if ((this._CompanyCode != value))
+				{
+					this.OnCompanyCodeChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyCode = value;
+					this.SendPropertyChanged("CompanyCode");
+					this.OnCompanyCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyIogo", DbType="NVarChar(MAX)")]
+		public string CompanyIogo
+		{
+			get
+			{
+				return this._CompanyIogo;
+			}
+			set
+			{
+				if ((this._CompanyIogo != value))
+				{
+					this.OnCompanyIogoChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyIogo = value;
+					this.SendPropertyChanged("CompanyIogo");
+					this.OnCompanyIogoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyName", DbType="NVarChar(50)")]
+		public string CompanyName
+		{
+			get
+			{
+				return this._CompanyName;
+			}
+			set
+			{
+				if ((this._CompanyName != value))
+				{
+					this.OnCompanyNameChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyName = value;
+					this.SendPropertyChanged("CompanyName");
+					this.OnCompanyNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyCity", DbType="NVarChar(50)")]
+		public string CompanyCity
+		{
+			get
+			{
+				return this._CompanyCity;
+			}
+			set
+			{
+				if ((this._CompanyCity != value))
+				{
+					this.OnCompanyCityChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyCity = value;
+					this.SendPropertyChanged("CompanyCity");
+					this.OnCompanyCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyRules", DbType="NVarChar(MAX)")]
+		public string CompanyRules
+		{
+			get
+			{
+				return this._CompanyRules;
+			}
+			set
+			{
+				if ((this._CompanyRules != value))
+				{
+					this.OnCompanyRulesChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyRules = value;
+					this.SendPropertyChanged("CompanyRules");
+					this.OnCompanyRulesChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2088,7 +2294,7 @@ namespace Barbari_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _CustomersCode;
+		private int _CustomersCode;
 		
 		private string _CustomersFirstName;
 		
@@ -2106,7 +2312,7 @@ namespace Barbari_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCustomersCodeChanging(string value);
+    partial void OnCustomersCodeChanging(int value);
     partial void OnCustomersCodeChanged();
     partial void OnCustomersFirstNameChanging(string value);
     partial void OnCustomersFirstNameChanged();
@@ -2126,8 +2332,8 @@ namespace Barbari_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersCode", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CustomersCode
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomersCode", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CustomersCode
 		{
 			get
 			{
@@ -2672,7 +2878,7 @@ namespace Barbari_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _RanandeCodeRanande;
+		private int _RanandeCodeRanande;
 		
 		private string _RanandeFirstName;
 		
@@ -2688,7 +2894,7 @@ namespace Barbari_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnRanandeCodeRanandeChanging(string value);
+    partial void OnRanandeCodeRanandeChanging(int value);
     partial void OnRanandeCodeRanandeChanged();
     partial void OnRanandeFirstNameChanging(string value);
     partial void OnRanandeFirstNameChanged();
@@ -2706,8 +2912,8 @@ namespace Barbari_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeCodeRanande", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string RanandeCodeRanande
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RanandeCodeRanande", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RanandeCodeRanande
 		{
 			get
 			{
@@ -3539,164 +3745,6 @@ namespace Barbari_DAL
 		{
 			this.SendPropertyChanging();
 			entity.Role = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Company_Tbl")]
-	public partial class Company_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CompanyCode;
-		
-		private string _CompanyIogo;
-		
-		private string _CompanyName;
-		
-		private string _CompanyCity;
-		
-		private string _CompanyRules;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCompanyCodeChanging(int value);
-    partial void OnCompanyCodeChanged();
-    partial void OnCompanyIogoChanging(string value);
-    partial void OnCompanyIogoChanged();
-    partial void OnCompanyNameChanging(string value);
-    partial void OnCompanyNameChanged();
-    partial void OnCompanyCityChanging(string value);
-    partial void OnCompanyCityChanged();
-    partial void OnCompanyRulesChanging(string value);
-    partial void OnCompanyRulesChanged();
-    #endregion
-		
-		public Company_Tbl()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyCode", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int CompanyCode
-		{
-			get
-			{
-				return this._CompanyCode;
-			}
-			set
-			{
-				if ((this._CompanyCode != value))
-				{
-					this.OnCompanyCodeChanging(value);
-					this.SendPropertyChanging();
-					this._CompanyCode = value;
-					this.SendPropertyChanged("CompanyCode");
-					this.OnCompanyCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyIogo", DbType="NVarChar(MAX)")]
-		public string CompanyIogo
-		{
-			get
-			{
-				return this._CompanyIogo;
-			}
-			set
-			{
-				if ((this._CompanyIogo != value))
-				{
-					this.OnCompanyIogoChanging(value);
-					this.SendPropertyChanging();
-					this._CompanyIogo = value;
-					this.SendPropertyChanged("CompanyIogo");
-					this.OnCompanyIogoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyName", DbType="NVarChar(50)")]
-		public string CompanyName
-		{
-			get
-			{
-				return this._CompanyName;
-			}
-			set
-			{
-				if ((this._CompanyName != value))
-				{
-					this.OnCompanyNameChanging(value);
-					this.SendPropertyChanging();
-					this._CompanyName = value;
-					this.SendPropertyChanged("CompanyName");
-					this.OnCompanyNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyCity", DbType="NVarChar(50)")]
-		public string CompanyCity
-		{
-			get
-			{
-				return this._CompanyCity;
-			}
-			set
-			{
-				if ((this._CompanyCity != value))
-				{
-					this.OnCompanyCityChanging(value);
-					this.SendPropertyChanging();
-					this._CompanyCity = value;
-					this.SendPropertyChanged("CompanyCity");
-					this.OnCompanyCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyRules", DbType="NVarChar(MAX)")]
-		public string CompanyRules
-		{
-			get
-			{
-				return this._CompanyRules;
-			}
-			set
-			{
-				if ((this._CompanyRules != value))
-				{
-					this.OnCompanyRulesChanging(value);
-					this.SendPropertyChanging();
-					this._CompanyRules = value;
-					this.SendPropertyChanged("CompanyRules");
-					this.OnCompanyRulesChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

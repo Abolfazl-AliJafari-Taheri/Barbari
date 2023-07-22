@@ -3,7 +3,7 @@
   <Table Name="dbo.BarErsali_Tbl" Member="BarErsali_Tbls">
     <Type Name="BarErsali_Tbl">
       <Column Name="BarErsaliBarname" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BarErsaliCodeFerestande" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BarErsaliCodeFerestande" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BarErsaliNamFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BarErsaliFamilyFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BarErsaliMobileFerestande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
@@ -18,7 +18,7 @@
       <Column Name="BarErsaliAnbarMaghsad2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BarErsaliTarikh" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="BarErsaliSaat" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="BarErsaliCodeRanande" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BarErsaliCodeRanande" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BarErsaliNamRanande" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BarErsaliFamilyRanande" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BarErsaliMobileRanande" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
@@ -83,11 +83,22 @@
     <Type Name="City_Tbl">
       <Column Name="CityShahr" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CityAnbar" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CityMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="CityAdres" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Company_Tbl" Member="Company_Tbls">
+    <Type Name="Company_Tbl">
+      <Column Name="CompanyCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompanyIogo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyCity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyRules" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Customers_Tbl" Member="Customers_Tbls">
     <Type Name="Customers_Tbl">
-      <Column Name="CustomersCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomersCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CustomersFirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CustomersLastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CustomersMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
@@ -117,7 +128,7 @@
   </Table>
   <Table Name="dbo.Ranande_Tbl" Member="Ranande_Tbls">
     <Type Name="Ranande_Tbl">
-      <Column Name="RanandeCodeRanande" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RanandeCodeRanande" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="RanandeFirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="RanandeLastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="RanandeMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
@@ -154,15 +165,6 @@
       <Column Name="BarTahviliDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="RolesGozaresh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Role_Users_Tbl" Member="Users_Tbls" ThisKey="RolesNamRole" OtherKey="UsersRoles" Type="Users_Tbl" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Company_Tbl" Member="Company_Tbls">
-    <Type Name="Company_Tbl">
-      <Column Name="CompanyCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CompanyIogo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CompanyCity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CompanyRules" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

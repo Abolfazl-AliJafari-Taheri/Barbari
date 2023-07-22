@@ -14,7 +14,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Users_Tbls.Where(p => p.UsersUserName.Contains(search) && p.UsersDelete == false).
+                var query = linq.Users_Tbls.Where(p => p.UsersLastName.Contains(search) && p.UsersDelete == false).
                     OrderBy(p => p.UsersLastName).ThenBy(p => p.UsersFirstName).ToList();
                 return new OperationResult<List<Users_Tbl>>
                 {

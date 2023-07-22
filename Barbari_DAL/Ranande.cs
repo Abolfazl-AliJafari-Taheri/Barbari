@@ -14,7 +14,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande.Contains(search) && p.RanandeIsDelete == false).
+                var query = linq.Ranande_Tbls.Where(p => p.RanandeLastName.Contains(search) && p.RanandeIsDelete == false).
                     OrderBy(p => p.RanandeLastName).ThenBy(p => p.RanandeFirstName).ToList();
                 return new OperationResult<List<Ranande_Tbl>>
                 {
@@ -31,7 +31,7 @@ namespace Barbari_DAL
             }
             
         }
-        public static OperationResult<List<Ranande_Tbl>> Select_Code(string search)
+        public static OperationResult<List<Ranande_Tbl>> Select_Code(int search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
@@ -52,7 +52,7 @@ namespace Barbari_DAL
             }
 
         }
-        public static OperationResult Delete(string code)
+        public static OperationResult Delete(int code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
@@ -73,27 +73,27 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult Recovery(string code)
-        {
-            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-            try
-            {
-                var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == code).Single();
-                query.RanandeIsDelete = false;
-                linq.SubmitChanges();
-                return new OperationResult
-                {
-                    Success = true
-                };
-            }
-            catch
-            {
-                return new OperationResult
-                {
-                    Success = false
-                };
-            }
-        }
+        //public static OperationResult Recovery(string code)
+        //{
+        //    DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+        //    try
+        //    {
+        //        var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == code).Single();
+        //        query.RanandeIsDelete = false;
+        //        linq.SubmitChanges();
+        //        return new OperationResult
+        //        {
+        //            Success = true
+        //        };
+        //    }
+        //    catch
+        //    {
+        //        return new OperationResult
+        //        {
+        //            Success = false
+        //        };
+        //    }
+        //}
         public static OperationResult Insert(Ranande_Tbl rananade)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();

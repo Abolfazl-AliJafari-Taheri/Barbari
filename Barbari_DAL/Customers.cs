@@ -13,7 +13,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Customers_Tbls.Where(p => p.CustomersCode.Contains(search) && p.CustomersIsDelete == false).
+                var query = linq.Customers_Tbls.Where(p => p.CustomersLastName.Contains(search) && p.CustomersIsDelete == false).
                     OrderBy(p => p.CustomersLastName).ThenBy(p => p.CustomersFirstName).ToList();
                 return new OperationResult<List<Customers_Tbl>>
                 {
@@ -29,7 +29,7 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<List<Customers_Tbl>> Select_Code(string search)
+        public static OperationResult<List<Customers_Tbl>> Select_Code(int search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
@@ -50,7 +50,28 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult Delete(string code)
+        public static OperationResult<List<Customers_Tbl>> Select_CodeLast(int search)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                linq = new DataClassBarbariDataContext();
+                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == search).ToList();
+                return new OperationResult<List<Customers_Tbl>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch
+            {
+                return new OperationResult<List<Customers_Tbl>>
+                {
+                    Success = false,
+                };
+            }
+        }
+        public static OperationResult Delete(int code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
@@ -70,26 +91,26 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult Recovery(string code)
-        {
-            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-            try
-            {
-                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
-                query.CustomersIsDelete = false;
-                return new OperationResult
-                {
-                    Success = true,
-                };
-            }
-            catch
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                };
-            }
-        }
+        //public static OperationResult Recovery(int code)
+        //{
+        //    DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+        //    try
+        //    {
+        //        var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
+        //        query.CustomersIsDelete = false;
+        //        return new OperationResult
+        //        {
+        //            Success = true,
+        //        };
+        //    }
+        //    catch
+        //    {
+        //        return new OperationResult
+        //        {
+        //            Success = false,
+        //        };
+        //    }
+        //}
         public static OperationResult Insert(Customers_Tbl customer)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
@@ -116,7 +137,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Customers_Tbls.Where(p => p.CustomersCode== customer.CustomersCode).Single();
+                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == customer.CustomersCode).Single();
                 query.CustomersFirstName= customer.CustomersFirstName;
                 query.CustomersLastName = customer.CustomersLastName;
                 query.CustomersMobile = customer.CustomersMobile;
