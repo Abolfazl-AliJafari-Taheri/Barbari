@@ -88,6 +88,7 @@ namespace Barbari_DAL
             {
                 var query = linq.Customers_Tbls.Where(p => p.CustomersCode == code).Single();
                 query.CustomersIsDelete = true;
+                linq.SubmitChanges();
                 return new OperationResult
                 {
                     Success = true,
