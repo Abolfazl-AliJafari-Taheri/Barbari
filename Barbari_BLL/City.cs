@@ -58,7 +58,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Delete(string shahr , string anbar)
+        public static OperationResult Delete(string shahr, string anbar)
         {
             var result = Barbari_DAL.City.Delete(shahr, anbar);
             if (result.Success == true)
@@ -80,7 +80,7 @@ namespace Barbari_BLL
         public static OperationResult Insert(City_Tbl city)
         {
             var result1 = Validation.City_Validation(city);
-            var result2 = Barbari_DAL.City.Select_Shahr_Anbar(city.CityShahr,city.CityAnbar);
+            var result2 = Barbari_DAL.City.Select_Shahr_Anbar(city.CityShahr, city.CityAnbar);
             if (result1.Success == false)
             {
                 return new OperationResult
@@ -108,6 +108,37 @@ namespace Barbari_BLL
             else
             {
                 var result = Barbari_DAL.City.Insert(city);
+                if (result.Success == true)
+                {
+                    return new OperationResult
+                    {
+                        Success = true,
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
+            }
+        }
+        public static OperationResult Update(City_Tbl city)
+        {
+            var result1 = Validation.City_Validation(city);
+            if (result1.Success == false)
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = result1.Message
+                };
+            }
+            else
+            {
+                var result = Barbari_DAL.City.Update(city);
                 if (result.Success == true)
                 {
                     return new OperationResult

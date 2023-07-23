@@ -138,6 +138,29 @@ namespace Barbari_DAL
             }
             
         }
+        public static OperationResult Update(City_Tbl city)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.City_Tbls.Where(p => p.CityShahr == city.CityShahr && p.CityAnbar == city.CityAnbar).Single();
+                query.CityAdres = city.CityAdres;
+                query.CityMobile= city.CityMobile;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+
+        }
     }
     public class CityComparer : IEqualityComparer<City_Tbl>
     {

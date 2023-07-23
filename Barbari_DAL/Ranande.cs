@@ -58,13 +58,13 @@ namespace Barbari_DAL
             try
             {
                 linq = new DataClassBarbariDataContext();
-                var query = linq.Ranande_Tbls.Select(p => p.RanandeCodeRanande).LastOrDefault();
+                var query = linq.Ranande_Tbls.ToList().LastOrDefault();
                 if (query != null)
                 {
                     return new OperationResult<int>
                     {
                         Success = true,
-                        Data = query
+                        Data = query.RanandeCodeRanande
                     };
                 }
                 else

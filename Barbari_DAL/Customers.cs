@@ -56,13 +56,13 @@ namespace Barbari_DAL
             try
             {
                 linq = new DataClassBarbariDataContext();
-                var query = linq.Customers_Tbls.Select(p => p.CustomersCode).LastOrDefault();
+                var query = linq.Customers_Tbls.ToList().LastOrDefault();
                 if (query != null)
                 {
                     return new OperationResult<int>
                     {
                         Success = true,
-                        Data = query
+                        Data = query.CustomersCode
                     };
                 }
                 else

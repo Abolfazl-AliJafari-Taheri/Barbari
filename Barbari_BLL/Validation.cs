@@ -355,6 +355,22 @@ namespace Barbari_BLL
                     Message = "انبار را وارد کنید"
                 };
             }
+            else if (string.IsNullOrEmpty(city.CityMobile))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "موبایل را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(city.CityAdres))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "ادرس را وارد کنید"
+                };
+            }
             else if (CheckRangeDataType(city.CityShahr, 50))
             {
                 return new OperationResult
@@ -369,6 +385,14 @@ namespace Barbari_BLL
                 {
                     Success = false,
                     Message = "انبار نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckMobileFormat(city.CityMobile))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره تلفن را درست وارد کنید"
                 };
             }
             else
