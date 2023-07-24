@@ -1,4 +1,5 @@
-﻿using Barbari_DAL;
+﻿using Barbari_BLL;
+using Barbari_DAL;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -24,16 +25,17 @@ namespace Barbari_UI
     {
         public AddAnbar()
         {
-            //City = new City_Tbl();
+            City = new City_Tbl();
             InitializeComponent();
         }
-        //public AddAnbar(City_Tbl city)
-        //{
-        //    City = city;
-        //    InitializeComponent();
-
-        //}
-        //public City_Tbl City { get; set; }
+        public AddAnbar(City_Tbl city)
+        {
+            City = city;
+            edit = true;
+            InitializeComponent();
+        }
+        public City_Tbl City { get; set; }
+        bool edit = false;
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -52,54 +54,87 @@ namespace Barbari_UI
                 textBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
             }
         }
-
+        void EditMode(City_Tbl city)
+        {
+            Title_TxtBlock.Text = "ویرایش مشتری ثابت";
+            City_Txt.Text = city.CityShahr;
+            AnbarName_Txt.Text = city.CityAnbar;
+            PhoneNum_Txt.Text = city.CityMobile;
+            Address_Txt.Text = city.CityAdres;
+            Add_Btn.Content = "ویرایش انبار";
+            City_Txt.IsReadOnly = true;
+            AnbarName_Txt.IsReadOnly = true;
+            City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            AnbarName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            PhoneNum_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            Address_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+        }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if (edit)
+            {
+                EditMode(City);
+            }
         }
 
         private void Add_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (Validait())
+            if (edit)
             {
-                City_Tbl anbar = new City_Tbl();
-                anbar.CityAnbar = AnbarName_Txt.Text;
-                anbar.CityShahr = City_Txt.Text;
-                anbar.CityAdres = Address_Txt.Text;
-                anbar.CityMobile = PhoneNum_Txt.Text;
-                var result = Barbari_BLL.City.Insert(anbar);
-                if (!result.Success)
+                if (Validait())
                 {
-                    MessageBox.Show(result.Message);
+                    City.CityAdres = Address_Txt.Text;
+                    City.CityMobile= PhoneNum_Txt.Text;
+                    var result = Barbari_BLL.City.Update(City);
+                    if (!result.Success)
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        WindowsAndPages.cityAnbar.Refresh();
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                    }
                 }
                 else
                 {
-                    AnbarName_Txt.Text = AnbarName_Txt.Tag.ToString();
-                    City_Txt.Text = City_Txt.Tag.ToString();
-                    Address_Txt.Text = Address_Txt.Tag.ToString();
-                    PhoneNum_Txt.Text = PhoneNum_Txt.Tag.ToString();
-                    AnbarName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                    City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                    Address_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                    PhoneNum_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                    //foreach (object control in Field_Grid.Children)
-                    //{
-                    //    if (control is Border)
-                    //    {
-                    //        if ((control as Border).Child is TextBox)
-                    //        {
-                    //            (((control as Border).Child) as TextBox).Text = (control as TextBox).Tag.ToString();
-                    //            (((control as Border).Child) as TextBox).Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                    //        }
-                    //    }
-                    //}
-
+                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
                 }
+
             }
             else
             {
-                MessageBox.Show("تمامی فیلد ها باید وارد شوند");
-            }
+                if (Validait())
+                {
+                    City_Tbl anbar = new City_Tbl();
+                    anbar.CityAnbar = AnbarName_Txt.Text;
+                    anbar.CityShahr = City_Txt.Text;
+                    anbar.CityAdres = Address_Txt.Text;
+                    anbar.CityMobile = PhoneNum_Txt.Text;
+                    var result = Barbari_BLL.City.Insert(anbar);
+                    if (!result.Success)
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        AnbarName_Txt.Text = AnbarName_Txt.Tag.ToString();
+                        City_Txt.Text = City_Txt.Tag.ToString();
+                        Address_Txt.Text = Address_Txt.Tag.ToString();
+                        PhoneNum_Txt.Text = PhoneNum_Txt.Tag.ToString();
+                        AnbarName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        Address_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        PhoneNum_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                       
 
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
+                }
+            }
         }
         
         bool Validait()

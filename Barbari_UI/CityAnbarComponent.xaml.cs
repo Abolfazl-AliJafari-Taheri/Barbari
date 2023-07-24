@@ -46,6 +46,10 @@ namespace Barbari_UI
 
         }
 
+        private async void Edit_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddAnbar(Anbar) { Height = 309, Width = 622 });
 
+        }
     }
 }

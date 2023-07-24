@@ -77,6 +77,7 @@ namespace Barbari_UI
                 Password_PassBx.Password = Password_PassBx.Tag.ToString();
                 Password_PassBx.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                 Username_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+
                 if (WindowsAndPages.home_Window == null)
                 {
                     WindowsAndPages.home_Window = new Home(result.Data);

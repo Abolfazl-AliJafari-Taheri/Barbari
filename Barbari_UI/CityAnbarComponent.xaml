@@ -16,15 +16,21 @@
                 <ColumnDefinition Width="253.75"/>
                 <ColumnDefinition Width="253.75"/>
                 <ColumnDefinition Width="253.75"/>
+                <ColumnDefinition Width="56"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="0 0 0 21.5" Name="AnbarName_TxtBlock" FontSize="16" FontFamily="IRANSansX" Height="29" Width="auto" Text="انبار" HorizontalAlignment="Center"/>
             <TextBlock Grid.Column="1" VerticalAlignment="Bottom" Margin="0 0 0 21.5" Name="City_TxtBlock" FontSize="16" FontFamily="IRANSansX" Height="29" Width="auto" Text="شهر" HorizontalAlignment="Center"/>
             <TextBlock Grid.Column="2" VerticalAlignment="Bottom" Margin="0 0 0 21.5" Name="Address_TxtBlock" FontSize="16" FontFamily="IRANSansX" Height="29" Width="auto" Text="آدرس انبار" HorizontalAlignment="Center"/>
             <TextBlock Grid.Column="3" VerticalAlignment="Bottom" Margin="0 0 0 21.5" Name="PhoneNum_TxtBlock" FontSize="16" FontFamily="IRANSansX" Height="29" Width="auto" Text="شماره تلفن" HorizontalAlignment="Center"/>
-            <Border Grid.Column="4" VerticalAlignment="Center" Background="#D90000" HorizontalAlignment="Center"  CornerRadius="8" Width="40" Height="40" Margin="0 0 8 0">
-                <Button Name="Delete_Btn" Height="40" Width="40" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Delete_Btn_Click" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <Border Grid.Column="4" VerticalAlignment="Center" Background="#D90000" HorizontalAlignment="Right"  CornerRadius="8" Width="40" Height="40" >
+                <Button Name="Delete_Btn" Height="40" Width="40" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Delete_Btn_Click" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <Image Height="24" Width="24" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Source/Icones/Delete Btn Icon(White Border).png"/>
+                </Button>
+            </Border>
+            <Border Grid.Column="5" VerticalAlignment="Center" Background="#2B54A3" HorizontalAlignment="Left" Margin="8 0 0 0" CornerRadius="8" Width="40" Height="40">
+                <Button Name="Edit_Btn" Height="40" Width="40" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Edit_Btn_Click" VerticalAlignment="Top">
+                    <Image Height="24" Width="24" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Source/Icones/Edit Btn Icon(White Border).png"/>
                 </Button>
             </Border>
         </Grid>
