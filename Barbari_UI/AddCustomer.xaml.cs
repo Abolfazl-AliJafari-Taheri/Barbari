@@ -60,7 +60,7 @@ namespace Barbari_UI
             Title_TxtBlock.Text = "ویرایش مشتری ثابت";
             FirstName_Txt.Text = customer.CustomersFirstName;
             LastName_Txt.Text = customer.CustomersLastName;
-            Code_Txt.Text = customer.CustomersCode;
+            Code_Txt.Text = customer.CustomersCode.ToString();
             Mobile_Txt.Text = customer.CustomersMobile;
             City_Txt.Text = customer.CustomersCity;
             Add_Btn.Content = "ویرایش مشتری";
@@ -71,11 +71,17 @@ namespace Barbari_UI
             City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
         }
+        
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            City_Txt.ItemsSource = Barbari_BLL.City.Select_Shahr().Data;
             if (edit)
             {
                 EditMode(Customer);
+            }
+            else
+            {
+                Code_Txt.Text = (Barbari_BLL.Customers.Select_CodeLast().Data+1).ToString();
             }
         }
 
@@ -87,7 +93,6 @@ namespace Barbari_UI
                 {
                     Customer.CustomersFirstName = FirstName_Txt.Text;
                     Customer.CustomersLastName = LastName_Txt.Text;
-                    Customer.CustomersCode = Code_Txt.Text;
                     Customer.CustomersCity = City_Txt.Text;
                     Customer.CustomersMobile = Mobile_Txt.Text;
                     var result = Barbari_BLL.Customers.Update(Customer);
@@ -114,8 +119,7 @@ namespace Barbari_UI
                     Customers_Tbl Customer = new Customers_Tbl();
                     Customer.CustomersFirstName = FirstName_Txt.Text;
                     Customer.CustomersLastName = LastName_Txt.Text;
-                    Customer.CustomersCode = Code_Txt.Text;
-                    Customer.CustomersCity = City_Txt.Text;
+                    Customer.CustomersCity = City_Txt.Text.Trim();
                     Customer.CustomersMobile = Mobile_Txt.Text;
                     var result = Barbari_BLL.Customers.Insert(Customer);
                     if (!result.Success)
@@ -126,7 +130,8 @@ namespace Barbari_UI
                     {
                         FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
                         LastName_Txt.Text = LastName_Txt.Tag.ToString();
-                        Code_Txt.Text = Code_Txt.Tag.ToString();
+                        Code_Txt.Text = (Barbari_BLL.Customers.Select_CodeLast().Data + 1).ToString();
+
                         City_Txt.Text = City_Txt.Tag.ToString();
                         Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
                         FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
@@ -177,6 +182,27 @@ namespace Barbari_UI
                 return false;
             }
             return true;
+        }
+
+        private void City_Txt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            ComboBox combobox= (ComboBox)sender;
+            if (combobox.Text == combobox.Tag.ToString())
+            {
+                combobox.Text = "";
+                combobox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            }
+        }
+
+        private void City_Txt_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+            ComboBox combobox = (ComboBox)sender;
+            if (string.IsNullOrWhiteSpace(combobox.Text))
+            {
+                combobox.Text = combobox.Tag.ToString();
+                combobox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+            }
         }
     }
 }

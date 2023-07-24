@@ -73,7 +73,11 @@ namespace Barbari_UI
             }
             else
             {
-                if(WindowsAndPages.home_Window == null)
+                Username_Txt.Text = Username_Txt.Tag.ToString();
+                Password_PassBx.Password = Password_PassBx.Tag.ToString();
+                Password_PassBx.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                Username_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                if (WindowsAndPages.home_Window == null)
                 {
                     WindowsAndPages.home_Window = new Home(result.Data);
                     WindowsAndPages.home_Window.ShowDialog();
@@ -82,6 +86,7 @@ namespace Barbari_UI
                 {
                     WindowsAndPages.home_Window.User= result.Data;
                     WindowsAndPages.home_Window.Window_Loaded(null,null);
+                   
                     WindowsAndPages.home_Window.ShowDialog();
                 }
             }

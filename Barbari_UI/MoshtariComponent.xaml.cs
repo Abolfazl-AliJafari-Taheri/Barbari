@@ -37,7 +37,7 @@ namespace Barbari_UI
             Name_TxtBlock.Text = Customer.CustomersFirstName+ " " + Customer.CustomersLastName;
             City_TxtBlock.Text = Customer.CustomersCity;
             MobileNum_TxtBlock.Text = Customer.CustomersMobile;
-            Code_TxtBlock.Text = Customer.CustomersCode;
+            Code_TxtBlock.Text = Customer.CustomersCode.ToString();
         }
 
         private async void Delete_Btn_Click(object sender, RoutedEventArgs e)

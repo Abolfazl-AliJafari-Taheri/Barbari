@@ -1,4 +1,5 @@
 ﻿using Barbari_DAL;
+using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -43,10 +44,24 @@ namespace Barbari_UI
                     ShowRanade_StckPnl.Children.Add(karmand);
                 }
             }
-
-
         }
-
+        public void Search(string Search)
+        {
+            var karmandan = Barbari_BLL.Users.Select(Search);
+            if (!karmandan.Success)
+            {
+                MessageBox.Show(karmandan.Message);
+            }
+            else
+            {
+                ShowRanade_StckPnl.Children.Clear();
+                foreach (Users_Tbl Karmand in karmandan.Data)
+                {
+                    KarmandComponent karmand = new KarmandComponent(Karmand) { Height = 72, Width = 1143 };
+                    ShowRanade_StckPnl.Children.Add(karmand);
+                }
+            }
+        }
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -77,6 +92,12 @@ namespace Barbari_UI
             Refresh();
         }
 
- 
+        private void Search_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(Search_Txt.Text != Search_Txt.Tag.ToString())
+            {
+                Search(Search_Txt.Text);
+            }
+        }
     }
 }

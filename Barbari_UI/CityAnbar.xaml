@@ -53,12 +53,16 @@
         </Grid>
         <Grid Grid.Row="1" Width="1143" FlowDirection="RightToLeft" Height="46" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="511.5"/>
-                <ColumnDefinition Width="511.5"/>
+                <ColumnDefinition Width="253.75"/>
+                <ColumnDefinition Width="253.75"/>
+                <ColumnDefinition Width="253.75"/>
+                <ColumnDefinition Width="253.75"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="نام انبار" HorizontalAlignment="Center" Height="22"/>
             <TextBlock Grid.Column="1" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="شهر" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="2" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="آدرس انبار" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="3" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="شماره تلفن" HorizontalAlignment="Center" Height="22"/>
             <TextBlock Grid.Column="4" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="عملیات" HorizontalAlignment="Center" Height="22"/>
         </Grid>
         <ScrollViewer Grid.Row="2"  VerticalScrollBarVisibility="Hidden">

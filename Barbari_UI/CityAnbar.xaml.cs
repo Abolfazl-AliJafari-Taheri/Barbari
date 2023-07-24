@@ -70,7 +70,7 @@ namespace Barbari_UI
 
         private async void AddRanande_Btn_Click(object sender, RoutedEventArgs e)
         {
-            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddAnbar() { Height = 237, Width = 622 });
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddAnbar() { Height = 309, Width = 622 });
             Refresh();
         }
     }

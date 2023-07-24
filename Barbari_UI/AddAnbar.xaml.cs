@@ -64,6 +64,8 @@ namespace Barbari_UI
                 City_Tbl anbar = new City_Tbl();
                 anbar.CityAnbar = AnbarName_Txt.Text;
                 anbar.CityShahr = City_Txt.Text;
+                anbar.CityAdres = Address_Txt.Text;
+                anbar.CityMobile = PhoneNum_Txt.Text;
                 var result = Barbari_BLL.City.Insert(anbar);
                 if (!result.Success)
                 {
@@ -73,8 +75,12 @@ namespace Barbari_UI
                 {
                     AnbarName_Txt.Text = AnbarName_Txt.Tag.ToString();
                     City_Txt.Text = City_Txt.Tag.ToString();
+                    Address_Txt.Text = Address_Txt.Tag.ToString();
+                    PhoneNum_Txt.Text = PhoneNum_Txt.Tag.ToString();
                     AnbarName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                     City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    Address_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    PhoneNum_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                     //foreach (object control in Field_Grid.Children)
                     //{
                     //    if (control is Border)
@@ -95,6 +101,7 @@ namespace Barbari_UI
             }
 
         }
+        
         bool Validait()
         {
             if (AnbarName_Txt.Text == AnbarName_Txt.Tag.ToString())
@@ -102,6 +109,14 @@ namespace Barbari_UI
                 return false;
             }
             if (City_Txt.Text == City_Txt.Tag.ToString())
+            {
+                return false;
+            }
+            if (Address_Txt.Text == Address_Txt.Tag.ToString())
+            {
+                return false;
+            }
+            if (PhoneNum_Txt.Text == PhoneNum_Txt.Tag.ToString())
             {
                 return false;
             }

@@ -6,12 +6,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Barbari_UI"
              mc:Ignorable="d" 
-            d:DesignHeight="237" d:DesignWidth="622"
+            d:DesignHeight="309" d:DesignWidth="622"
              Loaded="UserControl_Loaded">
     <Border Background="#F7F7F7" CornerRadius="8"  >
         <Grid FlowDirection="RightToLeft" Name="Field_Grid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="77"/>
+                <RowDefinition Height="72"/>
                 <RowDefinition Height="72"/>
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
@@ -25,6 +26,12 @@
             </Border>
             <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="City_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="شهر" Text="شهر" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <TextBox Name="Address_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="آدرس انبار" Text="آدرس انبار" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <TextBox Name="PhoneNum_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="شماره تلفن" Text="شماره تلفن" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
             </Border>
             <Border Grid.Column="0" Grid.Row="4" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 0 0 16" VerticalAlignment="Bottom"  CornerRadius="8" Background="#2B54A3">
                 <Button Name="Add_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Add_Btn_Click">

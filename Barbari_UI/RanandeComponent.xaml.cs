@@ -35,7 +35,7 @@ namespace Barbari_UI
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Name_TxtBlock.Text = Ranande.RanandeFirstName + " " + Ranande.RanandeLastName;
-            Code_TxtBlock.Text = Ranande.RanandeCodeRanande;
+            Code_TxtBlock.Text = Ranande.RanandeCodeRanande.ToString();
             MobileNum_TxtBlock.Text = Ranande.RanandeMobile;
         }
 

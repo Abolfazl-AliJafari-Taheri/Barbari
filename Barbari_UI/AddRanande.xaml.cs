@@ -60,7 +60,7 @@ namespace Barbari_UI
             Title_TxtBlock.Text = "ویرایش راننده";
             FirstName_Txt.Text = ranande.RanandeFirstName;
             LastName_Txt.Text = ranande.RanandeLastName;
-            Code_Txt.Text = ranande.RanandeCodeRanande;
+            Code_Txt.Text = ranande.RanandeCodeRanande.ToString();
             Mobile_Txt.Text = ranande.RanandeMobile;
             Add_Btn.Content = "ویرایش راننده";
             Code_Txt.IsReadOnly= true;
@@ -75,6 +75,10 @@ namespace Barbari_UI
             {
                 EditMode(Ranande);
             }
+            else
+            {
+                Code_Txt.Text = (Barbari_BLL.Ranande.Select_CodeLast().Data+1).ToString();
+            }
         }
 
         private void Add_Btn_Click(object sender, RoutedEventArgs e)
@@ -85,7 +89,6 @@ namespace Barbari_UI
                 {
                     Ranande.RanandeFirstName = FirstName_Txt.Text;
                     Ranande.RanandeLastName = LastName_Txt.Text;
-                    Ranande.RanandeCodeRanande = Code_Txt.Text;
                     Ranande.RanandeMobile = Mobile_Txt.Text;
                     var result = Barbari_BLL.Ranande.Update(Ranande);
                     if (!result.Success)
@@ -96,7 +99,6 @@ namespace Barbari_UI
                     {
                         Ranande.RanandeFirstName = "";
                         Ranande.RanandeLastName = "";
-                        Ranande.RanandeCodeRanande = "";
                         Ranande.RanandeMobile = "";
                         WindowsAndPages.ranandegan.Refresh();
                         DialogHost.CloseDialogCommand.Execute(null, null);
@@ -115,7 +117,6 @@ namespace Barbari_UI
                     Ranande_Tbl ranande= new Ranande_Tbl();
                     ranande.RanandeFirstName = FirstName_Txt.Text;
                     ranande.RanandeLastName= LastName_Txt.Text;
-                    ranande.RanandeCodeRanande = Code_Txt.Text;
                     ranande.RanandeMobile= Mobile_Txt.Text;
                     var result = Barbari_BLL.Ranande.Insert(ranande);
                     if (!result.Success)
@@ -126,7 +127,7 @@ namespace Barbari_UI
                     {
                         FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
                         LastName_Txt.Text = LastName_Txt.Tag.ToString();
-                        Code_Txt.Text = Code_Txt.Tag.ToString();
+                        Code_Txt.Text = (Barbari_BLL.Ranande.Select_CodeLast().Data+1).ToString();
                         Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
 
                         FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));

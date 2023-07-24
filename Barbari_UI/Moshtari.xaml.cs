@@ -43,10 +43,24 @@ namespace Barbari_UI
                     ShowRanade_StckPnl.Children.Add(moshtari);
                 }
             }
-
-
         }
-
+        public void Search(string Search)
+        {
+            var moshtariyan = Barbari_BLL.Customers.Select(Search);
+            if (!moshtariyan.Success)
+            {
+                MessageBox.Show(moshtariyan.Message);
+            }
+            else
+            {
+                ShowRanade_StckPnl.Children.Clear();
+                foreach (Customers_Tbl Moshtari in moshtariyan.Data)
+                {
+                    MoshtariComponent moshtari = new MoshtariComponent(Moshtari) { Height = 72, Width = 1143 };
+                    ShowRanade_StckPnl.Children.Add(moshtari);
+                }
+            }
+        }
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -76,6 +90,15 @@ namespace Barbari_UI
         {
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddCustomer() { Height = 397, Width = 622 });
             Refresh();
+        }
+
+        private void Search_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Search_Txt.Text != Search_Txt.Tag.ToString() )
+            {
+                Search(Search_Txt.Text);
+            }
+           
         }
     }
 }

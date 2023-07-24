@@ -298,7 +298,8 @@ namespace Barbari_UI
 
         private void LogoutMenu_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowsAndPages.home_Window.Visibility= Visibility.Hidden;
+            
         }
 
         public void Window_Loaded(object sender, RoutedEventArgs e)

@@ -36,6 +36,8 @@ namespace Barbari_UI
         {
             AnbarName_TxtBlock.Text = Anbar.CityAnbar;
             City_TxtBlock.Text = Anbar.CityShahr;
+            Address_TxtBlock.Text = Anbar.CityAdres;
+            PhoneNum_TxtBlock.Text = Anbar.CityMobile;
         }
 
         private async void Delete_Btn_Click(object sender, RoutedEventArgs e)
