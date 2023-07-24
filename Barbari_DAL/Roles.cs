@@ -29,7 +29,28 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<Roles_Tbl> Select_Nam(string search)
+        public static OperationResult<List<Roles_Tbl>> Select_NamRoles(string search)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.Roles_Tbls.Where(p => p.RolesNamRole == search).ToList();
+                return new OperationResult<List<Roles_Tbl>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch
+            {
+                return new OperationResult<List<Roles_Tbl>>
+                {
+                    Success = false,
+                };
+            }
+
+        }
+        public static OperationResult<Roles_Tbl> Login_Roles(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
