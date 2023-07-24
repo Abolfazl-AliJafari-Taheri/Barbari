@@ -57,9 +57,9 @@ namespace Barbari_DAL
     partial void InsertRanande_Tbl(Ranande_Tbl instance);
     partial void UpdateRanande_Tbl(Ranande_Tbl instance);
     partial void DeleteRanande_Tbl(Ranande_Tbl instance);
-    partial void InsertRole(Role instance);
-    partial void UpdateRole(Role instance);
-    partial void DeleteRole(Role instance);
+    partial void InsertRoles_Tbl(Roles_Tbl instance);
+    partial void UpdateRoles_Tbl(Roles_Tbl instance);
+    partial void DeleteRoles_Tbl(Roles_Tbl instance);
     #endregion
 		
 		public DataClassBarbariDataContext() : 
@@ -164,11 +164,11 @@ namespace Barbari_DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<Role> Roles
+		public System.Data.Linq.Table<Roles_Tbl> Roles_Tbls
 		{
 			get
 			{
-				return this.GetTable<Role>();
+				return this.GetTable<Roles_Tbl>();
 			}
 		}
 	}
@@ -1058,7 +1058,7 @@ namespace Barbari_DAL
 		
 		private EntitySet<BarTahvili_Tbl> _BarTahvili_Tbls;
 		
-		private EntityRef<Role> _Role;
+		private EntityRef<Roles_Tbl> _Roles_Tbl;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1084,7 +1084,7 @@ namespace Barbari_DAL
 		{
 			this._BarErsali_Tbls = new EntitySet<BarErsali_Tbl>(new Action<BarErsali_Tbl>(this.attach_BarErsali_Tbls), new Action<BarErsali_Tbl>(this.detach_BarErsali_Tbls));
 			this._BarTahvili_Tbls = new EntitySet<BarTahvili_Tbl>(new Action<BarTahvili_Tbl>(this.attach_BarTahvili_Tbls), new Action<BarTahvili_Tbl>(this.detach_BarTahvili_Tbls));
-			this._Role = default(EntityRef<Role>);
+			this._Roles_Tbl = default(EntityRef<Roles_Tbl>);
 			OnCreated();
 		}
 		
@@ -1219,7 +1219,7 @@ namespace Barbari_DAL
 			{
 				if ((this._UsersRoles != value))
 				{
-					if (this._Role.HasLoadedOrAssignedValue)
+					if (this._Roles_Tbl.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1258,26 +1258,26 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Users_Tbl", Storage="_Role", ThisKey="UsersRoles", OtherKey="RolesNamRole", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Role Role
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Roles_Tbl_Users_Tbl", Storage="_Roles_Tbl", ThisKey="UsersRoles", OtherKey="RolesNamRole", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Roles_Tbl Roles_Tbl
 		{
 			get
 			{
-				return this._Role.Entity;
+				return this._Roles_Tbl.Entity;
 			}
 			set
 			{
-				Role previousValue = this._Role.Entity;
+				Roles_Tbl previousValue = this._Roles_Tbl.Entity;
 				if (((previousValue != value) 
-							|| (this._Role.HasLoadedOrAssignedValue == false)))
+							|| (this._Roles_Tbl.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Role.Entity = null;
+						this._Roles_Tbl.Entity = null;
 						previousValue.Users_Tbls.Remove(this);
 					}
-					this._Role.Entity = value;
+					this._Roles_Tbl.Entity = value;
 					if ((value != null))
 					{
 						value.Users_Tbls.Add(this);
@@ -1287,7 +1287,7 @@ namespace Barbari_DAL
 					{
 						this._UsersRoles = default(string);
 					}
-					this.SendPropertyChanged("Role");
+					this.SendPropertyChanged("Roles_Tbl");
 				}
 			}
 		}
@@ -3058,8 +3058,8 @@ namespace Barbari_DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Roles")]
-	public partial class Role : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Roles_Tbl")]
+	public partial class Roles_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -3067,8 +3067,6 @@ namespace Barbari_DAL
 		private string _RolesNamRole;
 		
 		private bool _RolesTanzimat;
-		
-		private bool _TanzimatShahrAndAnbar;
 		
 		private bool _TanzimatlogoAndName;
 		
@@ -3098,6 +3096,14 @@ namespace Barbari_DAL
 		
 		private bool _CustomersDelete;
 		
+		private bool _RolesCity;
+		
+		private bool _CityInsert;
+		
+		private bool _CityUpdate;
+		
+		private bool _CityDelete;
+		
 		private bool _RolesBarErsali;
 		
 		private bool _BarErsaliInsert;
@@ -3126,8 +3132,6 @@ namespace Barbari_DAL
     partial void OnRolesNamRoleChanged();
     partial void OnRolesTanzimatChanging(bool value);
     partial void OnRolesTanzimatChanged();
-    partial void OnTanzimatShahrAndAnbarChanging(bool value);
-    partial void OnTanzimatShahrAndAnbarChanged();
     partial void OnTanzimatlogoAndNameChanging(bool value);
     partial void OnTanzimatlogoAndNameChanged();
     partial void OnTanzimatRolesChanging(bool value);
@@ -3156,6 +3160,14 @@ namespace Barbari_DAL
     partial void OnCustomersUpdateChanged();
     partial void OnCustomersDeleteChanging(bool value);
     partial void OnCustomersDeleteChanged();
+    partial void OnRolesCityChanging(bool value);
+    partial void OnRolesCityChanged();
+    partial void OnCityInsertChanging(bool value);
+    partial void OnCityInsertChanged();
+    partial void OnCityUpdateChanging(bool value);
+    partial void OnCityUpdateChanged();
+    partial void OnCityDeleteChanging(bool value);
+    partial void OnCityDeleteChanged();
     partial void OnRolesBarErsaliChanging(bool value);
     partial void OnRolesBarErsaliChanged();
     partial void OnBarErsaliInsertChanging(bool value);
@@ -3176,7 +3188,7 @@ namespace Barbari_DAL
     partial void OnRolesGozareshChanged();
     #endregion
 		
-		public Role()
+		public Roles_Tbl()
 		{
 			this._Users_Tbls = new EntitySet<Users_Tbl>(new Action<Users_Tbl>(this.attach_Users_Tbls), new Action<Users_Tbl>(this.detach_Users_Tbls));
 			OnCreated();
@@ -3218,26 +3230,6 @@ namespace Barbari_DAL
 					this._RolesTanzimat = value;
 					this.SendPropertyChanged("RolesTanzimat");
 					this.OnRolesTanzimatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TanzimatShahrAndAnbar", DbType="Bit NOT NULL")]
-		public bool TanzimatShahrAndAnbar
-		{
-			get
-			{
-				return this._TanzimatShahrAndAnbar;
-			}
-			set
-			{
-				if ((this._TanzimatShahrAndAnbar != value))
-				{
-					this.OnTanzimatShahrAndAnbarChanging(value);
-					this.SendPropertyChanging();
-					this._TanzimatShahrAndAnbar = value;
-					this.SendPropertyChanged("TanzimatShahrAndAnbar");
-					this.OnTanzimatShahrAndAnbarChanged();
 				}
 			}
 		}
@@ -3522,6 +3514,86 @@ namespace Barbari_DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesCity", DbType="Bit NOT NULL")]
+		public bool RolesCity
+		{
+			get
+			{
+				return this._RolesCity;
+			}
+			set
+			{
+				if ((this._RolesCity != value))
+				{
+					this.OnRolesCityChanging(value);
+					this.SendPropertyChanging();
+					this._RolesCity = value;
+					this.SendPropertyChanged("RolesCity");
+					this.OnRolesCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityInsert", DbType="Bit NOT NULL")]
+		public bool CityInsert
+		{
+			get
+			{
+				return this._CityInsert;
+			}
+			set
+			{
+				if ((this._CityInsert != value))
+				{
+					this.OnCityInsertChanging(value);
+					this.SendPropertyChanging();
+					this._CityInsert = value;
+					this.SendPropertyChanged("CityInsert");
+					this.OnCityInsertChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityUpdate", DbType="Bit NOT NULL")]
+		public bool CityUpdate
+		{
+			get
+			{
+				return this._CityUpdate;
+			}
+			set
+			{
+				if ((this._CityUpdate != value))
+				{
+					this.OnCityUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._CityUpdate = value;
+					this.SendPropertyChanged("CityUpdate");
+					this.OnCityUpdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityDelete", DbType="Bit NOT NULL")]
+		public bool CityDelete
+		{
+			get
+			{
+				return this._CityDelete;
+			}
+			set
+			{
+				if ((this._CityDelete != value))
+				{
+					this.OnCityDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._CityDelete = value;
+					this.SendPropertyChanged("CityDelete");
+					this.OnCityDeleteChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesBarErsali", DbType="Bit NOT NULL")]
 		public bool RolesBarErsali
 		{
@@ -3702,7 +3774,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Users_Tbl", Storage="_Users_Tbls", ThisKey="RolesNamRole", OtherKey="UsersRoles")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Roles_Tbl_Users_Tbl", Storage="_Users_Tbls", ThisKey="RolesNamRole", OtherKey="UsersRoles")]
 		public EntitySet<Users_Tbl> Users_Tbls
 		{
 			get
@@ -3738,13 +3810,13 @@ namespace Barbari_DAL
 		private void attach_Users_Tbls(Users_Tbl entity)
 		{
 			this.SendPropertyChanging();
-			entity.Role = this;
+			entity.Roles_Tbl = this;
 		}
 		
 		private void detach_Users_Tbls(Users_Tbl entity)
 		{
 			this.SendPropertyChanging();
-			entity.Role = null;
+			entity.Roles_Tbl = null;
 		}
 	}
 }

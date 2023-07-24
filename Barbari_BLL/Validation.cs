@@ -1450,6 +1450,32 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult Roles_Validation(Roles_Tbl roles)
+        {
+            if (string.IsNullOrEmpty(roles.RolesNamRole))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام نقش را وارد کنید"
+                };
+            }
+            else if (CheckRangeDataType(roles.RolesNamRole, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام نقش نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
     }
     
 }

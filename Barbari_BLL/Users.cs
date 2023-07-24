@@ -25,6 +25,22 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<int> Select_Roles_Count(string search)
+        {
+            var result = Barbari_DAL.Users.Select_Roles(search);
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else
+            {
+                return new OperationResult<int>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Delete(string code)
         {
             var result = Barbari_DAL.Users.Delete(code);

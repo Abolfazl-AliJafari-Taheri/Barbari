@@ -51,6 +51,27 @@ namespace Barbari_DAL
             }
             
         }
+        public static OperationResult<int> Select_Roles(string search)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.Users_Tbls.Count(p => p.UsersRoles == search);
+                return new OperationResult<int>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch
+            {
+                return new OperationResult<int>
+                {
+                    Success = false,
+                };
+            }
+
+        }
         public static OperationResult Delete(string code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
@@ -126,6 +147,7 @@ namespace Barbari_DAL
                 query.UsersLastName = user.UsersLastName;
                 query.UsersPassWord = user.UsersPassWord;
                 query.UsersMobile = user.UsersMobile;
+                query.UsersRoles = user.UsersRoles;
                 linq.SubmitChanges();
                 return new OperationResult
                 {
