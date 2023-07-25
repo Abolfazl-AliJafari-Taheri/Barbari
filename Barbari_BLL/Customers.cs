@@ -25,6 +25,30 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<List<Customers_Tbl>> Select_Code(int search)
+        {
+            var result = Barbari_DAL.Customers.Select_Code(search);
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else if (result.Success == true && result.Data == null)
+            {
+                return new OperationResult<List<Customers_Tbl>>
+                {
+                    Success = false,
+                    Message = "این کد مشتری در جدول مشتری ثبت نشده"
+                };
+            }
+            else
+            {
+                return new OperationResult<List<Customers_Tbl>>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult<int> Select_CodeLast()
         {
             var result = Barbari_DAL.Customers.Select_CodeLast();
