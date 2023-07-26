@@ -25,7 +25,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult<Roles_Tbl> Login_Roles(string search)
+        public static OperationResult<Roles_Tbl> Roles_Login(string search)
         {
             var result = Barbari_DAL.Roles.Login_Roles(search);
             if (result.Success == true)
