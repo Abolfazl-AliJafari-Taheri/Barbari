@@ -68,6 +68,7 @@
       <DependentUpon>DataClassBarbari.dbml</DependentUpon>
     </Compile>
     <Compile Include="OperationResult.cs" />
+    <Compile Include="Possibilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
