@@ -32,7 +32,7 @@ namespace Barbari_BLL
             {
                 return result;
             }
-            else if (result.Success == true && result.Data == null)
+            else if (result.Success == true && result.Data.Count == 0)
             {
                 return new OperationResult<List<Customers_Tbl>>
                 {
