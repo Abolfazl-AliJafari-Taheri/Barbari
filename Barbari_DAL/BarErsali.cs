@@ -69,8 +69,6 @@ namespace Barbari_DAL
                 };
 
             }
-
-
         }
         public static OperationResult Delete(int search)
         {

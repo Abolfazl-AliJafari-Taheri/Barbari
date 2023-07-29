@@ -38,6 +38,31 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<int> Select_Barname_Last()
+        {
+            var result = Barbari_DAL.BarErsali.Select_Barname_Last();
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else if (result.Success == true && result.Data == null)
+            {
+                return new OperationResult<int>
+                {
+                    Success = true,
+                    // برانامه از 1000 شروع میشه
+                    Data = 999
+                };
+            }
+            else
+            {
+                return new OperationResult<int>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Delete(int Code)
         {
             var result = Barbari_DAL.BarErsali.Delete(Code);
