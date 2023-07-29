@@ -74,6 +74,22 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<List<int>> Select_AllCustomersCode()
+        {
+            var result = Barbari_DAL.Customers.Select_AllCustomersCode();
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else
+            {
+                return new OperationResult<List<int>>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Delete(int code)
         {
             var result = Barbari_DAL.Customers.Delete(code);

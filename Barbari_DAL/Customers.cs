@@ -81,6 +81,27 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult<List<int>> Select_AllCustomersCode()
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                linq = new DataClassBarbariDataContext();
+                var query = linq.Customers_Tbls.Select(p => p.CustomersCode).ToList();
+                return new OperationResult<List<int>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch
+            {
+                return new OperationResult<List<int>>
+                {
+                    Success = false,
+                };
+            }
+        }
         public static OperationResult Delete(int code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
