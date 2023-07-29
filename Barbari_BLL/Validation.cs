@@ -21,6 +21,17 @@ namespace Barbari_BLL
                 return false;
             }
         }
+        public static bool CheckTelephonSabetFormat(string Str)
+        {
+            if (Str.Length != 11 || !CheckNumberFormat(Str))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static bool CheckRangeDataType(string Str, byte Range)
         {
             if (Str.Length > Range)
@@ -387,7 +398,7 @@ namespace Barbari_BLL
                     Message = "انبار نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckMobileFormat(city.CityMobile))
+            else if (CheckTelephonSabetFormat(city.CityMobile))
             {
                 return new OperationResult
                 {
