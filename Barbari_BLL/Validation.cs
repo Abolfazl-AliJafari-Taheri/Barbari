@@ -776,7 +776,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "بیمه نباید بیشتر از 12 حرف باشد"
+                    Message = "بیمه نباید بیشتر از 12 عدد باشد"
                 };
             }
             else if (CheckRangeDataType(BarErsaliAnbardari.ToString(), 12))
@@ -784,7 +784,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "انبار داری نباید بیشتر از 12 حرف باشه"
+                    Message = "انبار داری نباید بیشتر از 12 عدد باشه"
                 };
             }
             else if (CheckRangeDataType(BarErsaliShahri.ToString(), 12))
@@ -792,7 +792,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "شهری نباید بیشتر از 12 حرف باشد"
+                    Message = "شهری نباید بیشتر از 12 عدد باشد"
                 };
             }
             else if (CheckRangeDataType(BarErsaliBastebandi.ToString(), 12))
@@ -800,7 +800,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "بسته بندی نباید بیشتر از 12 حرف باشه"
+                    Message = "بسته بندی نباید بیشتر از 12 عدد باشه"
                 };
             }
             else
@@ -1234,7 +1234,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "بیمه نباید بیشتر از 12 حرف باشد"
+                    Message = "بیمه نباید بیشتر از 12 عدد باشد"
                 };
             }
             else if (CheckRangeDataType(barTahvili.BarTahviliAnbardari.ToString(), 12))
@@ -1242,7 +1242,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "انبار داری نباید بیشتر از 12 حرف باشه"
+                    Message = "انبار داری نباید بیشتر از 12 عدد باشه"
                 };
             }
             else if (CheckRangeDataType(barTahvili.BarTahviliShahri.ToString(), 12))
@@ -1250,7 +1250,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "شهری نباید بیشتر از 12 حرف باشد"
+                    Message = "شهری نباید بیشتر از 12 عدد باشد"
                 };
             }
             else if (CheckRangeDataType(barTahvili.BarTahviliBastebandi.ToString(), 12))
@@ -1258,7 +1258,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "بسته بندی نباید بیشتر از 12 حرف باشه"
+                    Message = "بسته بندی نباید بیشتر از 12 عدد باشه"
                 };
             }
             else
