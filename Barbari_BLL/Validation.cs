@@ -1377,7 +1377,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarErsali_Validation_TahvilMoshtari(BarTahvili_Tbl barTahvili)
+        public static OperationResult BarTahvili_Validation_TahvilMoshtari(BarTahvili_Tbl barTahvili)
         {
             if (string.IsNullOrEmpty(barTahvili.BarTahviliRaveshEhrazHoviat))
             {
