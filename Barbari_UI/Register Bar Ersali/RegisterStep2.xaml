@@ -1,0 +1,173 @@
+﻿<UserControl x:Class="Barbari_UI.Register_Bar_Ersali.RegisterStep2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Barbari_UI.Register_Bar_Ersali"
+             mc:Ignorable="d" 
+             d:DesignHeight="376" d:DesignWidth="622">
+    <Border Background="#F7F7F7" CornerRadius="8">
+        <Grid FlowDirection="RightToLeft"
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="64"/>
+                <RowDefinition Height="64"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <ComboBox
+                    Name="CityMaghsad_CmBox"
+                    GotFocus="RemoveTextCmBox"
+                    LostFocus="AddTextCmBox"
+                    BorderThickness="0"
+                    Tag="شهر مقصد"
+  Width="247"
+                    Foreground="#BFBFBF"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Background="#FFFFFF"
+                    Text="شهر مقصد"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="True"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}">
+                    <ComboBox.SelectedItem>
+                        <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <ComboBox
+                    Name="AnbarMaghsad_CmBox"
+                    GotFocus="RemoveTextCmBox"
+                    LostFocus="AddTextCmBox"
+                    BorderThickness="0"
+                    Tag="انبار مقصد"
+  Width="247"
+                    Foreground="#BFBFBF"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Background="#FFFFFF"
+                    Text="انبار مقصد"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="True"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}">
+                    <ComboBox.SelectedItem>
+                        <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <TextBox Name="FirstName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام گیرنده" Text="نام گیرنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+            </Border>
+            <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <TextBox Name="LastName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام خانوادگی گیرنده" Text="نام خانوادگی گیرنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <ComboBox
+                    Name="CityMaghsadFinal_CmBox"
+                    GotFocus="RemoveTextCmBox"
+                    LostFocus="AddTextCmBox"
+                    BorderThickness="0"
+                    Tag="شهر مقصد نهایی"
+  Width="247"
+                    Foreground="#BFBFBF"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Background="#FFFFFF"
+                    Text="شهر مقصد نهایی"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="True"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}">
+                    <ComboBox.SelectedItem>
+                        <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <ComboBox
+                    Name="AnbarMaghsadFinal_CmBox"
+                    GotFocus="RemoveTextCmBox"
+                    LostFocus="AddTextCmBox"
+                    BorderThickness="0"
+                    Tag="انبار مقصد نهایی"
+  Width="247"
+                    Foreground="#BFBFBF"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Background="#FFFFFF"
+                    Text="انبار مقصد نهایی"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="True"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}">
+                    <ComboBox.SelectedItem>
+                        <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
+            </Border>
+            <Grid Grid.Row="1" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton
+                            Name="AddSecondMaghsadToggle"
+                            Cursor="Hand"
+                    FlowDirection="LeftToRight"
+                         VerticalAlignment="Center"
+                         Grid.Column="0"
+  IsChecked="False"
+                         Checked="AddSecondMaghsadToggle_Checked"
+                            Unchecked="AddSecondMaghsadToggle_Unchecked"
+                    HorizontalAlignment="Left"
+                    Width="56" Height="32"
+  Style="{StaticResource  MaterialDesignSwitchLightToggleButton}"
+  ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"
+                         
+                    />
+                <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">افزودن مقصد نهایی</TextBlock>
+            </Grid>
+            <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <TextBox Name="Mobile_Txt"  BorderThickness="0" Margin="16 0 16 0" Tag="شماره تلفن گیرنده" Text="شماره تلفن گیرنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

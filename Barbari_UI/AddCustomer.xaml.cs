@@ -74,7 +74,6 @@ namespace Barbari_UI
         
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            City_Txt.ItemsSource = Barbari_BLL.City.Select_Shahr().Data;
             if (edit)
             {
                 EditMode(Customer);

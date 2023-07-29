@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="Barbari_UI.Register_Bar_Ersali.RegisterStep3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Barbari_UI.Register_Bar_Ersali"
+             mc:Ignorable="d" 
+             d:DesignHeight="854" d:DesignWidth="622">
+    <Border CornerRadius="8" Background="#F7F7F7">
+        <Grid FlowDirection="RightToLeft">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="302"/>
+                <RowDefinition Height="552"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Name="Kala_Grid" Width="558">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="72"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"  Margin="0 24 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="52"/>
+                        <ColumnDefinition Width="182.5"/>
+                        <ColumnDefinition Width="93"/>
+                        <ColumnDefinition Width="182.5"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontWeight="SemiBold" Text="ردیف" FontSize="16" FontFamily="IRANSansX" Height="22" Width="34"/>
+                    <TextBlock Grid.Column="1" FontWeight="SemiBold" Text="نام کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="44"/>
+                    <TextBlock Grid.Column="2" FontWeight="SemiBold" Text="تعداد کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="61"/>
+                    <TextBlock Grid.Column="3" FontWeight="SemiBold" Text="ارزش کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="59"/>
+                    <Image Grid.Column="4" HorizontalAlignment="Right" Height="32" Width="32" Source="/Source/Icones/Delete Kala Icon(Red).png"/>
+                </Grid>
+                <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Hidden">
+                    <StackPanel Name="ShowKala_StckPnl">
+                    </StackPanel>
+                </ScrollViewer>
+                <Grid Grid.Row="2" Margin="0 24 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="152.67"/>
+                        <ColumnDefinition Width="152.67"/>
+                        <ColumnDefinition Width="152.67"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="136.67">
+                        <TextBox Name="KalaName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام کالا" Text="نام کالا" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    </Border>
+                    <Border Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="136.67">
+                        <TextBox Name="KalaNumber_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="تعداد کالا" Text="تعداد کالا" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    </Border>
+                    <Border Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="136.67">
+                        <TextBox Name="KalaPrice_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="ارزش کالا" Text="ارزش کالا" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    </Border>
+                    <Border Grid.Column="3" Height="48" Width="100" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
+                        <Button Name="GetReport_Btn" Height="48" Padding="0" Width="100" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" >
+                            <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"  ><Run Text="افزدون کالا"/></TextBlock>
+                        </Button>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Name="Feild_Grid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="CodeBarname_Txt" IsReadOnly="True" BorderThickness="0" Margin="16 0 16 0" Tag="کد بارنامه" Text="کد بارنامه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="AnbarDari_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="انبار داری" Text="انبار داری" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="BasteBandi_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="بسته بندی" Text="بسته بندی" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="Shahri_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="شهری" Text="شهری" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="Bime_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="بیمه" Text="بیمه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="PishKeraye_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="پیش کرایه" Text="پیش کرایه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="PasKeraye_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="پس کرایه" Text="پس کرایه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="HourSodor_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="ساعت صدور" Text="ساعت صدور" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Border Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="DateSodor_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="تاریخ صدور" Text="تاریخ صدور" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                </Border>
+                <Grid Grid.Row="5" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton
+                            Name="PrintToggle"
+                            Cursor="Hand"
+                    FlowDirection="LeftToRight"
+                         VerticalAlignment="Center"
+                         Grid.Column="0"
+  IsChecked="False"
+                         Checked="PrintToggle_Checked"
+                            Unchecked="PrintToggle_Unchecked"
+                    HorizontalAlignment="Left"
+                    Width="56" Height="32"
+  Style="{StaticResource  MaterialDesignSwitchLightToggleButton}"
+  ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"
+                         
+                    />
+                    <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">چاپ بارنامه</TextBlock>
+                </Grid>
+                <Grid Grid.Row="6" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton
+                            Name="SendSmsToggle"
+                            Cursor="Hand"
+                    FlowDirection="LeftToRight"
+                         VerticalAlignment="Center"
+                         Grid.Column="0"
+  IsChecked="False"
+                         Checked="PrintToggle_Checked"
+                            Unchecked="PrintToggle_Unchecked"
+                    HorizontalAlignment="Left"
+                    Width="56" Height="32"
+  Style="{StaticResource  MaterialDesignSwitchLightToggleButton}"
+  ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"
+                         
+                    />
+                    <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">ارسال پیامک</TextBlock>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

@@ -55,6 +55,49 @@
       UpdateSourceTrigger="PropertyChanged">
                         </Binding>
                     </ComboBox.SelectedItem>
+                    <ComboBoxItem>کاشان</ComboBoxItem>
+                    <ComboBoxItem>تهران</ComboBoxItem>
+                    <ComboBoxItem>اصفهان</ComboBoxItem>
+                    <ComboBoxItem>مشهد</ComboBoxItem>
+                    <ComboBoxItem>تبریز</ComboBoxItem>
+                    <ComboBoxItem>قم</ComboBoxItem>
+                    <ComboBoxItem>شیراز</ComboBoxItem>
+                    <ComboBoxItem>قزوین</ComboBoxItem>
+                    <ComboBoxItem>شهریار</ComboBoxItem>
+                    <ComboBoxItem>اسلام شهر</ComboBoxItem>
+                    <ComboBoxItem>سمنان</ComboBoxItem>
+                    <ComboBoxItem>گیلان</ComboBoxItem>
+                    <ComboBoxItem>مازندران</ComboBoxItem>
+                    <ComboBoxItem>فارس</ComboBoxItem>
+                    <ComboBoxItem>خوزستان</ComboBoxItem>
+                    <ComboBoxItem>کرمانشاه</ComboBoxItem>
+                    <ComboBoxItem>گرگان</ComboBoxItem>
+                    <ComboBoxItem>همدان</ComboBoxItem>
+                    <ComboBoxItem>یزد</ComboBoxItem>
+                    <ComboBoxItem>گلستان</ComboBoxItem>
+                    <ComboBoxItem>کرج</ComboBoxItem>
+                    <ComboBoxItem>اهواز</ComboBoxItem>
+                    <ComboBoxItem>ارومیه</ComboBoxItem>
+                    <ComboBoxItem>رشت</ComboBoxItem>
+                    <ComboBoxItem>زاهدان</ComboBoxItem>
+                    <ComboBoxItem>سنندج</ComboBoxItem>
+                    <ComboBoxItem>نجف آباد</ComboBoxItem>
+                    <ComboBoxItem>بندرعباس</ComboBoxItem>
+                    <ComboBoxItem>اردبیل</ComboBoxItem>
+                    <ComboBoxItem>اراک</ComboBoxItem>
+                    <ComboBoxItem>ساری</ComboBoxItem>
+                    <ComboBoxItem>آستارا</ComboBoxItem>
+                    <ComboBoxItem>بیرجند</ComboBoxItem>
+                    <ComboBoxItem>کرمان</ComboBoxItem>
+                    <ComboBoxItem>فومن</ComboBoxItem>
+                    <ComboBoxItem>ساوه</ComboBoxItem>
+                    <ComboBoxItem>پردیس</ComboBoxItem>
+                    <ComboBoxItem>بوشهر</ComboBoxItem>
+                    <ComboBoxItem>رامسر</ComboBoxItem>
+                    <ComboBoxItem>انزلی</ComboBoxItem>
+                    <ComboBoxItem>آمل</ComboBoxItem>
+                    <ComboBoxItem>گرگان</ComboBoxItem>
+                    <ComboBoxItem>هرمزگان</ComboBoxItem>
                 </ComboBox>
             </Border>
             <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
