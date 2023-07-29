@@ -139,7 +139,7 @@ namespace Barbari_BLL
         }
         public static OperationResult Insert_TahvilBeMoshtari(BarTahvili_Tbl barTahvili)
         {
-            var result1 = Validation.BarErsali_Validation_TahvilMoshtari(barTahvili);
+            var result1 = Validation.BarTahvili_Validation_TahvilMoshtari(barTahvili);
             if (result1.Success == false)
             {
                 return new OperationResult
