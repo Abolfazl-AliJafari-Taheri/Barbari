@@ -56,7 +56,7 @@ namespace Barbari_BLL
             {
                 return result;
             }
-            else if (result.Success == false && result.Data == null)
+            else if (result.Success == false && result.Data == 0)
             {
                 return new OperationResult<int>
                 {
