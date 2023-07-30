@@ -933,7 +933,7 @@ namespace Barbari_BLL
             }
         }
         public static OperationResult BarErsali_Validation_KalaDaryafti(string KalaDaryaftiNamKala, int KalaDaryaftiTedadKala,
-            decimal KalaDaryaftiArzeshKala)
+            decimal? KalaDaryaftiArzeshKala)
         {
             if (string.IsNullOrEmpty(KalaDaryaftiNamKala))
             {

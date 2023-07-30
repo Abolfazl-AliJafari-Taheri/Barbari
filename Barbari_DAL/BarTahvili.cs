@@ -127,6 +127,26 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult Insert_KalaTahvili(KalaTahvili_Tbl kalaTahvili)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                linq.KalaTahvili_Tbls.InsertOnSubmit(kalaTahvili);
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult Insert_TavilBeMoshtari(BarTahvili_Tbl barTahvili)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();

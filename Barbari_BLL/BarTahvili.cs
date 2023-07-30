@@ -137,6 +137,37 @@ namespace Barbari_BLL
                 }
             }
         }
+        public static OperationResult Insert_KalaTahvili(KalaTahvili_Tbl kalaTahvili)
+        {
+            var result2 = Validation.BarTahvili_Validation_KalaTahvili(kalaTahvili);
+            if (result2.Success == false)
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = result2.Message
+                };
+            }
+            else
+            {
+                var result = Barbari_DAL.BarTahvili.Insert_KalaTahvili(kalaTahvili);
+                if (result.Success == true)
+                {
+                    return new OperationResult
+                    {
+                        Success = true,
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
+            }
+        }
         public static OperationResult Insert_TahvilBeMoshtari(BarTahvili_Tbl barTahvili)
         {
             var result1 = Validation.BarTahvili_Validation_TahvilMoshtari(barTahvili);

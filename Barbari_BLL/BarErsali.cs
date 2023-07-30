@@ -156,6 +156,38 @@ namespace Barbari_BLL
                 }
             }
         }
+        public static OperationResult Insert_KalaDaryafti(KalaDaryafti_Tbl kalaDaryafti)
+        {
+            var result2 = Validation.BarErsali_Validation_KalaDaryafti(kalaDaryafti.KalaDaryaftiNamKala , kalaDaryafti.KalaDaryaftiTedadKala ,
+                kalaDaryafti.KalaDaryaftiArzeshKala);
+            if (result2.Success == false)
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = result2.Message
+                };
+            }
+            else 
+            {
+                var result = Barbari_DAL.BarErsali.Insert_KalaDaryafti(kalaDaryafti);
+                if (result.Success == true)
+                {
+                    return new OperationResult
+                    {
+                        Success = true,
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
+            }
+        }
         public static OperationResult Insert_TahvilBeRanande(BarErsali_Tbl barErsali)
         {
             var result1 = Validation.BarErsali_Validation_TahvilRanande(barErsali.BarErsaliNamRanande ,barErsali.BarErsaliFamilyRanande ,

@@ -146,6 +146,26 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult Insert_KalaDaryafti(KalaDaryafti_Tbl kalaDaryafti)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                linq.KalaDaryafti_Tbls.InsertOnSubmit(kalaDaryafti);
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult Insert_TavilBeRanande(BarErsali_Tbl barErsali)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
