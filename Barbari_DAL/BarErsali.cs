@@ -54,7 +54,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarErsali_Tbls.Select(p => p.BarErsaliBarname).LastOrDefault();
+                var query = linq.BarErsali_Tbls.ToList().Select(p => p.BarErsaliBarname).LastOrDefault();
                 return new OperationResult<int>
                 {
                     Success = true,
