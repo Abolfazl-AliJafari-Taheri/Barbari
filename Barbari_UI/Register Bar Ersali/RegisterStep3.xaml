@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Barbari_UI.Register_Bar_Ersali"
              mc:Ignorable="d" 
-             d:DesignHeight="854" d:DesignWidth="622">
+             d:DesignHeight="854" d:DesignWidth="622"
+             Loaded="UserControl_Loaded">
     <Border CornerRadius="8" Background="#F7F7F7">
         <Grid FlowDirection="RightToLeft">
             <Grid.RowDefinitions>
-                <RowDefinition Height="302"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="552"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Name="Kala_Grid" Width="558">
@@ -32,9 +33,8 @@
                     <TextBlock Grid.Column="3" FontWeight="SemiBold" Text="ارزش کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="59"/>
                     <Image Grid.Column="4" HorizontalAlignment="Right" Height="32" Width="32" Source="/Source/Icones/Delete Kala Icon(Red).png"/>
                 </Grid>
-                <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Hidden">
-                    <StackPanel Name="ShowKala_StckPnl">
-                    </StackPanel>
+                <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Hidden" MaxHeight="160">
+                    <StackPanel Name="ShowKala_StckPnl"/>
                 </ScrollViewer>
                 <Grid Grid.Row="2" Margin="0 24 0 0">
                     <Grid.ColumnDefinitions>
@@ -53,7 +53,7 @@
                         <TextBox Name="KalaPrice_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="ارزش کالا" Text="ارزش کالا" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
                     </Border>
                     <Border Grid.Column="3" Height="48" Width="100" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
-                        <Button Name="GetReport_Btn" Height="48" Padding="0" Width="100" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" >
+                        <Button Name="AddKala_Btn" Height="48" Padding="0" Width="100" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="AddKala_Btn_Click" >
                             <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"  ><Run Text="افزدون کالا"/></TextBlock>
                         </Button>
                     </Border>
@@ -77,22 +77,22 @@
                     <TextBox Name="CodeBarname_Txt" IsReadOnly="True" BorderThickness="0" Margin="16 0 16 0" Tag="کد بارنامه" Text="کد بارنامه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
                 </Border>
                 <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox Name="AnbarDari_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="انبار داری" Text="انبار داری" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    <TextBox Name="AnbarDari_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="انبار داری" Text="انبار داری" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="AnbarDari_Txt_TextChanged" />
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox Name="BasteBandi_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="بسته بندی" Text="بسته بندی" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    <TextBox Name="BasteBandi_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="بسته بندی" Text="بسته بندی" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="BasteBandi_Txt_TextChanged" />
                 </Border>
                 <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox Name="Shahri_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="شهری" Text="شهری" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    <TextBox Name="Shahri_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="شهری" Text="شهری" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="Shahri_Txt_TextChanged" />
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox Name="Bime_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="بیمه" Text="بیمه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    <TextBox Name="Bime_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="بیمه" Text="بیمه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="Bime_Txt_TextChanged" />
                 </Border>
                 <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox Name="PishKeraye_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="پیش کرایه" Text="پیش کرایه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    <TextBox Name="PishKeraye_Txt" KeyUp="PishKeraye_Txt_KeyUp" BorderThickness="0" Margin="16 0 16 0" Tag="پیش کرایه" Text="پیش کرایه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="PishKeraye_Txt_TextChanged" />
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox Name="PasKeraye_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="پس کرایه" Text="پس کرایه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                    <TextBox Name="PasKeraye_Txt" KeyUp="PasKeraye_Txt_KeyUp" BorderThickness="0" Margin="16 0 16 0" Tag="پس کرایه" Text="پس کرایه" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="PasKeraye_Txt_TextChanged" />
                 </Border>
                 <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                     <TextBox Name="HourSodor_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="ساعت صدور" Text="ساعت صدور" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />

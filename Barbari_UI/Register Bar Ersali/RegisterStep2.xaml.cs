@@ -61,6 +61,14 @@ namespace Barbari_UI.Register_Bar_Ersali
                 combobox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             }
         }
+        void FillComboBox()
+        {
+            var city = Barbari_BLL.City.Select_Shahr();
+            CityMaghsadFinal_CmBox.ItemsSource = city.Data;
+            CityMaghsad_CmBox.ItemsSource = city.Data;
+
+
+        }
         private void AddSecondMaghsadToggle_Checked(object sender, RoutedEventArgs e)
         {
             AnbarMaghsadFinal_CmBox.IsEnabled = true;
@@ -71,6 +79,18 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             AnbarMaghsadFinal_CmBox.IsEnabled = false;
             CityMaghsadFinal_CmBox.IsEnabled = false;
+        }
+
+        private void CityMaghsad_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var anbar = Barbari_BLL.City.Select_Anbar(CityMaghsad_CmBox.Text);
+            AnbarMaghsad_CmBox.ItemsSource = anbar.Data;
+        }
+
+        private void CityMaghsadFinal_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var anbar = Barbari_BLL.City.Select_Anbar(CityMaghsadFinal_CmBox.Text);
+            AnbarMaghsadFinal_CmBox.ItemsSource = anbar.Data;
         }
     }
 }

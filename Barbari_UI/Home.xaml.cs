@@ -1,6 +1,7 @@
 ﻿using Barbari_DAL;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -304,25 +305,35 @@ namespace Barbari_UI
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            BarErsaliMenu_Btn_Click(null,null);
             UserFullName_TxtBlock.Text = User.UsersFirstName + "  " + User.UsersLastName;
             var company = Barbari_BLL.Company.Select();
-            if(company.Data != null)
+            if (company.Data != null)
             {
-                CompanyName_TxtBlock.Text = company.Data.CompanyName;
                 if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
                 {
-                    var brush = new ImageBrush();
-                    brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
-                    Logo_Img.Background = brush;
+                    if (File.Exists(company.Data.CompanyIogo))
+                    {
+                        var brush = new ImageBrush();
+                        brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
+                        Logo_Border.Background = brush;
+                    }
+                    else
+                    {
+                        Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon(Black Border).png");
+                    }
                 }
                 else
                 {
-                    var brush = new ImageBrush();
-                    brush.ImageSource = new BitmapImage(new Uri("/Source/Icones/AppIcon(Black Border).png", UriKind.Relative));
-                    Logo_Img.Background = brush;
+                    Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon(Black Border).png");
                 }
+
             }
-           
+            else
+            {
+                Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon(Black Border).png");
+            }
+
         }
     }
 }

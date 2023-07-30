@@ -40,7 +40,7 @@
   materialDesign:TextFieldAssist.HasClearButton="True"
   IsEditable="True"
   ItemsSource="{Binding ShortStringList}"
-  Style="{StaticResource MaterialDesignFilledComboBox}">
+  Style="{StaticResource MaterialDesignFilledComboBox}" SelectionChanged="CityMaghsad_CmBox_SelectionChanged">
                     <ComboBox.SelectedItem>
                         <Binding
       Mode="TwoWay"
@@ -87,6 +87,7 @@
             </Border>
             <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                    IsEnabled="False"
                     Name="CityMaghsadFinal_CmBox"
                     GotFocus="RemoveTextCmBox"
                     LostFocus="AddTextCmBox"
@@ -104,7 +105,7 @@
   materialDesign:TextFieldAssist.HasClearButton="True"
   IsEditable="True"
   ItemsSource="{Binding ShortStringList}"
-  Style="{StaticResource MaterialDesignFilledComboBox}">
+  Style="{StaticResource MaterialDesignFilledComboBox}" SelectionChanged="CityMaghsadFinal_CmBox_SelectionChanged">
                     <ComboBox.SelectedItem>
                         <Binding
       Mode="TwoWay"
@@ -116,6 +117,7 @@
             </Border>
             <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                    IsEnabled="False"
                     Name="AnbarMaghsadFinal_CmBox"
                     GotFocus="RemoveTextCmBox"
                     LostFocus="AddTextCmBox"

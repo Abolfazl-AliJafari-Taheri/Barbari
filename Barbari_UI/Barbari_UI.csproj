@@ -113,6 +113,7 @@
     <Compile Include="CityAnbarComponent.xaml.cs">
       <DependentUpon>CityAnbarComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConvertDate.cs" />
     <Compile Include="Karmand.xaml.cs">
       <DependentUpon>Karmand.xaml</DependentUpon>
     </Compile>
@@ -130,6 +131,9 @@
     </Compile>
     <Compile Include="Ranandegan.xaml.cs">
       <DependentUpon>Ranandegan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Register Bar Ersali\KalaComponent.xaml.cs">
+      <DependentUpon>KalaComponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Register Bar Ersali\Register Form.xaml.cs">
       <DependentUpon>Register Form.xaml</DependentUpon>
@@ -260,6 +264,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ranandegan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Register Bar Ersali\KalaComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

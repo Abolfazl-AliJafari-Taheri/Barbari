@@ -34,10 +34,10 @@
                             <RowDefinition Height="300"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Border  Name="Logo_Img" Grid.Row="0" Height="107" Width="107" FlowDirection="LeftToRight">
-                            <Border.Background>
-                                <ImageBrush ImageSource="/Source/Icones/AppIcon(Black Border).png"/>
-                            </Border.Background>
+                        <Image Name="Logo_Img" Height="107" Width="107" FlowDirection="LeftToRight">
+                            
+                        </Image>
+                        <Border  Name="Logo_Border" Grid.Row="0" Height="107" Width="107" FlowDirection="LeftToRight">
                         </Border>
                         <Button Name="BarErsaliMenu_Btn" Click="BarErsaliMenu_Btn_Click" Grid.Row="1" Height="52" VerticalAlignment="Bottom" Background="#D5DDED" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
                             <Grid Width="249">

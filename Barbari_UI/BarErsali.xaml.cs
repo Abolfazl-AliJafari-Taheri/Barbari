@@ -72,7 +72,7 @@ namespace Barbari_UI
 
         private async void Add_Btn_Click(object sender, RoutedEventArgs e)
         {
-            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new Register_Bar_Ersali.Register_Form() { Height = 1003, Width = 750 });
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new Register_Bar_Ersali.Register_Form() );
             //Refresh();
         }
 

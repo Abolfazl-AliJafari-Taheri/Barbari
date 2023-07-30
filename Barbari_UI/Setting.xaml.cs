@@ -73,10 +73,13 @@ namespace Barbari_UI
                 }
                 if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
                 {
-                    var brush = new ImageBrush();
-                    brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
-                    Logo_Border.Background = brush;
-                    Logo_Img.Source = null;
+                    if (File.Exists(company.Data.CompanyIogo))
+                    {
+                        var brush = new ImageBrush();
+                        brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
+                        Logo_Border.Background = brush;
+                        Logo_Img.Source = null;
+                    }
                 }
                 else
                 {

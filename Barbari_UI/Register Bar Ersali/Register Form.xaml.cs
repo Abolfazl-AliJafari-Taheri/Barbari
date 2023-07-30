@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Barbari_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,25 +32,170 @@ namespace Barbari_UI.Register_Bar_Ersali
         bool createStep1= false;
         bool createStep2= false;
         bool createStep3= false;
-        private void NextStep_Btn_Click(object sender, RoutedEventArgs e)
+        bool validateTextBoxes(params TextBox[] textBoxes)
         {
-            if (step + 1 <= 3 && step + 1 >= 0)
+            foreach (TextBox textBox in textBoxes)
             {
-                step++;
+                if (textBox.Text == textBox.Tag.ToString())
+                {
+                    return false;
+                }
             }
-            if (step == 1)
+            return true;
+        }
+        bool validateCmBoxes(params ComboBox[] CmBoxs)
+        {
+            foreach (ComboBox comboBox in CmBoxs)
             {
-                ShowStep1();
+                if (comboBox.Text == comboBox.Tag.ToString())
+                {
+                    return false;
+                }
             }
-            else if (step == 2)
+            return true;
+        }
+        bool validateToggleCm(bool IsChecked,params ComboBox[] cmBoxs)
+        {
+            if (IsChecked)
             {
-                ShowStep2();
+                foreach (ComboBox comboBox in cmBoxs)
+                {
+                    if(comboBox.Text == comboBox.Tag.ToString())
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+                return true;
+
+        }
+        bool Validait()
+        {
+            if(step == 1)
+            {
+                if (validateTextBoxes(step1.FirstName_Txt, step1.LastName_Txt, step1.Mobile_Txt) && validateCmBoxes(step1.CityMabda_CmBox, step1.AnbarMabda_CmBox) 
+                    && validateToggleCm((bool)step1.BimariToggle.IsChecked,step1.Code_CmBox))
+                {
+
+                    int.TryParse(step1.Code_CmBox.Text, out int code);
+                    var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatFerestande(step1.CityMabda_CmBox.Text, step1.AnbarMabda_CmBox.Text,
+                        step1.FirstName_Txt.Text, step1.LastName_Txt.Text,
+                        step1.Mobile_Txt.Text, code,
+                        (bool)step1.BimariToggle.IsChecked);
+                    if (validaition.Success)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(validaition.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("فیلد های ضروری باید پر شوند");
+                }
+            }
+            else if(step == 2)
+            {
+                if (validateTextBoxes(step2.FirstName_Txt, step2.LastName_Txt, step2.Mobile_Txt) && validateCmBoxes(step2.CityMaghsad_CmBox, step2.AnbarMaghsad_CmBox) 
+                    && validateToggleCm((bool)step2.AddSecondMaghsadToggle.IsChecked, step2.CityMaghsadFinal_CmBox, step2.AnbarMaghsadFinal_CmBox))
+                {
+                        var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatGerande(step2.CityMaghsad_CmBox.Text, step2.AnbarMaghsad_CmBox.Text,
+                            step2.FirstName_Txt.Text, step2.LastName_Txt.Text, step2.Mobile_Txt.Text,
+                            step2.CityMaghsadFinal_CmBox.Text, step2.AnbarMaghsadFinal_CmBox.Text, 
+                            (bool)step2.AddSecondMaghsadToggle.IsChecked);
+                        if (validaition.Success)
+                        {
+                            return true;
+                        }
+                        else
+                    {
+                        MessageBox.Show(validaition.Message);
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("فیلد های ضروری باید پر شوند");
+                }
             }
             else if (step == 3)
             {
-                ShowStep3();
+                if (decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal pishKerayeh) &&
+                    decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal pasKerayeh)
+                    && decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal bimeh)
+                    && decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal anbarDari)
+                    && decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal shahri)
+                    && decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal basteBandi))
+                {
+                    var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatBar(pishKerayeh, pasKerayeh, bimeh, anbarDari, shahri, basteBandi);
+                    if (validaition.Success)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(validaition.Message);
+                    }
+                }
             }
+            return false;
         }
+        private void NextStep_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if(Validait())
+            {
+                if (step + 1 <= 4 && step + 1 >= 0)
+                {
+                    step++;
+                }
+                if (step == 1)
+                {
+                    ShowStep1();
+                }
+                else if (step == 2)
+                {
+                    ShowStep2();
+                }
+                else if (step == 3)
+                {
+                    ShowStep3();
+                }
+                else
+                {
+                    BarErsali_Tbl barErsali = new BarErsali_Tbl()
+                    {
+                        BarErsaliShahreMabda = step1.CityMabda_CmBox.Text,
+                        BarErsaliAnbarMabda = step1.AnbarMabda_CmBox.Text,
+                        BarErsaliNamFerestande = step1.FirstName_Txt.Text,
+                        BarErsaliFamilyFerestande = step1.LastName_Txt.Text,
+                        BarErsaliMobileFerestande = step1.Mobile_Txt.Text,
+                        BarErsaliShahreMaghsad1 = step2.CityMaghsad_CmBox.Text,
+                        BarErsaliAnbarMaghsad1 = step2.AnbarMaghsad_CmBox.Text,
+                        BarErsaliNamGerande= step2.FirstName_Txt.Text,
+                        BarErsaliFamilyGerande= step2.LastName_Txt.Text,
+                        BarErsaliMobileGerande= step2.Mobile_Txt.Text,
+                        
+                    };
+                    if ((bool)step1.BimariToggle.IsChecked)
+                    {
+                        if(int.TryParse(step1.Code_CmBox.Text,out int code))
+                        barErsali.BarErsaliCodeFerestande = code;
+                    }
+                    if ((bool)step2.AddSecondMaghsadToggle.IsChecked)
+                    {
+                        barErsali.BarErsaliAnbarMaghsad2 = step2.AnbarMaghsadFinal_CmBox.Text;
+                        barErsali.BarErsaliShahreMaghsad2 = step2.CityMaghsadFinal_CmBox.Text;
+                    }
+                    List<KalaDaryafti_Tbl> kalas = step3.GetKalas();
+                    var result = Barbari_BLL.BarErsali.Insert(barErsali,kalas,(bool)step1.BimariToggle.IsChecked,(bool)step2.AddSecondMaghsadToggle.IsChecked);
+                }
+            }
+           
+        }
+        
         Brush ConverterColor(string ColorCode)
         {
             return (SolidColorBrush)(new BrushConverter().ConvertFrom(ColorCode));
@@ -108,6 +254,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             Step1_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step2_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step3_TxtBlock.Foreground = ConverterColor("#BFBFBF");
+            NextStep_Btn.Content = "بعدی";
             Step1_Toggle.IsChecked = true;
             Step2_Toggle.IsChecked = false;
             Step3_Toggle.IsChecked = false;

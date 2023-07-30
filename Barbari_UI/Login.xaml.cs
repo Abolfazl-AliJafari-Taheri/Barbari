@@ -2,6 +2,7 @@
 using Barbari_DAL;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -134,31 +135,28 @@ namespace Barbari_UI
             {
                 if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
                 {
-                    //BitmapImage bitmapImage = new BitmapImage();
-                    //bitmapImage.BeginInit();
-                    //bitmapImage.UriSource = new Uri(company.Data.CompanyIogo, UriKind.Relative);
-                    //bitmapImage.EndInit();
-                    //Logo_Img.Background = bitmapImage;
-                    var brush = new ImageBrush();
-                    brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
-                    Logo_Img.Background = brush;
+                    if(File.Exists(company.Data.CompanyIogo))
+                    {
+                        var brush = new ImageBrush();
+                        brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
+                        Logo_Border.Background = brush;
+                    }
+                    else
+                    {
+                        Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon(White Border).png");
+                    }
                 }
                 else
                 {
-                    //BitmapImage bitmapImage = new BitmapImage();
-                    //bitmapImage.BeginInit();
-                    //bitmapImage.UriSource = new Uri(, UriKind.Relative);
-                    //bitmapImage.EndInit();
-                    //Logo_Img.Background = bitmapImage;
-
-                    var brush = new ImageBrush();
-                    brush.ImageSource = new BitmapImage(new Uri("/Source/Icones/AppIcon(White Border).png", UriKind.Relative));
-                    Logo_Img.Background = brush;
+                    Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon(White Border).png");
                 }
 
             }
-           
-           
+            else
+            {
+                Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon(White Border).png");
+            }
+
         }
     }
 }

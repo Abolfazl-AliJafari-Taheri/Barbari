@@ -66,9 +66,18 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
         }
 
+        void FillComboBox()
+        {
+            var codes = Barbari_BLL.Customers.Select_AllCustomersCode();
+            var city = Barbari_BLL.City.Select_Shahr();
+            Code_CmBox.ItemsSource = codes.Data;
+            CityMabda_CmBox.ItemsSource = city.Data;
+            
+        }
+
         private void BimariToggle_Checked(object sender, RoutedEventArgs e)
         {
-            Code_Txt.IsEnabled = true;
+            Code_CmBox.IsEnabled = true;
             FirstName_Txt.IsReadOnly = true;
             LastName_Txt.IsReadOnly = true;
             Mobile_Txt.IsReadOnly = true;
@@ -76,25 +85,49 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         private void BimariToggle_Unchecked(object sender, RoutedEventArgs e)
         {
-            Code_Txt.IsEnabled = false;
-            Code_Txt.Text = Code_Txt.Tag.ToString();
+            Code_CmBox.IsEnabled = false;
+            Code_CmBox.Text = Code_CmBox.Tag.ToString();
             FirstName_Txt.IsReadOnly = false;
             LastName_Txt.IsReadOnly = false;
             Mobile_Txt.IsReadOnly = false;
         }
 
-        private void Code_Txt_KeyUp(object sender, KeyEventArgs e)
+        
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            if(e.Key== Key.Enter)
+            FillComboBox();
+            var company = Barbari_BLL.Company.Select();
+            if(company.Success)
             {
-                if(int.TryParse(Code_Txt.Text,out int code))
+                CityMabda_CmBox.Text = company.Data.CompanyCity;
+                AnbarMabda_CmBox.Text = company.Data.CompanyName;
+                CityMabda_CmBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                AnbarMabda_CmBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            }
+        }
+
+        private void CityMabda_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var anbar = Barbari_BLL.City.Select_Anbar(CityMabda_CmBox.Text);
+            AnbarMabda_CmBox.ItemsSource = anbar.Data;
+        }
+
+        private void Code_CmBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (int.TryParse(Code_CmBox.Text, out int code))
                 {
                     var result = Barbari_BLL.Customers.Select_Code(code);
-                    if(result.Success)
+                    if (result.Success)
                     {
                         FirstName_Txt.Text = result.Data[0].CustomersFirstName;
                         LastName_Txt.Text = result.Data[0].CustomersLastName;
                         Mobile_Txt.Text = result.Data[0].CustomersMobile;
+                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
                     }
                     else
                     {

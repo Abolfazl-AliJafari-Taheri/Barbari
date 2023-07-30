@@ -62,13 +62,11 @@
             </Grid>
 
             <Grid Grid.Column="1" Background="#2B54A3">
-                <Border Name="Logo_Img" Height="320" Width="320" FlowDirection="LeftToRight" >
-                    <Border.Background>
-                        <ImageBrush ImageSource="Source/Icones/AppIcon(White Border).png"/>
-                    </Border.Background>
-
+                <Image Name="Logo_Img" Height="320" Width="320" FlowDirection="LeftToRight" >
+                </Image>
+                <Border Name="Logo_Border" Height="320" Width="320" FlowDirection="LeftToRight">
+                    
                 </Border>
-             
             </Grid>
 
         </Grid>
