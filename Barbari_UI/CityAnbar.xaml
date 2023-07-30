@@ -45,7 +45,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="42"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 12 0" ><Run Text="افزودن انبار"/></TextBlock>
+                        <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" Margin="25,0,12,0" ><Run Text="افزودن انبار"/></TextBlock>
                         <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Width="24" Source="/Source/Icones/Add Btn Icon (White Border).png" />
                     </Grid>
                 </Button>
