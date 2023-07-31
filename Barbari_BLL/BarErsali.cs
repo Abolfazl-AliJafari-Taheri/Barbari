@@ -41,7 +41,7 @@ namespace Barbari_BLL
         public static OperationResult<int> Select_KalaDaryafti_CodeLast()
         {
             var result = Barbari_DAL.BarErsali.Select_KalaDaryafti_CodeLast();
-            if (result.Success == false && result.Data == 0)
+            if (result.Success == true && result.Data == 0)
             {
                 return new OperationResult<int>
                 {
@@ -66,12 +66,12 @@ namespace Barbari_BLL
         public static OperationResult<int> Select_Barname_Last()
         {
             var result = Barbari_DAL.BarErsali.Select_Barname_Last();
-            if (result.Success == false && result.Data == 0)
+            if (result.Success == true && result.Data == 0)
             {
                 return new OperationResult<int>
                 {
                     Success = true,
-                    // برانامه از 1000 شروع میشه
+                    // بارنامه از 1000 شروع میشه
                     Data = 999
                 };
             }

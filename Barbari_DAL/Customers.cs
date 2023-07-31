@@ -56,20 +56,21 @@ namespace Barbari_DAL
             try
             {
                 linq = new DataClassBarbariDataContext();
-                var query = linq.Customers_Tbls.Max(p => p.CustomersCode);
-                if (query != 0)
+                var query = linq.Customers_Tbls.OrderByDescending(p => p.CustomersCode).First();
+                if (query != null)
                 {
                     return new OperationResult<int>
                     {
                         Success = true,
-                        Data = query
+                        Data = query.CustomersCode
                     };
                 }
                 else
                 {
                     return new OperationResult<int>
                     {
-                        Success = false
+                        Success = true,
+                        Data = 0
                     };
                 }
             }

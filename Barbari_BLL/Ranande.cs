@@ -29,11 +29,7 @@ namespace Barbari_BLL
         public static OperationResult<int> Select_CodeLast()
         {
             var result = Barbari_DAL.Ranande.Select_CodeLast();
-            if (result.Success == true)
-            {
-                return result;
-            }
-            else if (result.Success == false && result.Data == 0)
+            if (result.Success == true && result.Data == 0)
             {
                 return new OperationResult<int>
                 {
@@ -41,6 +37,10 @@ namespace Barbari_BLL
                     // کد از 1 شروع میشه
                     Data = 0
                 };
+            }
+            else if (result.Success == true)
+            {
+                return result;
             }
             else
             {

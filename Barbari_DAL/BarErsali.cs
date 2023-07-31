@@ -54,12 +54,23 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.KalaDaryafti_Tbls.Max(p => p.KalaDaryaftiCodeKala);
-                return new OperationResult<int>
+                var query = linq.KalaDaryafti_Tbls.OrderByDescending(p => p.KalaDaryaftiCodeKala).FirstOrDefault();
+                if (query != null)
                 {
-                    Success = true,
-                    Data = query
-                };
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = query.KalaDaryaftiCodeKala
+                    };
+                }
+                else
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = 0
+                    };
+                }
             }
             catch (Exception)
             {
@@ -74,12 +85,23 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarErsali_Tbls.Max(p => p.BarErsaliBarname);
-                return new OperationResult<int>
+                var query = linq.BarErsali_Tbls.OrderByDescending(p => p.BarErsaliBarname).FirstOrDefault();
+                if (query != null)
                 {
-                    Success = true,
-                    Data = query
-                };
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = query.BarErsaliBarname
+                    };
+                }
+                else
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = 0
+                    };
+                }
             }
             catch
             {
