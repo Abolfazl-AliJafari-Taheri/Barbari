@@ -42,7 +42,7 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         private void Delte_Btn_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility= Visibility.Hidden;
+            this.Visibility= Visibility.Collapsed;
         }
     }
 }

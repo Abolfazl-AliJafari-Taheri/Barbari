@@ -24,22 +24,20 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                      materialDesign:HintAssist.Hint="شهر مبدا"
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="True"
+
                     Name="CityMabda_CmBox"
-                    GotFocus="RemoveTextCmBox"
-                    LostFocus="AddTextCmBox"
                     BorderThickness="0"
-                    Tag="شهر مبدا"
   Width="247"
-                    Foreground="#BFBFBF"
+                    Foreground="Black"
                     VerticalContentAlignment="Center"
                     Padding="9 0 5 10"
                     Background="#FFFFFF"
-                    Text="شهر مبدا"
                     FontFamily="IRANSansX"
                     FontSize="14"
-                    
-  materialDesign:TextFieldAssist.HasClearButton="True"
-  IsEditable="True"
+                   
   ItemsSource="{Binding ShortStringList}"
   Style="{StaticResource MaterialDesignFilledComboBox}" SelectionChanged="CityMabda_CmBox_SelectionChanged">
                     <ComboBox.SelectedItem>
@@ -53,17 +51,14 @@
             </Border>
             <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                    materialDesign:HintAssist.Hint="انبار مبدا"
                     Name="AnbarMabda_CmBox"
-                    GotFocus="RemoveTextCmBox"
-                    LostFocus="AddTextCmBox"
                     BorderThickness="0"
-                    Tag="انبار مبدا"
   Width="247"
-                    Foreground="#BFBFBF"
+                    Foreground="Black"
                     VerticalContentAlignment="Center"
                     Padding="9 0 5 10"
                     Background="#FFFFFF"
-                    Text="انبار مبدا"
                     FontFamily="IRANSansX"
                     FontSize="14"
                     
@@ -81,13 +76,13 @@
                 </ComboBox>
             </Border>
             <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="FirstName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام فرستنده" Text="نام فرستنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                <TextBox Name="FirstName_Txt"  materialDesign:HintAssist.Hint="نام فرستنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
             </Border>
             <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="LastName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام خانوادگی فرستنده" Text="نام خانوادگی فرستنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                <TextBox Name="LastName_Txt"  materialDesign:HintAssist.Hint="نام خانوادگی فرستنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
             </Border>
             <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Mobile_Txt"  BorderThickness="0" Margin="16 0 16 0" Tag="شماره تلفن فرستنده" Text="شماره تلفن فرستنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" MaxLength="11" LostFocus="AddText" GotFocus="RemoveText" TextChanged="Mobile_Txt_TextChanged"/>
+                <TextBox Name="Mobile_Txt"  materialDesign:HintAssist.Hint="شماره تلفن فرستنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0"  BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" MaxLength="11"/>
             </Border>
             
             <Grid Grid.Row="3" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 0">
@@ -112,28 +107,26 @@
                     />
                 <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">فرستنده مشتری ثابت است</TextBlock>
             </Grid>
-            <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+            <Border Grid.Row="4" Grid.Column="0"  HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                      materialDesign:HintAssist.Hint="کد مشتری"
+                    
                     KeyUp="Code_CmBox_KeyUp"
                     Name="Code_CmBox"
-                    GotFocus="RemoveTextCmBox"
-                    LostFocus="AddTextCmBox"
                     BorderThickness="0"
                     IsEnabled="False"
-                    Tag="کد مشتری"
   Width="247"
-                    Foreground="#BFBFBF"
+                    Foreground="Black"
                     VerticalContentAlignment="Center"
                     Padding="9 0 5 10"
                     Background="#FFFFFF"
-                    Text="کد مشتری"
                     FontFamily="IRANSansX"
                     FontSize="14"
                     
   materialDesign:TextFieldAssist.HasClearButton="True"
   IsEditable="True"
   ItemsSource="{Binding ShortStringList}"
-  Style="{StaticResource MaterialDesignFilledComboBox}">
+  Style="{StaticResource MaterialDesignFilledComboBox}" SelectionChanged="Code_CmBox_SelectionChanged">
                     <ComboBox.SelectedItem>
                         <Binding
       Mode="TwoWay"

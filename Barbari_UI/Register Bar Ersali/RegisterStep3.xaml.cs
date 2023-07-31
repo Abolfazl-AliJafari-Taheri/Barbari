@@ -67,57 +67,42 @@ namespace Barbari_UI.Register_Bar_Ersali
             }
             return Kalas;
         }
-        bool validateTextBoxes(params TextBox[] textBoxes)
-        {
-            foreach (TextBox textBox in textBoxes)
-            {
-                if (textBox.Text == textBox.Tag.ToString())
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
         private void AddKala_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if(validateTextBoxes(KalaNumber_Txt, KalaPrice_Txt, KalaName_Txt))
+            if (int.TryParse(KalaNumber_Txt.Text, out int number) &&
+            decimal.TryParse(KalaPrice_Txt.Text, out decimal price))
             {
-                if (int.TryParse(KalaNumber_Txt.Text, out int number) &&
-                decimal.TryParse(KalaPrice_Txt.Text, out decimal price))
+                var result = Barbari_BLL.Validation.BarErsali_Validation_KalaDaryafti(KalaName_Txt.Text, number, price);
+                if (result.Success)
                 {
-                    var result = Barbari_BLL.Validation.BarErsali_Validation_KalaDaryafti(KalaName_Txt.Text, number, price);
-                    if (result.Success)
+                    ShowKala_StckPnl.Children.Add(new KalaComponent(new KalaDaryafti_Tbl
                     {
-                        ShowKala_StckPnl.Children.Add(new KalaComponent(new KalaDaryafti_Tbl
-                        {
-                            KalaDaryaftiBarname = int.Parse(CodeBarname_Txt.Text),
-                            KalaDaryaftiNamKala = KalaName_Txt.Text,
-                            KalaDaryaftiTedadKala = number,
-                            KalaDaryaftiArzeshKala = price,
-                        })
-                        { Height = 72, Width = 558 });
-                    }
-                    else
-                    {
-                        MessageBox.Show(result.Message);
-                    }
+                        KalaDaryaftiBarname = int.Parse(CodeBarname_Txt.Text),
+                        KalaDaryaftiNamKala = KalaName_Txt.Text,
+                        KalaDaryaftiTedadKala = number,
+                        KalaDaryaftiArzeshKala = price,
+                    })
+                    { Height = 72, Width = 558 });
                 }
                 else
                 {
-                    MessageBox.Show("تعداد و ارزش کالا را صحیح وارد کنید.");
+                    MessageBox.Show(result.Message);
                 }
             }
-           else
+            else
             {
-                MessageBox.Show("تمام ورودی ها باید وارد شوند");
+                MessageBox.Show(" تعداد و ارزش کالا را صحیح وارد کنید");
             }
 
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
-            HourSodor_Txt.Text = DateTime.Now.ToShortTimeString();
+            
+            //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
+            DateSodor_DtPicker.SelectedDate = DateTime.Now;
+
+            HourSodor_TmPicker.SelectedTime= DateTime.Now;
             var code = Barbari_BLL.BarErsali.Select_Barname_Last();
             Properties.Settings.Default.BarErsaliCode = (code.Data+1).ToString();
             CodeBarname_Txt.Text = Properties.Settings.Default.BarErsaliCode;
@@ -133,10 +118,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 if (PasKeraye_Txt.Text != 0.ToString())
                 {
-                    if (PishKeraye_Txt.Text != PishKeraye_Txt.Tag.ToString())
-                    {
                         PishKeraye_Txt.Text = 0.ToString();
-                    }
                 }
             }
            
@@ -152,10 +134,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 if(PishKeraye_Txt.Text != 0.ToString())
                 {
-                    if (PasKeraye_Txt.Text != PasKeraye_Txt.Tag.ToString())
-                    {
                         PasKeraye_Txt.Text = 0.ToString();
-                    }
                 }
                 
             }

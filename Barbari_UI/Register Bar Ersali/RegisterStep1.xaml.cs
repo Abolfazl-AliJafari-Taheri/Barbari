@@ -86,10 +86,13 @@ namespace Barbari_UI.Register_Bar_Ersali
         private void BimariToggle_Unchecked(object sender, RoutedEventArgs e)
         {
             Code_CmBox.IsEnabled = false;
-            Code_CmBox.Text = Code_CmBox.Tag.ToString();
+            Code_CmBox.Text = "";
             FirstName_Txt.IsReadOnly = false;
             LastName_Txt.IsReadOnly = false;
             Mobile_Txt.IsReadOnly = false;
+            FirstName_Txt.Text = "";
+            LastName_Txt.Text = "";
+            Mobile_Txt.Text = "";
         }
 
         
@@ -109,8 +112,11 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         private void CityMabda_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var anbar = Barbari_BLL.City.Select_Anbar(CityMabda_CmBox.Text);
-            AnbarMabda_CmBox.ItemsSource = anbar.Data;
+            if (CityMabda_CmBox.SelectedItem != null)
+            {
+                var anbar = Barbari_BLL.City.Select_Anbar(CityMabda_CmBox.SelectedItem.ToString());
+                AnbarMabda_CmBox.ItemsSource = anbar.Data;
+            }
         }
 
         private void Code_CmBox_KeyUp(object sender, KeyEventArgs e)
@@ -131,8 +137,52 @@ namespace Barbari_UI.Register_Bar_Ersali
                     }
                     else
                     {
+                        FirstName_Txt.Text = "";
+                        LastName_Txt.Text = "";
+                        Mobile_Txt.Text = "";
                         MessageBox.Show(result.Message);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("کد مشتری باید عددی باشد");
+                    FirstName_Txt.Text = "";
+                    LastName_Txt.Text = "";
+                    Mobile_Txt.Text = "";
+                }
+            }
+        }
+
+        private void Code_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Code_CmBox.SelectedItem != null)
+            {
+                if (int.TryParse(Code_CmBox.SelectedItem.ToString(), out int code))
+                {
+                    var result = Barbari_BLL.Customers.Select_Code(code);
+                    if (result.Success)
+                    {
+                        FirstName_Txt.Text = result.Data[0].CustomersFirstName;
+                        LastName_Txt.Text = result.Data[0].CustomersLastName;
+                        Mobile_Txt.Text = result.Data[0].CustomersMobile;
+                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                    }
+                    else
+                    {
+                        FirstName_Txt.Text = "";
+                        LastName_Txt.Text = "";
+                        Mobile_Txt.Text = "";
+                        MessageBox.Show(result.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("کد مشتری باید عددی باشد");
+                    FirstName_Txt.Text = "";
+                    LastName_Txt.Text = "";
+                    Mobile_Txt.Text = "";
                 }
             }
         }

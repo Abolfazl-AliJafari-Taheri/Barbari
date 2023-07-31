@@ -6,7 +6,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Barbari_UI.Register_Bar_Ersali"
              mc:Ignorable="d" 
-             d:DesignHeight="376" d:DesignWidth="622">
+             d:DesignHeight="376" d:DesignWidth="622"
+             Loaded="UserControl_Loaded">
     <Border Background="#F7F7F7" CornerRadius="8">
         <Grid FlowDirection="RightToLeft"
               >
@@ -23,17 +24,15 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                      materialDesign:HintAssist.Hint="شهر مقصد"
                     Name="CityMaghsad_CmBox"
-                    GotFocus="RemoveTextCmBox"
-                    LostFocus="AddTextCmBox"
                     BorderThickness="0"
-                    Tag="شهر مقصد"
   Width="247"
-                    Foreground="#BFBFBF"
+                    Foreground="Black"
                     VerticalContentAlignment="Center"
                     Padding="9 0 5 10"
                     Background="#FFFFFF"
-                    Text="شهر مقصد"
+ 
                     FontFamily="IRANSansX"
                     FontSize="14"
                     
@@ -52,17 +51,14 @@
             </Border>
             <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                      materialDesign:HintAssist.Hint="انبار مقصد"
                     Name="AnbarMaghsad_CmBox"
-                    GotFocus="RemoveTextCmBox"
-                    LostFocus="AddTextCmBox"
                     BorderThickness="0"
-                    Tag="انبار مقصد"
   Width="247"
-                    Foreground="#BFBFBF"
+                    Foreground="Black"
                     VerticalContentAlignment="Center"
                     Padding="9 0 5 10"
                     Background="#FFFFFF"
-                    Text="انبار مقصد"
                     FontFamily="IRANSansX"
                     FontSize="14"
                     
@@ -80,25 +76,22 @@
                 </ComboBox>
             </Border>
             <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="FirstName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام گیرنده" Text="نام گیرنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                <TextBox Name="FirstName_Txt"  materialDesign:HintAssist.Hint="نام گیرنده"   Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"/>
             </Border>
             <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="LastName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام خانوادگی گیرنده" Text="نام خانوادگی گیرنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                <TextBox Name="LastName_Txt" materialDesign:HintAssist.Hint="نام خانوادگی گیرنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" Tag="نام خانوادگی گیرنده"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                      materialDesign:HintAssist.Hint="شهر مقصد نهایی"
                     IsEnabled="False"
                     Name="CityMaghsadFinal_CmBox"
-                    GotFocus="RemoveTextCmBox"
-                    LostFocus="AddTextCmBox"
                     BorderThickness="0"
-                    Tag="شهر مقصد نهایی"
   Width="247"
-                    Foreground="#BFBFBF"
+                    Foreground="Black"
                     VerticalContentAlignment="Center"
                     Padding="9 0 5 10"
                     Background="#FFFFFF"
-                    Text="شهر مقصد نهایی"
                     FontFamily="IRANSansX"
                     FontSize="14"
                     
@@ -117,18 +110,15 @@
             </Border>
             <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
+                    materialDesign:HintAssist.Hint="انبار مقصد نهایی"
                     IsEnabled="False"
                     Name="AnbarMaghsadFinal_CmBox"
-                    GotFocus="RemoveTextCmBox"
-                    LostFocus="AddTextCmBox"
                     BorderThickness="0"
-                    Tag="انبار مقصد نهایی"
   Width="247"
-                    Foreground="#BFBFBF"
+                    Foreground="Black"
                     VerticalContentAlignment="Center"
                     Padding="9 0 5 10"
                     Background="#FFFFFF"
-                    Text="انبار مقصد نهایی"
                     FontFamily="IRANSansX"
                     FontSize="14"
                     
@@ -168,7 +158,7 @@
                 <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">افزودن مقصد نهایی</TextBlock>
             </Grid>
             <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Mobile_Txt"  BorderThickness="0" Margin="16 0 16 0" Tag="شماره تلفن گیرنده" Text="شماره تلفن گیرنده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                <TextBox Name="Mobile_Txt"  materialDesign:HintAssist.Hint="شماره تلفن گیرنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
             </Border>
         </Grid>
     </Border>
