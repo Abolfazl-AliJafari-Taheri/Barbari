@@ -158,7 +158,7 @@ namespace Barbari_DAL
         public static OperationResult Insert(BarErsali_Tbl barErsali, List<KalaDaryafti_Tbl> kalaDaryafti)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-            var transaction = linq.Transaction;
+            var transaction = linq.Connection.BeginTransaction();
             try
             {
                 linq.BarErsali_Tbls.InsertOnSubmit(barErsali);

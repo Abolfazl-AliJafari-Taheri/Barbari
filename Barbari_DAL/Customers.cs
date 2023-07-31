@@ -55,7 +55,6 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Customers_Tbls.OrderByDescending(p => p.CustomersCode).FirstOrDefault();
                 if (query != null)
                 {
