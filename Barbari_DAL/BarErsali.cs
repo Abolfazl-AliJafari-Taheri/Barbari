@@ -54,7 +54,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.KalaDaryafti_Tbls.ToList().Select(p => p.KalaDaryaftiCodeKala).LastOrDefault();
+                var query = linq.KalaDaryafti_Tbls.Max(p => p.KalaDaryaftiCodeKala);
                 return new OperationResult<int>
                 {
                     Success = true,
@@ -74,7 +74,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarErsali_Tbls.ToList().Select(p => p.BarErsaliBarname).LastOrDefault();
+                var query = linq.BarErsali_Tbls.Max(p => p.BarErsaliBarname);
                 return new OperationResult<int>
                 {
                     Success = true,
