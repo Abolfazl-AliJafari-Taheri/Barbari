@@ -38,6 +38,31 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<int> Select_KalaDaryafti_CodeLast()
+        {
+            var result = Barbari_DAL.BarErsali.Select_KalaDaryafti_CodeLast();
+            if (result.Success == true && result.Data == 0)
+            {
+                return new OperationResult<int>
+                {
+                    Success = true,
+                    // کد کالا از 1 شروع میشه
+                    Data = 0
+                };
+            }
+            else if (result.Success == true)
+            {
+                return result;
+            }
+            else
+            {
+                return new OperationResult<int>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult<int> Select_Barname_Last()
         {
             var result = Barbari_DAL.BarErsali.Select_Barname_Last();

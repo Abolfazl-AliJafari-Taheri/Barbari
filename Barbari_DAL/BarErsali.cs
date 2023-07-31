@@ -49,6 +49,26 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult<int> Select_KalaDaryafti_CodeLast()
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.KalaDaryafti_Tbls.ToList().Select(p => p.KalaDaryaftiCodeKala).LastOrDefault();
+                return new OperationResult<int>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch (Exception)
+            {
+                return new OperationResult<int>
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult<int> Select_Barname_Last()
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
