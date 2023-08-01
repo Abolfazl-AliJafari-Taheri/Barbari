@@ -80,9 +80,9 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<int> Select_Barname_Last()
+        public static OperationResult<int> Select_Barname_Last(DataClassBarbariDataContext linq=null)
         {
-            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            linq = linq ?? new DataClassBarbariDataContext();
             try
             {
                 var query = linq.BarErsali_Tbls.OrderByDescending(p => p.BarErsaliBarname).FirstOrDefault();
@@ -159,21 +159,25 @@ namespace Barbari_DAL
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             linq.Connection.Open();
-            var transaction = linq.Connection.BeginTransaction();
+            linq.Transaction = linq.Connection.BeginTransaction();
+            
             try
             {
                 linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
                 linq.SubmitChanges();
 
+                var query = Select_Barname_Last(linq);
+
                 for (int i = 0; i < kalaDaryafti.Count; i++)
                 {
-                    kalaDaryafti[i].KalaDaryaftiBarname = barErsali.BarErsaliBarname;
+                    kalaDaryafti[i].KalaDaryaftiBarname = query.Data;
                 }
 
                 linq.KalaDaryafti_Tbls.InsertAllOnSubmit(kalaDaryafti);
                 linq.SubmitChanges();
 
-                transaction.Commit();
+                linq.Transaction.Commit();
+                linq.Connection.Close();
 
                 return new OperationResult
                 {
@@ -182,7 +186,7 @@ namespace Barbari_DAL
             }
             catch
             {
-                transaction.Rollback();
+                linq.Transaction.Rollback();
                 return new OperationResult
                 {
                     Success = false

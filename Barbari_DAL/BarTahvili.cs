@@ -97,7 +97,7 @@ namespace Barbari_DAL
         public static OperationResult Insert(BarTahvili_Tbl barTahvili ,List<KalaTahvili_Tbl> kalaTahvili)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-            var transaction = linq.Connection.BeginTransaction();
+            linq.Transaction = linq.Connection.BeginTransaction();
             try
             {
                 linq.BarTahvili_Tbls.InsertOnSubmit(barTahvili);
@@ -111,7 +111,7 @@ namespace Barbari_DAL
                 linq.KalaTahvili_Tbls.InsertAllOnSubmit(kalaTahvili);
                 linq.SubmitChanges();
 
-                transaction.Commit();
+                linq.Transaction.Commit();
 
                 return new OperationResult
                 {
@@ -120,7 +120,7 @@ namespace Barbari_DAL
             }
             catch
             {
-                transaction.Rollback();
+                linq.Transaction.Rollback();
                 return new OperationResult
                 {
                     Success = false
