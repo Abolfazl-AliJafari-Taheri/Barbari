@@ -999,9 +999,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarTahvili_Validation_EtelatFerestande(BarTahvili_Tbl barTahvili)
+        public static OperationResult BarTahvili_Validation_EtelatFerestande(string BarTahviliShahrFerestande,
+            string BarTahviliNamFerestande, string BarTahviliFamilyFerestande, string BarTahviliMobileFerestande)
         {
-            if (string.IsNullOrEmpty(barTahvili.BarTahviliShahrFerestande))
+            if (string.IsNullOrEmpty(BarTahviliShahrFerestande))
             {
                 return new OperationResult
                 {
@@ -1009,7 +1010,7 @@ namespace Barbari_BLL
                     Message = "شهر فرستنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliNamFerestande))
+            else if (string.IsNullOrEmpty(BarTahviliNamFerestande))
             {
                 return new OperationResult
                 {
@@ -1017,7 +1018,7 @@ namespace Barbari_BLL
                     Message = "نام فرستنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliFamilyFerestande))
+            else if (string.IsNullOrEmpty(BarTahviliFamilyFerestande))
             {
                 return new OperationResult
                 {
@@ -1025,7 +1026,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی فرستنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliMobileFerestande))
+            else if (string.IsNullOrEmpty(BarTahviliMobileFerestande))
             {
                 return new OperationResult
                 {
@@ -1033,7 +1034,7 @@ namespace Barbari_BLL
                     Message = "شماره تلفن فرستنده را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliShahrFerestande, 50))
+            else if (CheckRangeDataType(BarTahviliShahrFerestande, 50))
             {
                 return new OperationResult
                 {
@@ -1041,7 +1042,7 @@ namespace Barbari_BLL
                     Message = "شهر مبدا نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliNamFerestande, 50))
+            else if (CheckRangeDataType(BarTahviliNamFerestande, 50))
             {
                 return new OperationResult
                 {
@@ -1049,7 +1050,7 @@ namespace Barbari_BLL
                     Message = "نام فرستنده نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliFamilyFerestande, 50))
+            else if (CheckRangeDataType(BarTahviliFamilyFerestande, 50))
             {
                 return new OperationResult
                 {
@@ -1057,7 +1058,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی فرستنده نباید بیشتر از 50 حرف باشه"
                 };
             }
-            else if (CheckMobileFormat(barTahvili.BarTahviliMobileFerestande))
+            else if (CheckMobileFormat(BarTahviliMobileFerestande))
             {
                 return new OperationResult
                 {
@@ -1073,9 +1074,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarTahvili_Validation_EtelatGerande(BarTahvili_Tbl barTahvili)
+        public static OperationResult BarTahvili_Validation_EtelatGerande(string BarTahviliShahrGerande ,
+            string BarTahviliNamGerande, string BarTahviliFamilyGerande, string BarTahviliMobileGerande)
         {
-            if (string.IsNullOrEmpty(barTahvili.BarTahviliShahrGerande))
+            if (string.IsNullOrEmpty(BarTahviliShahrGerande))
             {
                 return new OperationResult
                 {
@@ -1083,7 +1085,7 @@ namespace Barbari_BLL
                     Message = "شهر مقصد را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliNamGerande))
+            else if (string.IsNullOrEmpty(BarTahviliNamGerande))
             {
                 return new OperationResult
                 {
@@ -1091,7 +1093,7 @@ namespace Barbari_BLL
                     Message = "نام گیرنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliFamilyGerande))
+            else if (string.IsNullOrEmpty(BarTahviliFamilyGerande))
             {
                 return new OperationResult
                 {
@@ -1099,7 +1101,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی گیرنده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliMobileGerande))
+            else if (string.IsNullOrEmpty(BarTahviliMobileGerande))
             {
                 return new OperationResult
                 {
@@ -1107,7 +1109,7 @@ namespace Barbari_BLL
                     Message = "شماره تلفن گیرنده را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliShahrGerande, 50))
+            else if (CheckRangeDataType(BarTahviliShahrGerande, 50))
             {
                 return new OperationResult
                 {
@@ -1115,7 +1117,7 @@ namespace Barbari_BLL
                     Message = "شهر مقصد نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliNamGerande, 50))
+            else if (CheckRangeDataType(BarTahviliNamGerande, 50))
             {
                 return new OperationResult
                 {
@@ -1123,7 +1125,7 @@ namespace Barbari_BLL
                     Message = "نام گیرنده نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliFamilyGerande, 50))
+            else if (CheckRangeDataType(BarTahviliFamilyGerande, 50))
             {
                 return new OperationResult
                 {
@@ -1131,7 +1133,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی گیرنده نباید بیشتر از 50 حرف باشه"
                 };
             }
-            else if (CheckMobileFormat(barTahvili.BarTahviliMobileGerande))
+            else if (CheckMobileFormat(BarTahviliMobileGerande))
             {
                 return new OperationResult
                 {
@@ -1147,9 +1149,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult barTahvili_Validation_EtelatBar(BarTahvili_Tbl barTahvili)
+        public static OperationResult barTahvili_Validation_EtelatBar(decimal BarTahviliPishKeraye , decimal BarTahviliPasKeraye
+            , decimal? BarTahviliBime, decimal? BarTahviliAnbardari, decimal? BarTahviliShahri, decimal? BarTahviliBastebandi)
         {
-            if (string.IsNullOrEmpty(barTahvili.BarTahviliPishKeraye.ToString()))
+            if (string.IsNullOrEmpty(BarTahviliPishKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -1157,7 +1160,7 @@ namespace Barbari_BLL
                     Message = "پیش کرایه را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliPasKeraye.ToString()))
+            else if (string.IsNullOrEmpty(BarTahviliPasKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -1165,7 +1168,7 @@ namespace Barbari_BLL
                     Message = "پس کرایه را وارد کنید"
                 };
             }
-            else if (!CheckNumberFormat(barTahvili.BarTahviliPishKeraye.ToString()))
+            else if (!CheckNumberFormat(BarTahviliPishKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -1173,7 +1176,7 @@ namespace Barbari_BLL
                     Message = "داخل پیش کرایه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barTahvili.BarTahviliPasKeraye.ToString()))
+            else if (!CheckNumberFormat(BarTahviliPasKeraye.ToString()))
             {
                 return new OperationResult
                 {
@@ -1181,7 +1184,7 @@ namespace Barbari_BLL
                     Message = "داخل پس کرایه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barTahvili.BarTahviliBime.ToString()))
+            else if (!CheckNumberFormat(BarTahviliBime.ToString()))
             {
                 return new OperationResult
                 {
@@ -1189,7 +1192,7 @@ namespace Barbari_BLL
                     Message = "داخل بیمه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barTahvili.BarTahviliAnbardari.ToString()))
+            else if (!CheckNumberFormat(BarTahviliAnbardari.ToString()))
             {
                 return new OperationResult
                 {
@@ -1197,7 +1200,7 @@ namespace Barbari_BLL
                     Message = "داخل انبارداری فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barTahvili.BarTahviliShahri.ToString()))
+            else if (!CheckNumberFormat(BarTahviliShahri.ToString()))
             {
                 return new OperationResult
                 {
@@ -1205,7 +1208,7 @@ namespace Barbari_BLL
                     Message = "داخل شهری فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(barTahvili.BarTahviliBastebandi.ToString()))
+            else if (!CheckNumberFormat(BarTahviliBastebandi.ToString()))
             {
                 return new OperationResult
                 {
@@ -1213,7 +1216,7 @@ namespace Barbari_BLL
                     Message = "داخل بسته بندی فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliPishKeraye.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliPishKeraye.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -1221,7 +1224,7 @@ namespace Barbari_BLL
                     Message = "پیش کرایه نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliPasKeraye.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliPasKeraye.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -1229,7 +1232,7 @@ namespace Barbari_BLL
                     Message = "پس کرایه نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliBime.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliBime.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -1237,7 +1240,7 @@ namespace Barbari_BLL
                     Message = "بیمه نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliAnbardari.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliAnbardari.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -1245,7 +1248,7 @@ namespace Barbari_BLL
                     Message = "انبار داری نباید بیشتر از 12 عدد باشه"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliShahri.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliShahri.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -1253,7 +1256,7 @@ namespace Barbari_BLL
                     Message = "شهری نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliBastebandi.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliBastebandi.ToString(), 12))
             {
                 return new OperationResult
                 {
@@ -1269,9 +1272,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarTahvili_Validation_EtelatRanande(BarTahvili_Tbl barTahvili)
+        public static OperationResult BarTahvili_Validation_EtelatRanande(string BarTahviliNamRanande ,
+            string BarTahviliFamilyRanande, string BarTahviliMobileRanande)
         {
-            if (string.IsNullOrEmpty(barTahvili.BarTahviliNamRanande))
+            if (string.IsNullOrEmpty(BarTahviliNamRanande))
             {
                 return new OperationResult
                 {
@@ -1279,7 +1283,7 @@ namespace Barbari_BLL
                     Message = "نام راننده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliFamilyRanande))
+            else if (string.IsNullOrEmpty(BarTahviliFamilyRanande))
             {
                 return new OperationResult
                 {
@@ -1287,7 +1291,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی راننده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliMobileRanande))
+            else if (string.IsNullOrEmpty(BarTahviliMobileRanande))
             {
                 return new OperationResult
                 {
@@ -1295,7 +1299,7 @@ namespace Barbari_BLL
                     Message = "موبایل راننده راننده را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliNamRanande, 50))
+            else if (CheckRangeDataType(BarTahviliNamRanande, 50))
             {
                 return new OperationResult
                 {
@@ -1303,7 +1307,7 @@ namespace Barbari_BLL
                     Message = "تام راننده نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliFamilyRanande, 50))
+            else if (CheckRangeDataType(BarTahviliFamilyRanande, 50))
             {
                 return new OperationResult
                 {
@@ -1311,7 +1315,7 @@ namespace Barbari_BLL
                     Message = "نام خانوادگی نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckMobileFormat(barTahvili.BarTahviliMobileRanande))
+            else if (CheckMobileFormat(BarTahviliMobileRanande))
             {
                 return new OperationResult
                 {
@@ -1327,9 +1331,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarTahvili_Validation_KalaTahvili(KalaTahvili_Tbl kalaTahvili)
+        public static OperationResult BarTahvili_Validation_KalaTahvili(string KalaTahviliNamKala, int KalaTahviliTedadKala)
         {
-            if (string.IsNullOrEmpty(kalaTahvili.KalaTahviliNamKala))
+            if (string.IsNullOrEmpty(KalaTahviliNamKala))
             {
                 return new OperationResult
                 {
@@ -1337,7 +1341,7 @@ namespace Barbari_BLL
                     Message = "نام کالا را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(kalaTahvili.KalaTahviliTedadKala.ToString()))
+            else if (string.IsNullOrEmpty(KalaTahviliTedadKala.ToString()))
             {
                 return new OperationResult
                 {
@@ -1345,7 +1349,7 @@ namespace Barbari_BLL
                     Message = "تعداد کالا را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(kalaTahvili.KalaTahviliNamKala, 50))
+            else if (CheckRangeDataType(KalaTahviliNamKala, 50))
             {
                 return new OperationResult
                 {
@@ -1353,7 +1357,7 @@ namespace Barbari_BLL
                     Message = "نام کالا نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(kalaTahvili.KalaTahviliTedadKala.ToString(), 9))
+            else if (CheckRangeDataType(KalaTahviliTedadKala.ToString(), 9))
             {
                 return new OperationResult
                 {
@@ -1361,7 +1365,7 @@ namespace Barbari_BLL
                     Message = "تعداد کالا نباید بیشتر از 9 عدد باشد"
                 };
             }
-            else if (!CheckNumberFormat(kalaTahvili.KalaTahviliTedadKala.ToString()))
+            else if (!CheckNumberFormat(KalaTahviliTedadKala.ToString()))
             {
                 return new OperationResult
                 {
@@ -1377,9 +1381,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarTahvili_Validation_TahvilMoshtari(BarTahvili_Tbl barTahvili)
+        public static OperationResult BarTahvili_Validation_TahvilMoshtari(string BarTahviliRaveshEhrazHoviat, string BarTahviliRaveshEhrazHoviatText)
         {
-            if (string.IsNullOrEmpty(barTahvili.BarTahviliRaveshEhrazHoviat))
+            if (string.IsNullOrEmpty(BarTahviliRaveshEhrazHoviat))
             {
                 return new OperationResult
                 {
@@ -1387,7 +1391,7 @@ namespace Barbari_BLL
                     Message = "روش احراز هویت را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(barTahvili.BarTahviliRaveshEhrazHoviatText))
+            else if (string.IsNullOrEmpty(BarTahviliRaveshEhrazHoviatText))
             {
                 return new OperationResult
                 {
@@ -1395,7 +1399,7 @@ namespace Barbari_BLL
                     Message = "روش احراز هویت متن را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliRaveshEhrazHoviat, 50))
+            else if (CheckRangeDataType(BarTahviliRaveshEhrazHoviat, 50))
             {
                 return new OperationResult
                 {
@@ -1403,7 +1407,7 @@ namespace Barbari_BLL
                     Message = "روش احراز هویت نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(barTahvili.BarTahviliRaveshEhrazHoviatText, 50))
+            else if (CheckRangeDataType(BarTahviliRaveshEhrazHoviatText, 50))
             {
                 return new OperationResult
                 {

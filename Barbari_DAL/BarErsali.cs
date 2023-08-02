@@ -160,7 +160,6 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             linq.Connection.Open();
             linq.Transaction = linq.Connection.BeginTransaction();
-            
             try
             {
                 linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
