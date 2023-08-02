@@ -51,6 +51,22 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<List<int>> Select_AllRanandeCode()
+        {
+            var result = Barbari_DAL.Ranande.Select_AllRanandeCode();
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else
+            {
+                return new OperationResult<List<int>>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Delete(int code)
         {
             var result = Barbari_DAL.Ranande.Delete(code);

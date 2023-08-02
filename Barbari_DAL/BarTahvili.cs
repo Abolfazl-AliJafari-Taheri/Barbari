@@ -50,6 +50,69 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult<int> Select_KalaTahvili_CodeLast()
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.KalaTahvili_Tbls.OrderByDescending(p => p.KalaTahviliCodeKala).FirstOrDefault();
+                if (query != null)
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = query.KalaTahviliCodeKala
+                    };
+                }
+                else
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = 0
+                    };
+                }
+            }
+            catch (Exception)
+            {
+                return new OperationResult<int>
+                {
+                    Success = false
+                };
+            }
+        }
+        public static OperationResult<int> Select_Barname_Last(DataClassBarbariDataContext linq = null)
+        {
+            linq = linq ?? new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.OrderByDescending(p => p.BarTahviliBarname).FirstOrDefault();
+                if (query != null)
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = query.BarTahviliBarname
+                    };
+                }
+                else
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = true,
+                        Data = 0
+                    };
+                }
+            }
+            catch
+            {
+                return new OperationResult<int>
+                {
+                    Success = false
+                };
+
+            }
+        }
         public static OperationResult Delete(int code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
@@ -104,9 +167,11 @@ namespace Barbari_DAL
                 linq.BarTahvili_Tbls.InsertOnSubmit(barTahvili);
                 linq.SubmitChanges();
 
+                var query = Select_Barname_Last(linq);
+
                 for (int i = 0; i < kalaTahvili.Count; i++)
                 {
-                    kalaTahvili[i].KalaTahviliBarname = barTahvili.BarTahviliBarname;
+                    kalaTahvili[i].KalaTahviliBarname = query.Data;
                 }
 
                 linq.KalaTahvili_Tbls.InsertAllOnSubmit(kalaTahvili);

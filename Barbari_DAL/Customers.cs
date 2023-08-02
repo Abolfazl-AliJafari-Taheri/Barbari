@@ -35,7 +35,7 @@ namespace Barbari_DAL
             try
             {
                 linq = new DataClassBarbariDataContext();
-                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == search).ToList();
+                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == search && p.CustomersIsDelete == false).ToList();
                 return new OperationResult<List<Customers_Tbl>>
                 {
                     Success = true,
@@ -87,7 +87,7 @@ namespace Barbari_DAL
             try
             {
                 linq = new DataClassBarbariDataContext();
-                var query = linq.Customers_Tbls.Select(p => p.CustomersCode).ToList();
+                var query = linq.Customers_Tbls.Where(p => p.CustomersIsDelete == false).Select(p => p.CustomersCode).ToList();
                 return new OperationResult<List<int>>
                 {
                     Success = true,

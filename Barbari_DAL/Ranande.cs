@@ -36,7 +36,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == search).ToList();
+                var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == search && p.RanandeIsDelete == false).ToList();
                 return new OperationResult<List<Ranande_Tbl>>
                 {
                     Success = true,
@@ -57,7 +57,6 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Ranande_Tbls.OrderByDescending(p => p.RanandeCodeRanande).FirstOrDefault();
                 if (query != null)
                 {
@@ -79,6 +78,26 @@ namespace Barbari_DAL
             catch
             {
                 return new OperationResult<int>
+                {
+                    Success = false,
+                };
+            }
+        }
+        public static OperationResult<List<int>> Select_AllRanandeCode()
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.Ranande_Tbls.Where(p => p.RanandeIsDelete == false).Select(p => p.RanandeCodeRanande).ToList();
+                return new OperationResult<List<int>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch
+            {
+                return new OperationResult<List<int>>
                 {
                     Success = false,
                 };
