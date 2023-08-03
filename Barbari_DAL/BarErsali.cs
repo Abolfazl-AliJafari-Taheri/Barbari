@@ -87,7 +87,7 @@ namespace Barbari_DAL
             {
                 var num = linq.ExecuteQuery<int>(("Select IDENT_CURRENT ('BarErsali.Tbl')"));
                 int intnum = int.Parse(num.ToString());
-                if (num != null)
+                if (intnum != 0)
                 {
                     return new OperationResult<int>
                     {
