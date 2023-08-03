@@ -22,17 +22,5 @@ namespace Barbari_UI.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public string BarErsaliCode {
-            get {
-                return ((string)(this["BarErsaliCode"]));
-            }
-            set {
-                this["BarErsaliCode"] = value;
-            }
-        }
     }
 }

@@ -85,14 +85,13 @@ namespace Barbari_DAL
             linq = linq ?? new DataClassBarbariDataContext();
             try
             {
-                var num = linq.ExecuteQuery<int>(("Select IDENT_CURRENT ('BarErsali_Tbl')"));
-                int intnum = int.Parse(num.ToString());
-                if (intnum != 0)
+                int varMaxAdvertiseId = Convert.ToInt32(linq.ExecuteCommand("Select IDENT_CURRENT ('BarErsali_Tbl')").ToString());
+                if (varMaxAdvertiseId != 0)
                 {
                     return new OperationResult<int>
                     {
                         Success = true,
-                        Data = intnum
+                        Data = varMaxAdvertiseId
                     };
                 }
                 else

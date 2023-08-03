@@ -118,8 +118,15 @@ namespace Barbari_UI.Register_Bar_Ersali
         void GetCodeBraname()
         {
             var code = Barbari_BLL.BarErsali.Select_Barname_Last();
-            Properties.Settings.Default.BarErsaliCode = (code.Data + 1).ToString();
-            CodeBarname_Txt.Text = Properties.Settings.Default.BarErsaliCode;
+            if(code.Success)
+            {
+                CodeBarname_Txt.Text = (code.Data + 1).ToString();
+
+            }
+            else
+            {
+                MessageBox.Show(code.Message);
+            }
         }
         void FillDateTime()
         {
@@ -128,7 +135,6 @@ namespace Barbari_UI.Register_Bar_Ersali
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
             //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
             FillDateTime();
             GetCodeBraname();
