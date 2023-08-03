@@ -85,7 +85,7 @@ namespace Barbari_DAL
             linq = linq ?? new DataClassBarbariDataContext();
             try
             {
-                var num = linq.ExecuteQuery<int>(("Select IDENT_CURRENT ('BarErsali.Tbl')"));
+                var num = linq.ExecuteQuery<int>(("Select IDENT_CURRENT ('BarErsali_Tbl')"));
                 int intnum = int.Parse(num.ToString());
                 if (intnum != 0)
                 {
