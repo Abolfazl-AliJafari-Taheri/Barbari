@@ -17,7 +17,7 @@
             <Grid Grid.Row="0" Name="Kala_Grid" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="72"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0"  Margin="32 24 32 0">
@@ -34,8 +34,8 @@
                     <TextBlock Grid.Column="3" FontWeight="SemiBold" Text="ارزش کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="59"/>
                     <Image Grid.Column="4" HorizontalAlignment="Right" Height="32" Width="32" Source="/Source/Icones/Delete Kala Icon(Red).png"/>
                 </Grid>
-                <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Visible" MaxHeight="160">
-                    <StackPanel Name="ShowKala_StckPnl" Width="auto" HorizontalAlignment="Left" MaxHeight="160" Margin="32 0 0 0 "/>
+                <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Visible" Width="auto" MaxHeight="160">
+                    <StackPanel Name="ShowKala_StckPnl"  HorizontalAlignment="Left" Margin="32 0 0 0 "/>
                 </ScrollViewer>
                 <Grid Grid.Row="2" Margin="32 24 32 0">
                     <Grid.ColumnDefinitions>

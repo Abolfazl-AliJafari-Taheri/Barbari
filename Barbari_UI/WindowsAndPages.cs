@@ -17,5 +17,6 @@ namespace Barbari_UI
         public static Ranandegan ranandegan;
         public static CityAnbar cityAnbar;
         public static Setting setting;
+        public static Register_Bar_Ersali.Register_Form registerBarErsali;
     }
 }

@@ -95,19 +95,22 @@ namespace Barbari_UI.Register_Bar_Ersali
             Mobile_Txt.Text = "";
         }
 
-        
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        void FillCompanyData()
         {
-            FillComboBox();
             var company = Barbari_BLL.Company.Select();
-            if(company.Success)
+            if (company.Success)
             {
                 CityMabda_CmBox.Text = company.Data.CompanyCity;
                 AnbarMabda_CmBox.Text = company.Data.CompanyName;
                 CityMabda_CmBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
                 AnbarMabda_CmBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            FillCompanyData();
+            FillComboBox();
         }
 
         private void CityMabda_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -185,6 +188,12 @@ namespace Barbari_UI.Register_Bar_Ersali
                     Mobile_Txt.Text = "";
                 }
             }
+        }
+
+        public void Registered()
+        {
+            BimariToggle.IsChecked = false;
+            FillCompanyData();
         }
     }
 }

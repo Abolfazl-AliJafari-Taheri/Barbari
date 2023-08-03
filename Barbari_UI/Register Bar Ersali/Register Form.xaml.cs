@@ -25,13 +25,14 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             InitializeComponent();
         }
-        RegisterStep1 step1;
-        RegisterStep2 step2;
-        RegisterStep3 step3;
+        public RegisterStep1 step1;
+        public RegisterStep2 step2;
+        public RegisterStep3 step3;
         byte step = 1;
         bool createStep1= false;
         bool createStep2= false;
         bool createStep3= false;
+        public  bool inserted = false;
         bool Validait()
         {
             if (step == 1)
@@ -49,6 +50,7 @@ namespace Barbari_UI.Register_Bar_Ersali
                 else
                 {
                     MessageBox.Show(validaition.Message);
+                    return false;
                 }
             }
             else if (step == 2)
@@ -63,7 +65,9 @@ namespace Barbari_UI.Register_Bar_Ersali
                     }
                     else
                     {
+
                         MessageBox.Show(validaition.Message);
+                    return false;
                     }
             }
             else if (step == 3)
@@ -83,10 +87,11 @@ namespace Barbari_UI.Register_Bar_Ersali
                     else
                     {
                         MessageBox.Show(validaition.Message);
+                    return false;
                     }
                 }
             }
-            return false;
+            return true;
         }
         private void NextStep_Btn_Click(object sender, RoutedEventArgs e)
         {
@@ -122,12 +127,12 @@ namespace Barbari_UI.Register_Bar_Ersali
                         BarErsaliNamGerande = step2.FirstName_Txt.Text,
                         BarErsaliFamilyGerande = step2.LastName_Txt.Text,
                         BarErsaliMobileGerande = step2.Mobile_Txt.Text,
-                        BarErsaliAnbardari = int.Parse(step3.AnbarDari_Txt.Text),
-                        BarErsaliBastebandi = int.Parse(step3.BasteBandi_Txt.Text),
-                        BarErsaliShahri = int.Parse(step3.Shahri_Txt.Text),
-                        BarErsaliBime = int.Parse(step3.Bime_Txt.Text),
-                        BarErsaliPishKeraye = int.Parse(step3.PishKeraye_Txt.Text),
-                        BarErsaliPasKeraye = int.Parse(step3.PasKeraye_Txt.Text),
+                        BarErsaliAnbardari = decimal.Parse(step3.AnbarDari_Txt.Text),
+                        BarErsaliBastebandi = decimal.Parse(step3.BasteBandi_Txt.Text),
+                        BarErsaliShahri = decimal.Parse(step3.Shahri_Txt.Text),
+                        BarErsaliBime = decimal.Parse(step3.Bime_Txt.Text),
+                        BarErsaliPishKeraye = decimal.Parse(step3.PishKeraye_Txt.Text),
+                        BarErsaliPasKeraye = decimal.Parse(step3.PasKeraye_Txt.Text),
                         BarErsaliSaat = step3.HourSodor_TmPicker.Text,
                         BarErsaliTarikh = step3.DateSodor_DtPicker.Text,
                         BarErsaliUserNameKarmand = WindowsAndPages.home_Window.User.UsersUserName,
@@ -145,7 +150,27 @@ namespace Barbari_UI.Register_Bar_Ersali
                     }
                     
                     List<KalaDaryafti_Tbl> kalas = step3.GetKalas();
-                    var result = Barbari_BLL.BarErsali.Insert(barErsali,kalas,(bool)step1.BimariToggle.IsChecked,(bool)step2.AddSecondMaghsadToggle.IsChecked);
+                    if(kalas.Count == 0)
+                    {
+                        MessageBox.Show("حداقل یک کالا اضافه کنید");
+                    }
+                    else
+                    {
+                        var result = Barbari_BLL.BarErsali.Insert(barErsali, kalas, (bool)step1.BimariToggle.IsChecked, (bool)step2.AddSecondMaghsadToggle.IsChecked);
+                        if(result.Success)
+                        {
+                            inserted = true;
+                            step1.Registered();
+                            step2.Registered();
+                            step3.Registered();
+                            step = 0;
+                            NextStep_Btn_Click(null,null);
+                        }
+                        else
+                        {
+                            MessageBox.Show(result.Message);
+                        }
+                    }
                 }
             }
            

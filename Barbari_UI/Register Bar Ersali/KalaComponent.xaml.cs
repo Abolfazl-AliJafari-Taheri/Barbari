@@ -25,16 +25,19 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             InitializeComponent();
         }
-        public KalaComponent(KalaDaryafti_Tbl kala)
+        public KalaComponent(KalaDaryafti_Tbl kala,int row)
         {
             InitializeComponent();
             Kala = kala;
+            Row= row;
         }
         public KalaDaryafti_Tbl Kala{ get; set;}
-
+        public int Row { get; set; }
+        
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Row_TxtBlock.Text = Kala.KalaDaryaftiCodeKala.ToString();
+            //Row_TxtBlock.Text = Kala.KalaDaryaftiCodeKala.ToString();
+            Row_TxtBlock.Text = Row.ToString();
             Name_TxtBlock.Text = Kala.KalaDaryaftiNamKala;
             Number_TxtBlock.Text = Kala.KalaDaryaftiTedadKala.ToString();
             Price_TxtBlock.Text = Kala.KalaDaryaftiArzeshKala.ToString();
@@ -43,6 +46,7 @@ namespace Barbari_UI.Register_Bar_Ersali
         private void Delte_Btn_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility= Visibility.Collapsed;
+            WindowsAndPages.registerBarErsali.step3.refreshKala();
         }
     }
 }

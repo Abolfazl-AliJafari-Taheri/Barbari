@@ -308,6 +308,16 @@ namespace Barbari_UI
             BarErsaliMenu_Btn_Click(null,null);
             UserFullName_TxtBlock.Text = User.UsersFirstName + "  " + User.UsersLastName;
             var company = Barbari_BLL.Company.Select();
+
+            if (string.IsNullOrEmpty(company.Data.CompanyName))
+            {
+                CompanyName_TxtBlock.Text = "";
+            }
+            else
+            {
+                CompanyName_TxtBlock.Text=company.Data.CompanyName;
+            }
+
             if (company.Data != null)
             {
                 if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)

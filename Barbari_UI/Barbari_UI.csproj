@@ -389,6 +389,9 @@
   <ItemGroup>
     <Resource Include="Source\Icones\Delete Kala Icon%28Red%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Edit Bar Ersali\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

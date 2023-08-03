@@ -26,7 +26,7 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             InitializeComponent();
         }
-
+        int row = 1;
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -67,6 +67,22 @@ namespace Barbari_UI.Register_Bar_Ersali
             }
             return Kalas;
         }
+        public void refreshKala()
+        {
+            int Row = 1;
+            for (int i = 0; i < ShowKala_StckPnl.Children.Count; i++)
+            {
+
+                if ((ShowKala_StckPnl.Children[i] as KalaComponent).Visibility == Visibility.Visible)
+                {
+                    (ShowKala_StckPnl.Children[i] as KalaComponent).Row_TxtBlock.Text = Row.ToString();
+                    Row++;
+                }
+            }
+
+
+        }
+        
         private void AddKala_Btn_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(KalaNumber_Txt.Text, out int number) &&
@@ -81,8 +97,12 @@ namespace Barbari_UI.Register_Bar_Ersali
                         KalaDaryaftiNamKala = KalaName_Txt.Text,
                         KalaDaryaftiTedadKala = number,
                         KalaDaryaftiArzeshKala = price,
-                    })
+                    }, row)
                     { Height = 72, Width = 558 });
+                    KalaName_Txt.Clear();
+                    KalaNumber_Txt.Clear();
+                    KalaPrice_Txt.Clear();
+                    row++;
                 }
                 else
                 {
@@ -95,17 +115,23 @@ namespace Barbari_UI.Register_Bar_Ersali
             }
 
         }
-
+        void GetCodeBraname()
+        {
+            var code = Barbari_BLL.BarErsali.Select_Barname_Last();
+            Properties.Settings.Default.BarErsaliCode = (code.Data + 1).ToString();
+            CodeBarname_Txt.Text = Properties.Settings.Default.BarErsaliCode;
+        }
+        void FillDateTime()
+        {
+            DateSodor_DtPicker.SelectedDate = DateTime.Now;
+            HourSodor_TmPicker.SelectedTime = DateTime.Now;
+        }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
-            DateSodor_DtPicker.SelectedDate = DateTime.Now;
 
-            HourSodor_TmPicker.SelectedTime= DateTime.Now;
-            var code = Barbari_BLL.BarErsali.Select_Barname_Last();
-            Properties.Settings.Default.BarErsaliCode = (code.Data+1).ToString();
-            CodeBarname_Txt.Text = Properties.Settings.Default.BarErsaliCode;
+            //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
+            FillDateTime();
+            GetCodeBraname();
         }
 
         private void PasKeraye_Txt_TextChanged(object sender, TextChangedEventArgs e)
@@ -186,6 +212,24 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 Bime_Txt.Text = 0.ToString();
             }
+        }
+        public void Registered()
+        {
+            ShowKala_StckPnl.Children.Clear();
+            KalaName_Txt.Clear();
+            KalaNumber_Txt.Clear();
+            KalaPrice_Txt.Clear();
+            GetCodeBraname();
+            AnbarDari_Txt.Text = 0.ToString();
+            BasteBandi_Txt.Text = 0.ToString();
+            Shahri_Txt.Text = 0.ToString();
+            Bime_Txt.Text = 0.ToString();
+            PishKeraye_Txt.Text = 0.ToString();
+            PasKeraye_Txt.Text = 0.ToString();
+            FillDateTime();
+            PrintToggle.IsChecked= false;
+            SendSmsToggle.IsChecked= false;
+            
         }
     }
 }

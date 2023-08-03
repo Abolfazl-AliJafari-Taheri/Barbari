@@ -75,12 +75,15 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         private void AddSecondMaghsadToggle_Unchecked(object sender, RoutedEventArgs e)
         {
+            AnbarMaghsadFinal_CmBox.Text = "";
+            CityMaghsadFinal_CmBox.Text = "";
             AnbarMaghsadFinal_CmBox.IsEnabled = false;
             CityMaghsadFinal_CmBox.IsEnabled = false;
         }
 
         private void CityMaghsad_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             if(CityMaghsad_CmBox.SelectedItem != null)
             {
                 var anbar = Barbari_BLL.City.Select_Anbar(CityMaghsad_CmBox.SelectedItem.ToString());
@@ -101,6 +104,17 @@ namespace Barbari_UI.Register_Bar_Ersali
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             FillComboBox();
+        }
+        
+        public void Registered()
+        {
+            AddSecondMaghsadToggle.IsChecked = false;
+            FirstName_Txt.Clear();
+            LastName_Txt.Clear();
+            Mobile_Txt.Clear();
+            AnbarMaghsad_CmBox.Text = "";
+            CityMaghsad_CmBox.Text = "";
+
         }
     }
 }
