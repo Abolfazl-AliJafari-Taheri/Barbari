@@ -92,7 +92,7 @@ namespace Barbari_DAL
                 conn.Open();
                 int lastValue = Convert.ToInt32(cmd.ExecuteScalar());
                 conn.Close();
-                if (lastValue != 0)
+                if (lastValue != 1000)
                 {
                     return new OperationResult<int>
                     {
@@ -105,7 +105,7 @@ namespace Barbari_DAL
                     return new OperationResult<int>
                     {
                         Success = true,
-                        Data = 0
+                        Data = 999
                     };
                 }
             }
@@ -170,12 +170,6 @@ namespace Barbari_DAL
                 linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
                 linq.SubmitChanges();
 
-                var query = Select_Barname_Last();
-
-                for (int i = 0; i < kalaDaryafti.Count; i++)
-                {
-                    kalaDaryafti[i].KalaDaryaftiBarname = query.Data;
-                }
 
                 linq.KalaDaryafti_Tbls.InsertAllOnSubmit(kalaDaryafti);
                 linq.SubmitChanges();

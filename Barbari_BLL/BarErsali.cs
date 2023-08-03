@@ -66,16 +66,7 @@ namespace Barbari_BLL
         public static OperationResult<int> Select_Barname_Last()
         {
             var result = Barbari_DAL.BarErsali.Select_Barname_Last();
-            if (result.Success == true && result.Data == 0)
-            {
-                return new OperationResult<int>
-                {
-                    Success = true,
-                    // بارنامه از 1000 شروع میشه
-                    Data = 999
-                };
-            }
-            else if (result.Success == true)
+            if (result.Success == true)
             {
                 return result;
             }
