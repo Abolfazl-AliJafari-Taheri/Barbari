@@ -85,13 +85,14 @@ namespace Barbari_DAL
             linq = linq ?? new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarErsali_Tbls.OrderByDescending(p => p.BarErsaliBarname).FirstOrDefault();
-                if (query != null)
+                var num = linq.ExecuteQuery<int>(("Select IDENT_CURRENT ('BarErsali.Tbl')"));
+                int intnum = int.Parse(num.ToString());
+                if (num != null)
                 {
                     return new OperationResult<int>
                     {
                         Success = true,
-                        Data = query.BarErsaliBarname
+                        Data = intnum
                     };
                 }
                 else
