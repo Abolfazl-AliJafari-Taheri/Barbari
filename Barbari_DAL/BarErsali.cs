@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,34 +83,43 @@ namespace Barbari_DAL
         }
         public static OperationResult<int> Select_Barname_Last(DataClassBarbariDataContext linq=null)
         {
-            linq = linq ?? new DataClassBarbariDataContext();
-            try
+            //linq = linq ?? new DataClassBarbariDataContext();
+            //sql connection object
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Barbari_DbConnectionString))
             {
-                int varMaxAdvertiseId = Convert.ToInt32(linq.ExecuteCommand("Select IDENT_CURRENT ('BarErsali_Tbl')").ToString());
-                if (varMaxAdvertiseId != 0)
-                {
-                    return new OperationResult<int>
-                    {
-                        Success = true,
-                        Data = varMaxAdvertiseId
-                    };
-                }
-                else
-                {
-                    return new OperationResult<int>
-                    {
-                        Success = true,
-                        Data = 0
-                    };
-                }
-            }
-            catch
-            {
-                return new OperationResult<int>
-                {
-                    Success = false
-                };
+                string query = "SELECT IDENT_CURRENT ('BarErsali_Tbl');";
+                SqlCommand cmd = new SqlCommand(query, conn);
 
+                conn.Open();
+                int lastValue = Convert.ToInt32(cmd.ExecuteScalar());
+                try
+                {
+                    //var num = linq.ExecuteQuery<int>(("Select IDENT_CURRENT ('BarErsali_Tbl')"));
+                    //int intnum = int.Parse(num.ToString());
+                    if (lastValue != 0)
+                    {
+                        return new OperationResult<int>
+                        {
+                            Success = true,
+                            Data = lastValue
+                        };
+                    }
+                    else
+                    {
+                        return new OperationResult<int>
+                        {
+                            Success = true,
+                            Data = 0
+                        };
+                    }
+                }
+                catch
+                {
+                    return new OperationResult<int>
+                    {
+                        Success = false
+                    };
+                }
             }
         }
         public static OperationResult Delete(int search)
