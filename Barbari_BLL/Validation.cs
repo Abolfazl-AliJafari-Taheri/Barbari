@@ -888,6 +888,14 @@ namespace Barbari_BLL
             }
             else if (!string.IsNullOrEmpty(BarErsaliCodeRanande))
             {
+                if (!CheckNumberFormat(BarErsaliCodeRanande))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "داخل کد راننده فقط میشه عدد وارد کرد"
+                    };
+                }
                 var result = Barbari_DAL.Ranande.Select_Code(int.Parse(BarErsaliCodeRanande));
                 if (result.Success == true)
                 {
