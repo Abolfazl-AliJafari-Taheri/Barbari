@@ -812,7 +812,7 @@ namespace Barbari_BLL
             }
         }
         public static OperationResult BarErsali_Validation_TahvilRanande(string BarErsaliNamRanande, string BarErsaliFamilyRanande,
-            string BarErsaliMobileRanande , decimal? BarErsaliKerayeRanande , int? BarErsaliCodeRanande)
+            string BarErsaliMobileRanande , string BarErsaliKerayeRanande , string BarErsaliCodeRanande)
         {
             if (string.IsNullOrEmpty(BarErsaliNamRanande))
             {
@@ -838,7 +838,7 @@ namespace Barbari_BLL
                     Message = "موبایل راننده راننده را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(BarErsaliKerayeRanande.ToString()))
+            else if (string.IsNullOrEmpty(BarErsaliKerayeRanande))
             {
                 return new OperationResult
                 {
@@ -870,7 +870,7 @@ namespace Barbari_BLL
                     Message = "شماره موبایل را درست وارد کنید"
                 };
             }
-            else if (!CheckNumberFormat(BarErsaliKerayeRanande.ToString()))
+            else if (!CheckNumberFormat(BarErsaliKerayeRanande))
             {
                 return new OperationResult
                 {
@@ -878,7 +878,7 @@ namespace Barbari_BLL
                     Message = "داخل کرایه راننده فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckRangeDataType(BarErsaliKerayeRanande.ToString(), 12))
+            else if (CheckRangeDataType(BarErsaliKerayeRanande, 12))
             {
                 return new OperationResult
                 {
@@ -886,9 +886,9 @@ namespace Barbari_BLL
                     Message = "کرایه راننده نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (!string.IsNullOrEmpty(BarErsaliCodeRanande.ToString()))
+            else if (!string.IsNullOrEmpty(BarErsaliCodeRanande))
             {
-                var result = Barbari_DAL.Ranande.Select_Code((int)BarErsaliCodeRanande);
+                var result = Barbari_DAL.Ranande.Select_Code(int.Parse(BarErsaliCodeRanande));
                 if (result.Success == true)
                 {
                     if (result.Data.Any(p => p.RanandeIsDelete == true))
@@ -896,7 +896,7 @@ namespace Barbari_BLL
                         return new OperationResult
                         {
                             Success = false,
-                            Message = "این راننده در جدول مشتری پاک شدند"
+                            Message = "این راننده در جدول راننده پاک شدند"
                         };
                     }
                     else if (result.Data.Count == 0)
@@ -904,7 +904,7 @@ namespace Barbari_BLL
                         return new OperationResult
                         {
                             Success = false,
-                            Message = "این کد راننده در جدول مشتری ثبت نشده"
+                            Message = "این کد راننده در جدول راننده ثبت نشده"
                         };
                     }
                     else
