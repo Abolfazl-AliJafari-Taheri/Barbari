@@ -137,8 +137,8 @@ namespace Barbari_BLL
             var result2 = Validation.BarTahvili_Validation_EtelatGerande(barTahvili.BarTahviliShahrGerande ,
                 barTahvili.BarTahviliNamGerande, barTahvili.BarTahviliFamilyGerande, barTahvili.BarTahviliMobileGerande);
 
-            var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliPishKeraye , barTahvili.BarTahviliPasKeraye
-                , barTahvili.BarTahviliBime, barTahvili.BarTahviliAnbardari, barTahvili.BarTahviliShahri, barTahvili.BarTahviliBastebandi);
+            var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliPishKeraye.ToString() , barTahvili.BarTahviliPasKeraye.ToString()
+                , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString());
 
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande , barTahvili.BarTahviliFamilyRanande,
                 barTahvili.BarTahviliMobileRanande);
@@ -197,7 +197,7 @@ namespace Barbari_BLL
         }
         public static OperationResult Insert_KalaTahvili(KalaTahvili_Tbl kalaTahvili)
         {
-            var result2 = Validation.BarTahvili_Validation_KalaTahvili(kalaTahvili.KalaTahviliNamKala , kalaTahvili.KalaTahviliTedadKala);
+            var result2 = Validation.BarTahvili_Validation_KalaTahvili(kalaTahvili.KalaTahviliNamKala , kalaTahvili.KalaTahviliTedadKala.ToString());
             if (result2.Success == false)
             {
                 return new OperationResult
@@ -266,8 +266,8 @@ namespace Barbari_BLL
             var result2 = Validation.BarTahvili_Validation_EtelatGerande(barTahvili.BarTahviliShahrGerande,
                 barTahvili.BarTahviliNamGerande, barTahvili.BarTahviliFamilyGerande, barTahvili.BarTahviliMobileGerande);
 
-            var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliPishKeraye, barTahvili.BarTahviliPasKeraye
-                , barTahvili.BarTahviliBime, barTahvili.BarTahviliAnbardari, barTahvili.BarTahviliShahri, barTahvili.BarTahviliBastebandi);
+            var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliPishKeraye.ToString(), barTahvili.BarTahviliPasKeraye.ToString()
+                , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString());
 
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande, barTahvili.BarTahviliFamilyRanande,
                 barTahvili.BarTahviliMobileRanande);

@@ -207,7 +207,7 @@ namespace Barbari_BLL
         public static OperationResult Insert_TahvilBeRanande(BarErsali_Tbl barErsali)
         {
             var result1 = Validation.BarErsali_Validation_TahvilRanande(barErsali.BarErsaliNamRanande ,barErsali.BarErsaliFamilyRanande ,
-                barErsali.BarErsaliMobileRanande , barErsali.BarErsaliKerayeRanande , barErsali.BarErsaliCodeRanande);
+                barErsali.BarErsaliMobileRanande , barErsali.BarErsaliKerayeRanande.ToString() , barErsali.BarErsaliCodeRanande.ToString());
 
             if (result1.Success == false)
             {

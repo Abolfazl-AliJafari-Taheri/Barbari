@@ -34,7 +34,7 @@ namespace Barbari_BLL
         }
         public static bool CheckRangeDataType(string Str, byte Range)
         {
-            if (Str.Length > Range)
+            if (Str.Length >= Range)
             {
                 return true;
             }
@@ -1157,10 +1157,10 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult barTahvili_Validation_EtelatBar(decimal BarTahviliPishKeraye , decimal BarTahviliPasKeraye
-            , decimal? BarTahviliBime, decimal? BarTahviliAnbardari, decimal? BarTahviliShahri, decimal? BarTahviliBastebandi)
+        public static OperationResult barTahvili_Validation_EtelatBar(string BarTahviliPishKeraye , string BarTahviliPasKeraye
+            , string BarTahviliBime, string BarTahviliAnbardari, string BarTahviliShahri, string BarTahviliBastebandi)
         {
-            if (string.IsNullOrEmpty(BarTahviliPishKeraye.ToString()))
+            if (string.IsNullOrEmpty(BarTahviliPishKeraye))
             {
                 return new OperationResult
                 {
@@ -1168,7 +1168,7 @@ namespace Barbari_BLL
                     Message = "پیش کرایه را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(BarTahviliPasKeraye.ToString()))
+            else if (string.IsNullOrEmpty(BarTahviliPasKeraye))
             {
                 return new OperationResult
                 {
@@ -1176,7 +1176,7 @@ namespace Barbari_BLL
                     Message = "پس کرایه را وارد کنید"
                 };
             }
-            else if (!CheckNumberFormat(BarTahviliPishKeraye.ToString()))
+            else if (!CheckNumberFormat(BarTahviliPishKeraye))
             {
                 return new OperationResult
                 {
@@ -1184,7 +1184,7 @@ namespace Barbari_BLL
                     Message = "داخل پیش کرایه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(BarTahviliPasKeraye.ToString()))
+            else if (!CheckNumberFormat(BarTahviliPasKeraye))
             {
                 return new OperationResult
                 {
@@ -1192,7 +1192,7 @@ namespace Barbari_BLL
                     Message = "داخل پس کرایه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(BarTahviliBime.ToString()))
+            else if (!CheckNumberFormat(BarTahviliBime))
             {
                 return new OperationResult
                 {
@@ -1200,7 +1200,7 @@ namespace Barbari_BLL
                     Message = "داخل بیمه فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(BarTahviliAnbardari.ToString()))
+            else if (!CheckNumberFormat(BarTahviliAnbardari))
             {
                 return new OperationResult
                 {
@@ -1208,7 +1208,7 @@ namespace Barbari_BLL
                     Message = "داخل انبارداری فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(BarTahviliShahri.ToString()))
+            else if (!CheckNumberFormat(BarTahviliShahri))
             {
                 return new OperationResult
                 {
@@ -1216,7 +1216,7 @@ namespace Barbari_BLL
                     Message = "داخل شهری فقط میشه عدد وارد کرد"
                 };
             }
-            else if (!CheckNumberFormat(BarTahviliBastebandi.ToString()))
+            else if (!CheckNumberFormat(BarTahviliBastebandi))
             {
                 return new OperationResult
                 {
@@ -1224,7 +1224,7 @@ namespace Barbari_BLL
                     Message = "داخل بسته بندی فقط میشه عدد وارد کرد"
                 };
             }
-            else if (CheckRangeDataType(BarTahviliPishKeraye.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliPishKeraye, 12))
             {
                 return new OperationResult
                 {
@@ -1232,7 +1232,7 @@ namespace Barbari_BLL
                     Message = "پیش کرایه نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(BarTahviliPasKeraye.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliPasKeraye, 12))
             {
                 return new OperationResult
                 {
@@ -1240,7 +1240,7 @@ namespace Barbari_BLL
                     Message = "پس کرایه نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(BarTahviliBime.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliBime, 12))
             {
                 return new OperationResult
                 {
@@ -1248,7 +1248,7 @@ namespace Barbari_BLL
                     Message = "بیمه نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(BarTahviliAnbardari.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliAnbardari, 12))
             {
                 return new OperationResult
                 {
@@ -1256,15 +1256,15 @@ namespace Barbari_BLL
                     Message = "انبار داری نباید بیشتر از 12 عدد باشه"
                 };
             }
-            else if (CheckRangeDataType(BarTahviliShahri.ToString(), 12))
-            {
+            else if (CheckRangeDataType(BarTahviliShahri, 12))
+            {   
                 return new OperationResult
                 {
                     Success = false,
                     Message = "شهری نباید بیشتر از 12 عدد باشد"
                 };
             }
-            else if (CheckRangeDataType(BarTahviliBastebandi.ToString(), 12))
+            else if (CheckRangeDataType(BarTahviliBastebandi, 12))
             {
                 return new OperationResult
                 {
@@ -1339,7 +1339,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult BarTahvili_Validation_KalaTahvili(string KalaTahviliNamKala, int KalaTahviliTedadKala)
+        public static OperationResult BarTahvili_Validation_KalaTahvili(string KalaTahviliNamKala, string KalaTahviliTedadKala)
         {
             if (string.IsNullOrEmpty(KalaTahviliNamKala))
             {
@@ -1349,7 +1349,7 @@ namespace Barbari_BLL
                     Message = "نام کالا را وارد کنید"
                 };
             }
-            else if (string.IsNullOrEmpty(KalaTahviliTedadKala.ToString()))
+            else if (string.IsNullOrEmpty(KalaTahviliTedadKala))
             {
                 return new OperationResult
                 {
@@ -1365,7 +1365,7 @@ namespace Barbari_BLL
                     Message = "نام کالا نباید بیشتر از 50 حرف باشد"
                 };
             }
-            else if (CheckRangeDataType(KalaTahviliTedadKala.ToString(), 9))
+            else if (CheckRangeDataType(KalaTahviliTedadKala, 9))
             {
                 return new OperationResult
                 {
@@ -1373,7 +1373,7 @@ namespace Barbari_BLL
                     Message = "تعداد کالا نباید بیشتر از 9 عدد باشد"
                 };
             }
-            else if (!CheckNumberFormat(KalaTahviliTedadKala.ToString()))
+            else if (!CheckNumberFormat(KalaTahviliTedadKala))
             {
                 return new OperationResult
                 {
