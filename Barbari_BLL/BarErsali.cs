@@ -125,8 +125,8 @@ namespace Barbari_BLL
             var result2 = Validation.BarErsali_Validation_EtelatGerande(barErsali.BarErsaliShahreMaghsad1, barErsali.BarErsaliAnbarMaghsad1,
                 barErsali.BarErsaliNamGerande, barErsali.BarErsaliFamilyGerande, barErsali.BarErsaliMobileGerande, barErsali.BarErsaliShahreMaghsad2 ,barErsali.BarErsaliAnbarMaghsad2, maghsadNahayi);
 
-            var result3 = Validation.BarErsali_Validation_EtelatBar(barErsali.BarErsaliPishKeraye, barErsali.BarErsaliPasKeraye, barErsali.BarErsaliBime,
-                barErsali.BarErsaliAnbardari, barErsali.BarErsaliShahri, barErsali.BarErsaliBastebandi);
+            var result3 = Validation.BarErsali_Validation_EtelatBar(barErsali.BarErsaliPishKeraye.ToString(), barErsali.BarErsaliPasKeraye.ToString(), barErsali.BarErsaliBime.ToString(),
+                barErsali.BarErsaliAnbardari.ToString(), barErsali.BarErsaliShahri.ToString(), barErsali.BarErsaliBastebandi.ToString());
 
             if (result1.Success == false)
             {
@@ -174,8 +174,8 @@ namespace Barbari_BLL
         }
         public static OperationResult Insert_KalaDaryafti(KalaDaryafti_Tbl kalaDaryafti)
         {
-            var result2 = Validation.BarErsali_Validation_KalaDaryafti(kalaDaryafti.KalaDaryaftiNamKala , kalaDaryafti.KalaDaryaftiTedadKala ,
-                kalaDaryafti.KalaDaryaftiArzeshKala);
+            var result2 = Validation.BarErsali_Validation_KalaDaryafti(kalaDaryafti.KalaDaryaftiNamKala , kalaDaryafti.KalaDaryaftiTedadKala.ToString() ,
+                kalaDaryafti.KalaDaryaftiArzeshKala.ToString());
             if (result2.Success == false)
             {
                 return new OperationResult
@@ -246,8 +246,8 @@ namespace Barbari_BLL
             var result2 = Validation.BarErsali_Validation_EtelatGerande(barErsali.BarErsaliShahreMaghsad1, barErsali.BarErsaliAnbarMaghsad1,
                 barErsali.BarErsaliNamGerande, barErsali.BarErsaliFamilyGerande, barErsali.BarErsaliMobileGerande, barErsali.BarErsaliShahreMaghsad2, barErsali.BarErsaliAnbarMaghsad2, maghsadNahayi);
 
-            var result3 = Validation.BarErsali_Validation_EtelatBar(barErsali.BarErsaliPishKeraye, barErsali.BarErsaliPasKeraye, barErsali.BarErsaliBime,
-                barErsali.BarErsaliAnbardari, barErsali.BarErsaliShahri, barErsali.BarErsaliBastebandi);
+            var result3 = Validation.BarErsali_Validation_EtelatBar(barErsali.BarErsaliPishKeraye.ToString(), barErsali.BarErsaliPasKeraye.ToString(), barErsali.BarErsaliBime.ToString(),
+                barErsali.BarErsaliAnbardari.ToString(), barErsali.BarErsaliShahri.ToString(), barErsali.BarErsaliBastebandi.ToString());
 
             if (result1.Success == false)
             {
