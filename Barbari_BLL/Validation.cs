@@ -715,6 +715,14 @@ namespace Barbari_BLL
                     Message = "پس کرایه را وارد کنید"
                 };
             }
+            else if (BarErsaliPishKeraye == "0" && BarErsaliPasKeraye == "0")
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پیش کرایه و پس کرایه باید 1 دونه شون مقدار داشته باشه"
+                };
+            }
             else if (!CheckNumberFormat(BarErsaliPishKeraye))
             {
                 return new OperationResult
