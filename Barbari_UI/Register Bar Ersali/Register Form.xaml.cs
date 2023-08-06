@@ -90,6 +90,11 @@ namespace Barbari_UI.Register_Bar_Ersali
                     return false;
                     }
                 }
+                else
+                {
+                    MessageBox.Show("مبالغ را صحیح وارد کنید");
+                    return false;
+                }
             }
             return true;
         }

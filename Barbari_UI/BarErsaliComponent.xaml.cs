@@ -1,4 +1,5 @@
 ﻿using Barbari_DAL;
+using Barbari_UI.Register_Bar_Ersali;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,7 @@ namespace Barbari_UI
                 Status_Lbl.Foreground = ConverterColor("#079459");
                 Status_Lbl.Background = ConverterColor("#ACDBC8");
                 Thvil_Btn.IsEnabled = false;
+                Thvil_Btn.IsEnabled = false;
             }
             else
             {
@@ -62,6 +64,8 @@ namespace Barbari_UI
                 Status_Lbl.Foreground = ConverterColor("#2B54A3");
                 Status_Lbl.Background = ConverterColor("#B8C6E0");
                 Thvil_Btn.IsEnabled = true;
+                Thvil_Btn.IsEnabled = true;
+
             }
         }
         Brush ConverterColor(string ColorCode)
@@ -70,13 +74,14 @@ namespace Barbari_UI
         }
         private async void Delete_Btn_Click(object sender, RoutedEventArgs e)
         {
-            //await WindowsAndPages.home_Window.DialogHost.ShowDialog(new SubmitDelete(BarErsali: BarErsali) { Height = 160, Width = 400 });
-
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new SubmitDelete(BarErsali: BarErsali) { Height = 160, Width = 400 });
+            
         }
 
-        private void Thvil_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Thvil_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali) { Height = 453, Width = 622 });
+            WindowsAndPages.barErsali.Refresh();
         }
 
         private void More_Btn_Click(object sender, RoutedEventArgs e)

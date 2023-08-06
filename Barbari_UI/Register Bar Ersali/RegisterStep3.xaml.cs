@@ -27,6 +27,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             InitializeComponent();
         }
         int row = 1;
+        bool dateLoaded = false;
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -130,7 +131,9 @@ namespace Barbari_UI.Register_Bar_Ersali
         }
         void FillDateTime()
         {
-            DateSodor_DtPicker.SelectedDate = DateTime.Now;
+            //DateSodor_DtPicker.SelectedDate = DateTime.Now;
+            //DateSodor_DtPicker.Text = ConvertDate.MiladiToShamsiNumberDate((DateTime)DateSodor_DtPicker.SelectedDate);
+            //dateLoaded = true;
             HourSodor_TmPicker.SelectedTime = DateTime.Now;
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -237,5 +240,18 @@ namespace Barbari_UI.Register_Bar_Ersali
             SendSmsToggle.IsChecked= false;
             
         }
+
+        private void DateSodor_DtPicker_SelectedDateChanged(object sender, RoutedEventArgs e)
+        {
+            string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(DateSodor_DtPicker.Text));
+        }
+
+        //private void DateSodor_DtPicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if(dateLoaded ==true)
+        //    {
+        //        DateSodor_DtPicker.Text = ConvertDate.MiladiToShamsiNumberDate((DateTime)DateSodor_DtPicker.SelectedDate);
+        //    }
+        //}
     }
 }

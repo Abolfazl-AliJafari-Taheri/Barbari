@@ -192,6 +192,7 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         public void Registered()
         {
+            BimariToggle.IsChecked = true;
             BimariToggle.IsChecked = false;
             FillCompanyData();
         }
