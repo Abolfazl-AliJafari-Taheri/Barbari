@@ -415,7 +415,7 @@ namespace Barbari_BLL
             }
         }
         public static OperationResult BarErsali_Validation_EtelatFerestande(string BarErsaliShahreMabda, string BarErsaliAnbarMabda,
-           string BarErsaliNamFerestande, string BarErsaliFamilyFerestande, string BarErsaliMobileFerestande, int? BarErsaliCodeFerestande, bool moshtariSabet)
+           string BarErsaliNamFerestande, string BarErsaliFamilyFerestande, string BarErsaliMobileFerestande, string BarErsaliCodeFerestande, bool moshtariSabet)
         {
             if (string.IsNullOrEmpty(BarErsaliShahreMabda))
             {
@@ -499,9 +499,17 @@ namespace Barbari_BLL
             }
             else if (moshtariSabet == true)
             {
-                if (!string.IsNullOrEmpty(BarErsaliCodeFerestande.ToString()))
+                if (!string.IsNullOrEmpty(BarErsaliCodeFerestande))
                 {
-                    var result = Barbari_DAL.Customers.Select_Code((int)BarErsaliCodeFerestande);
+                    if (!CheckNumberFormat(BarErsaliCodeFerestande))
+                    {
+                        return new OperationResult
+                        {
+                            Success = false,
+                            Message = "داخل کد مشتری فقط میشه عدد وارد کرد"
+                        };
+                    }
+                    var result = Barbari_DAL.Customers.Select_Code(int.Parse(BarErsaliCodeFerestande));
                     if (result.Success == true)
                     {
                         if (result.Data.Any(p => p.CustomersIsDelete == true))
