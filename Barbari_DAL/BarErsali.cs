@@ -267,6 +267,28 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult Update_BarErsaliUserNameKarmand(int BarErsaliBarname, string BarErsaliUserNameKarmand)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == BarErsaliBarname).Single();
+                query.BarErsaliUserNameKarmand = BarErsaliUserNameKarmand;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult Update(BarErsali_Tbl barErsali)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
@@ -299,6 +321,7 @@ namespace Barbari_DAL
                 query.BarErsaliAnbardari = barErsali.BarErsaliAnbardari;
                 query.BarErsaliShahri = barErsali.BarErsaliShahri;
                 query.BarErsaliBastebandi = barErsali.BarErsaliBastebandi;
+                query.BarErsaliUserNameKarmand = barErsali.BarErsaliUserNameKarmand;
                 linq.SubmitChanges();
                 return new OperationResult
                 {
@@ -306,7 +329,7 @@ namespace Barbari_DAL
                 };
 
             }
-            catch 
+            catch
             {
                 return new OperationResult
                 {
@@ -314,5 +337,8 @@ namespace Barbari_DAL
                 };
             }
         }
+       
+            
+        
     }
 }

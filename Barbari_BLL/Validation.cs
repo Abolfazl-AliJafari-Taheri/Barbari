@@ -720,7 +720,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "پیش کرایه و پس کرایه باید 1 دونه شون مقدار داشته باشه"
+                    Message = "پیش کرایه یا پس کرایه را وارد کنید"
                 };
             }
             else if (!CheckNumberFormat(BarErsaliPishKeraye))

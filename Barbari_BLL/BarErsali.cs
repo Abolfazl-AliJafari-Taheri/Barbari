@@ -238,6 +238,25 @@ namespace Barbari_BLL
 
             }
         }
+        public static OperationResult Update_BarErsaliUserNameKarmand(int BarErsaliBarname, string BarErsaliUserNameKarmand)
+        {
+            var result = Barbari_DAL.BarErsali.Update_BarErsaliUserNameKarmand(BarErsaliBarname, BarErsaliUserNameKarmand);
+            if (result.Success == true)
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Update(BarErsali_Tbl barErsali, bool moshtariSabet, bool maghsadNahayi)
         {
             var result1 = Validation.BarErsali_Validation_EtelatFerestande(barErsali.BarErsaliShahreMabda, barErsali.BarErsaliAnbarMabda,
