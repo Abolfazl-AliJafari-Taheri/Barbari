@@ -120,7 +120,7 @@ namespace Barbari_BLL
         public static OperationResult Insert(BarErsali_Tbl barErsali, List<KalaDaryafti_Tbl> kalaDaryafti, bool moshtariSabet, bool maghsadNahayi)
         {
             var result1 = Validation.BarErsali_Validation_EtelatFerestande(barErsali.BarErsaliShahreMabda, barErsali.BarErsaliAnbarMabda,
-                barErsali.BarErsaliNamFerestande, barErsali.BarErsaliFamilyFerestande, barErsali.BarErsaliMobileFerestande, barErsali.BarErsaliCodeFerestande,moshtariSabet);
+                barErsali.BarErsaliNamFerestande, barErsali.BarErsaliFamilyFerestande, barErsali.BarErsaliMobileFerestande, barErsali.BarErsaliCodeFerestande.ToString(),moshtariSabet);
 
             var result2 = Validation.BarErsali_Validation_EtelatGerande(barErsali.BarErsaliShahreMaghsad1, barErsali.BarErsaliAnbarMaghsad1,
                 barErsali.BarErsaliNamGerande, barErsali.BarErsaliFamilyGerande, barErsali.BarErsaliMobileGerande, barErsali.BarErsaliShahreMaghsad2 ,barErsali.BarErsaliAnbarMaghsad2, maghsadNahayi);
@@ -241,7 +241,7 @@ namespace Barbari_BLL
         public static OperationResult Update(BarErsali_Tbl barErsali, bool moshtariSabet, bool maghsadNahayi)
         {
             var result1 = Validation.BarErsali_Validation_EtelatFerestande(barErsali.BarErsaliShahreMabda, barErsali.BarErsaliAnbarMabda,
-                barErsali.BarErsaliNamFerestande, barErsali.BarErsaliFamilyFerestande, barErsali.BarErsaliMobileFerestande, barErsali.BarErsaliCodeFerestande, moshtariSabet);
+                barErsali.BarErsaliNamFerestande, barErsali.BarErsaliFamilyFerestande, barErsali.BarErsaliMobileFerestande, barErsali.BarErsaliCodeFerestande.ToString(), moshtariSabet);
 
             var result2 = Validation.BarErsali_Validation_EtelatGerande(barErsali.BarErsaliShahreMaghsad1, barErsali.BarErsaliAnbarMaghsad1,
                 barErsali.BarErsaliNamGerande, barErsali.BarErsaliFamilyGerande, barErsali.BarErsaliMobileGerande, barErsali.BarErsaliShahreMaghsad2, barErsali.BarErsaliAnbarMaghsad2, maghsadNahayi);
