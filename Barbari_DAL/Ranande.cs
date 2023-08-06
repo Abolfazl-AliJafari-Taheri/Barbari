@@ -36,7 +36,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == search && p.RanandeIsDelete == false).ToList();
+                var query = linq.Ranande_Tbls.Where(p => p.RanandeCodeRanande == search).ToList();
                 return new OperationResult<List<Ranande_Tbl>>
                 {
                     Success = true,

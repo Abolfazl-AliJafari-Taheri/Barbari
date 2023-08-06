@@ -36,6 +36,14 @@ namespace Barbari_BLL
                     Message = "این کد مشتری در جدول مشتری ثبت نشده"
                 };
             }
+            else if (result.Success == true && result.Data.Any(p => p.CustomersIsDelete == true))
+            {
+                return new OperationResult<List<Customers_Tbl>>
+                {
+                    Success = false,
+                    Message = "این مشتری در جدول مشتری پاک شدند"
+                };
+            }
             else if (result.Success == true)
             {
                 return result;

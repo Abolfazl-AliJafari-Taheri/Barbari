@@ -35,7 +35,7 @@ namespace Barbari_DAL
             try
             {
                 linq = new DataClassBarbariDataContext();
-                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == search && p.CustomersIsDelete == false).ToList();
+                var query = linq.Customers_Tbls.Where(p => p.CustomersCode == search).ToList();
                 return new OperationResult<List<Customers_Tbl>>
                 {
                     Success = true,

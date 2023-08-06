@@ -26,6 +26,38 @@ namespace Barbari_BLL
 
             }
         }
+        public static OperationResult<List<Ranande_Tbl>> Select_Code(int search)
+        {
+            var result = Barbari_DAL.Ranande.Select_Code(search);
+            if (result.Success == true && result.Data.Count == 0)
+            {
+                return new OperationResult<List<Ranande_Tbl>>
+                {
+                    Success = false,
+                    Message = "این کد راننده در جدول راننده ثبت نشده"
+                };
+            }
+            else if (result.Success == true && result.Data.Any(p => p.RanandeIsDelete == true))
+            {
+                return new OperationResult<List<Ranande_Tbl>>
+                {
+                    Success = false,
+                    Message = "این راننده در جدول راننده پاک شدند"
+                };
+            }
+            else if (result.Success == true)
+            {
+                return result;
+            }
+            else
+            {
+                return new OperationResult<List<Ranande_Tbl>>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult<int> Select_CodeLast()
         {
             var result = Barbari_DAL.Ranande.Select_CodeLast();
