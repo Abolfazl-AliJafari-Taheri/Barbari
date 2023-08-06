@@ -267,10 +267,19 @@ namespace Barbari_BLL
 
             var result3 = Validation.BarErsali_Validation_EtelatBar(barErsali.BarErsaliPishKeraye.ToString(), barErsali.BarErsaliPasKeraye.ToString(), barErsali.BarErsaliBime.ToString(),
                 barErsali.BarErsaliAnbardari.ToString(), barErsali.BarErsaliShahri.ToString(), barErsali.BarErsaliBastebandi.ToString());
-
-            var result4 = Validation.BarErsali_Validation_TahvilRanande(barErsali.BarErsaliNamRanande, barErsali.BarErsaliFamilyRanande,
+            if (!string.IsNullOrEmpty(barErsali.BarErsaliNamRanande))
+            {
+                var result4 = Validation.BarErsali_Validation_TahvilRanande(barErsali.BarErsaliNamRanande, barErsali.BarErsaliFamilyRanande,
                barErsali.BarErsaliMobileRanande, barErsali.BarErsaliKerayeRanande.ToString(), barErsali.BarErsaliCodeRanande.ToString());
-
+                if (result4.Success == false)
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = result4.Message
+                    };
+                }
+            }
             if (result1.Success == false)
             {
                 return new OperationResult
@@ -293,14 +302,6 @@ namespace Barbari_BLL
                 {
                     Success = false,
                     Message = result3.Message
-                };
-            }
-            else if (result4.Success == false)
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = result4.Message
                 };
             }
             else
