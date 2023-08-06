@@ -123,6 +123,9 @@
       <DependentUpon>CityAnbarComponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConvertDate.cs" />
+    <Compile Include="Edit Bar Ersali\EditForm.xaml.cs">
+      <DependentUpon>EditForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Karmand.xaml.cs">
       <DependentUpon>Karmand.xaml</DependentUpon>
     </Compile>
@@ -244,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CityAnbarComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit Bar Ersali\EditForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -405,9 +412,7 @@
   <ItemGroup>
     <Resource Include="Source\Icones\Delete Kala Icon%28Red%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Edit Bar Ersali\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

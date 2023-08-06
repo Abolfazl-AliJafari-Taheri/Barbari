@@ -1,4 +1,5 @@
 ﻿using Barbari_DAL;
+using Barbari_UI.Edit_Bar_Ersali;
 using Barbari_UI.Register_Bar_Ersali;
 using MaterialDesignThemes.Wpf;
 using System;
@@ -36,7 +37,7 @@ namespace Barbari_UI
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Sender_TxtBlock.Text = BarErsali.BarErsaliNamFerestande+" "+BarErsali.BarErsaliFamilyFerestande;
-            Reciever_TxtBlock.Text = BarErsali.BarErsaliNamGerande+""+BarErsali.BarErsaliFamilyGerande;
+            Reciever_TxtBlock.Text = BarErsali.BarErsaliNamGerande+" "+BarErsali.BarErsaliFamilyGerande;
             Destination_TxtBlock.Text = BarErsali.BarErsaliShahreMaghsad1;
             StatusChange();
         }
@@ -80,13 +81,15 @@ namespace Barbari_UI
 
         private async void Thvil_Btn_Click(object sender, RoutedEventArgs e)
         {
-            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali) { Height = 453, Width = 622 });
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali,false) { Height = 453, Width = 622 });
             WindowsAndPages.barErsali.Refresh();
         }
 
-        private void More_Btn_Click(object sender, RoutedEventArgs e)
+        private async void More_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowsAndPages.editFormBarErsali = new EditForm(BarErsali);
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(WindowsAndPages.editFormBarErsali);
+            WindowsAndPages.barErsali.Refresh();
         }
     }
 }

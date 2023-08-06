@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Barbari_DAL;
 
 namespace Barbari_UI.Register_Bar_Ersali
 {
@@ -24,6 +25,14 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             InitializeComponent();
         }
+        public RegisterStep1(BarErsali_Tbl barErsali)
+        {
+            InitializeComponent();
+            BarErsali = barErsali;
+            edit = true;
+        }
+        public BarErsali_Tbl BarErsali { get; set; }
+        bool edit = false;
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -106,11 +115,31 @@ namespace Barbari_UI.Register_Bar_Ersali
                 AnbarMabda_CmBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             }
         }
-
+        void EditMode(BarErsali_Tbl barErsali)
+        {
+            CityMabda_CmBox.Text = barErsali.BarErsaliShahreMabda;
+            AnbarMabda_CmBox.Text = barErsali.BarErsaliAnbarMabda;
+            FirstName_Txt.Text = barErsali.BarErsaliNamFerestande;
+            LastName_Txt.Text = barErsali.BarErsaliFamilyFerestande;
+            Mobile_Txt.Text = barErsali.BarErsaliMobileFerestande;
+            if(!string.IsNullOrEmpty(barErsali.BarErsaliCodeFerestande.ToString()))
+            {
+                BimariToggle.IsChecked = true;
+                Code_CmBox.Text = barErsali.BarErsaliCodeFerestande.ToString();
+            }
+        }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            FillCompanyData();
+            if (edit)
+            {
+                EditMode(BarErsali);
+            }
+            else
+            {
+                FillCompanyData();
+            }
             FillComboBox();
+
         }
 
         private void CityMabda_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -168,9 +197,9 @@ namespace Barbari_UI.Register_Bar_Ersali
                         FirstName_Txt.Text = result.Data[0].CustomersFirstName;
                         LastName_Txt.Text = result.Data[0].CustomersLastName;
                         Mobile_Txt.Text = result.Data[0].CustomersMobile;
-                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        //Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
                     }
                     else
                     {

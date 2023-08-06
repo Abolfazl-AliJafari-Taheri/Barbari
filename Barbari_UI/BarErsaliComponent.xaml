@@ -47,7 +47,7 @@
                 </Button>
             </Border>
             <Border Grid.Column="5" VerticalAlignment="Center" CornerRadius="8" Width="119" Height="40" BorderBrush="#2B54A3" BorderThickness="2" HorizontalAlignment="Right">
-                <Button Name="More_Btn" Height="38" Width="115" Padding="0" FontFamily="IRANSansX" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Foreground="#2B54A3" Click="More_Btn_Click" VerticalAlignment="Top" Content="جزئیات بیشتر"/>
+                <Button Name="More_Btn" Height="38" Width="115" Padding="0" FontFamily="IRANSansX" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Foreground="#2B54A3" Click="More_Btn_Click" VerticalAlignment="Top" Content="ویرایش"/>
             </Border>
             <Border Grid.Column="6" VerticalAlignment="Center" Background="#2B54A3" HorizontalAlignment="Left" Margin="8 0 0 0" CornerRadius="8" Width="123" Height="40">
                 <Button Name="Thvil_Btn" Height="40" Width="123" Padding="0" FontFamily="IRANSansX" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Thvil_Btn_Click" VerticalAlignment="Top" Content="تحویل به راننده"/>

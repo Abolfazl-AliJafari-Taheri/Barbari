@@ -22,14 +22,35 @@ namespace Barbari_UI.Register_Bar_Ersali
     /// </summary>
     public partial class TahvilRanande : UserControl
     {
-        public TahvilRanande(BarErsali_Tbl barErsali)
+        public TahvilRanande(BarErsali_Tbl barErsali,bool Edit)
         {
             InitializeComponent();
             BarErsali = barErsali;
+            edit = Edit;
         }
+        bool edit = false;
         public BarErsali_Tbl BarErsali { get; set; }
+        void EditMode()
+        {
+            if(!string.IsNullOrEmpty(BarErsali.BarErsaliCodeRanande.ToString()))
+            {
+                Registered_Ranande.IsChecked = true;
+                Code_CmBox.Text = BarErsali.BarErsaliCodeRanande.ToString();
+            }
+            FirstName_Txt.Text = BarErsali.BarErsaliNamRanande;
+            LastName_Txt.Text = BarErsali.BarErsaliFamilyRanande;
+            Mobile_Txt.Text = BarErsali.BarErsaliMobileRanande;
+            Price_Txt.Text = BarErsali.BarErsaliKerayeRanande.ToString();
+            Cancel_Btn.Visibility = Visibility.Collapsed;
+            Tahvil_Btn_Border.Visibility = Visibility.Collapsed;
+            Title_TxtBlock.Visibility= Visibility.Collapsed;
+        }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if(edit)
+            {
+                EditMode(); 
+            }
             var ranande = Barbari_BLL.Ranande.Select_AllRanandeCode().Data;
             Code_CmBox.ItemsSource= ranande;
         }
@@ -84,6 +105,74 @@ namespace Barbari_UI.Register_Bar_Ersali
             else
             {
                 MessageBox.Show(validation.Message);
+            }
+        }
+
+        private void Code_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Code_CmBox.SelectedItem != null)
+            {
+                if (int.TryParse(Code_CmBox.SelectedItem.ToString(), out int code))
+                {
+                    var result = Barbari_BLL.Ranande.Select_Code(code);
+                    if (result.Success)
+                    {
+                        FirstName_Txt.Text = result.Data[0].RanandeFirstName;
+                        LastName_Txt.Text = result.Data[0].RanandeLastName;
+                        Mobile_Txt.Text = result.Data[0].RanandeMobile;
+                        //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        //Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                    }
+                    else
+                    {
+                        FirstName_Txt.Text = "";
+                        LastName_Txt.Text = "";
+                        Mobile_Txt.Text = "";
+                        MessageBox.Show(result.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("کد راننده باید عددی باشد");
+                    FirstName_Txt.Text = "";
+                    LastName_Txt.Text = "";
+                    Mobile_Txt.Text = "";
+                }
+            }
+        }
+
+        private void Code_CmBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (int.TryParse(Code_CmBox.Text, out int code))
+                {
+                    var result = Barbari_BLL.Ranande.Select_Code(code);
+                    if (result.Success)
+                    {
+                        FirstName_Txt.Text = result.Data[0].RanandeFirstName;
+                        LastName_Txt.Text = result.Data[0].RanandeLastName;
+                        Mobile_Txt.Text = result.Data[0].RanandeMobile;
+                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                    }
+                    else
+                    {
+                        FirstName_Txt.Text = "";
+                        LastName_Txt.Text = "";
+                        Mobile_Txt.Text = "";
+                        MessageBox.Show(result.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("کد مشتری باید عددی باشد");
+                    FirstName_Txt.Text = "";
+                    LastName_Txt.Text = "";
+                    Mobile_Txt.Text = "";
+                }
             }
         }
     }

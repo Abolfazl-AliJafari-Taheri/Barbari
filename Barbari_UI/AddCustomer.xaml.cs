@@ -65,11 +65,11 @@ namespace Barbari_UI
             City_Txt.Text = customer.CustomersCity;
             Add_Btn.Content = "ویرایش مشتری";
             Code_Txt.IsReadOnly = true;
-            FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
         }
         
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -88,100 +88,85 @@ namespace Barbari_UI
         {
             if (edit)
             {
-                if (Validait())
+                Customer.CustomersFirstName = FirstName_Txt.Text;
+                Customer.CustomersLastName = LastName_Txt.Text;
+                Customer.CustomersCity = City_Txt.Text;
+                Customer.CustomersMobile = Mobile_Txt.Text;
+                var result = Barbari_BLL.Customers.Update(Customer);
+                if (!result.Success)
                 {
-                    Customer.CustomersFirstName = FirstName_Txt.Text;
-                    Customer.CustomersLastName = LastName_Txt.Text;
-                    Customer.CustomersCity = City_Txt.Text;
-                    Customer.CustomersMobile = Mobile_Txt.Text;
-                    var result = Barbari_BLL.Customers.Update(Customer);
-                    if (!result.Success)
-                    {
-                        MessageBox.Show(result.Message);
-                    }
-                    else
-                    {
-                        WindowsAndPages.moshtari.Refresh();
-                        DialogHost.CloseDialogCommand.Execute(null, null);
-                    }
+                    MessageBox.Show(result.Message);
                 }
                 else
                 {
-                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
+                    WindowsAndPages.moshtari.Refresh();
+                    DialogHost.CloseDialogCommand.Execute(null, null);
                 }
 
             }
             else
             {
-                if (Validait())
+                Customers_Tbl Customer = new Customers_Tbl();
+                Customer.CustomersFirstName = FirstName_Txt.Text;
+                Customer.CustomersLastName = LastName_Txt.Text;
+                Customer.CustomersCity = City_Txt.Text.Trim();
+                Customer.CustomersMobile = Mobile_Txt.Text;
+                var result = Barbari_BLL.Customers.Insert(Customer);
+                if (!result.Success)
                 {
-                    Customers_Tbl Customer = new Customers_Tbl();
-                    Customer.CustomersFirstName = FirstName_Txt.Text;
-                    Customer.CustomersLastName = LastName_Txt.Text;
-                    Customer.CustomersCity = City_Txt.Text.Trim();
-                    Customer.CustomersMobile = Mobile_Txt.Text;
-                    var result = Barbari_BLL.Customers.Insert(Customer);
-                    if (!result.Success)
-                    {
-                        MessageBox.Show(result.Message);
-                    }
-                    else
-                    {
-                        FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
-                        LastName_Txt.Text = LastName_Txt.Tag.ToString();
-                        Code_Txt.Text = (Barbari_BLL.Customers.Select_CodeLast().Data + 1).ToString();
-
-                        City_Txt.Text = City_Txt.Tag.ToString();
-                        Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
-                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        //foreach (object control in Field_Grid.Children)
-                        //{
-                        //    if (control is Border)
-                        //    {
-                        //        if ((control as Border).Child is TextBox)
-                        //        {
-                        //            (((control as Border).Child) as TextBox).Text = (control as TextBox).Tag.ToString();
-                        //            (((control as Border).Child) as TextBox).Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        //        }
-                        //    }
-                        //}
-
-                    }
+                    MessageBox.Show(result.Message);
                 }
                 else
                 {
-                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
+                    FirstName_Txt.Text = "";
+                    LastName_Txt.Text = "";
+                    Code_Txt.Text = (Barbari_BLL.Customers.Select_CodeLast().Data + 1).ToString();
+
+                    City_Txt.Text = "";
+                    Mobile_Txt.Text = "";
+                    //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //foreach (object control in Field_Grid.Children)
+                    //{
+                    //    if (control is Border)
+                    //    {
+                    //        if ((control as Border).Child is TextBox)
+                    //        {
+                    //            (((control as Border).Child) as TextBox).Text = (control as TextBox).Tag.ToString();
+                    //            (((control as Border).Child) as TextBox).Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //        }
+                    //    }
+                    //}
                 }
             }
         }
-        bool Validait()
-        {
-            if (FirstName_Txt.Text == FirstName_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (LastName_Txt.Text == LastName_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (Code_Txt.Text == Code_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (City_Txt.Text == City_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (Mobile_Txt.Text == Mobile_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            return true;
-        }
+        //bool Validait()
+        //{
+        //    if (FirstName_Txt.Text == FirstName_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (LastName_Txt.Text == LastName_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (Code_Txt.Text == Code_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (City_Txt.Text == City_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (Mobile_Txt.Text == Mobile_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         private void City_Txt_GotFocus(object sender, RoutedEventArgs e)
         {

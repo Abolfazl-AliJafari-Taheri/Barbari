@@ -64,10 +64,10 @@ namespace Barbari_UI
             Add_Btn.Content = "ویرایش انبار";
             City_Txt.IsReadOnly = true;
             AnbarName_Txt.IsReadOnly = true;
-            City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            AnbarName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            PhoneNum_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            Address_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //AnbarName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //PhoneNum_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //Address_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -81,81 +81,67 @@ namespace Barbari_UI
         {
             if (edit)
             {
-                if (Validait())
+                City.CityAdres = Address_Txt.Text;
+                City.CityMobile = PhoneNum_Txt.Text;
+                var result = Barbari_BLL.City.Update(City);
+                if (!result.Success)
                 {
-                    City.CityAdres = Address_Txt.Text;
-                    City.CityMobile= PhoneNum_Txt.Text;
-                    var result = Barbari_BLL.City.Update(City);
-                    if (!result.Success)
-                    {
-                        MessageBox.Show(result.Message);
-                    }
-                    else
-                    {
-                        WindowsAndPages.cityAnbar.Refresh();
-                        DialogHost.CloseDialogCommand.Execute(null, null);
-                    }
+                    MessageBox.Show(result.Message);
                 }
                 else
                 {
-                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
+                    WindowsAndPages.cityAnbar.Refresh();
+                    DialogHost.CloseDialogCommand.Execute(null, null);
                 }
 
             }
             else
             {
-                if (Validait())
+                City_Tbl anbar = new City_Tbl();
+                anbar.CityAnbar = AnbarName_Txt.Text;
+                anbar.CityShahr = City_Txt.Text;
+                anbar.CityAdres = Address_Txt.Text;
+                anbar.CityMobile = PhoneNum_Txt.Text;
+                var result = Barbari_BLL.City.Insert(anbar);
+                if (!result.Success)
                 {
-                    City_Tbl anbar = new City_Tbl();
-                    anbar.CityAnbar = AnbarName_Txt.Text;
-                    anbar.CityShahr = City_Txt.Text;
-                    anbar.CityAdres = Address_Txt.Text;
-                    anbar.CityMobile = PhoneNum_Txt.Text;
-                    var result = Barbari_BLL.City.Insert(anbar);
-                    if (!result.Success)
-                    {
-                        MessageBox.Show(result.Message);
-                    }
-                    else
-                    {
-                        AnbarName_Txt.Text = AnbarName_Txt.Tag.ToString();
-                        City_Txt.Text = City_Txt.Tag.ToString();
-                        Address_Txt.Text = Address_Txt.Tag.ToString();
-                        PhoneNum_Txt.Text = PhoneNum_Txt.Tag.ToString();
-                        AnbarName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        Address_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        PhoneNum_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                       
-
-                    }
+                    MessageBox.Show(result.Message);
                 }
                 else
                 {
-                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
+                    AnbarName_Txt.Text = "";
+                    City_Txt.Text = "";
+                    Address_Txt.Text = "";
+                    PhoneNum_Txt.Text = "";
+                    //AnbarName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //City_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //Address_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                    //PhoneNum_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+
+
                 }
             }
         }
         
-        bool Validait()
-        {
-            if (AnbarName_Txt.Text == AnbarName_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (City_Txt.Text == City_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (Address_Txt.Text == Address_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (PhoneNum_Txt.Text == PhoneNum_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            return true;
-        }
+        //bool Validait()
+        //{
+        //    if (AnbarName_Txt.Text == AnbarName_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (City_Txt.Text == City_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (Address_Txt.Text == Address_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (PhoneNum_Txt.Text == PhoneNum_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }

@@ -74,8 +74,8 @@ namespace Barbari_UI
             }
             else
             {
-                Username_Txt.Text = Username_Txt.Tag.ToString();
-                Password_PassBx.Password = Password_PassBx.Tag.ToString();
+                Username_Txt.Text = "";
+                Password_PassBx.Password = "";
                 Password_PassBx.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                 Username_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
 

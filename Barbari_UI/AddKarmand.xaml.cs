@@ -65,11 +65,11 @@ namespace Barbari_UI
             PassWord_Txt.Text = karmand.UsersPassWord;
             Add_Btn.Content = "ویرایش کارمند";
             UserName_Txt.IsReadOnly = true;
-            FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            PassWord_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //PassWord_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -83,8 +83,6 @@ namespace Barbari_UI
         {
             if (edit)
             {
-                if (Validait())
-                {
                     Karmand.UsersFirstName = FirstName_Txt.Text;
                     Karmand.UsersLastName = LastName_Txt.Text;
                     Karmand.UsersUserName = UserName_Txt.Text;
@@ -100,17 +98,10 @@ namespace Barbari_UI
                         WindowsAndPages.karmand.Refresh();
                         DialogHost.CloseDialogCommand.Execute(null, null);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
-                }
               
             }
             else
             {
-                if (Validait())
-                {
                     Users_Tbl karmand = new Users_Tbl();
                     karmand.UsersFirstName = FirstName_Txt.Text;
                     karmand.UsersLastName = LastName_Txt.Text;
@@ -124,16 +115,16 @@ namespace Barbari_UI
                     }
                     else
                     {
-                        FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
-                        LastName_Txt.Text = LastName_Txt.Tag.ToString();
-                        UserName_Txt.Text = UserName_Txt.Tag.ToString();
-                        PassWord_Txt.Text = PassWord_Txt.Tag.ToString();
-                        Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
-                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        PassWord_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        FirstName_Txt.Text = "";
+                        LastName_Txt.Text = "";
+                        UserName_Txt.Text = "";
+                        PassWord_Txt.Text = "";
+                        Mobile_Txt.Text = "";
+                        //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //PassWord_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                         //foreach (object control in Field_Grid.Children)
                         //{
                         //    if (control is Border)
@@ -147,36 +138,31 @@ namespace Barbari_UI
                         //}
 
                     }
-                }
-                else
-                {
-                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
-                }
             }
         }
-        bool Validait()
-        {
-            if (FirstName_Txt.Text == FirstName_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (LastName_Txt.Text == LastName_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (UserName_Txt.Text == UserName_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (PassWord_Txt.Text == PassWord_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (Mobile_Txt.Text == Mobile_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            return true;
-        }
+        //bool Validait()
+        //{
+        //    if (FirstName_Txt.Text == FirstName_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (LastName_Txt.Text == LastName_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (UserName_Txt.Text == UserName_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (PassWord_Txt.Text == PassWord_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (Mobile_Txt.Text == Mobile_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }

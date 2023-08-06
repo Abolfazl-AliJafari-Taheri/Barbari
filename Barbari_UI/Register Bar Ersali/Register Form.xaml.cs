@@ -37,11 +37,9 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             if (step == 1)
             {
-
-                int.TryParse(step1.Code_CmBox.Text, out int code);
                 var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatFerestande(step1.CityMabda_CmBox.Text, step1.AnbarMabda_CmBox.Text,
                     step1.FirstName_Txt.Text, step1.LastName_Txt.Text,
-                    step1.Mobile_Txt.Text, code,
+                    step1.Mobile_Txt.Text, step1.Code_CmBox.Text,
                     (bool)step1.BimariToggle.IsChecked);
                 if (validaition.Success)
                 {
@@ -55,44 +53,33 @@ namespace Barbari_UI.Register_Bar_Ersali
             }
             else if (step == 2)
             {
-                    var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatGerande(step2.CityMaghsad_CmBox.Text, step2.AnbarMaghsad_CmBox.Text,
-                        step2.FirstName_Txt.Text, step2.LastName_Txt.Text, step2.Mobile_Txt.Text,
-                        step2.CityMaghsadFinal_CmBox.Text, step2.AnbarMaghsadFinal_CmBox.Text,
-                        (bool)step2.AddSecondMaghsadToggle.IsChecked);
-                    if (validaition.Success)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-
-                        MessageBox.Show(validaition.Message);
-                    return false;
-                    }
-            }
-            else if (step == 3)
-            {
-                if (decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal pishKerayeh) &&
-                    decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal pasKerayeh)
-                    && decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal bimeh)
-                    && decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal anbarDari)
-                    && decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal shahri)
-                    && decimal.TryParse(step3.PishKeraye_Txt.Text, out decimal basteBandi))
+                var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatGerande(step2.CityMaghsad_CmBox.Text, step2.AnbarMaghsad_CmBox.Text,
+                    step2.FirstName_Txt.Text, step2.LastName_Txt.Text, step2.Mobile_Txt.Text,
+                    step2.CityMaghsadFinal_CmBox.Text, step2.AnbarMaghsadFinal_CmBox.Text,
+                    (bool)step2.AddSecondMaghsadToggle.IsChecked);
+                if (validaition.Success)
                 {
-                    var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatBar(pishKerayeh, pasKerayeh, bimeh, anbarDari, shahri, basteBandi);
-                    if (validaition.Success)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show(validaition.Message);
-                    return false;
-                    }
+                    return true;
                 }
                 else
                 {
-                    MessageBox.Show("مبالغ را صحیح وارد کنید");
+
+                    MessageBox.Show(validaition.Message);
+                    return false;
+                }
+            }
+            else if (step == 3)
+            {
+                var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatBar(step3.PishKeraye_Txt.Text, step3.PasKeraye_Txt.Text,
+                    step3.Bime_Txt.Text, step3.AnbarDari_Txt.Text,
+                    step3.Shahri_Txt.Text, step3.BasteBandi_Txt.Text);
+                if (validaition.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(validaition.Message);
                     return false;
                 }
             }

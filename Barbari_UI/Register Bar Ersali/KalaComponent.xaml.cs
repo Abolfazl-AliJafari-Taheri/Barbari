@@ -25,12 +25,14 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             InitializeComponent();
         }
-        public KalaComponent(KalaDaryafti_Tbl kala,int row)
+        public KalaComponent(KalaDaryafti_Tbl kala,int row,bool Edit)
         {
             InitializeComponent();
             Kala = kala;
             Row= row;
+            edit = Edit;
         }
+        bool edit;
         public KalaDaryafti_Tbl Kala{ get; set;}
         public int Row { get; set; }
         
@@ -45,8 +47,24 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         private void Delte_Btn_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility= Visibility.Collapsed;
-            WindowsAndPages.registerBarErsali.step3.refreshKala();
+            if(!edit)
+            {
+                this.Visibility = Visibility.Collapsed;
+                WindowsAndPages.registerBarErsali.step3.refreshKala();
+            }
+            else
+            {
+                var result = Barbari_BLL.BarErsali.Delete_KalaDaryafti(Kala.KalaDaryaftiBarname,Kala.KalaDaryaftiCodeKala);
+                if(result.Success)
+                {
+                    WindowsAndPages.editFormBarErsali.step3.RefreshKala();
+                }
+                else
+                {
+                    MessageBox.Show(result.Message);
+                }
+            }
+          
         }
     }
 }

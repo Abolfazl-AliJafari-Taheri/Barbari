@@ -26,6 +26,14 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             InitializeComponent();
         }
+        public RegisterStep3(BarErsali_Tbl barErsali)
+        {
+            InitializeComponent();
+            BarErsali = barErsali;
+            edit = true;
+        }
+        public BarErsali_Tbl BarErsali { get; set; }
+        bool edit = false;
         int row = 1;
         bool dateLoaded = false;
         public void RemoveText(object sender, EventArgs e)
@@ -86,35 +94,55 @@ namespace Barbari_UI.Register_Bar_Ersali
         
         private void AddKala_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(KalaNumber_Txt.Text, out int number) &&
-            decimal.TryParse(KalaPrice_Txt.Text, out decimal price))
+            var result = Barbari_BLL.Validation.BarErsali_Validation_KalaDaryafti(KalaName_Txt.Text, KalaNumber_Txt.Text, KalaPrice_Txt.Text);
+            if (result.Success)
             {
-                var result = Barbari_BLL.Validation.BarErsali_Validation_KalaDaryafti(KalaName_Txt.Text, number, price);
-                if (result.Success)
+                KalaDaryafti_Tbl kala = new KalaDaryafti_Tbl
                 {
-                    ShowKala_StckPnl.Children.Add(new KalaComponent(new KalaDaryafti_Tbl
+                    KalaDaryaftiBarname = int.Parse(CodeBarname_Txt.Text),
+                    KalaDaryaftiNamKala = KalaName_Txt.Text,
+                    KalaDaryaftiTedadKala = int.Parse(KalaNumber_Txt.Text),
+                    KalaDaryaftiArzeshKala = int.Parse(KalaPrice_Txt.Text),
+                };
+                if (edit)
+                {
+                    var resultInsertKala = Barbari_BLL.BarErsali.Insert_KalaDaryafti(kala);
+
+                    if(resultInsertKala.Success)
                     {
-                        KalaDaryaftiBarname = int.Parse(CodeBarname_Txt.Text),
-                        KalaDaryaftiNamKala = KalaName_Txt.Text,
-                        KalaDaryaftiTedadKala = number,
-                        KalaDaryaftiArzeshKala = price,
-                    }, row)
+                        ShowKala_StckPnl.Children.Add(new KalaComponent(kala, row, edit)
+                        { Height = 72, Width = 558 });
+                        var resultUpdateKarmand = Barbari_BLL.BarErsali.Update_BarErsaliUserNameKarmand(BarErsali.BarErsaliBarname,WindowsAndPages.home_Window.User.UsersUserName);
+                        if(!resultUpdateKarmand.Success)
+                        {
+                            MessageBox.Show(resultUpdateKarmand.Message);
+                        }
+                        KalaName_Txt.Clear();
+                        KalaNumber_Txt.Clear();
+                        KalaPrice_Txt.Clear();
+                        row++;
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultInsertKala.Message);
+                    }
+                   
+                }
+                else
+                {
+                    ShowKala_StckPnl.Children.Add(new KalaComponent(kala, row, edit)
                     { Height = 72, Width = 558 });
                     KalaName_Txt.Clear();
                     KalaNumber_Txt.Clear();
                     KalaPrice_Txt.Clear();
                     row++;
-                }
-                else
-                {
-                    MessageBox.Show(result.Message);
+
                 }
             }
             else
             {
-                MessageBox.Show(" تعداد و ارزش کالا را صحیح وارد کنید");
+                MessageBox.Show(result.Message);
             }
-
         }
         void GetCodeBraname()
         {
@@ -136,11 +164,51 @@ namespace Barbari_UI.Register_Bar_Ersali
             //dateLoaded = true;
             HourSodor_TmPicker.SelectedTime = DateTime.Now;
         }
+        public void RefreshKala()
+        {
+            
+            var Kalas = Barbari_BLL.BarErsali.Select_KalaDaryafti(BarErsali.BarErsaliBarname);
+            if(Kalas.Success)
+            {
+                row = 1;
+                ShowKala_StckPnl.Children.Clear();
+                for (int i = 0; i < Kalas.Data.Count; i++)
+                {
+                    ShowKala_StckPnl.Children.Add(new KalaComponent(Kalas.Data[i],row,edit) { Height = 72, Width = 558 });
+                    row++;
+                }
+            }
+            else
+            {
+                MessageBox.Show(Kalas.Message);
+            }
+        }
+        void EditMode(BarErsali_Tbl barErsali)
+        {
+            RefreshKala();
+            CodeBarname_Txt.Text = BarErsali.BarErsaliBarname.ToString();
+            AnbarDari_Txt.Text = BarErsali.BarErsaliAnbardari.ToString();
+            BasteBandi_Txt.Text = BarErsali.BarErsaliBastebandi.ToString();
+            Shahri_Txt.Text = BarErsali.BarErsaliShahri.ToString();
+            Bime_Txt.Text = BarErsali.BarErsaliBime.ToString();
+            PishKeraye_Txt.Text = BarErsali.BarErsaliPishKeraye.ToString();
+            PasKeraye_Txt.Text = BarErsali.BarErsaliPasKeraye.ToString();
+            DateSodor_DtPicker.Text = BarErsali.BarErsaliTarikh.ToString();
+            HourSodor_TmPicker.Text = BarErsali.BarErsaliSaat.ToString();
+        }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
-            FillDateTime();
-            GetCodeBraname();
+            if(edit)
+            {
+                EditMode(BarErsali);
+            }
+            else
+            {
+                FillDateTime();
+                GetCodeBraname();
+            }
+
         }
 
         private void PasKeraye_Txt_TextChanged(object sender, TextChangedEventArgs e)

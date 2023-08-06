@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Barbari_BLL;
+using Barbari_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +26,14 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             InitializeComponent();
         }
+        public RegisterStep2(BarErsali_Tbl barErsali)
+        {
+            InitializeComponent();
+            BarErsali = barErsali;
+            edit = true;
+        }
+        bool edit = false;
+        public BarErsali_Tbl BarErsali{ get; set; }
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -100,9 +110,26 @@ namespace Barbari_UI.Register_Bar_Ersali
                 AnbarMaghsadFinal_CmBox.ItemsSource = anbar.Data;
             }
         }
-
+        void EditMode(BarErsali_Tbl barErsali)
+        {
+            CityMaghsad_CmBox.Text = barErsali.BarErsaliShahreMaghsad1;
+            AnbarMaghsad_CmBox.Text = barErsali.BarErsaliAnbarMaghsad1;
+            if(!string.IsNullOrEmpty(barErsali.BarErsaliShahreMaghsad2) && !string.IsNullOrEmpty(barErsali.BarErsaliAnbarMaghsad2))
+            {
+                AddSecondMaghsadToggle.IsChecked = true;
+                CityMaghsadFinal_CmBox.Text = barErsali.BarErsaliShahreMaghsad2;
+                AnbarMaghsadFinal_CmBox.Text = barErsali.BarErsaliAnbarMaghsad2;
+            }
+            FirstName_Txt.Text = barErsali.BarErsaliNamGerande;
+            LastName_Txt.Text = barErsali.BarErsaliFamilyGerande;
+            Mobile_Txt.Text = barErsali.BarErsaliMobileGerande;
+        }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if(edit)
+            {
+                EditMode(BarErsali);
+            }
             FillComboBox();
         }
         

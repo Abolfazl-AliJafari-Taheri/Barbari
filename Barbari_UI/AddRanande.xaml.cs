@@ -64,10 +64,10 @@ namespace Barbari_UI
             Mobile_Txt.Text = ranande.RanandeMobile;
             Add_Btn.Content = "ویرایش راننده";
             Code_Txt.IsReadOnly= true;
-            FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-            Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+            //Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -85,8 +85,6 @@ namespace Barbari_UI
         {
             if(edit)
             {
-                if (Validait())
-                {
                     Ranande.RanandeFirstName = FirstName_Txt.Text;
                     Ranande.RanandeLastName = LastName_Txt.Text;
                     Ranande.RanandeMobile = Mobile_Txt.Text;
@@ -103,17 +101,10 @@ namespace Barbari_UI
                         WindowsAndPages.ranandegan.Refresh();
                         DialogHost.CloseDialogCommand.Execute(null, null);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
-                }
                 
             }
             else
             {
-                if(Validait())
-                {
                     Ranande_Tbl ranande= new Ranande_Tbl();
                     ranande.RanandeFirstName = FirstName_Txt.Text;
                     ranande.RanandeLastName= LastName_Txt.Text;
@@ -125,44 +116,37 @@ namespace Barbari_UI
                     }
                     else
                     {
-                        FirstName_Txt.Text = FirstName_Txt.Tag.ToString();
-                        LastName_Txt.Text = LastName_Txt.Tag.ToString();
+                        FirstName_Txt.Text = "";
+                        LastName_Txt.Text = "";
                         Code_Txt.Text = (Barbari_BLL.Ranande.Select_CodeLast().Data+1).ToString();
-                        Mobile_Txt.Text = Mobile_Txt.Tag.ToString();
+                        Mobile_Txt.Text = "";
 
-                        FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
-                        Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
+                        //Mobile_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                     }
-                }
-                else
-                {
-                    MessageBox.Show("تمامی فیلد ها باید وارد شوند");
-                }
-                
-
             }
         }
-        bool Validait()
-        {
-            if(FirstName_Txt.Text == FirstName_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (LastName_Txt.Text == LastName_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (Code_Txt.Text == Code_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (Mobile_Txt.Text == Mobile_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            return true;
-        }
+        //bool Validait()
+        //{
+        //    if(FirstName_Txt.Text == FirstName_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (LastName_Txt.Text == LastName_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (Code_Txt.Text == Code_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (Mobile_Txt.Text == Mobile_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }

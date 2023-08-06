@@ -22,16 +22,16 @@
             </Grid.ColumnDefinitions>
             <TextBlock Name="Title_TxtBlock" FontFamily="IRANSansX" FontSize="32" FontWeight="SemiBold" Height="45" Width="auto" VerticalAlignment="Bottom" Margin="32 0 0 0">افزودن راننده</TextBlock>
             <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="FirstName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام" Text="نام" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                <TextBox Name="FirstName_Txt" materialDesign:HintAssist.Hint="نام"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
             </Border>
             <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="LastName_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="نام خانوادگی" Text="نام خانوادگی" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" />
+                <TextBox Name="LastName_Txt" materialDesign:HintAssist.Hint="نام خانوادگی"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Code_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="کد راننده" Text="کد راننده" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" IsReadOnly="True" />
+                <TextBox Name="Code_Txt" materialDesign:HintAssist.Hint="کد راننده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  IsReadOnly="True" />
             </Border>
             <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Mobile_Txt" BorderThickness="0" Margin="16 0 16 0" Tag="شماره تلفن" Text="شماره تلفن" Foreground="#BFBFBF" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" LostFocus="AddText" GotFocus="RemoveText"/>
+                <TextBox Name="Mobile_Txt" materialDesign:HintAssist.Hint="شماره تلفن"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"/>
             </Border>
             <Border Grid.Column="0" Grid.Row="3" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 0 0 16" VerticalAlignment="Bottom"  CornerRadius="8" Background="#2B54A3">
                 <Button Name="Add_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Add_Btn_Click">
