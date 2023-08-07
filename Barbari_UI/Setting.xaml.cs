@@ -141,5 +141,10 @@ namespace Barbari_UI
 
             }
         }
+
+        private void Add_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

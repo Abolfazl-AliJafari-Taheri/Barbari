@@ -2,7 +2,9 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
       xmlns:local="clr-namespace:Barbari_UI"
       mc:Ignorable="d" 
       d:DesignHeight="930" d:DesignWidth="1191"
@@ -35,7 +37,7 @@
                         <Image Height="18" Width="18"  Source="/Source/Icones/Search Feild Icon.png" />
 
                     </Button>
-                    <TextBox Grid.Column="1" Name="Search_Txt" Tag="جستجو..."  BorderThickness="0" VerticalContentAlignment="Center" Margin="8 0 8 0" Text="جستجو..." FontFamily="IRANSansX" Foreground="#BFBFBF" FontSize="14" LostFocus="AddText" GotFocus="RemoveText" TextChanged="Search_Txt_TextChanged"/>
+                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="جستجو"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" Name="Search_Txt" BorderThickness="0" VerticalContentAlignment="Center" Margin="8 0 8 0"  FontFamily="IRANSansX" FontSize="14" TextChanged="Search_Txt_TextChanged"/>
                 </Grid>
             </Border>
             <Border Grid.Column="3" Height="48" Width="152" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 24 7" CornerRadius="8" Background="#2B54A3"  >

@@ -94,10 +94,7 @@ namespace Barbari_UI
 
         private void Search_Txt_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(Search_Txt.Text != Search_Txt.Tag.ToString())
-            {
                 Search(Search_Txt.Text);
-            }
         }
     }
 }

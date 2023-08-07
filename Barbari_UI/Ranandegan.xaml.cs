@@ -77,5 +77,10 @@ namespace Barbari_UI
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddRanande() { Height = 317, Width = 622 });
             Refresh();
         }
+
+        private void Search_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

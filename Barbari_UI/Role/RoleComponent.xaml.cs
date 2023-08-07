@@ -31,7 +31,16 @@ namespace Barbari_UI.Role
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             RoleName_TxtBlock.Text = Role.RolesNamRole;
-            UseresNumber_TxtBlock.Text = Role.
+        }
+
+        private void Delete_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Edit_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

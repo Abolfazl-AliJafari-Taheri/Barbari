@@ -72,7 +72,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock  Grid.Column="1" FontFamily="IRANSansX" FontSize="32" FontWeight="Medium" Text="نقش های کاربران" Height="45" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 24 0"/>
                 <Border Grid.Column="0" Height="48" Width="142" HorizontalAlignment="Left" FlowDirection="RightToLeft" VerticalAlignment="Bottom" Margin="24 0 0 0" CornerRadius="8" Background="#2B54A3"  >
-                    <Button Name="Add_Btn" Height="48" Padding="0" Width="142" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="AddRanande_Btn_Click" VerticalAlignment="Top"   >
+                    <Button Name="Add_Btn" Height="48" Padding="0" Width="142" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="Add_Btn_Click" VerticalAlignment="Top"   >
                         <Grid Width="144">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>

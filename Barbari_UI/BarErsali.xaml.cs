@@ -28,7 +28,7 @@ namespace Barbari_UI
         }
         public void Refresh()
         {
-            var barErsali = Barbari_BLL.BarErsali.Select();
+            var barErsali = Barbari_BLL.BarErsali.Select(Search_Txt.Text);
             if (!barErsali.Success)
             {
                 MessageBox.Show(barErsali.Message);
