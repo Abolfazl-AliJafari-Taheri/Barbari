@@ -26,9 +26,9 @@ namespace Barbari_UI
         {
             InitializeComponent();
         }
-        public void Refresh()
+        public void Refresh(string search)
         {
-            var barErsali = Barbari_BLL.BarErsali.Select(Search_Txt.Text);
+            var barErsali = Barbari_BLL.BarErsali.Select(search);
             if (!barErsali.Success)
             {
                 MessageBox.Show(barErsali.Message);
@@ -67,7 +67,7 @@ namespace Barbari_UI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Refresh();
+            Refresh("");
         }
 
         private async void Add_Btn_Click(object sender, RoutedEventArgs e)
@@ -76,9 +76,13 @@ namespace Barbari_UI
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(WindowsAndPages.registerBarErsali);
             if(WindowsAndPages.registerBarErsali.inserted)
             {
-                Refresh();
+                Refresh("");
             }
         }
 
+        private void Search_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh(Search_Txt.Text);
+        }
     }
 }

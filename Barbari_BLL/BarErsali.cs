@@ -10,7 +10,7 @@ namespace Barbari_BLL
         {
             if (Validation.CheckNumberFormat(search))
             {
-                var result = Barbari_DAL.BarErsali.Select(int.Parse(search));
+                var result = Barbari_DAL.BarErsali.Select_Barname(search);
                 if (result.Success == true)
                 {
                     return result;
@@ -26,7 +26,7 @@ namespace Barbari_BLL
             }
             else
             {
-                var result = Barbari_DAL.BarErsali.Select(0, search);
+                var result = Barbari_DAL.BarErsali.Select_NamAndFamily(search);
                 if (result.Success == true)
                 {
                     return result;

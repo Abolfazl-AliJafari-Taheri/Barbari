@@ -108,7 +108,7 @@ namespace Barbari_UI
                 else
                 {
                     DialogHost.CloseDialogCommand.Execute(null, null);
-                    WindowsAndPages.barErsali.Refresh();
+                    WindowsAndPages.barErsali.Refresh("");
                 }
             }
 

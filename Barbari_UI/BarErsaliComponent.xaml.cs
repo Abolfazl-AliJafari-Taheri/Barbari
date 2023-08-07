@@ -82,14 +82,14 @@ namespace Barbari_UI
         private async void Thvil_Btn_Click(object sender, RoutedEventArgs e)
         {
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali,false) { Height = 453, Width = 622 });
-            WindowsAndPages.barErsali.Refresh();
+            WindowsAndPages.barErsali.Refresh("");
         }
 
         private async void More_Btn_Click(object sender, RoutedEventArgs e)
         {
             WindowsAndPages.editFormBarErsali = new EditForm(BarErsali);
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(WindowsAndPages.editFormBarErsali);
-            WindowsAndPages.barErsali.Refresh();
+            WindowsAndPages.barErsali.Refresh("");
         }
     }
 }

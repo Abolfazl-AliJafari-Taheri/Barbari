@@ -10,16 +10,33 @@ namespace Barbari_DAL
 {
     public class BarErsali
     {
-        public static OperationResult<List<BarErsali_Tbl>> Select(int search_Int = 0, string search_String = "")
+        public static OperationResult<List<BarErsali_Tbl>> Select_Barname(string search = "")
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == search_Int || 
-                p.BarErsaliNamFerestande.Contains(search_String) || p.BarErsaliFamilyFerestande.Contains(search_String) ||
-                p.BarErsaliNamGerande.Contains(search_String) || p.BarErsaliFamilyGerande.Contains(search_String) ||
-                p.BarErsaliNamFerestande.Contains(search_String) && p.BarErsaliFamilyFerestande.Contains(search_String) ||
-                p.BarErsaliNamGerande.Contains(search_String) && p.BarErsaliFamilyGerande.Contains(search_String)).ToList();
+                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname.ToString().Contains(search)).ToList();
+                return new OperationResult<List<BarErsali_Tbl>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch (Exception)
+            {
+                return new OperationResult<List<BarErsali_Tbl>>
+                {
+                    Success = false
+                };
+            }
+        }
+        public static OperationResult<List<BarErsali_Tbl>> Select_NamAndFamily(string search)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarErsali_Tbls.Where(p => (p.BarErsaliNamFerestande+" "+p.BarErsaliFamilyFerestande).Contains(search)
+                || (p.BarErsaliNamGerande+" "+p.BarErsaliFamilyGerande).Contains(search)).ToList();
                 return new OperationResult<List<BarErsali_Tbl>>
                 {
                     Success = true,
@@ -204,7 +221,6 @@ namespace Barbari_DAL
             {
                 linq.BarErsali_Tbls.InsertOnSubmit(barErsali);
                 linq.SubmitChanges();
-
 
                 linq.KalaDaryafti_Tbls.InsertAllOnSubmit(kalaDaryafti);
                 linq.SubmitChanges();
