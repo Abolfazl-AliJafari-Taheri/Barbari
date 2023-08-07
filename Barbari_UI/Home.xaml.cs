@@ -306,6 +306,7 @@ namespace Barbari_UI
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
             BarErsaliMenu_Btn_Click(null,null);
+            UserRoleName_TxtBlock.Text = User.UsersRoles;
             UserFullName_TxtBlock.Text = User.UsersFirstName + "  " + User.UsersLastName;
             var company = Barbari_BLL.Company.Select();
 

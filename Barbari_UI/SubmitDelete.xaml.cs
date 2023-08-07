@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace Barbari_UI
     /// </summary>
     public partial class SubmitDelete : UserControl
     {
-        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null)
+        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null)
         {
             user= User;
             city= City;
@@ -33,6 +34,7 @@ namespace Barbari_UI
             kalaDaryafti= KalaDaryafti;
             kalaTahvili= KalaTahvili;
             customer= Customer;
+            role = Role;
             InitializeComponent();
         }
         Users_Tbl user;
@@ -43,6 +45,7 @@ namespace Barbari_UI
         Ranande_Tbl driver;
         KalaDaryafti_Tbl kalaDaryafti; 
         KalaTahvili_Tbl kalaTahvili;
+        Roles_Tbl role;
         private void SubmitDelete_Btn_Click(object sender, RoutedEventArgs e)
         {
             
@@ -111,7 +114,19 @@ namespace Barbari_UI
                     WindowsAndPages.barErsali.Refresh("");
                 }
             }
-
+            else if (role != null)
+            {
+                var result = Barbari_BLL.Roles.Delete(role.RolesNamRole);
+                if (!result.Success)
+                {
+                    MessageBox.Show(result.Message);
+                }
+                else
+                {
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    WindowsAndPages.setting.RefreshRoles();
+                }
+            }
         }
     }
 }

@@ -78,11 +78,7 @@ namespace Barbari_UI
                     Logo_Border.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#E6E6E6"));
                 }
             }
-            
-
-
-
-            
+            RefreshRoles();
         }
 
         private void Save_Btn_Click(object sender, RoutedEventArgs e)
@@ -145,7 +141,28 @@ namespace Barbari_UI
 
         private async void Add_Btn_Click(object sender, RoutedEventArgs e)
         {
-            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new Role.AddRole() { Height = 826 ,Width = 660 });
+            Role.AddRole addRole= new Role.AddRole() ;
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(addRole);
+            if(addRole.Inserted)
+            {
+                RefreshRoles();
+            }
+        }
+        public void RefreshRoles()
+        {
+            ShowRoles_StckPnl.Children.Clear();
+            var result = Barbari_BLL.Roles.Select("");
+            if(result.Success)
+            {
+                foreach (Roles_Tbl role in result.Data)
+                {
+                    ShowRoles_StckPnl.Children.Add(new Role.RoleComponent(role) { Height = 72, Width = 1143 });
+                }
+            }
+            else
+            {
+                MessageBox.Show(result.Message);
+            }
         }
     }
 }

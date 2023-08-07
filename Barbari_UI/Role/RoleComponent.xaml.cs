@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Barbari_DAL;
+using MaterialDesignThemes.Wpf;
 
 namespace Barbari_UI.Role
 {
@@ -35,11 +36,14 @@ namespace Barbari_UI.Role
 
         private void Delete_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowsAndPages.home_Window.DialogHost.ShowDialog(new SubmitDelete(Role:Role) { Height = 160, Width = 400 });
         }
 
-        private void Edit_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Edit_Btn_Click(object sender, RoutedEventArgs e)
         {
+            Role.AddRole addRole = new Role.AddRole(Role) ;
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(addRole);
+            WindowsAndPages.setting.RefreshRoles();
 
         }
     }

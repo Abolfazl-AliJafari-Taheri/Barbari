@@ -426,6 +426,9 @@
   <ItemGroup>
     <Resource Include="Source\Icones\Line Seprator.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\User Icon Role%28Gray%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

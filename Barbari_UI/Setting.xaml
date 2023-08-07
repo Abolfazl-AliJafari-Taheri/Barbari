@@ -87,15 +87,17 @@
             <Grid Grid.Row="1" Width="1143" FlowDirection="RightToLeft" Height="46" Margin="0 16 0 0" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="300"/>
-                    <ColumnDefinition Width="600"/>
-                    <ColumnDefinition Width="115"/>
+                    <ColumnDefinition Width="715"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="نام نقش" HorizontalAlignment="Center" Height="22"/>
-                <TextBlock Grid.Column="2" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="تعداد کاربران" HorizontalAlignment="Center" Height="22"/>
-                <TextBlock Grid.Column="1" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="دسترسی ها" HorizontalAlignment="Center" Height="22"/>
-                <TextBlock Grid.Column="4" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="عملیات" HorizontalAlignment="Center" Height="22"/>
+                <TextBlock Grid.Column="1" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="تعداد کاربران" HorizontalAlignment="Center" Height="22"/>
+                <TextBlock Grid.Column="2" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="عملیات" HorizontalAlignment="Center" Height="22"/>
             </Grid>
+            <ScrollViewer Grid.Row="2"  VerticalScrollBarVisibility="Hidden">
+                <StackPanel Name="ShowRoles_StckPnl">
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

@@ -151,7 +151,10 @@
                                     <ImageBrush ImageSource="/Source/Icones/User Profile (Default).png"/>
                                 </Border.Background>
                             </Border>
-                            <TextBlock Name="UserFullName_TxtBlock" Grid.Column="1" Text="نام و نام خانوادگی" FontSize="16" FontFamily="IRANSansX" Height="29" />
+                            <StackPanel Grid.Column="1" Margin="0 25 0 0">
+                                <TextBlock Name="UserFullName_TxtBlock"  Text="نام و نام خانوادگی" FontSize="16" FontFamily="IRANSansX" Height="29" />
+                                <TextBlock Name="UserRoleName_TxtBlock"  Text="نقش کاربر" FontSize="16" FontFamily="IRANSansX" Height="29" Margin="0 3 0 0" />
+                            </StackPanel>
                             <TextBlock Name="CompanyName_TxtBlock" Grid.Column="2" Text="نام شرکت" FontSize="24" HorizontalAlignment="Center" FontFamily="IRANSansX" Height="36" FontWeight="UltraBold" />
                             <Border Grid.Column="3" Height="48" Width="144" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
                                 <Button Name="GetReport_Btn" Height="48" Padding="0" Width="144" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" >
