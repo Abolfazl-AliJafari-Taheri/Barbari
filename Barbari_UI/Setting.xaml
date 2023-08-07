@@ -11,7 +11,6 @@
       Loaded="Page_Loaded">
 
     <Grid Background="#F7F7F7">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="86"/>
             <RowDefinition Height="189"/>
@@ -59,6 +58,44 @@
             <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="24 0 0 0" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="126" Width="699">
                 <TextBox Name="CompanyRules_Txt" materialDesign:HintAssist.Hint="قوانین شرکت"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 8 16 0" AcceptsReturn="True"  VerticalContentAlignment="Top" FontFamily="IRANSansX" FontSize="14" />
             </Border>
+        </Grid>
+        <Grid Grid.Row="3" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Height="48" Margin="0 22 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock  Grid.Column="1" FontFamily="IRANSansX" FontSize="32" FontWeight="Medium" Text="نقش های کاربران" Height="45" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 24 0"/>
+                <Border Grid.Column="0" Height="48" Width="142" HorizontalAlignment="Left" FlowDirection="RightToLeft" VerticalAlignment="Bottom" Margin="24 0 0 0" CornerRadius="8" Background="#2B54A3"  >
+                    <Button Name="Add_Btn" Height="48" Padding="0" Width="142" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="AddRanande_Btn_Click" VerticalAlignment="Top"   >
+                        <Grid Width="144">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="42"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX" Width="auto" Margin="0 0 12 0" Foreground="#FFFFFF" HorizontalAlignment="Right"  VerticalAlignment="Center" ><Run Text="افزودن نقش"/></TextBlock>
+                            <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Width="24" Source="/Source/Icones/Add Btn Icon (White Border).png" />
+                        </Grid>
+                    </Button>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="1" Width="1143" FlowDirection="RightToLeft" Height="46" Margin="0 16 0 0" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="600"/>
+                    <ColumnDefinition Width="115"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="نام نقش" HorizontalAlignment="Center" Height="22"/>
+                <TextBlock Grid.Column="2" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="تعداد کاربران" HorizontalAlignment="Center" Height="22"/>
+                <TextBlock Grid.Column="1" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="دسترسی ها" HorizontalAlignment="Center" Height="22"/>
+                <TextBlock Grid.Column="4" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="عملیات" HorizontalAlignment="Center" Height="22"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

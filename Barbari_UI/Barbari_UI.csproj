@@ -162,6 +162,9 @@
     <Compile Include="Register Bar Ersali\TahvilRanande.xaml.cs">
       <DependentUpon>TahvilRanande.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Role\RoleComponent.xaml.cs">
+      <DependentUpon>RoleComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
@@ -307,6 +310,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Register Bar Ersali\TahvilRanande.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Role\RoleComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
