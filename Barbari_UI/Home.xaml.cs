@@ -40,6 +40,7 @@ namespace Barbari_UI
             WindowsAndPages.home_Window.Visibility= Visibility.Hidden;
         }
         public Users_Tbl User{ get; set; }
+        public Roles_Tbl Role{ get; set; }
         private void SelectBarErsaliMenu()
         {
             BarErsaliMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Bar Ersali Menu Icon(Blue Border).png");
@@ -305,7 +306,28 @@ namespace Barbari_UI
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            BarErsaliMenu_Btn_Click(null,null);
+            var role = Barbari_BLL.Roles.Roles_Login(User.UsersRoles);
+            if(role.Success)
+            {
+                Role = role.Data;
+                if (Role.RolesBarErsali)
+                {
+                    BarErsaliMenu_Btn_Click(null, null);
+                }
+                BarErsaliMenu_Btn.IsEnabled = Role.RolesBarErsali;
+                BarTahviliMenu_Btn.IsEnabled = Role.RolesBarTahvili;
+                MoshtariMenu_Btn.IsEnabled = Role.RolesCustomers;
+                KarmandanMenu_Btn.IsEnabled = Role.RolesUsers;
+                RanandeganMenu_Btn.IsEnabled = Role.RolesRanande;
+                CityAnbarMenu_Btn.IsEnabled = Role.RolesCity;
+                SettingMenu_Btn.IsEnabled = Role.RolesTanzimat;
+                GetReport_Btn.IsEnabled = Role.RolesGozaresh;
+
+            }
+            else
+            {
+                MessageBox.Show(role.Message);
+            }
             UserRoleName_TxtBlock.Text = User.UsersRoles;
             UserFullName_TxtBlock.Text = User.UsersFirstName + "  " + User.UsersLastName;
             var company = Barbari_BLL.Company.Select();

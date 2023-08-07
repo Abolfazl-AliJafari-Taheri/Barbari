@@ -39,16 +39,16 @@
                         </Image>
                         <Border  Name="Logo_Border" Grid.Row="0" Height="107" Width="107" FlowDirection="LeftToRight">
                         </Border>
-                        <Button Name="BarErsaliMenu_Btn" Click="BarErsaliMenu_Btn_Click" Grid.Row="1" Height="52" VerticalAlignment="Bottom" Background="#D5DDED" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                        <Button Name="BarErsaliMenu_Btn" Click="BarErsaliMenu_Btn_Click" Grid.Row="1" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="4"/>
                                 </Grid.ColumnDefinitions>
-                                <Image Name="BarErsaliMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Bar Ersali Menu Icon(Blue Border).png" />
-                                <TextBlock Name="BarErsaliMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#2B54A3" Margin="16 0 0 0" VerticalAlignment="Center">بار های ارسالی</TextBlock>
-                                <Image Name="BarErsaliMenuBtn_Line" Grid.Column="2" Height="52" Width="4" Source="/Source/Icones/Menu Select Line.png"/>
+                                <Image Name="BarErsaliMenuBtn_Icon" Grid.Column="0" Height="32" Width="32" HorizontalAlignment="Right" Source="/Source/Icones/Bar Ersali Menu Icon(Gray Border).png" />
+                                <TextBlock Name="BarErsaliMenuBtn_Text" Grid.Column="1" Height="30" Width="auto" HorizontalAlignment="Left" FontFamily="IRANSansX" FontSize="20" Foreground="#404040" Margin="16 0 0 0" VerticalAlignment="Center">بار های ارسالی</TextBlock>
+                                <Image Name="BarErsaliMenuBtn_Line" Grid.Column="2" Height="52" Width="4" />
                             </Grid>
                         </Button>
                         <Button Name="BarTahviliMenu_Btn" Click="BarTahviliMenu_Btn_Click"  Grid.Row="2" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">

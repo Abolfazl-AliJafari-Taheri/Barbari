@@ -67,6 +67,7 @@ namespace Barbari_UI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Add_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliInsert;
             Refresh();
         }
 

@@ -69,6 +69,7 @@ namespace Barbari_UI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            AddRanande_Btn.IsEnabled = WindowsAndPages.home_Window.Role.RanandeInsert;
             Refresh(); 
         }
 

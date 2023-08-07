@@ -36,6 +36,8 @@ namespace Barbari_UI
         public BarErsali_Tbl BarErsali{ get; set; }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliDelete;
+            Thvil_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
             Sender_TxtBlock.Text = BarErsali.BarErsaliNamFerestande+" "+BarErsali.BarErsaliFamilyFerestande;
             Reciever_TxtBlock.Text = BarErsali.BarErsaliNamGerande+" "+BarErsali.BarErsaliFamilyGerande;
             Destination_TxtBlock.Text = BarErsali.BarErsaliShahreMaghsad1;

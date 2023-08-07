@@ -233,6 +233,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            Save_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
             if(!string.IsNullOrEmpty(BarErsali.BarErsaliNamRanande))
             {
                 RanandeInfo_Btn.IsEnabled= true;

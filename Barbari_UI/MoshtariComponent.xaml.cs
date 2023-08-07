@@ -34,6 +34,8 @@ namespace Barbari_UI
         public Customers_Tbl Customer { get; set; }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.CustomersDelete;
+            Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.CustomersUpdate;
             Name_TxtBlock.Text = Customer.CustomersFirstName+ " " + Customer.CustomersLastName;
             City_TxtBlock.Text = Customer.CustomersCity;
             MobileNum_TxtBlock.Text = Customer.CustomersMobile;

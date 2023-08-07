@@ -31,7 +31,19 @@ namespace Barbari_UI.Role
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
+            Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
             RoleName_TxtBlock.Text = Role.RolesNamRole;
+            var userNumber = Barbari_BLL.Roles.Select_Count(Role.RolesNamRole);
+            if(userNumber.Success)
+            {
+                UseresNumber_TxtBlock.Text = userNumber.Data.Count.ToString();
+            }
+            else
+            {
+                MessageBox.Show(userNumber.Message);
+            }
+
         }
 
         private void Delete_Btn_Click(object sender, RoutedEventArgs e)
@@ -41,10 +53,19 @@ namespace Barbari_UI.Role
 
         private async void Edit_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Role.AddRole addRole = new Role.AddRole(Role) ;
+            Role.AddRole addRole = new Role.AddRole(Role) { Width = 660 };
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(addRole);
             WindowsAndPages.setting.RefreshRoles();
 
+        }
+
+        private void NumberUsers_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            var result = Barbari_BLL.Roles.Select_Count(Role.RolesNamRole);
+            if(result.Success)
+            {
+                WindowsAndPages.home_Window.DialogHost.ShowDialog(new ShowUsersRole(result.Data,Role.RolesNamRole) { Width = 622});
+            }
         }
     }
 }

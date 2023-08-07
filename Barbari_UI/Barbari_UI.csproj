@@ -165,6 +165,12 @@
     <Compile Include="Role\RoleComponent.xaml.cs">
       <DependentUpon>RoleComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Role\ShowUsersRole.xaml.cs">
+      <DependentUpon>ShowUsersRole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Role\UserRoleComponent.xaml.cs">
+      <DependentUpon>UserRoleComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
@@ -318,6 +324,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Role\RoleComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Role\ShowUsersRole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Role\UserRoleComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

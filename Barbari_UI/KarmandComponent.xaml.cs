@@ -34,6 +34,8 @@ namespace Barbari_UI
         public Users_Tbl Karmand { get; set; }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.UsersDelete;
+            Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.UsersUpdate;
             Name_TxtBlock.Text = Karmand.UsersFirstName + " " + Karmand.UsersLastName;
             UserName_TxtBlock.Text = Karmand.UsersUserName;
             MobileNum_TxtBlock.Text = Karmand.UsersMobile;

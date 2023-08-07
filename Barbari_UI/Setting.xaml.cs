@@ -51,6 +51,8 @@ namespace Barbari_UI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Save_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatlogoAndName;
+            Add_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
             var company = Barbari_BLL.Company.Select();
             if(company.Data != null)
             {

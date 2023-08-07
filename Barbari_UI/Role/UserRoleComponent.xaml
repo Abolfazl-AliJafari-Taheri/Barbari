@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Barbari_UI.Role.UserRoleComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Barbari_UI.Role"
+             mc:Ignorable="d" 
+             d:DesignHeight="72" d:DesignWidth="574" Margin="0 8 0 8"
+             Loaded="UserControl_Loaded">
+    <Border CornerRadius="8" Background="#FFFFFF">
+
+        <Grid FlowDirection="RightToLeft">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="0 0 0 21.5" Name="UserFullName_TxtBlock" FontSize="16" FontFamily="IRANSansX" Height="29" Width="auto" Text="نام و نام خانوادگی" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="1" VerticalAlignment="Bottom" Margin="0 0 0 21.5" Name="UserName_TxtBlock" FontSize="16" FontFamily="IRANSansX" Height="29" Width="auto" Text="نام کاربری" HorizontalAlignment="Center"/>
+        </Grid>
+    </Border>
+</UserControl>

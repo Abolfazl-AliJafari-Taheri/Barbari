@@ -34,6 +34,8 @@ namespace Barbari_UI
         public Ranande_Tbl Ranande{ get; set; }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.RanandeDelete;
+            Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.RanandeUpdate;
             Name_TxtBlock.Text = Ranande.RanandeFirstName + " " + Ranande.RanandeLastName;
             Code_TxtBlock.Text = Ranande.RanandeCodeRanande.ToString();
             MobileNum_TxtBlock.Text = Ranande.RanandeMobile;

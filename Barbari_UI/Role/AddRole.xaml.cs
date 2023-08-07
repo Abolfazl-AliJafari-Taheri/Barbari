@@ -155,7 +155,7 @@ namespace Barbari_UI.Role
             Role.CityInsert = (bool)CityAnbarInsert_Toggle.IsChecked;
             Role.CityUpdate = (bool)CityAnbarUpdate_Toggle.IsChecked;
             Role.CityDelete = (bool)CityAnbarDelete_Toggle.IsChecked;
-            Role.RolesTanzimat = (bool)UsersDelete_Toggle.IsChecked;
+            Role.RolesTanzimat = (bool)Setting_Toggle.IsChecked;
             Role.TanzimatlogoAndName = (bool)Setting_ToggleCompanyData.IsChecked;
             Role.TanzimatRoles = (bool)SettingRoles_Toggle.IsChecked;
             Role.RolesNamRole = RoleName_Txt.Text;
