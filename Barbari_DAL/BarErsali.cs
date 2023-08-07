@@ -10,12 +10,16 @@ namespace Barbari_DAL
 {
     public class BarErsali
     {
-        public static OperationResult<List<BarErsali_Tbl>> Select()
+        public static OperationResult<List<BarErsali_Tbl>> Select(int search_Int = 0, string search_String = "")
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarErsali_Tbls.ToList();
+                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == search_Int || 
+                p.BarErsaliNamFerestande.Contains(search_String) || p.BarErsaliFamilyFerestande.Contains(search_String) ||
+                p.BarErsaliNamGerande.Contains(search_String) || p.BarErsaliFamilyGerande.Contains(search_String) ||
+                p.BarErsaliNamFerestande.Contains(search_String) && p.BarErsaliFamilyFerestande.Contains(search_String) ||
+                p.BarErsaliNamGerande.Contains(search_String) && p.BarErsaliFamilyGerande.Contains(search_String)).ToList();
                 return new OperationResult<List<BarErsali_Tbl>>
                 {
                     Success = true,

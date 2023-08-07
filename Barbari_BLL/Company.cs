@@ -22,7 +22,6 @@ namespace Barbari_BLL
                 { 
                     Success = false,
                     Message = "لطفا اطلاعات شرکت را وارد کنید"
-
                 };
             }
             else
