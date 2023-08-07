@@ -57,20 +57,6 @@ namespace Barbari_UI
                 CompanyCity_Txt.Text = company.Data.CompanyCity;
                 CompanyName_Txt.Text = company.Data.CompanyName;
                 CompanyRules_Txt.Text = company.Data.CompanyRules;
-                if (CompanyCity_Txt.Text != CompanyCity_Txt.Tag.ToString())
-                {
-                    CompanyCity_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-
-                }
-                if (CompanyName_Txt.Text != CompanyName_Txt.Tag.ToString())
-                {
-                    CompanyName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-
-                }
-                if (CompanyRules_Txt.Text != CompanyRules_Txt.Tag.ToString())
-                {
-                    CompanyRules_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-                }
                 if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
                 {
                     if (File.Exists(company.Data.CompanyIogo))
@@ -103,17 +89,7 @@ namespace Barbari_UI
             try
             {
                 Company_Tbl company = new Company_Tbl();
-                if(Validate())
-                {
-                    if (CompanyRules_Txt.Text == CompanyRules_Txt.Tag.ToString())
-                    {
-                        company.CompanyRules = "";
-
-                    }
-                    else
-                    {
                         company.CompanyRules = CompanyRules_Txt.Text;
-                    }
                     company.CompanyCity = CompanyCity_Txt.Text;
                     company.CompanyName = CompanyName_Txt.Text;
                     company.CompanyIogo = logoAddress;
@@ -126,11 +102,6 @@ namespace Barbari_UI
                     {
                         MessageBox.Show("برای اعمال تغییرات برنامه را کامل ببندید و دوباره اجرا کنید");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("فیلد های ضروری را باید وارد کنید .");
-                }
                
                 
             }
@@ -139,19 +110,19 @@ namespace Barbari_UI
                 
             }
         }
-        bool Validate()
-        {
-            if(CompanyCity_Txt.Text == CompanyCity_Txt.Tag.ToString())
-            {
-                return false;
-            }
-            if (CompanyName_Txt.Text == CompanyName_Txt.Tag.ToString())
-            {  
-                return false;  
-            }
+        //bool Validate()
+        //{
+        //    if(CompanyCity_Txt.Text == CompanyCity_Txt.Tag.ToString())
+        //    {
+        //        return false;
+        //    }
+        //    if (CompanyName_Txt.Text == CompanyName_Txt.Tag.ToString())
+        //    {  
+        //        return false;  
+        //    }
             
-            return true;
-        }
+        //    return true;
+        //}
         private void Logo_Btn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
