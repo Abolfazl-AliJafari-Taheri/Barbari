@@ -6,20 +6,39 @@ namespace Barbari_BLL
 {
     public class BarErsali
     {
-        public static OperationResult<List<BarErsali_Tbl>> Select()
+        public static OperationResult<List<BarErsali_Tbl>> Select(string search)
         {
-            var result = Barbari_DAL.BarErsali.Select();
-            if (result.Success == true)
+            if (Validation.CheckNumberFormat(search))
             {
-                return result;
+                var result = Barbari_DAL.BarErsali.Select(int.Parse(search));
+                if (result.Success == true)
+                {
+                    return result;
+                }
+                else
+                {
+                    return new OperationResult<List<BarErsali_Tbl>>
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
             }
             else
             {
-                return new OperationResult<List<BarErsali_Tbl>>
+                var result = Barbari_DAL.BarErsali.Select(0, search);
+                if (result.Success == true)
                 {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
+                    return result;
+                }
+                else
+                {
+                    return new OperationResult<List<BarErsali_Tbl>>
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
             }
         }
         public static OperationResult<List<KalaDaryafti_Tbl>> Select_KalaDaryafti(int codeBarname)
