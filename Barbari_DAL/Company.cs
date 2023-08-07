@@ -14,7 +14,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Company_Tbls.ToList().LastOrDefault();
+                var query = linq.Company_Tbls.OrderByDescending(p => p.CompanyCode).FirstOrDefault();
                 if (query != null)
                 {
                     return new OperationResult<Company_Tbl>
@@ -27,7 +27,8 @@ namespace Barbari_DAL
                 {
                     return new OperationResult<Company_Tbl>
                     {
-                        Success = false
+                        Success = false,
+                        
                     };
                 }
                 
