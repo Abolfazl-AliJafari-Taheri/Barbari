@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.IO;
 using Barbari_DAL;
 using Barbari_BLL;
+using MaterialDesignThemes.Wpf;
 
 namespace Barbari_UI
 {
@@ -142,9 +143,9 @@ namespace Barbari_UI
             }
         }
 
-        private void Add_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Add_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new Role.AddRole() { Height = 826 ,Width = 660 });
         }
     }
 }

@@ -116,7 +116,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq.Roles_Tbls.DeleteOnSubmit(roles);
+                linq.Roles_Tbls.InsertOnSubmit(roles);
                 linq.SubmitChanges();
                 return new OperationResult
                 {
