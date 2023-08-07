@@ -6,7 +6,7 @@ namespace Barbari_BLL
 {
     public class BarErsali
     {
-        public static OperationResult<List<BarErsali_Tbl>> Select(string search)
+        public static OperationResult<List<BarErsali_Tbl>> Select(string search = "")
         {
             if (Validation.CheckNumberFormat(search))
             {
