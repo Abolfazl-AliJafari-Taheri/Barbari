@@ -86,7 +86,6 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                linq = new DataClassBarbariDataContext();
                 var query = linq.Customers_Tbls.Where(p => p.CustomersIsDelete == false).Select(p => p.CustomersCode).ToList();
                 return new OperationResult<List<int>>
                 {

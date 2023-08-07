@@ -160,6 +160,36 @@ namespace Barbari_BLL
                     Message = "شماره موبایل را درست وارد کنید"
                 };
             }
+            else if (!string.IsNullOrEmpty(user.UsersRoles))
+            {
+                var result = Barbari_DAL.Roles.Select_NamRoles(user.UsersRoles);
+                if (result.Success == true)
+                {
+                    if (result.Data.Count == 0)
+                    {
+                        return new OperationResult
+                        {
+                            Success = false,
+                            Message = "این نقش در جدول نقش ها ثبت نشده"
+                        };
+                    }
+                    else
+                    {
+                        return new OperationResult
+                        {
+                            Success = true,
+                        };
+                    }
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
+            }
             else
             {
                 return new OperationResult

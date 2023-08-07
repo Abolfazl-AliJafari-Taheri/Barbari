@@ -25,6 +25,22 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult<List<string>> Select_AllNamRoles()
+        {
+            var result = Barbari_DAL.Roles.Select_AllNamRoles();
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else
+            {
+                return new OperationResult<List<string>>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult<List<Users_Tbl>> Select_Count(string search)
         {
             var result = Barbari_DAL.Roles.Select_Count(search);
