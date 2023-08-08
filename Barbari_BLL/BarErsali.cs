@@ -276,7 +276,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Update(BarErsali_Tbl barErsali, bool moshtariSabet, bool maghsadNahayi)
+        public static OperationResult Update(BarErsali_Tbl barErsali, bool moshtariSabet, bool maghsadNahayi , bool tahvilBeRanande)
         {
             var result1 = Validation.BarErsali_Validation_EtelatFerestande(barErsali.BarErsaliShahreMabda, barErsali.BarErsaliAnbarMabda,
                 barErsali.BarErsaliNamFerestande, barErsali.BarErsaliFamilyFerestande, barErsali.BarErsaliMobileFerestande, barErsali.BarErsaliCodeFerestande.ToString(), moshtariSabet);
@@ -286,7 +286,7 @@ namespace Barbari_BLL
 
             var result3 = Validation.BarErsali_Validation_EtelatBar(barErsali.BarErsaliPishKeraye.ToString(), barErsali.BarErsaliPasKeraye.ToString(), barErsali.BarErsaliBime.ToString(),
                 barErsali.BarErsaliAnbardari.ToString(), barErsali.BarErsaliShahri.ToString(), barErsali.BarErsaliBastebandi.ToString());
-            if (!string.IsNullOrEmpty(barErsali.BarErsaliNamRanande))
+            if (tahvilBeRanande == true)
             {
                 var result4 = Validation.BarErsali_Validation_TahvilRanande(barErsali.BarErsaliNamRanande, barErsali.BarErsaliFamilyRanande,
                barErsali.BarErsaliMobileRanande, barErsali.BarErsaliKerayeRanande.ToString(), barErsali.BarErsaliCodeRanande.ToString());

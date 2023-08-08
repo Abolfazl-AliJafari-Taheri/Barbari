@@ -287,6 +287,31 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult Back_To_Anbar(int CodeBarname)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == CodeBarname).Single();
+                query.BarErsaliCodeRanande = null;
+                query.BarErsaliNamRanande = null;
+                query.BarErsaliFamilyRanande = null;
+                query.BarErsaliMobileRanande = null;
+                query.BarErsaliKerayeRanande = null;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult Update_BarErsaliUserNameKarmand(int BarErsaliBarname, string BarErsaliUserNameKarmand)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
