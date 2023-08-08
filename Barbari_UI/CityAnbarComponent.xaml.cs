@@ -34,8 +34,17 @@ namespace Barbari_UI
         public City_Tbl Anbar { get; set; }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.CityDelete;
-            Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.CityUpdate;
+            if (WindowsAndPages.home_Window.Role != null)
+            {
+                Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.CityDelete;
+                Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.CityUpdate;
+            }
+            else
+            {
+                Delete_Btn.IsEnabled = false; 
+                Edit_Btn.IsEnabled = false;
+            }
+            
             AnbarName_TxtBlock.Text = Anbar.CityAnbar;
             City_TxtBlock.Text = Anbar.CityShahr;
             Address_TxtBlock.Text = Anbar.CityAdres;

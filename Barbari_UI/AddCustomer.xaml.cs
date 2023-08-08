@@ -55,6 +55,45 @@ namespace Barbari_UI
             }
         }
 
+        List<string> citys = new List<string>()
+        { 
+            "کاشان",
+            "تهران",
+            "اصفهان",
+            "مشهد",
+            "تبریز",
+            "قم",
+            "شیراز",
+            "قزوین",
+            "شهریار",
+            "سمنان",
+            "گیلان",
+            "مازندران",
+            "فارس",
+            "خوزستان",
+            "کرمانشاه",
+            "گرگان",
+            "همدان",
+            "یزد",
+            "گلستان",
+            "کرج",
+            "اهواز",
+            "ارومیه",
+            "رشت",
+            "زاهدان",
+            "سنندج",
+            "بندرعباس",
+            "اردبیل",
+            "اراک",
+            "ساری",
+            "بیرجند",
+            "ساوه",
+            "پردیس",
+            "بوشهر",
+            "رامسر",
+            "انزلی"
+        };
+
         void EditMode(Customers_Tbl customer)
         {
             Title_TxtBlock.Text = "ویرایش مشتری ثابت";
@@ -62,7 +101,16 @@ namespace Barbari_UI
             LastName_Txt.Text = customer.CustomersLastName;
             Code_Txt.Text = customer.CustomersCode.ToString();
             Mobile_Txt.Text = customer.CustomersMobile;
-            City_Txt.Text = customer.CustomersCity;
+            //int index = City_Txt.Items.IndexOf(customer.CustomersCity);
+            //if (index <0)
+            //{
+            //    City_Txt.SelectedIndex= index;
+            //}
+            //else
+            //{
+                City_Txt.Text = customer.CustomersCity;
+            //}
+          
             Add_Btn.Content = "ویرایش مشتری";
             Code_Txt.IsReadOnly = true;
             //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
@@ -82,6 +130,7 @@ namespace Barbari_UI
             {
                 Code_Txt.Text = (Barbari_BLL.Customers.Select_CodeLast().Data+1).ToString();
             }
+            City_Txt.ItemsSource = citys;
         }
 
         private void Add_Btn_Click(object sender, RoutedEventArgs e)

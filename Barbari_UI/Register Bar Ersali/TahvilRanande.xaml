@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-                         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Barbari_UI.Register_Bar_Ersali"
              mc:Ignorable="d" 
-                     d:DesignHeight="453" d:DesignWidth="622"
+             d:DesignHeight="453" d:DesignWidth="622"
              Loaded="UserControl_Loaded">
     <Border Background="#F7F7F7" CornerRadius="8"  >
         <Grid  FlowDirection="RightToLeft" Name="Field_Grid">

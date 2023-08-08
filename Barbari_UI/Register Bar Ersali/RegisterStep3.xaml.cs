@@ -107,7 +107,6 @@ namespace Barbari_UI.Register_Bar_Ersali
                 if (edit)
                 {
                     var resultInsertKala = Barbari_BLL.BarErsali.Insert_KalaDaryafti(kala);
-
                     if(resultInsertKala.Success)
                     {
                         ShowKala_StckPnl.Children.Add(new KalaComponent(kala, row, edit)
@@ -201,6 +200,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
             if(edit)
             {
+                AddKala_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
                 EditMode(BarErsali);
             }
             else

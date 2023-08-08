@@ -38,6 +38,10 @@ namespace Barbari_UI.Register_Bar_Ersali
         
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if(edit)
+            {
+                Delte_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+            }
             //Row_TxtBlock.Text = Kala.KalaDaryaftiCodeKala.ToString();
             Row_TxtBlock.Text = Row.ToString();
             Name_TxtBlock.Text = Kala.KalaDaryaftiNamKala;
@@ -54,6 +58,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             }
             else
             {
+
                 var result = Barbari_BLL.BarErsali.Delete_KalaDaryafti(Kala.KalaDaryaftiBarname,Kala.KalaDaryaftiCodeKala);
                 if(result.Success)
                 {

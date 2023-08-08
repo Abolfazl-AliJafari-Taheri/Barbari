@@ -21,12 +21,30 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Name="Title_TxtBlock" FontFamily="IRANSansX" FontSize="32" FontWeight="SemiBold" Height="45" Width="auto" VerticalAlignment="Bottom" Margin="32 0 0 0">افزودن انبار</TextBlock>
-            <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="AnbarName_Txt" materialDesign:HintAssist.Hint="نام انبار"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
-            </Border>
-            <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="City_Txt" materialDesign:HintAssist.Hint="شهر"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  />
-            </Border>
+
+            <Grid  Grid.Row="1" Grid.Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Name="WarningName_TxtBlock" Grid.Row="0" Visibility="Hidden" Foreground="Red" FontSize="10" FontFamily="IRANSansX" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="37 7 0 0">نام انبار غیر قابل تغییر است</TextBlock>
+
+                <Border Grid.Row="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="AnbarName_Txt" materialDesign:HintAssist.Hint="نام انبار"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" GotFocus="AnbarName_Txt_GotFocus" LostFocus="AnbarName_Txt_LostFocus"/>
+                </Border>
+            </Grid>
+            <Grid  Grid.Row="1" Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Name="WarningCity_TxtBlock" Grid.Row="0" Visibility="Hidden" Foreground="Red" FontSize="10" FontFamily="IRANSansX" Width="auto" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="37 7 0 0">شهر غیر قابل تغییر است</TextBlock>
+
+                <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                    <TextBox Name="City_Txt" materialDesign:HintAssist.Hint="شهر"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  GotFocus="City_Txt_GotFocus" LostFocus="City_Txt_LostFocus"/>
+                </Border>
+            </Grid>
+          
             <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="Address_Txt" materialDesign:HintAssist.Hint="آدرس انبار"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"/>
             </Border>

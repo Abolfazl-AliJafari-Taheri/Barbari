@@ -71,6 +71,7 @@ namespace Barbari_UI
             Roles_CmBox.Text = karmand.UsersRoles;
             Add_Btn.Content = "ویرایش کارمند";
             UserName_Txt.IsReadOnly = true;
+
             //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             //UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
@@ -95,7 +96,14 @@ namespace Barbari_UI
                 Karmand.UsersUserName = UserName_Txt.Text;
                 Karmand.UsersPassWord = PassWord_Txt.Text;
                 Karmand.UsersMobile = Mobile_Txt.Text;
-                Karmand.UsersRoles = Roles_CmBox.Text;
+                if (string.IsNullOrEmpty(Roles_CmBox.Text))
+                {
+                    Karmand.UsersRoles = null;
+                }
+                else
+                {
+                    Karmand.UsersRoles = Roles_CmBox.Text;
+                }
                 var result = Barbari_BLL.Users.Update(Karmand);
                 if (!result.Success)
                 {
@@ -116,7 +124,15 @@ namespace Barbari_UI
                 karmand.UsersUserName = UserName_Txt.Text;
                 karmand.UsersPassWord = PassWord_Txt.Text;
                 karmand.UsersMobile = Mobile_Txt.Text;
-                karmand.UsersRoles= Roles_CmBox.Text;
+                if(string.IsNullOrEmpty(Roles_CmBox.Text))
+                {
+                    karmand.UsersRoles = null;
+                }
+                else
+                {
+                    karmand.UsersRoles = Roles_CmBox.Text;
+                }
+               
                 var result = Barbari_BLL.Users.Insert(karmand);
                 if (!result.Success)
                 {
@@ -183,6 +199,24 @@ namespace Barbari_UI
             //    }
             //    return true;
             //}
+        }
+
+        private void UserName_Txt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(edit)
+            {
+                Warning_TxtBlock.Visibility = Visibility.Visible;
+            }
+
+        }
+
+        private void UserName_Txt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(edit)
+            {
+                Warning_TxtBlock.Visibility = Visibility.Hidden;
+            }
+            
         }
     }
 }

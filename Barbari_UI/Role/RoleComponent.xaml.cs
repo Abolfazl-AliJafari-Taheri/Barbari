@@ -31,8 +31,17 @@ namespace Barbari_UI.Role
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if (WindowsAndPages.home_Window.Role != null)
+            {
             Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
             Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
+            }
+            else
+            {
+                Delete_Btn.IsEnabled = false;
+                Edit_Btn.IsEnabled = false;
+            }
+
             RoleName_TxtBlock.Text = Role.RolesNamRole;
             var userNumber = Barbari_BLL.Roles.Select_Count(Role.RolesNamRole);
             if(userNumber.Success)

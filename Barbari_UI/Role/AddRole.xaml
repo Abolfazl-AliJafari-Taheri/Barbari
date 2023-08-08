@@ -30,7 +30,9 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
+                        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness="0.2" Opacity="0.5" BorderBrush="Black"/>
                         <Grid Width="auto" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 0 0 8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="72"/>
@@ -38,7 +40,7 @@
                             </Grid.ColumnDefinitions>
                             <ToggleButton
                             Name="BarErsali_Toggle" Cursor="Hand" FlowDirection="LeftToRight" VerticalAlignment="Center" Grid.Column="0" IsChecked="False" Checked="BarErsali_Toggle_Checked" Unchecked="BarErsali_Toggle_Unchecked" HorizontalAlignment="Left" Width="56" Height="32" Style="{StaticResource  MaterialDesignSwitchLightToggleButton}" ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"/>
-                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="14" FontWeight="Bold">بار های ارسالی</TextBlock>
+                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="16" FontWeight="Bold">بار های ارسالی</TextBlock>
                         </Grid>
                         <Grid Name="ShowBarErsaliAccess_Grid" Height="auto" Grid.Row="1" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
@@ -80,7 +82,10 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
+                        <Border Grid.Row="2"  VerticalAlignment="Bottom" BorderThickness="0.2" Opacity="0.5" BorderBrush="Black"/>
+
                         <Grid Width="auto" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 0 0 8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="72"/>
@@ -88,7 +93,7 @@
                             </Grid.ColumnDefinitions>
                             <ToggleButton
                             Name="BarTahvili_Toggle" Cursor="Hand" FlowDirection="LeftToRight" VerticalAlignment="Center" Grid.Column="0" IsChecked="False" Checked="BarTahvili_Toggle_Checked" Unchecked="BarTahvili_Toggle_Unchecked" HorizontalAlignment="Left" Width="56" Height="32" Style="{StaticResource  MaterialDesignSwitchLightToggleButton}" ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"/>
-                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="14" FontWeight="Bold">بار های تحویلی</TextBlock>
+                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="16" FontWeight="Bold">بار های تحویلی</TextBlock>
                         </Grid>
                         <Grid Name="ShowBarTahviliAccess_Grid" Height="auto" Grid.Row="1" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
@@ -130,7 +135,9 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
+                        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness="0.2" Opacity="0.5"  BorderBrush="Black"/>
                         <Grid Width="auto" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 0 0 8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="72"/>
@@ -138,7 +145,7 @@
                             </Grid.ColumnDefinitions>
                             <ToggleButton
                             Name="Customers_Toggle" Cursor="Hand" FlowDirection="LeftToRight" VerticalAlignment="Center" Grid.Column="0" IsChecked="False" Checked="Customers_Toggle_Checked" Unchecked="Customers_Toggle_Unchecked" HorizontalAlignment="Left" Width="56" Height="32" Style="{StaticResource  MaterialDesignSwitchLightToggleButton}" ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"/>
-                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="14" FontWeight="Bold">مشتریان ثابت</TextBlock>
+                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="16" FontWeight="Bold">مشتریان ثابت</TextBlock>
                         </Grid>
                         <Grid Name="ShowCustomersAccess_Grid" Height="auto" Grid.Row="1" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
@@ -180,7 +187,9 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
+                        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness="0.2" Opacity="0.5"  BorderBrush="Black"/>
                         <Grid Width="auto" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 0 0 8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="72"/>
@@ -188,7 +197,7 @@
                             </Grid.ColumnDefinitions>
                             <ToggleButton
                             Name="Users_Toggle" Cursor="Hand" FlowDirection="LeftToRight" VerticalAlignment="Center" Grid.Column="0" IsChecked="False" Checked="Users_Toggle_Checked" Unchecked="Users_Toggle_Unchecked" HorizontalAlignment="Left" Width="56" Height="32" Style="{StaticResource  MaterialDesignSwitchLightToggleButton}" ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"/>
-                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="14" FontWeight="Bold">کارمندان</TextBlock>
+                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="16" FontWeight="Bold">کارمندان</TextBlock>
                         </Grid>
                         <Grid Name="ShowUsersAccess_Grid" Height="auto" Grid.Row="1" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
@@ -230,7 +239,10 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
+                        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness="0.5" Opacity="0.2"  BorderBrush="Black"/>
+                        
                         <Grid Width="auto" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 0 0 8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="72"/>
@@ -238,7 +250,7 @@
                             </Grid.ColumnDefinitions>
                             <ToggleButton
                             Name="Ranande_Toggle" Cursor="Hand" FlowDirection="LeftToRight" VerticalAlignment="Center" Grid.Column="0" IsChecked="False" Checked="Ranande_Toggle_Checked" Unchecked="Ranande_Toggle_Unchecked" HorizontalAlignment="Left" Width="56" Height="32" Style="{StaticResource  MaterialDesignSwitchLightToggleButton}" ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"/>
-                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="14" FontWeight="Bold">رانندگان</TextBlock>
+                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="16" FontWeight="Bold">رانندگان</TextBlock>
                         </Grid>
                         <Grid Name="ShowRanandeAccess_Grid" Height="auto" Grid.Row="1" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
@@ -280,7 +292,9 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
+                        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness="0.5" Opacity="0.2"  BorderBrush="Black"/>
                         <Grid Width="auto" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 0 0 8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="72"/>
@@ -288,7 +302,7 @@
                             </Grid.ColumnDefinitions>
                             <ToggleButton
                             Name="CityAnbar_Toggle" Cursor="Hand" FlowDirection="LeftToRight" VerticalAlignment="Center" Grid.Column="0" IsChecked="False" Checked="CityAnbar_Toggle_Checked" Unchecked="CityAnbar_Toggle_Unchecked" HorizontalAlignment="Left" Width="56" Height="32" Style="{StaticResource  MaterialDesignSwitchLightToggleButton}" ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"/>
-                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="14" FontWeight="Bold">شهر و انبار</TextBlock>
+                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="16" FontWeight="Bold">شهر و انبار</TextBlock>
                         </Grid>
                         <Grid Name="ShowCityAnbarAccess_Grid" Height="auto" Grid.Row="1" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
@@ -330,7 +344,9 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="5"/>
                         </Grid.RowDefinitions>
+                        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness="0.5" Opacity="0.2" BorderBrush="Black"/>
                         <Grid Width="auto" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 0 0 8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="72"/>
@@ -338,7 +354,7 @@
                             </Grid.ColumnDefinitions>
                             <ToggleButton
                             Name="Setting_Toggle" Cursor="Hand" FlowDirection="LeftToRight" VerticalAlignment="Center" Grid.Column="0" IsChecked="False" Checked="Setting_Toggle_Checked" Unchecked="Setting_Toggle_Unchecked" HorizontalAlignment="Left" Width="56" Height="32" Style="{StaticResource  MaterialDesignSwitchLightToggleButton}" ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"/>
-                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="14" FontWeight="Bold">تنظیمات</TextBlock>
+                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="16" FontWeight="Bold">تنظیمات</TextBlock>
                         </Grid>
                         <Grid Name="ShowSettingAccess_Grid" Height="auto" Grid.Row="1" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
@@ -376,7 +392,7 @@
                             </Grid.ColumnDefinitions>
                             <ToggleButton
                             Name="Print_Toggle" Cursor="Hand" FlowDirection="LeftToRight" VerticalAlignment="Center" Grid.Column="0" IsChecked="False" HorizontalAlignment="Left" Width="56" Height="32" Style="{StaticResource  MaterialDesignSwitchLightToggleButton}" ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"/>
-                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="14" FontWeight="Bold">گزارش گیری</TextBlock>
+                            <TextBlock Grid.Column="1" Width="auto" Height="20" FontFamily="IRANSansX" FontSize="16" FontWeight="Bold">گزارش گیری</TextBlock>
                         </Grid>
                     </Grid>
                 </StackPanel>

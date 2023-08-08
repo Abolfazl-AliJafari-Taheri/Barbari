@@ -51,8 +51,17 @@ namespace Barbari_UI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Save_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatlogoAndName;
-            Add_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
+            if (WindowsAndPages.home_Window.Role != null)
+            {
+                Save_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatlogoAndName;
+                Add_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
+            }
+            else
+            {
+                Add_Btn.IsEnabled = false;
+                Save_Btn.IsEnabled = false;
+            }
+            
             var company = Barbari_BLL.Company.Select();
             if(company.Data != null)
             {
@@ -143,7 +152,7 @@ namespace Barbari_UI
 
         private async void Add_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Role.AddRole addRole= new Role.AddRole() ;
+            Role.AddRole addRole= new Role.AddRole() { Width = 660};
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(addRole);
             if(addRole.Inserted)
             {

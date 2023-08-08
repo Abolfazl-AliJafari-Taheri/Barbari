@@ -122,7 +122,39 @@ namespace Barbari_UI
                 }
             }
         }
-        
+
+        private void AnbarName_Txt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(edit)
+            {
+                WarningName_TxtBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void AnbarName_Txt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (edit)
+            {
+                WarningName_TxtBlock.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void City_Txt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (edit)
+            {
+                WarningCity_TxtBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void City_Txt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (edit)
+            {
+                WarningCity_TxtBlock.Visibility = Visibility.Hidden;
+            }
+        }
+
         //bool Validait()
         //{
         //    if (AnbarName_Txt.Text == AnbarName_Txt.Tag.ToString())

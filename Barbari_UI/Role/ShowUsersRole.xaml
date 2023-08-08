@@ -44,7 +44,21 @@
                 >
 
             </Button>
-            <ScrollViewer Grid.Row="2"  VerticalScrollBarVisibility="Hidden">
+            <ScrollViewer Grid.Row="2"  VerticalScrollBarVisibility="Visible"
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          >
                 <StackPanel Name="ShowUsers_StckPnl">
                 </StackPanel>
             </ScrollViewer>

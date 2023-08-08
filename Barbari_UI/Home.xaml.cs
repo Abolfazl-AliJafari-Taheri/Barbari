@@ -306,27 +306,37 @@ namespace Barbari_UI
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var role = Barbari_BLL.Roles.Roles_Login(User.UsersRoles);
-            if(role.Success)
+            if (User.UsersRoles != null)
             {
-                Role = role.Data;
-                if (Role.RolesBarErsali)
+                var role = Barbari_BLL.Roles.Roles_Login(User.UsersRoles);
+                if (role.Success)
                 {
-                    BarErsaliMenu_Btn_Click(null, null);
-                }
-                BarErsaliMenu_Btn.IsEnabled = Role.RolesBarErsali;
-                BarTahviliMenu_Btn.IsEnabled = Role.RolesBarTahvili;
-                MoshtariMenu_Btn.IsEnabled = Role.RolesCustomers;
-                KarmandanMenu_Btn.IsEnabled = Role.RolesUsers;
-                RanandeganMenu_Btn.IsEnabled = Role.RolesRanande;
-                CityAnbarMenu_Btn.IsEnabled = Role.RolesCity;
-                SettingMenu_Btn.IsEnabled = Role.RolesTanzimat;
-                GetReport_Btn.IsEnabled = Role.RolesGozaresh;
+                    Role = role.Data;
 
+                    if (Role.RolesBarErsali)
+                    {
+                        BarErsaliMenu_Btn_Click(null, null);
+                    }
+                    BarErsaliMenu_Btn.IsEnabled = Role.RolesBarErsali;
+                    BarTahviliMenu_Btn.IsEnabled = Role.RolesBarTahvili;
+                    MoshtariMenu_Btn.IsEnabled = Role.RolesCustomers;
+                    KarmandanMenu_Btn.IsEnabled = Role.RolesUsers;
+                    RanandeganMenu_Btn.IsEnabled = Role.RolesRanande;
+                    CityAnbarMenu_Btn.IsEnabled = Role.RolesCity;
+                    SettingMenu_Btn.IsEnabled = Role.RolesTanzimat;
+                    GetReport_Btn.IsEnabled = Role.RolesGozaresh;
+
+                }
+                else
+                {
+
+                    MessageBox.Show(role.Message);
+                }
             }
             else
             {
-                MessageBox.Show(role.Message);
+                BarErsaliMenu_Btn_Click(null, null);
+                GetReport_Btn.IsEnabled = false;
             }
             UserRoleName_TxtBlock.Text = User.UsersRoles;
             UserFullName_TxtBlock.Text = User.UsersFirstName + "  " + User.UsersLastName;
