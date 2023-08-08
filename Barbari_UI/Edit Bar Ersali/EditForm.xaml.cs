@@ -220,7 +220,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
                 }
             }
 
-            var result = Barbari_BLL.BarErsali.Update(BarErsali,CustomerReg,MaghsadFinal);
+            var result = Barbari_BLL.BarErsali.Update(BarErsali,CustomerReg,MaghsadFinal,RanandeInfo_Btn.IsEnabled);
             if (result.Success)
             {
                 DialogHost.CloseDialogCommand.Execute(null, null);
@@ -233,7 +233,14 @@ namespace Barbari_UI.Edit_Bar_Ersali
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Save_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+            if(WindowsAndPages.home_Window.Role != null)
+            {
+                Save_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+            }
+            else
+            {
+                Save_Btn.IsEnabled = false;
+            }
             if(!string.IsNullOrEmpty(BarErsali.BarErsaliNamRanande))
             {
                 RanandeInfo_Btn.IsEnabled= true;

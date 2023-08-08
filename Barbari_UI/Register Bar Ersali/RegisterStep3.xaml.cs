@@ -200,7 +200,14 @@ namespace Barbari_UI.Register_Bar_Ersali
             //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
             if(edit)
             {
-                AddKala_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+                if(WindowsAndPages.home_Window.Role != null)
+                {
+                    AddKala_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+                }
+                else
+                {
+                    AddKala_Btn.IsEnabled=false;
+                }
                 EditMode(BarErsali);
             }
             else

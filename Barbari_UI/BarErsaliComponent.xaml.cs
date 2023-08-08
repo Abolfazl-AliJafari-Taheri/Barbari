@@ -38,8 +38,8 @@ namespace Barbari_UI
         {
             if(WindowsAndPages.home_Window.Role != null)
             {
-Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliDelete;
-            Thvil_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+                Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliDelete;
+                Thvil_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
             }
             else
             {
@@ -51,6 +51,7 @@ Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliDelete;
             Sender_TxtBlock.Text = BarErsali.BarErsaliNamFerestande+" "+BarErsali.BarErsaliFamilyFerestande;
             Reciever_TxtBlock.Text = BarErsali.BarErsaliNamGerande+" "+BarErsali.BarErsaliFamilyGerande;
             Destination_TxtBlock.Text = BarErsali.BarErsaliShahreMaghsad1;
+            
             StatusChange();
         }
         bool CheckStatus()
@@ -65,19 +66,30 @@ Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliDelete;
         {
             if (CheckStatus())
             {
-                Status_TxtBlock.Text = "تحویل شده";
+                Status_TxtBlock.Text = "تحویل راننده";
+                Thvil_Btn.Content = "برگشت به انبار";
                 Status_Lbl.Foreground = ConverterColor("#079459");
                 Status_Lbl.Background = ConverterColor("#ACDBC8");
-                Thvil_Btn.IsEnabled = false;
-                Thvil_Btn.IsEnabled = false;
             }
             else
             {
                 Status_TxtBlock.Text = "موجود در انبار";
+                Thvil_Btn.Content = "تحویل به راننده";
                 Status_Lbl.Foreground = ConverterColor("#2B54A3");
                 Status_Lbl.Background = ConverterColor("#B8C6E0");
-                Thvil_Btn.IsEnabled = true;
-                Thvil_Btn.IsEnabled = true;
+                if(WindowsAndPages.home_Window.Role != null)
+                {
+                    if (WindowsAndPages.home_Window.Role.BarErsaliUpdate)
+                    {
+                        Thvil_Btn.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    Thvil_Btn.IsEnabled = false;
+                }
+                
+
 
             }
         }
@@ -93,7 +105,20 @@ Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliDelete;
 
         private async void Thvil_Btn_Click(object sender, RoutedEventArgs e)
         {
-            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali,false) { Height = 453, Width = 622 });
+            string content = Thvil_Btn.Content.ToString();
+            if(content == "تحویل به راننده")
+            {
+       await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali,false) { Height = 453, Width = 622 });
+
+            }
+            else
+            {
+                var result = Barbari_DAL.BarErsali.Back_To_Anbar(BarErsali.BarErsaliBarname);
+                if(!result.Success)
+                {
+                    MessageBox.Show("خطایی رخ داده است لطفا با پشتیبان تماس بگیرید");
+                }
+            }
             WindowsAndPages.barErsali.Refresh("");
         }
 

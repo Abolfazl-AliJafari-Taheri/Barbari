@@ -40,7 +40,14 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
             if(edit)
             {
-                Delte_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+                if(WindowsAndPages.home_Window.Role != null)
+                {
+                    Delte_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+                }
+                else
+                {
+                    Delte_Btn.IsEnabled = false;
+                }
             }
             //Row_TxtBlock.Text = Kala.KalaDaryaftiCodeKala.ToString();
             Row_TxtBlock.Text = Row.ToString();
