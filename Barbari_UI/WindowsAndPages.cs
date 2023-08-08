@@ -16,6 +16,7 @@ namespace Barbari_UI
         public static Karmand karmand;
         public static Ranandegan ranandegan;
         public static CityAnbar cityAnbar;
+        public static Page1 WhitePage;
         public static Setting setting;
         public static Register_Bar_Ersali.Register_Form registerBarErsali;
         public static Edit_Bar_Ersali.EditForm editFormBarErsali;

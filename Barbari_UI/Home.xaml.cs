@@ -26,7 +26,7 @@ namespace Barbari_UI
             InitializeComponent();
             User = LoginedUser;
         }
-
+        bool logedout = false;
         bool createBarErsali = false;
         bool createBarTahvili = false;
         bool createMoshtari = false;
@@ -34,10 +34,12 @@ namespace Barbari_UI
         bool createRanande = false;
         bool createCityAnbar = false;
         bool createSetting = false;
+        bool createWhitePage = false;
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            e.Cancel = true;
-            WindowsAndPages.home_Window.Visibility= Visibility.Hidden;
+            //e.Cancel = true;
+            //logedout= true;
+            //WindowsAndPages.home_Window.Visibility= Visibility.Hidden;
         }
         public Users_Tbl User{ get; set; }
         public Roles_Tbl Role{ get; set; }
@@ -300,12 +302,31 @@ namespace Barbari_UI
 
         private void LogoutMenu_Btn_Click(object sender, RoutedEventArgs e)
         {
-            WindowsAndPages.home_Window.Visibility= Visibility.Hidden;
-            
+            //logedout  =true;
+            //WindowsAndPages.home_Window.Visibility= Visibility.Hidden;
+            this.Close();
         }
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //if (createWhitePage)
+            //{
+            //    MainFrame.Content = WindowsAndPages.WhitePage;
+            //}
+            //else
+            //{
+            //    WindowsAndPages.WhitePage = new Page1();
+            //    MainFrame.Content = WindowsAndPages.WhitePage;
+            //}
+            Role = null;
+            UnSelectBarErsaliMenu();
+            UnSelectBarTahviliMenu();
+            UnSelectCityAnbarMenu();
+            UnSelectKarmandMenu();
+            UnSelectMoshtariMenu();
+            UnSelectRanandeMenu();
+            UnSelectSettingMenu();
+
             if (User.UsersRoles != null)
             {
                 var role = Barbari_BLL.Roles.Roles_Login(User.UsersRoles);
@@ -376,7 +397,7 @@ namespace Barbari_UI
             {
                 Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon(Black Border).png");
             }
-
+           
         }
     }
 }

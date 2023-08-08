@@ -77,18 +77,18 @@ namespace Barbari_UI
                 Username_Txt.Text = "";
                 Password_PassBx.Password = "";
 
-                if (WindowsAndPages.home_Window == null)
-                {
+                //if (WindowsAndPages.home_Window == null)
+                //{
                     WindowsAndPages.home_Window = new Home(result.Data);
                     WindowsAndPages.home_Window.ShowDialog();
-                }
-                else
-                {
-                    WindowsAndPages.home_Window.User= result.Data;
-                    WindowsAndPages.home_Window.Window_Loaded(null,null);
+                //}
+                //else
+                //{
+                //    WindowsAndPages.home_Window.User= result.Data;
+                //    WindowsAndPages.home_Window.Window_Loaded(null,null);
                    
-                    WindowsAndPages.home_Window.ShowDialog();
-                }
+                //    WindowsAndPages.home_Window.ShowDialog();
+                //}
             }
         }
 
