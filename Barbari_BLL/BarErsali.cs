@@ -257,6 +257,25 @@ namespace Barbari_BLL
 
             }
         }
+        public static OperationResult Back_To_Anbar(int CodeBarname)
+        {
+            var result = Barbari_DAL.BarErsali.Back_To_Anbar(CodeBarname);
+            if (result.Success == true)
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult Update_BarErsaliUserNameKarmand(int BarErsaliBarname, string BarErsaliUserNameKarmand)
         {
             var result = Barbari_DAL.BarErsali.Update_BarErsaliUserNameKarmand(BarErsaliBarname, BarErsaliUserNameKarmand);
