@@ -9,26 +9,46 @@ namespace Barbari_DAL
 {
     public class BarTahvili
     {
-        public static OperationResult<List<BarTahvili_Tbl>> Select(string search)
+        public static OperationResult<List<BarTahvili_Tbl>> Select_Barname(string search = "")
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname.ToString().Contains(search)).ToList();
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname.ToString().Contains(search)).OrderByDescending(p => p.BarTahviliBarname).Take(30).ToList();
                 return new OperationResult<List<BarTahvili_Tbl>>
                 {
                     Success = true,
                     Data = query
                 };
             }
-            catch
+            catch (Exception)
             {
                 return new OperationResult<List<BarTahvili_Tbl>>
                 {
                     Success = false
                 };
             }
-
+        }
+        public static OperationResult<List<BarTahvili_Tbl>> Select_NamAndFamily(string search)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.Where(p => (p.BarTahviliNamFerestande + " " + p.BarTahviliFamilyFerestande).Contains(search)
+                || (p.BarTahviliNamGerande + " " + p.BarTahviliFamilyGerande).Contains(search)).OrderByDescending(p => p.BarTahviliBarname).Take(30).ToList();
+                return new OperationResult<List<BarTahvili_Tbl>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch (Exception)
+            {
+                return new OperationResult<List<BarTahvili_Tbl>>
+                {
+                    Success = false
+                };
+            }
         }
         public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBarname)
         {
@@ -167,13 +187,6 @@ namespace Barbari_DAL
                 linq.BarTahvili_Tbls.InsertOnSubmit(barTahvili);
                 linq.SubmitChanges();
 
-                var query = Select_Barname_Last(linq);
-
-                for (int i = 0; i < kalaTahvili.Count; i++)
-                {
-                    kalaTahvili[i].KalaTahviliBarname = query.Data;
-                }
-
                 linq.KalaTahvili_Tbls.InsertAllOnSubmit(kalaTahvili);
                 linq.SubmitChanges();
 
@@ -227,6 +240,50 @@ namespace Barbari_DAL
                 {
                     Success = true
                 };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+        }
+        public static OperationResult Back_To_Anbar(int CodeBarname)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == CodeBarname).Single();
+                query.BarTahviliRaveshEhrazHoviat = null;
+                query.BarTahviliRaveshEhrazHoviatText = null;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult
+                {
+                    Success = false
+                };
+            }
+        }
+        public static OperationResult Update_BarTahviliUserNameKarmand(int BarTahviliBarname, string BarTahviliUserNameKarmand)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == BarTahviliBarname).Single();
+                query.BarTahviliUserNameKarmand = BarTahviliUserNameKarmand;
+                linq.SubmitChanges();
+                return new OperationResult
+                {
+                    Success = true
+                };
+
             }
             catch
             {
