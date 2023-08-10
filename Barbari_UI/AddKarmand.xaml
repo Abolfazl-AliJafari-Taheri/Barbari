@@ -43,7 +43,7 @@
                 <TextBox Name="PassWord_Txt" materialDesign:HintAssist.Hint="رمز عبور"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
             </Border>
             <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Mobile_Txt" materialDesign:HintAssist.Hint="شماره تلفن"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
+                <TextBox Name="Mobile_Txt" materialDesign:HintAssist.Hint="شماره تلفن"  MaxLength="11"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
             </Border>
             <Border Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox

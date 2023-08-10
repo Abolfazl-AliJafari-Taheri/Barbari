@@ -165,6 +165,24 @@
     <Compile Include="Register Bar Ersali\TahvilRanande.xaml.cs">
       <DependentUpon>TahvilRanande.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Register Bar Tahvili\KalaTahviliComponent.xaml.cs">
+      <DependentUpon>KalaTahviliComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Register Bar Tahvili\RegisterForm_BarTahvili.xaml.cs">
+      <DependentUpon>RegisterForm_BarTahvili.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Register Bar Tahvili\RegisterStep1_BarTahvili.xaml.cs">
+      <DependentUpon>RegisterStep1_BarTahvili.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Register Bar Tahvili\RegisterStep2_BarTahvili.xaml.cs">
+      <DependentUpon>RegisterStep2_BarTahvili.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Register Bar Tahvili\RegisterStep3_BarTahvili.xaml.cs">
+      <DependentUpon>RegisterStep3_BarTahvili.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Register Bar Tahvili\RegisterStep4_BarTahvili.xaml.cs">
+      <DependentUpon>RegisterStep4_BarTahvili.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Role\AddRole.xaml.cs">
       <DependentUpon>AddRole.xaml</DependentUpon>
     </Compile>
@@ -329,6 +347,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Register Bar Tahvili\KalaTahviliComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Register Bar Tahvili\RegisterForm_BarTahvili.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Register Bar Tahvili\RegisterStep1_BarTahvili.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Register Bar Tahvili\RegisterStep2_BarTahvili.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Register Bar Tahvili\RegisterStep3_BarTahvili.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Register Bar Tahvili\RegisterStep4_BarTahvili.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Role\AddRole.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -453,6 +495,10 @@
   <ItemGroup>
     <Resource Include="Source\Icones\User Icon Role%28Gray%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Icones\Seprator Step Bar Thavili.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
