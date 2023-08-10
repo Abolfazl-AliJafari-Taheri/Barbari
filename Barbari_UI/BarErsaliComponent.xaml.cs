@@ -108,16 +108,13 @@ namespace Barbari_UI
             string content = Thvil_Btn.Content.ToString();
             if(content == "تحویل به راننده")
             {
-       await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali,false) { Height = 453, Width = 622 });
+                await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali, false) { Height = 453, Width = 622 });
 
             }
             else
             {
-                var result = Barbari_DAL.BarErsali.Back_To_Anbar(BarErsali.BarErsaliBarname);
-                if(!result.Success)
-                {
-                    MessageBox.Show("خطایی رخ داده است لطفا با پشتیبان تماس بگیرید");
-                }
+                await WindowsAndPages.home_Window.DialogHost.ShowDialog(new SubmitDelete(CodeBarname: BarErsali.BarErsaliBarname) { Height = 160, Width = 400 });
+               
             }
             WindowsAndPages.barErsali.Refresh("");
         }

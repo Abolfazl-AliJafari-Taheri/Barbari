@@ -128,6 +128,11 @@ namespace Barbari_UI
                     }
             }
         }
+
+        private void Mobile_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
         //bool Validait()
         //{
         //    if(FirstName_Txt.Text == FirstName_Txt.Tag.ToString())

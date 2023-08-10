@@ -24,7 +24,7 @@ namespace Barbari_UI
     /// </summary>
     public partial class SubmitDelete : UserControl
     {
-        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null)
+        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null , int CodeBarname = 0)
         {
             user= User;
             city= City;
@@ -35,6 +35,7 @@ namespace Barbari_UI
             kalaTahvili= KalaTahvili;
             customer= Customer;
             role = Role;
+            codeBaarname = CodeBarname;
             InitializeComponent();
         }
         Users_Tbl user;
@@ -46,6 +47,7 @@ namespace Barbari_UI
         KalaDaryafti_Tbl kalaDaryafti; 
         KalaTahvili_Tbl kalaTahvili;
         Roles_Tbl role;
+        int codeBaarname;
         private void SubmitDelete_Btn_Click(object sender, RoutedEventArgs e)
         {
             
@@ -126,6 +128,32 @@ namespace Barbari_UI
                     DialogHost.CloseDialogCommand.Execute(null, null);
                     WindowsAndPages.setting.RefreshRoles();
                 }
+            }
+            else if (codeBaarname != 0)
+            {
+                Massage_TxtBlock.Text = "آیا از تغییر وضعیت بار مطمئن هستید؟";
+                SubmitDelete_Btn.Content = "بله";
+                var result = Barbari_DAL.BarErsali.Back_To_Anbar(codeBaarname);
+                if (!result.Success)
+                {
+                    MessageBox.Show("خطایی رخ داده است لطفا با پشتیبان تماس بگیرید");
+                }
+                else
+                {
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    WindowsAndPages.barErsali.Refresh();
+                }
+            }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+           if (codeBaarname != 0)
+            {
+                Massage_TxtBlock.Text = "آیا از تغییر وضعیت بار مطمئن هستید؟";
+                SubmitDelete_Btn.Content = "بله";
+                SubmitDelete_Btn.FontSize = 20;
+                Massage_TxtBlock.FontSize = 20;
             }
         }
     }

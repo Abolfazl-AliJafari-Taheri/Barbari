@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Barbari_UI.Register_Bar_Tahvili.KalaTahviliComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Barbari_UI.Register_Bar_Tahvili"
+             mc:Ignorable="d" 
+               d:DesignHeight="72" d:DesignWidth="558"
+             Margin="0 8 0 0"
+             Loaded="UserControl_Loaded">
+    <Border CornerRadius="8" Background="#FFFFFF">
+        <Grid FlowDirection="RightToLeft">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="52"/>
+                <ColumnDefinition Width="182.5"/>
+                <ColumnDefinition Width="93"/>
+                <ColumnDefinition Width="182.5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="Row_TxtBlock" Grid.Column="0" FontWeight="SemiBold" Text="ردیف" FontSize="16" FontFamily="IRANSansX" Height="22" HorizontalAlignment="Center" Width="auto"/>
+            <TextBlock Name="Name_TxtBlock" Grid.Column="1" FontWeight="SemiBold" Text="نام کالا" FontSize="16" FontFamily="IRANSansX" Height="22" HorizontalAlignment="Center" Width="auto"/>
+            <TextBlock Name="Number_TxtBlock" Grid.Column="2" FontWeight="SemiBold" Text="تعداد کالا" FontSize="16" FontFamily="IRANSansX" Height="22" HorizontalAlignment="Center" Width="auto"/>
+            <TextBlock Name="Price_TxtBlock" Grid.Column="3" FontWeight="SemiBold" Text="ارزش کالا" FontSize="16" FontFamily="IRANSansX" Height="22" HorizontalAlignment="Center" Width="auto"/>
+            <Button
+                        Name="Delte_Btn"
+                        Grid.Column="4"
+                Background="Transparent"
+                BorderThickness="0"
+                Foreground="#D90000"
+                Grid.Row="3"
+                        Width="32"
+                        Height="32"
+                Padding="0"
+                FontFamily="IRANSansX"
+                HorizontalAlignment="Center"
+                Click="Delte_Btn_Click"
+                >
+                <Image Grid.Column="4" Height="32" Width="32" Source="/Source/Icones/Delete Kala Icon(Red).png"/>
+
+            </Button>
+
+
+        </Grid>
+    </Border>
+</UserControl>
