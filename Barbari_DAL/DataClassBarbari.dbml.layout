@@ -1,110 +1,110 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 15.125" name="DataClassBarbari">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18.625, 14.375" name="DataClassBarbari">
   <DataContextMoniker Name="/DataClassBarbariDataContext" />
   <nestedChildShapes>
-    <classShape Id="22c51c43-4799-4397-b694-ccbf80830c77" absoluteBounds="9.25, 0.75, 2, 6.1938297526041666">
+    <classShape Id="22c51c43-4799-4397-b694-ccbf80830c77" absoluteBounds="13, 1.125, 2, 6.1938297526041666">
       <DataClassMoniker Name="/DataClassBarbariDataContext/BarErsali_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="5d31e1a6-61c9-437f-ac88-b24fa6721f94" absoluteBounds="9.265, 1.21, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5d31e1a6-61c9-437f-ac88-b24fa6721f94" absoluteBounds="13.015, 1.585, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f99e0892-dadd-428a-a505-a72dd2616743" absoluteBounds="3.5, 7.75, 2, 2.1554996744791683">
+    <classShape Id="f99e0892-dadd-428a-a505-a72dd2616743" absoluteBounds="6.375, 6.625, 2, 2.1554996744791683">
       <DataClassMoniker Name="/DataClassBarbariDataContext/Users_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="5b6034b7-e3d4-42ee-bc1a-824707c0129c" absoluteBounds="3.515, 8.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5b6034b7-e3d4-42ee-bc1a-824707c0129c" absoluteBounds="6.3900000000000006, 7.0850000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9058e369-d59e-45e0-b02e-770ce8c54c31" absoluteBounds="6.25, 6.25, 2, 5.2323225911458326">
+    <classShape Id="9058e369-d59e-45e0-b02e-770ce8c54c31" absoluteBounds="13, 8.125, 2, 5.2323225911458326">
       <DataClassMoniker Name="/DataClassBarbariDataContext/BarTahvili_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="113cc2e4-0013-4336-9266-257c01b2af14" absoluteBounds="6.265, 6.71, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="113cc2e4-0013-4336-9266-257c01b2af14" absoluteBounds="13.015, 8.585, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="79a5e8bb-882f-4384-aca8-abb4cf721d51" absoluteBounds="0.75, 2.125, 2, 1.5785953776041666">
+    <classShape Id="79a5e8bb-882f-4384-aca8-abb4cf721d51" absoluteBounds="6.375, 12.5, 2, 1.5785953776041666">
       <DataClassMoniker Name="/DataClassBarbariDataContext/City_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="af779e5b-fa50-4174-8082-a623531d0544" absoluteBounds="0.765, 2.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="af779e5b-fa50-4174-8082-a623531d0544" absoluteBounds="6.39, 12.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6bdd5458-7185-4ff9-adf1-5bcd014cd18c" absoluteBounds="9.75, 11.125, 2, 1.7708968098958344">
+    <classShape Id="6bdd5458-7185-4ff9-adf1-5bcd014cd18c" absoluteBounds="6.375, 9.75, 2, 1.7708968098958344">
       <DataClassMoniker Name="/DataClassBarbariDataContext/Company_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="62fd78db-6af8-4adc-a4ef-3958557162cc" absoluteBounds="9.765, 11.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="62fd78db-6af8-4adc-a4ef-3958557162cc" absoluteBounds="6.3900000000000006, 10.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="528727da-a82c-4bf4-bbf0-edabafb2f684" absoluteBounds="6.5, 12.875, 2, 1.9631982421874987">
+    <classShape Id="528727da-a82c-4bf4-bbf0-edabafb2f684" absoluteBounds="6.375, 1.375, 2, 1.9631982421874987">
       <DataClassMoniker Name="/DataClassBarbariDataContext/Customers_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="db25f6bb-3a5c-4366-bc45-4d34a2b48e13" absoluteBounds="6.515, 13.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="db25f6bb-3a5c-4366-bc45-4d34a2b48e13" absoluteBounds="6.3900000000000006, 1.8350000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b6472a9b-f5e8-435a-aa20-6b1e469d62d2" absoluteBounds="12, 3, 2, 1.7708968098958326">
+    <classShape Id="b6472a9b-f5e8-435a-aa20-6b1e469d62d2" absoluteBounds="16.375, 3.25, 2, 1.7708968098958326">
       <DataClassMoniker Name="/DataClassBarbariDataContext/KalaDaryafti_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="980ab955-94f4-442b-a464-10b7fbf91781" absoluteBounds="12.015, 3.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="980ab955-94f4-442b-a464-10b7fbf91781" absoluteBounds="16.39, 3.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4cefab35-77dc-46a2-8e26-5beff09fe0c4" absoluteBounds="9, 8, 2, 1.5785953776041683">
+    <classShape Id="4cefab35-77dc-46a2-8e26-5beff09fe0c4" absoluteBounds="16.375, 10.125, 2, 1.5785953776041683">
       <DataClassMoniker Name="/DataClassBarbariDataContext/KalaTahvili_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="6ca9122c-9425-4ba0-8369-ccda8b55ccc0" absoluteBounds="9.015, 8.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6ca9122c-9425-4ba0-8369-ccda8b55ccc0" absoluteBounds="16.39, 10.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fe160c81-a81e-4b84-8932-05ba6b9d4958" absoluteBounds="6.5, 3.375, 2, 1.7708968098958331">
+    <classShape Id="fe160c81-a81e-4b84-8932-05ba6b9d4958" absoluteBounds="6.375, 4, 2, 1.7708968098958331">
       <DataClassMoniker Name="/DataClassBarbariDataContext/Ranande_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="3487b87b-2171-497a-b241-56aad4afa613" absoluteBounds="6.515, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3487b87b-2171-497a-b241-56aad4afa613" absoluteBounds="6.39, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="bfad496b-fe1f-4d99-84df-1a2701e24708" absoluteBounds="0.75, 5.625, 2, 6.3861311848958326">
+    <classShape Id="bfad496b-fe1f-4d99-84df-1a2701e24708" absoluteBounds="0.75, 4.625, 2, 6.3861311848958326">
       <DataClassMoniker Name="/DataClassBarbariDataContext/Roles_Tbl" />
       <nestedChildShapes>
-        <elementListCompartment Id="57464f0e-8019-44b4-91c1-c6cfa91939ce" absoluteBounds="0.765, 6.085, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="57464f0e-8019-44b4-91c1-c6cfa91939ce" absoluteBounds="0.765, 5.085, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.5 : 7.75); (4.5 : 2.03125); (9.25 : 2.03125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.375 : 6.97191487630208); (13 : 6.97191487630208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Users_Tbl/Users_Tbl_BarErsali_Tbl" />
       <nodes>
         <classShapeMoniker Id="f99e0892-dadd-428a-a505-a72dd2616743" />
         <classShapeMoniker Id="22c51c43-4799-4397-b694-ccbf80830c77" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.82774983723958); (6.25 : 8.82774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.375 : 8.45274983723958); (13 : 8.45274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Users_Tbl/Users_Tbl_BarTahvili_Tbl" />
       <nodes>
         <classShapeMoniker Id="f99e0892-dadd-428a-a505-a72dd2616743" />
         <classShapeMoniker Id="9058e369-d59e-45e0-b02e-770ce8c54c31" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 13.8565991210937); (9.5 : 13.8565991210937); (9.5 : 9.82859537760417); (11.25 : 9.82859537760417); (11.25 : 7.31882975260417); (10.25 : 7.31882975260417); (10.25 : 6.94382975260417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.375 : 2.35659912109375); (13 : 2.35659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Customers_Tbl/Customers_Tbl_BarErsali_Tbl" />
       <nodes>
         <classShapeMoniker Id="528727da-a82c-4bf4-bbf0-edabafb2f684" />
         <classShapeMoniker Id="22c51c43-4799-4397-b694-ccbf80830c77" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 3.88544840494792); (12 : 3.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(15 : 4.13544840494792); (16.375 : 4.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassBarbariDataContext/BarErsali_Tbl/BarErsali_Tbl_KalaDaryafti_Tbl" />
       <nodes>
         <classShapeMoniker Id="22c51c43-4799-4397-b694-ccbf80830c77" />
         <classShapeMoniker Id="b6472a9b-f5e8-435a-aa20-6b1e469d62d2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 8.78929768880208); (9 : 8.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(15 : 10.9142976888021); (16.375 : 10.9142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassBarbariDataContext/BarTahvili_Tbl/BarTahvili_Tbl_KalaTahvili_Tbl" />
       <nodes>
         <classShapeMoniker Id="9058e369-d59e-45e0-b02e-770ce8c54c31" />
         <classShapeMoniker Id="4cefab35-77dc-46a2-8e26-5beff09fe0c4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 4.26044840494792); (9.25 : 4.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.375 : 4.88544840494792); (13 : 4.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Ranande_Tbl/Ranande_Tbl_BarErsali_Tbl" />
       <nodes>
         <classShapeMoniker Id="fe160c81-a81e-4b84-8932-05ba6b9d4958" />
         <classShapeMoniker Id="22c51c43-4799-4397-b694-ccbf80830c77" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.82774983723958); (3.5 : 8.82774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 7.70274983723958); (6.375 : 7.70274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassBarbariDataContext/Roles_Tbl/Roles_Tbl_Users_Tbl" />
       <nodes>
         <classShapeMoniker Id="bfad496b-fe1f-4d99-84df-1a2701e24708" />
