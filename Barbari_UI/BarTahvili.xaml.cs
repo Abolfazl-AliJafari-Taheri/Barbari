@@ -24,5 +24,10 @@ namespace Barbari_UI
         {
             InitializeComponent();
         }
+
+        private void Search_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
