@@ -96,6 +96,9 @@
   ToolTip="MaterialDesignActionLightToggleButton" />
                 <TextBlock Name="Step4_TxtBlock" Grid.Row="1" Grid.Column="6" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="اطلاعات بار" FontFamily="IRANSansX" Height="32" Width="auto" FontSize="18" Foreground="#BFBFBF"/>
             </Grid>
+            <Grid Name="ShowStep_Grid" Grid.Row="1">
+
+            </Grid>
             <Border Grid.Row="2" Background="#FAFAFA" BorderThickness="0" CornerRadius="0 0 8 8">
                 <Grid FlowDirection="LeftToRight" >
                     <Grid.ColumnDefinitions>
@@ -123,7 +126,7 @@
 
                     </Button>
                     <Border Grid.Column="2" Width="68" Height="48"  Background="#2B54A3" HorizontalAlignment="Left" CornerRadius="8" VerticalAlignment="Top" >
-                        <Button Name="NextStep_Btn"  Height="48" Click="NextStep_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="68" Content="بعدی" HorizontalAlignment="Center" Foreground="#FFFFFF" BorderThickness="0" FontFamily="IRANSansX" />
+                        <Button Name="NextStep_Btn"  Height="48" Click="NextStep_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="68" Content="بعدی" HorizontalAlignment="Center" Foreground="#FFFFFF" BorderThickness="0" FontFamily="IRANSansX" VerticalAlignment="Top" />
                     </Border>
                     <Border Grid.Column="1" Width="64" Height="48" Margin="0 0 16 0" HorizontalAlignment="Right" VerticalAlignment="Top" CornerRadius="8" BorderThickness="2" BorderBrush="#2B54A3" >
                         <Button Name="PerviuosStep_Btn" Click="PerviuosStep_Btn_Click"  FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Background="Transparent"  Width="60" Height="44" Content="قبلی"  Foreground="#2B54A3"  FontFamily="IRANSansX"></Button>

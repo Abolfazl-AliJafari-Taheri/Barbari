@@ -12,15 +12,13 @@
         <Grid FlowDirection="RightToLeft">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="52"/>
-                <ColumnDefinition Width="182.5"/>
+                <ColumnDefinition Width="365"/>
                 <ColumnDefinition Width="93"/>
-                <ColumnDefinition Width="182.5"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Name="Row_TxtBlock" Grid.Column="0" FontWeight="SemiBold" Text="ردیف" FontSize="16" FontFamily="IRANSansX" Height="22" HorizontalAlignment="Center" Width="auto"/>
             <TextBlock Name="Name_TxtBlock" Grid.Column="1" FontWeight="SemiBold" Text="نام کالا" FontSize="16" FontFamily="IRANSansX" Height="22" HorizontalAlignment="Center" Width="auto"/>
             <TextBlock Name="Number_TxtBlock" Grid.Column="2" FontWeight="SemiBold" Text="تعداد کالا" FontSize="16" FontFamily="IRANSansX" Height="22" HorizontalAlignment="Center" Width="auto"/>
-            <TextBlock Name="Price_TxtBlock" Grid.Column="3" FontWeight="SemiBold" Text="ارزش کالا" FontSize="16" FontFamily="IRANSansX" Height="22" HorizontalAlignment="Center" Width="auto"/>
             <Button
                         Name="Delte_Btn"
                         Grid.Column="4"

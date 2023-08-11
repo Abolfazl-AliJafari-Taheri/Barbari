@@ -321,6 +321,14 @@ namespace Barbari_UI.Register_Bar_Ersali
             string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(DateSodor_DtPicker.Text));
         }
 
+        private void KalaPrice_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(KalaPrice_Txt.Text))
+            {
+                KalaPrice_Txt.Text = 0.ToString();
+            }
+        }
+
         //private void DateSodor_DtPicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         //{
         //    if(dateLoaded ==true)

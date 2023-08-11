@@ -24,7 +24,7 @@ namespace Barbari_UI
     /// </summary>
     public partial class SubmitDelete : UserControl
     {
-        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null , int CodeBarname = 0)
+        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null , int CodeBarname = 0,int CodeKalaDaryafti = 0,int CodeBarnameKalaDaryafti = 0)
         {
             user= User;
             city= City;
@@ -36,6 +36,8 @@ namespace Barbari_UI
             customer= Customer;
             role = Role;
             codeBaarname = CodeBarname;
+            codeKalaDaryafti = CodeKalaDaryafti;
+            codeBarnameKalaDaryafti = CodeBarnameKalaDaryafti;
             InitializeComponent();
         }
         Users_Tbl user;
@@ -48,6 +50,8 @@ namespace Barbari_UI
         KalaTahvili_Tbl kalaTahvili;
         Roles_Tbl role;
         int codeBaarname;
+        int codeKalaDaryafti;
+        int codeBarnameKalaDaryafti;
         private void SubmitDelete_Btn_Click(object sender, RoutedEventArgs e)
         {
             
@@ -131,9 +135,20 @@ namespace Barbari_UI
             }
             else if (codeBaarname != 0)
             {
-                Massage_TxtBlock.Text = "آیا از تغییر وضعیت بار مطمئن هستید؟";
-                SubmitDelete_Btn.Content = "بله";
                 var result = Barbari_DAL.BarErsali.Back_To_Anbar(codeBaarname);
+                if (!result.Success)
+                {
+                    MessageBox.Show("خطایی رخ داده است لطفا با پشتیبان تماس بگیرید");
+                }
+                else
+                {
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    WindowsAndPages.barErsali.Refresh();
+                }
+            }
+            else if (codeKalaDaryafti != 0 && codeBarnameKalaDaryafti!= 0)
+            {
+                var result = Barbari_DAL.BarErsali.Delete_KalaDaryafti(codeBarnameKalaDaryafti,codeKalaDaryafti);
                 if (!result.Success)
                 {
                     MessageBox.Show("خطایی رخ داده است لطفا با پشتیبان تماس بگیرید");

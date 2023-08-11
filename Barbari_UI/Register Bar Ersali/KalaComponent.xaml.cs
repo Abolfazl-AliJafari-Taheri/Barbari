@@ -1,4 +1,5 @@
 ﻿using Barbari_DAL;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,7 +57,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             Price_TxtBlock.Text = Kala.KalaDaryaftiArzeshKala.ToString();
         }
 
-        private void Delte_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Delte_Btn_Click(object sender, RoutedEventArgs e)
         {
             if(!edit)
             {
@@ -65,16 +66,8 @@ namespace Barbari_UI.Register_Bar_Ersali
             }
             else
             {
-
-                var result = Barbari_BLL.BarErsali.Delete_KalaDaryafti(Kala.KalaDaryaftiBarname,Kala.KalaDaryaftiCodeKala);
-                if(result.Success)
-                {
-                    WindowsAndPages.editFormBarErsali.step3.RefreshKala();
-                }
-                else
-                {
-                    MessageBox.Show(result.Message);
-                }
+                await WindowsAndPages.editFormBarErsali.step3.DialogHost.ShowDialog(new SubmitDelete(CodeBarnameKalaDaryafti:Kala.KalaDaryaftiBarname,CodeKalaDaryafti:Kala.KalaDaryaftiCodeKala) { Height = 160, Width = 400 });
+                WindowsAndPages.editFormBarErsali.step3.RefreshKala();
             }
           
         }

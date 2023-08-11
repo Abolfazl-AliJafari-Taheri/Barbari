@@ -64,7 +64,6 @@ namespace Barbari_UI.Register_Bar_Tahvili
             }
             else
             {
-
                 var result = Barbari_BLL.BarTahvili.Delete_KalaTahvili(Kala.KalaTahviliBarname, Kala.KalaTahviliCodeKala);
                 if (result.Success)
                 {

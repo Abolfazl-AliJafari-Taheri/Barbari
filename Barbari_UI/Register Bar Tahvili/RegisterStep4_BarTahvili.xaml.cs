@@ -46,10 +46,10 @@ namespace Barbari_UI.Register_Bar_Tahvili
         {
 
         }
-        public List<KalaDaryafti_Tbl> GetKalas()
+        public List<KalaTahvili_Tbl> GetKalas()
         {
-            List<KalaDaryafti_Tbl> Kalas = new List<KalaDaryafti_Tbl>();
-            foreach (KalaComponent kala in ShowKala_StckPnl.Children)
+            List<KalaTahvili_Tbl> Kalas = new List<KalaTahvili_Tbl>();
+            foreach (KalaTahviliComponent kala in ShowKala_StckPnl.Children)
             {
                 if (kala.Visibility == Visibility.Visible)
                 {
@@ -293,7 +293,6 @@ namespace Barbari_UI.Register_Bar_Tahvili
             PishKeraye_Txt.Text = 0.ToString();
             PasKeraye_Txt.Text = 0.ToString();
             FillDateTime();
-            PrintToggle.IsChecked = false;
             SendSmsToggle.IsChecked = false;
 
         }
@@ -301,6 +300,14 @@ namespace Barbari_UI.Register_Bar_Tahvili
         private void DateSodor_DtPicker_SelectedDateChanged(object sender, RoutedEventArgs e)
         {
             string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(DateSodor_DtPicker.Text));
+        }
+
+        private void KalaPrice_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(KalaPrice_Txt.Text))
+            {
+                KalaPrice_Txt.Text = 0.ToString();
+            }
         }
 
         //private void DateSodor_DtPicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

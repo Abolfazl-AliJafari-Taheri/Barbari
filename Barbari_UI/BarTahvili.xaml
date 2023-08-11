@@ -1,14 +1,74 @@
 ﻿<Page x:Class="Barbari_UI.BarTahvili"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Barbari_UI"
       mc:Ignorable="d" 
-      d:DesignHeight="930" d:DesignWidth="1191"
-      Title="BarTahvili">
+       d:DesignHeight="930" d:DesignWidth="1191"
+      Title="بار ارسالی"
+      Loaded="Page_Loaded">
 
-    <Grid>
-        
+    <Grid Background="#F7F7F7">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="86"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" FlowDirection="RightToLeft">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="479"/>
+                <ColumnDefinition Width="258"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontFamily="IRANSansX" FontSize="44" FontWeight="Medium" Text="بار های ارسالی" Height="62" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="24 0 0 0"/>
+            <Image Grid.Column="1"  Width="455" Height="3" Source="/Source/Icones/Seprator (Gray Border).png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 0 31"/>
+            <Border Grid.Column="2" Width="234" Height="48" CornerRadius="8" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 0 7">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="34"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="Search_Btn" Height="18" Width="18" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Padding="0" HorizontalAlignment="Right">
+                        <Image Height="18" Width="18"  Source="/Source/Icones/Search Feild Icon.png" />
+
+                    </Button>
+                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="جستجو"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" Name="Search_Txt"  BorderThickness="0" VerticalContentAlignment="Center" Margin="8 0 8 0"  FontFamily="IRANSansX" FontSize="14" TextChanged="Search_Txt_TextChanged"/>
+                </Grid>
+            </Border>
+            <Border Grid.Column="3" Height="48" Width="132" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 24 7" CornerRadius="8" Background="#2B54A3"  >
+                <Button Name="Add_Btn" Height="48" Padding="0" Width="132" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="Add_Btn_Click" VerticalAlignment="Top"   >
+                    <Grid Width="132">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="42"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 12 0" ><Run Text="افزودن بار"/></TextBlock>
+                        <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Width="24" Source="/Source/Icones/Add Btn Icon (White Border).png" />
+                    </Grid>
+                </Button>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1" Width="1143" FlowDirection="RightToLeft" Height="46" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="فرستنده" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="2" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="شهر مبدا" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="1" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="گیرنده" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="3" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="وضعیت" HorizontalAlignment="Center" Height="22"/>
+            <TextBlock Grid.Column="4" FontFamily="IRANSansX" FontWeight="SemiBold" FontSize="16" Text="عملیات" HorizontalAlignment="Center" Height="22"/>
+        </Grid>
+        <ScrollViewer Grid.Row="2"  VerticalScrollBarVisibility="Hidden">
+            <StackPanel Name="ShowRanade_StckPnl">
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

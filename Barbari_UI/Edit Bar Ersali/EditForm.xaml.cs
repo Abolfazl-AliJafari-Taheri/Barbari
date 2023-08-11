@@ -161,73 +161,119 @@ namespace Barbari_UI.Edit_Bar_Ersali
             UnSelectBarInfo();
             SelectRanandeInfo();
         }
-
+        bool Validation ()
+        {
+            if (createStep1)
+            {
+                var validation_Ferestandeh = Barbari_BLL.Validation.BarErsali_Validation_EtelatFerestande(step1.CityMabda_CmBox.Text, step1.AnbarMabda_CmBox.Text, step1.FirstName_Txt.Text,
+   step1.LastName_Txt.Text, step1.Mobile_Txt.Text, step1.Code_CmBox.Text, (bool)step1.BimariToggle.IsChecked);
+                if (!validation_Ferestandeh.Success)
+                {
+                    MessageBox.Show(validation_Ferestandeh.Message);
+                    return false;
+                }
+            }
+            if (createStep2)
+            {
+                var validaition_Girande = Barbari_BLL.Validation.BarErsali_Validation_EtelatGerande(step2.CityMaghsad_CmBox.Text, step2.AnbarMaghsad_CmBox.Text,
+                   step2.FirstName_Txt.Text, step2.LastName_Txt.Text, step2.Mobile_Txt.Text,
+                   step2.CityMaghsadFinal_CmBox.Text, step2.AnbarMaghsadFinal_CmBox.Text,
+                   (bool)step2.AddSecondMaghsadToggle.IsChecked);
+                if (!validaition_Girande.Success)
+                {
+                    MessageBox.Show(validaition_Girande.Message);
+                    return false;
+                }
+            }
+            if (createStep3)
+            {
+                var validaition_Bar = Barbari_BLL.Validation.BarErsali_Validation_EtelatBar(step3.PishKeraye_Txt.Text, step3.PasKeraye_Txt.Text,
+    step3.Bime_Txt.Text, step3.AnbarDari_Txt.Text,
+    step3.Shahri_Txt.Text, step3.BasteBandi_Txt.Text);
+                if (!validaition_Bar.Success)
+                {
+                    MessageBox.Show(validaition_Bar.Message);
+                    return false;
+                }
+            }
+            return true;
+        }
         private void Save_Btn_Click(object sender, RoutedEventArgs e)
         {
             bool CustomerReg  =false;
             bool MaghsadFinal = false;
-            if (createStep1)
+            if (Validation())
             {
-                BarErsali.BarErsaliShahreMabda = step1.CityMabda_CmBox.Text;
-                BarErsali.BarErsaliAnbarMabda = step1.AnbarMabda_CmBox.Text;
-                BarErsali.BarErsaliNamFerestande = step1.FirstName_Txt.Text;
-                BarErsali.BarErsaliFamilyFerestande = step1.LastName_Txt.Text;
-                BarErsali.BarErsaliMobileFerestande = step1.Mobile_Txt.Text;
-                if ((bool)step1.BimariToggle.IsChecked)
+
+
+                if (createStep1)
                 {
-                    int.TryParse(step1.Code_CmBox.Text, out int code);
-                    BarErsali.BarErsaliCodeFerestande = code;
+                    BarErsali.BarErsaliShahreMabda = step1.CityMabda_CmBox.Text;
+                    BarErsali.BarErsaliAnbarMabda = step1.AnbarMabda_CmBox.Text;
+                    BarErsali.BarErsaliNamFerestande = step1.FirstName_Txt.Text;
+                    BarErsali.BarErsaliFamilyFerestande = step1.LastName_Txt.Text;
+                    BarErsali.BarErsaliMobileFerestande = step1.Mobile_Txt.Text;
+                    if ((bool)step1.BimariToggle.IsChecked)
+                    {
+                        int.TryParse(step1.Code_CmBox.Text, out int code);
+                        BarErsali.BarErsaliCodeFerestande = code;
+
+                    }
+                    CustomerReg = (bool)step1.BimariToggle.IsChecked;
 
                 }
-                CustomerReg = (bool)step1.BimariToggle.IsChecked;
-
-            }
-            if (createStep2)
-            {
-                BarErsali.BarErsaliShahreMaghsad1 = step2.CityMaghsad_CmBox.Text;
-                BarErsali.BarErsaliAnbarMaghsad1 = step2.AnbarMaghsad_CmBox.Text;
-                BarErsali.BarErsaliNamGerande = step2.FirstName_Txt.Text;
-                BarErsali.BarErsaliFamilyGerande = step2.LastName_Txt.Text;
-                BarErsali.BarErsaliMobileGerande = step2.Mobile_Txt.Text;
-                if ((bool)step2.AddSecondMaghsadToggle.IsChecked)
+                if (createStep2)
                 {
-                    BarErsali.BarErsaliAnbarMaghsad2 = step2.AnbarMaghsadFinal_CmBox.Text;
-                    BarErsali.BarErsaliShahreMaghsad2 = step2.CityMaghsadFinal_CmBox.Text;
+                    BarErsali.BarErsaliShahreMaghsad1 = step2.CityMaghsad_CmBox.Text;
+                    BarErsali.BarErsaliAnbarMaghsad1 = step2.AnbarMaghsad_CmBox.Text;
+                    BarErsali.BarErsaliNamGerande = step2.FirstName_Txt.Text;
+                    BarErsali.BarErsaliFamilyGerande = step2.LastName_Txt.Text;
+                    BarErsali.BarErsaliMobileGerande = step2.Mobile_Txt.Text;
+                    if ((bool)step2.AddSecondMaghsadToggle.IsChecked)
+                    {
+                        BarErsali.BarErsaliAnbarMaghsad2 = step2.AnbarMaghsadFinal_CmBox.Text;
+                        BarErsali.BarErsaliShahreMaghsad2 = step2.CityMaghsadFinal_CmBox.Text;
+                    }
+                    MaghsadFinal = (bool)step2.AddSecondMaghsadToggle.IsChecked;
                 }
-                 MaghsadFinal = (bool)step2.AddSecondMaghsadToggle.IsChecked;
-            }
-            if(createStep3)
-            {
-                BarErsali.BarErsaliAnbardari = decimal.Parse(step3.AnbarDari_Txt.Text);
-                BarErsali.BarErsaliBastebandi = decimal.Parse(step3.BasteBandi_Txt.Text);
-                BarErsali.BarErsaliShahri = decimal.Parse(step3.Shahri_Txt.Text);
-                BarErsali.BarErsaliBime = decimal.Parse(step3.Bime_Txt.Text);
-                BarErsali.BarErsaliPishKeraye = decimal.Parse(step3.PishKeraye_Txt.Text);
-                BarErsali.BarErsaliPasKeraye = decimal.Parse(step3.PasKeraye_Txt.Text);
-                BarErsali.BarErsaliSaat = step3.HourSodor_TmPicker.Text;
-                BarErsali.BarErsaliTarikh = step3.DateSodor_DtPicker.Text;
-            }
-            BarErsali.BarErsaliUserNameKarmand = WindowsAndPages.home_Window.User.UsersUserName;
-            if(createTahvil)
-            {
-                BarErsali.BarErsaliNamRanande = tahvilRanande.FirstName_Txt.Text;
-                BarErsali.BarErsaliFamilyRanande = tahvilRanande.LastName_Txt.Text;
-                BarErsali.BarErsaliMobileRanande = tahvilRanande.Mobile_Txt.Text;
-                BarErsali.BarErsaliKerayeRanande = int.Parse(tahvilRanande.Price_Txt.Text);
-                if((bool)tahvilRanande.Registered_Ranande.IsChecked)
+                if (createStep3)
                 {
-                    BarErsali.BarErsaliCodeRanande = int.Parse(tahvilRanande.Code_CmBox.Text);
-                }
-            }
 
-            var result = Barbari_BLL.BarErsali.Update(BarErsali,CustomerReg,MaghsadFinal,RanandeInfo_Btn.IsEnabled);
-            if (result.Success)
-            {
-                DialogHost.CloseDialogCommand.Execute(null, null);
-            }
-            else
-            {
-                MessageBox.Show(result.Message);
+                    BarErsali.BarErsaliAnbardari = decimal.Parse(step3.AnbarDari_Txt.Text);
+                    BarErsali.BarErsaliBastebandi = decimal.Parse(step3.BasteBandi_Txt.Text);
+                    BarErsali.BarErsaliShahri = decimal.Parse(step3.Shahri_Txt.Text);
+                    BarErsali.BarErsaliBime = decimal.Parse(step3.Bime_Txt.Text);
+                    BarErsali.BarErsaliPishKeraye = decimal.Parse(step3.PishKeraye_Txt.Text);
+                    BarErsali.BarErsaliPasKeraye = decimal.Parse(step3.PasKeraye_Txt.Text);
+                    BarErsali.BarErsaliSaat = step3.HourSodor_TmPicker.Text;
+                    BarErsali.BarErsaliTarikh = step3.DateSodor_DtPicker.Text;
+                }
+                BarErsali.BarErsaliUserNameKarmand = WindowsAndPages.home_Window.User.UsersUserName;
+                if (createTahvil)
+                {
+                    BarErsali.BarErsaliNamRanande = tahvilRanande.FirstName_Txt.Text;
+                    BarErsali.BarErsaliFamilyRanande = tahvilRanande.LastName_Txt.Text;
+                    BarErsali.BarErsaliMobileRanande = tahvilRanande.Mobile_Txt.Text;
+                    BarErsali.BarErsaliKerayeRanande = int.Parse(tahvilRanande.Price_Txt.Text);
+                    if ((bool)tahvilRanande.Registered_Ranande.IsChecked)
+                    {
+                        BarErsali.BarErsaliCodeRanande = int.Parse(tahvilRanande.Code_CmBox.Text);
+                    }
+                    else
+                    {
+                        BarErsali.BarErsaliCodeRanande = null;
+                    }
+                }
+
+                var result = Barbari_BLL.BarErsali.Update(BarErsali, CustomerReg, MaghsadFinal, RanandeInfo_Btn.IsEnabled);
+                if (result.Success)
+                {
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(result.Message);
+                }
             }
         }
 

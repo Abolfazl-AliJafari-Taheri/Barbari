@@ -12,7 +12,6 @@
         Closing="Window_Closing">
     <Grid FlowDirection="RightToLeft"  Background="#F7F7F7">
         <materialDesign:DialogHost Name="DialogHost"
-                     
   DialogTheme="Light"
   DialogContentUniformCornerRadius="8">
             <Grid Background="#F7F7F7">

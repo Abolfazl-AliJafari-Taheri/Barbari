@@ -52,7 +52,7 @@
                         <TextBox x:Name="KalaNumber_Txt" materialDesign:HintAssist.Hint="تعداد کالا" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
                     </Border>
                     <Border Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="136.67">
-                        <TextBox x:Name="KalaPrice_Txt" materialDesign:HintAssist.Hint="ارزش کالا" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  />
+                        <TextBox x:Name="KalaPrice_Txt" materialDesign:HintAssist.Hint="ارزش کالا" Text="0" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="KalaPrice_Txt_TextChanged"  />
                     </Border>
                     <Border Grid.Column="3" Height="48" Width="100" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
                         <Button x:Name="AddKala_Btn" Height="48" Padding="0" Width="100" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="AddKala_Btn_Click" >
