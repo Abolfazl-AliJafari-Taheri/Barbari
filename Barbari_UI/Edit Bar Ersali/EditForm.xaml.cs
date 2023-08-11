@@ -196,6 +196,16 @@ namespace Barbari_UI.Edit_Bar_Ersali
                     return false;
                 }
             }
+            if (createTahvil)
+            {
+                var validaition_Tahvil = Barbari_BLL.Validation.BarErsali_Validation_TahvilRanande(tahvilRanande.FirstName_Txt.Text,tahvilRanande.LastName_Txt.Text
+                    ,tahvilRanande.Mobile_Txt.Text,tahvilRanande.Price_Txt.Text,tahvilRanande.Code_CmBox.Text);
+                if (!validaition_Tahvil.Success)
+                {
+                    MessageBox.Show(validaition_Tahvil.Message);
+                    return false;
+                }
+            }
             return true;
         }
         private void Save_Btn_Click(object sender, RoutedEventArgs e)

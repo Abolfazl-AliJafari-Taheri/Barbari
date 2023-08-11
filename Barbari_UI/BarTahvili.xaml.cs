@@ -29,5 +29,15 @@ namespace Barbari_UI
         {
 
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
