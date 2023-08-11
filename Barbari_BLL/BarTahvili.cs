@@ -9,20 +9,39 @@ namespace Barbari_BLL
 {
     public class BarTahvili
     {
-        public static OperationResult<List<BarTahvili_Tbl>> Select(string search)
+        public static OperationResult<List<BarTahvili_Tbl>> Select(string search = "")
         {
-            var result = Barbari_DAL.BarTahvili.Select(search);
-            if (result.Success == true)
+            if (Validation.CheckNumberFormat(search))
             {
-                return result;
+                var result = Barbari_DAL.BarTahvili.Select_Barname(search);
+                if (result.Success == true)
+                {
+                    return result;
+                }
+                else
+                {
+                    return new OperationResult<List<BarTahvili_Tbl>>
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
             }
             else
             {
-                return new OperationResult<List<BarTahvili_Tbl>>
+                var result = Barbari_DAL.BarTahvili.Select_NamAndFamily(search);
+                if (result.Success == true)
                 {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
+                    return result;
+                }
+                else
+                {
+                    return new OperationResult<List<BarTahvili_Tbl>>
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
             }
         }
         public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBarname)
@@ -258,7 +277,45 @@ namespace Barbari_BLL
 
             }
         }
-        public static OperationResult Update(BarTahvili_Tbl barTahvili)
+        public static OperationResult Back_To_Anbar(int CodeBarname)
+        {
+            var result = Barbari_DAL.BarTahvili.Back_To_Anbar(CodeBarname);
+            if (result.Success == true)
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
+        public static OperationResult Update_BarTahviliUserNameKarmand(int BarErsaliBarname, string BarErsaliUserNameKarmand)
+        {
+            var result = Barbari_DAL.BarTahvili.Update_BarTahviliUserNameKarmand(BarErsaliBarname, BarErsaliUserNameKarmand);
+            if (result.Success == true)
+            {
+                return new OperationResult
+                {
+                    Success = true,
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
+        public static OperationResult Update(BarTahvili_Tbl barTahvili , bool TahvilMoshtari)
         {
             var result1 = Validation.BarTahvili_Validation_EtelatFerestande(barTahvili.BarTahviliShahrFerestande,
                 barTahvili.BarTahviliNamFerestande, barTahvili.BarTahviliFamilyFerestande, barTahvili.BarTahviliMobileFerestande);
@@ -272,6 +329,18 @@ namespace Barbari_BLL
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande, barTahvili.BarTahviliFamilyRanande,
                 barTahvili.BarTahviliMobileRanande);
 
+            if (TahvilMoshtari == true)
+            {
+                var result5 = Validation.BarTahvili_Validation_TahvilMoshtari(barTahvili.BarTahviliRaveshEhrazHoviat, barTahvili.BarTahviliRaveshEhrazHoviatText);
+                if (result5.Success == false)
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = result5.Message
+                    };
+                }
+            }
             if (result1.Success == false)
             {
                 return new OperationResult
