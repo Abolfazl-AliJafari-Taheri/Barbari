@@ -293,7 +293,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             PishKeraye_Txt.Text = 0.ToString();
             PasKeraye_Txt.Text = 0.ToString();
             FillDateTime();
-            PrintToggle.IsChecked = false;
+            //PrintToggle.IsChecked = false;
             SendSmsToggle.IsChecked = false;
 
         }
