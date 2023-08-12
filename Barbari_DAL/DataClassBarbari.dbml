@@ -52,7 +52,7 @@
   </Table>
   <Table Name="dbo.BarTahvili_Tbl" Member="BarTahvili_Tbls">
     <Type Name="BarTahvili_Tbl">
-      <Column Name="BarTahviliCodeBar" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BarTahviliCodeBar" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="BarTahviliBarname" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliNamFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliFamilyFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
