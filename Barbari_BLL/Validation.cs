@@ -1203,10 +1203,34 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult barTahvili_Validation_EtelatBar(string BarTahviliPishKeraye , string BarTahviliPasKeraye
+        public static OperationResult barTahvili_Validation_EtelatBar(string CodeBarname, string BarTahviliPishKeraye, string BarTahviliPasKeraye
             , string BarTahviliBime, string BarTahviliAnbardari, string BarTahviliShahri, string BarTahviliBastebandi)
         {
-            if (string.IsNullOrEmpty(BarTahviliPishKeraye))
+            if (string.IsNullOrEmpty(CodeBarname))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "کد بارنامه را وارد کنید"
+                };
+            }
+            else if (!CheckNumberFormat(CodeBarname))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل کد بارنامه فقط میشه عدد وارد کرد"
+                };
+            }
+            else if (CheckRangeDataType(CodeBarname , 12))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "کد بارنامه نباید بیشتر از 12 عدد باشد"
+                };
+            }
+            else if (string.IsNullOrEmpty(BarTahviliPishKeraye))
             {
                 return new OperationResult
                 {

@@ -52,7 +52,8 @@
   </Table>
   <Table Name="dbo.BarTahvili_Tbl" Member="BarTahvili_Tbls">
     <Type Name="BarTahvili_Tbl">
-      <Column Name="BarTahviliBarname" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BarTahviliCodeBar" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BarTahviliBarname" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliNamFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliFamilyFerestande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliMobileFerestande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
@@ -75,7 +76,7 @@
       <Column Name="BarTahviliRaveshEhrazHoviat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BarTahviliRaveshEhrazHoviatText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BarTahviliUserNameKarmand" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="BarTahvili_Tbl_KalaTahvili_Tbl" Member="KalaTahvili_Tbls" ThisKey="BarTahviliBarname" OtherKey="KalaTahviliBarname" Type="KalaTahvili_Tbl" />
+      <Association Name="BarTahvili_Tbl_KalaTahvili_Tbl" Member="KalaTahvili_Tbls" ThisKey="BarTahviliCodeBar" OtherKey="KalaTahviliCodeBar" Type="KalaTahvili_Tbl" />
       <Association Name="Users_Tbl_BarTahvili_Tbl" Member="Users_Tbl" ThisKey="BarTahviliUserNameKarmand" OtherKey="UsersUserName" Type="Users_Tbl" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
@@ -120,10 +121,10 @@
   <Table Name="dbo.KalaTahvili_Tbl" Member="KalaTahvili_Tbls">
     <Type Name="KalaTahvili_Tbl">
       <Column Name="KalaTahviliCodeKala" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="KalaTahviliBarname" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KalaTahviliCodeBar" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="KalaTahviliNamKala" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="KalaTahviliTedadKala" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="BarTahvili_Tbl_KalaTahvili_Tbl" Member="BarTahvili_Tbl" ThisKey="KalaTahviliBarname" OtherKey="BarTahviliBarname" Type="BarTahvili_Tbl" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="BarTahvili_Tbl_KalaTahvili_Tbl" Member="BarTahvili_Tbl" ThisKey="KalaTahviliCodeBar" OtherKey="BarTahviliCodeBar" Type="BarTahvili_Tbl" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Ranande_Tbl" Member="Ranande_Tbls">

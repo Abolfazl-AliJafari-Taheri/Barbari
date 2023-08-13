@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,12 +51,12 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBarname)
+        public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBar)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.KalaTahvili_Tbls.Where(p => p.KalaTahviliBarname == codeBarname).ToList();
+                var query = linq.KalaTahvili_Tbls.Where(p => p.KalaTahviliCodeBar == codeBar).ToList();
                 return new OperationResult<List<KalaTahvili_Tbl>>
                 {
                     Success = true,
@@ -101,28 +102,23 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<int> Select_Barname_Last(DataClassBarbariDataContext linq = null)
+        public static OperationResult<int> Select_Barname_Last()
         {
-            linq = linq ?? new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarTahvili_Tbls.OrderByDescending(p => p.BarTahviliBarname).FirstOrDefault();
-                if (query != null)
+                SqlConnection conn = new SqlConnection(Properties.Settings.Default.Barbari_DbConnectionString);
+                string query = "SELECT IDENT_CURRENT ('BarTahvili_Tbl');";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                conn.Open();
+                int lastValue = Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+
+                return new OperationResult<int>
                 {
-                    return new OperationResult<int>
-                    {
-                        Success = true,
-                        Data = query.BarTahviliBarname
-                    };
-                }
-                else
-                {
-                    return new OperationResult<int>
-                    {
-                        Success = true,
-                        Data = 0
-                    };
-                }
+                    Success = true,
+                    Data = lastValue
+                };
             }
             catch
             {
@@ -138,7 +134,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == code).Single();
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliCodeBar == code).Single();
                 linq.BarTahvili_Tbls.DeleteOnSubmit(query);
                 linq.SubmitChanges();
                 return new OperationResult
@@ -155,12 +151,12 @@ namespace Barbari_DAL
             }
 
         }
-        public static OperationResult Delete_KalaTahvili(int codeBarname, int codeKalaTahvili)
+        public static OperationResult Delete_KalaTahvili(int codeBar, int codeKalaTahvili)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.KalaTahvili_Tbls.Where(p => p.KalaTahviliBarname == codeBarname &&
+                var query = linq.KalaTahvili_Tbls.Where(p => p.KalaTahviliCodeBar == codeBar &&
                 p.KalaTahviliCodeKala == codeKalaTahvili).Single();
                 linq.KalaTahvili_Tbls.DeleteOnSubmit(query);
                 linq.SubmitChanges();
@@ -186,6 +182,13 @@ namespace Barbari_DAL
             {
                 linq.BarTahvili_Tbls.InsertOnSubmit(barTahvili);
                 linq.SubmitChanges();
+
+                var result = Select_Barname_Last();
+
+                for (int i = 0; i < kalaTahvili.Count; i++)
+                {
+                    kalaTahvili[i].KalaTahviliCodeBar = result.Data;
+                }
 
                 linq.KalaTahvili_Tbls.InsertAllOnSubmit(kalaTahvili);
                 linq.SubmitChanges();
@@ -249,12 +252,12 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult Back_To_Anbar(int CodeBarname)
+        public static OperationResult Back_To_Anbar(int CodeBar)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == CodeBarname).Single();
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliCodeBar == CodeBar).Single();
                 query.BarTahviliRaveshEhrazHoviat = null;
                 query.BarTahviliRaveshEhrazHoviatText = null;
                 linq.SubmitChanges();
@@ -271,12 +274,12 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult Update_BarTahviliUserNameKarmand(int BarTahviliBarname, string BarTahviliUserNameKarmand)
+        public static OperationResult Update_BarTahviliUserNameKarmand(int BarTahviliCodeBar, string BarTahviliUserNameKarmand)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == BarTahviliBarname).Single();
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliCodeBar == BarTahviliCodeBar).Single();
                 query.BarTahviliUserNameKarmand = BarTahviliUserNameKarmand;
                 linq.SubmitChanges();
                 return new OperationResult
@@ -298,7 +301,8 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == barTahvili.BarTahviliBarname).Single();
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliCodeBar == barTahvili.BarTahviliCodeBar).Single();
+                query.BarTahviliBarname = barTahvili.BarTahviliBarname;
                 query.BarTahviliShahrFerestande = barTahvili.BarTahviliShahrFerestande;
                 query.BarTahviliNamFerestande = barTahvili.BarTahviliNamFerestande;
                 query.BarTahviliFamilyFerestande = barTahvili.BarTahviliFamilyFerestande;

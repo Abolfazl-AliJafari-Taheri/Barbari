@@ -1343,7 +1343,9 @@ namespace Barbari_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _BarTahviliBarname;
+		private int _BarTahviliCodeBar;
+		
+		private string _BarTahviliBarname;
 		
 		private string _BarTahviliNamFerestande;
 		
@@ -1397,7 +1399,9 @@ namespace Barbari_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnBarTahviliBarnameChanging(int value);
+    partial void OnBarTahviliCodeBarChanging(int value);
+    partial void OnBarTahviliCodeBarChanged();
+    partial void OnBarTahviliBarnameChanging(string value);
     partial void OnBarTahviliBarnameChanged();
     partial void OnBarTahviliNamFerestandeChanging(string value);
     partial void OnBarTahviliNamFerestandeChanged();
@@ -1452,8 +1456,28 @@ namespace Barbari_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarTahviliBarname", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int BarTahviliBarname
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarTahviliCodeBar", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int BarTahviliCodeBar
+		{
+			get
+			{
+				return this._BarTahviliCodeBar;
+			}
+			set
+			{
+				if ((this._BarTahviliCodeBar != value))
+				{
+					this.OnBarTahviliCodeBarChanging(value);
+					this.SendPropertyChanging();
+					this._BarTahviliCodeBar = value;
+					this.SendPropertyChanged("BarTahviliCodeBar");
+					this.OnBarTahviliCodeBarChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarTahviliBarname", DbType="VarChar(12) NOT NULL", CanBeNull=false)]
+		public string BarTahviliBarname
 		{
 			get
 			{
@@ -1916,7 +1940,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BarTahvili_Tbl_KalaTahvili_Tbl", Storage="_KalaTahvili_Tbls", ThisKey="BarTahviliBarname", OtherKey="KalaTahviliBarname")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BarTahvili_Tbl_KalaTahvili_Tbl", Storage="_KalaTahvili_Tbls", ThisKey="BarTahviliCodeBar", OtherKey="KalaTahviliCodeBar")]
 		public EntitySet<KalaTahvili_Tbl> KalaTahvili_Tbls
 		{
 			get
@@ -2705,7 +2729,7 @@ namespace Barbari_DAL
 		
 		private int _KalaTahviliCodeKala;
 		
-		private int _KalaTahviliBarname;
+		private int _KalaTahviliCodeBar;
 		
 		private string _KalaTahviliNamKala;
 		
@@ -2719,8 +2743,8 @@ namespace Barbari_DAL
     partial void OnCreated();
     partial void OnKalaTahviliCodeKalaChanging(int value);
     partial void OnKalaTahviliCodeKalaChanged();
-    partial void OnKalaTahviliBarnameChanging(int value);
-    partial void OnKalaTahviliBarnameChanged();
+    partial void OnKalaTahviliCodeBarChanging(int value);
+    partial void OnKalaTahviliCodeBarChanged();
     partial void OnKalaTahviliNamKalaChanging(string value);
     partial void OnKalaTahviliNamKalaChanged();
     partial void OnKalaTahviliTedadKalaChanging(int value);
@@ -2753,26 +2777,26 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaTahviliBarname", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int KalaTahviliBarname
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KalaTahviliCodeBar", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int KalaTahviliCodeBar
 		{
 			get
 			{
-				return this._KalaTahviliBarname;
+				return this._KalaTahviliCodeBar;
 			}
 			set
 			{
-				if ((this._KalaTahviliBarname != value))
+				if ((this._KalaTahviliCodeBar != value))
 				{
 					if (this._BarTahvili_Tbl.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnKalaTahviliBarnameChanging(value);
+					this.OnKalaTahviliCodeBarChanging(value);
 					this.SendPropertyChanging();
-					this._KalaTahviliBarname = value;
-					this.SendPropertyChanged("KalaTahviliBarname");
-					this.OnKalaTahviliBarnameChanged();
+					this._KalaTahviliCodeBar = value;
+					this.SendPropertyChanged("KalaTahviliCodeBar");
+					this.OnKalaTahviliCodeBarChanged();
 				}
 			}
 		}
@@ -2817,7 +2841,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BarTahvili_Tbl_KalaTahvili_Tbl", Storage="_BarTahvili_Tbl", ThisKey="KalaTahviliBarname", OtherKey="BarTahviliBarname", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BarTahvili_Tbl_KalaTahvili_Tbl", Storage="_BarTahvili_Tbl", ThisKey="KalaTahviliCodeBar", OtherKey="BarTahviliCodeBar", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public BarTahvili_Tbl BarTahvili_Tbl
 		{
 			get
@@ -2840,11 +2864,11 @@ namespace Barbari_DAL
 					if ((value != null))
 					{
 						value.KalaTahvili_Tbls.Add(this);
-						this._KalaTahviliBarname = value.BarTahviliBarname;
+						this._KalaTahviliCodeBar = value.BarTahviliCodeBar;
 					}
 					else
 					{
-						this._KalaTahviliBarname = default(int);
+						this._KalaTahviliCodeBar = default(int);
 					}
 					this.SendPropertyChanged("BarTahvili_Tbl");
 				}
