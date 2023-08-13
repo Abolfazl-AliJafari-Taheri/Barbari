@@ -51,26 +51,6 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<BarErsali_Tbl> Select_FirstBarname()
-        {
-            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
-            try
-            {
-                var query = linq.BarErsali_Tbls.FirstOrDefault();
-                return new OperationResult<BarErsali_Tbl>
-                {
-                    Success = true,
-                    Data = query
-                };
-            }
-            catch (Exception)
-            {
-                return new OperationResult<BarErsali_Tbl>
-                {
-                    Success = false
-                };
-            }
-        }
         public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBar)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
@@ -134,32 +114,11 @@ namespace Barbari_DAL
                 int lastValue = Convert.ToInt32(cmd.ExecuteScalar());
                 conn.Close();
 
-                var query_Select_First = Select_FirstBarname();
-
-                if (lastValue != 1000)
+                return new OperationResult<int>
                 {
-                    return new OperationResult<int>
-                    {
-                        Success = true,
-                        Data = lastValue
-                    };
-                }
-                else if (query_Select_First.Data == null)
-                {
-                    return new OperationResult<int>
-                    {
-                        Success = true,
-                        Data = 999
-                    };
-                }
-                else
-                {
-                    return new OperationResult<int>
-                    {
-                        Success = true,
-                        Data = 1000
-                    };
-                }
+                    Success = true,
+                    Data = lastValue
+                };
             }
             catch
             {
