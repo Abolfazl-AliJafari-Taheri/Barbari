@@ -44,9 +44,9 @@ namespace Barbari_BLL
                 }
             }
         }
-        public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBarname)
+        public static OperationResult<List<KalaTahvili_Tbl>> Select_KalaTahvili(int codeBar)
         {
-            var result = Barbari_DAL.BarTahvili.Select_KalaTahvili(codeBarname);
+            var result = Barbari_DAL.BarTahvili.Select_KalaTahvili(codeBar);
             if (result.Success == true)
             {
                 return result;
@@ -85,31 +85,6 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult<int> Select_Barname_Last()
-        {
-            var result = Barbari_DAL.BarTahvili.Select_Barname_Last();
-            if (result.Success == true && result.Data == 0)
-            {
-                return new OperationResult<int>
-                {
-                    Success = true,
-                    // بارنامه از 1000 شروع میشه
-                    Data = 999
-                };
-            }
-            else if (result.Success == true)
-            {
-                return result;
-            }
-            else
-            {
-                return new OperationResult<int>
-                {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
-            }
-        }
         public static OperationResult Delete(int code)
         {
             var result = Barbari_DAL.BarTahvili.Delete(code);
@@ -129,9 +104,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Delete_KalaTahvili(int CodeBarname, int codeKalaTahvili)
+        public static OperationResult Delete_KalaTahvili(int codeBar, int codeKalaTahvili)
         {
-            var result = Barbari_DAL.BarTahvili.Delete_KalaTahvili(CodeBarname, codeKalaTahvili);
+            var result = Barbari_DAL.BarTahvili.Delete_KalaTahvili(codeBar, codeKalaTahvili);
             if (result.Success == true)
             {
                 return new OperationResult
@@ -156,7 +131,7 @@ namespace Barbari_BLL
             var result2 = Validation.BarTahvili_Validation_EtelatGerande(barTahvili.BarTahviliShahrGerande ,
                 barTahvili.BarTahviliNamGerande, barTahvili.BarTahviliFamilyGerande, barTahvili.BarTahviliMobileGerande);
 
-            var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliPishKeraye.ToString() , barTahvili.BarTahviliPasKeraye.ToString()
+            var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliBarname , barTahvili.BarTahviliPishKeraye.ToString() , barTahvili.BarTahviliPasKeraye.ToString()
                 , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString());
 
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande , barTahvili.BarTahviliFamilyRanande,
@@ -277,9 +252,9 @@ namespace Barbari_BLL
 
             }
         }
-        public static OperationResult Back_To_Anbar(int CodeBarname)
+        public static OperationResult Back_To_Anbar(int CodeBar)
         {
-            var result = Barbari_DAL.BarTahvili.Back_To_Anbar(CodeBarname);
+            var result = Barbari_DAL.BarTahvili.Back_To_Anbar(CodeBar);
             if (result.Success == true)
             {
                 return new OperationResult
@@ -296,9 +271,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Update_BarTahviliUserNameKarmand(int BarErsaliBarname, string BarErsaliUserNameKarmand)
+        public static OperationResult Update_BarTahviliUserNameKarmand(int BarErsaliCodeBar, string BarErsaliUserNameKarmand)
         {
-            var result = Barbari_DAL.BarTahvili.Update_BarTahviliUserNameKarmand(BarErsaliBarname, BarErsaliUserNameKarmand);
+            var result = Barbari_DAL.BarTahvili.Update_BarTahviliUserNameKarmand(BarErsaliCodeBar, BarErsaliUserNameKarmand);
             if (result.Success == true)
             {
                 return new OperationResult
@@ -323,7 +298,7 @@ namespace Barbari_BLL
             var result2 = Validation.BarTahvili_Validation_EtelatGerande(barTahvili.BarTahviliShahrGerande,
                 barTahvili.BarTahviliNamGerande, barTahvili.BarTahviliFamilyGerande, barTahvili.BarTahviliMobileGerande);
 
-            var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliPishKeraye.ToString(), barTahvili.BarTahviliPasKeraye.ToString()
+            var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliBarname , barTahvili.BarTahviliPishKeraye.ToString(), barTahvili.BarTahviliPasKeraye.ToString()
                 , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString());
 
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande, barTahvili.BarTahviliFamilyRanande,
