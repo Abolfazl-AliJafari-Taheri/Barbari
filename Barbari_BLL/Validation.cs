@@ -1230,6 +1230,14 @@ namespace Barbari_BLL
                     Message = "کد بارنامه نباید بیشتر از 12 عدد باشد"
                 };
             }
+            else if (BarTahviliPishKeraye == "0" && BarTahviliPasKeraye == "0")
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "پیش کرایه یا پس کرایه را وارد کنید"
+                };
+            }
             else if (string.IsNullOrEmpty(BarTahviliPishKeraye))
             {
                 return new OperationResult
