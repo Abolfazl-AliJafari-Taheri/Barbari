@@ -1474,7 +1474,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "روش احراز هویت را وارد کنید"
+                    Message = "احراز هویت را وارد کنید"
                 };
             }
             else if (string.IsNullOrEmpty(BarTahviliRaveshEhrazHoviatText))
@@ -1482,30 +1482,93 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "روش احراز هویت متن را وارد کنید"
+                    Message = "اطلاعات احراز هویت را وارد کنید"
                 };
             }
-            else if (CheckRangeDataType(BarTahviliRaveshEhrazHoviat, 50))
+            else if (BarTahviliRaveshEhrazHoviat == "کارت ملی")
             {
-                return new OperationResult
+                if (BarTahviliRaveshEhrazHoviatText.Length != 10)
                 {
-                    Success = false,
-                    Message = "روش احراز هویت نباید بیشتر از 50 حرف باشد"
-                };
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "کارت ملی باید 10 رقم باشد"
+                    };
+                }
+                else if (!CheckNumberFormat(BarTahviliRaveshEhrazHoviatText))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "درون اطلاعات احراز هویت فقط باید عدد وارد شود"
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
             }
-            else if (CheckRangeDataType(BarTahviliRaveshEhrazHoviatText, 50))
+            else if (BarTahviliRaveshEhrazHoviat == "گواهینامه")
             {
-                return new OperationResult
+                if (BarTahviliRaveshEhrazHoviatText.Length != 10)
                 {
-                    Success = false,
-                    Message = "روش احراز هویت متن نباید بیشتر از 50 حرف باشد"
-                };
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "گواهینامه باید 10 رقم باشد"
+                    };
+                }
+                else if (!CheckNumberFormat(BarTahviliRaveshEhrazHoviatText))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "درون اطلاعات احراز هویت فقط باید عدد وارد شود"
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+            }
+            else if (BarTahviliRaveshEhrazHoviat == "شناسنامه")
+            {
+                if (BarTahviliRaveshEhrazHoviatText.Length != 8 && BarTahviliRaveshEhrazHoviatText.Length != 6)
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "سریال شناسنامه را درست وارد کنید"
+                    };
+                }
+                else if (!CheckNumberFormat(BarTahviliRaveshEhrazHoviatText))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "درون اطلاعات احراز هویت فقط باید عدد وارد شود"
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
             }
             else
             {
                 return new OperationResult
                 {
-                    Success = true
+                    Success = false ,
+                    Message = "روش احراز هویت باید شناسنامه یا کارت ملی یا گواهینامه باشد"
                 };
             }
         }
