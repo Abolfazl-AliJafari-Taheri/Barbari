@@ -126,7 +126,7 @@
 
                     </Button>
                     <Border Grid.Column="2" Width="68" Height="48"  Background="#2B54A3" HorizontalAlignment="Left" CornerRadius="8" VerticalAlignment="Top" >
-                        <Button Name="NextStep_Btn"  Height="48" Click="NextStep_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="68" Content="بعدی" HorizontalAlignment="Center" Foreground="#FFFFFF" BorderThickness="0" FontFamily="IRANSansX" VerticalAlignment="Top" />
+                        <Button Name="NextStep_Btn" Click="NextStep_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Content="بعدی" Foreground="#FFFFFF" BorderThickness="0" FontFamily="IRANSansX" Margin="0" Height="48"  />
                     </Border>
                     <Border Grid.Column="1" Width="64" Height="48" Margin="0 0 16 0" HorizontalAlignment="Right" VerticalAlignment="Top" CornerRadius="8" BorderThickness="2" BorderBrush="#2B54A3" >
                         <Button Name="PerviuosStep_Btn" Click="PerviuosStep_Btn_Click"  FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Background="Transparent"  Width="60" Height="44" Content="قبلی"  Foreground="#2B54A3"  FontFamily="IRANSansX"></Button>

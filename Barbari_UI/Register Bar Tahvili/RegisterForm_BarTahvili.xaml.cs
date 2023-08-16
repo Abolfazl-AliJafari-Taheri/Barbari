@@ -41,7 +41,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
         bool createStep2 = false;
         bool createStep3 = false;
         bool createStep4 = false;
-        bool inserted = false;
+        public bool inserted = false;
         private void Step2_Toggle_Click(object sender, RoutedEventArgs e)
         {
             bool? check = !Step2_Toggle.IsChecked;
@@ -63,7 +63,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
+            ShowStep1();
         }
 
         private void PerviuosStep_Btn_Click(object sender, RoutedEventArgs e)
@@ -87,54 +87,63 @@ namespace Barbari_UI.Register_Bar_Tahvili
         }
         bool Validait()
         {
-            //if (step == 1)
-            //{
-            //    var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatFerestande(step1.CityMabda_CmBox.Text, step1.AnbarMabda_CmBox.Text,
-            //        step1.FirstName_Txt.Text, step1.LastName_Txt.Text,
-            //        step1.Mobile_Txt.Text, step1.Code_CmBox.Text,
-            //        (bool)step1.BimariToggle.IsChecked);
-            //    if (validaition.Success)
-            //    {
-            //        return true;
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(validaition.Message);
-            //        return false;
-            //    }
-            //}
-            //else if (step == 2)
-            //{
-            //    var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatGerande(step2.CityMaghsad_CmBox.Text, step2.AnbarMaghsad_CmBox.Text,
-            //        step2.FirstName_Txt.Text, step2.LastName_Txt.Text, step2.Mobile_Txt.Text,
-            //        step2.CityMaghsadFinal_CmBox.Text, step2.AnbarMaghsadFinal_CmBox.Text,
-            //        (bool)step2.AddSecondMaghsadToggle.IsChecked);
-            //    if (validaition.Success)
-            //    {
-            //        return true;
-            //    }
-            //    else
-            //    {
+            if (step == 1)
+            {
+                var validaition = Barbari_BLL.Validation.BarTahvili_Validation_EtelatFerestande(step1.CityMabda_CmBox.Text,step1.FirstName_Txt.Text ,
+                    step1.LastName_Txt.Text, step1.Mobile_Txt.Text);
+                if (validaition.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(validaition.Message);
+                    return false;
+                }
+            }
+            else if (step == 2)
+            {
+                var validaition = Barbari_BLL.Validation.BarTahvili_Validation_EtelatGerande(step2.CityMaghsad_CmBox.Text,
+                    step2.FirstName_Txt.Text, step2.LastName_Txt.Text, step2.Mobile_Txt.Text);
+                if (validaition.Success)
+                {
+                    return true;
+                }
+                else
+                {
 
-            //        MessageBox.Show(validaition.Message);
-            //        return false;
-            //    }
-            //}
-            //else if (step == 3)
-            //{
-            //    var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatBar(step3.PishKeraye_Txt.Text, step3.PasKeraye_Txt.Text,
-            //        step3.Bime_Txt.Text, step3.AnbarDari_Txt.Text,
-            //        step3.Shahri_Txt.Text, step3.BasteBandi_Txt.Text);
-            //    if (validaition.Success)
-            //    {
-            //        return true;
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(validaition.Message);
-            //        return false;
-            //    }
-            //}
+                    MessageBox.Show(validaition.Message);
+                    return false;
+                }
+            }
+            else if (step == 3)
+            {
+                var validaition = Barbari_BLL.Validation.BarTahvili_Validation_EtelatRanande(step3.FirstName_Txt.Text, step3.LastName_Txt.Text,step3.Mobile_Txt.Text);
+                if (validaition.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(validaition.Message);
+                    return false;
+                }
+            }
+            else if (step == 4)
+            {
+                var validaition = Barbari_BLL.Validation.barTahvili_Validation_EtelatBar(step4.CodeBarname_Txt.Text,step4.PishKeraye_Txt.Text, step4.PasKeraye_Txt.Text,
+                    step4.Bime_Txt.Text, step4.AnbarDari_Txt.Text,
+                    step4.Shahri_Txt.Text, step4.BasteBandi_Txt.Text);
+                if (validaition.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(validaition.Message);
+                    return false;
+                }
+            }
             return true;
         }
         private void NextStep_Btn_Click(object sender, RoutedEventArgs e)
@@ -165,6 +174,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
                 {
                     BarTahvili_Tbl barTahvili = new BarTahvili_Tbl()
                     {
+                        
                         BarTahviliShahrFerestande = step1.CityMabda_CmBox.Text,
                         BarTahviliNamFerestande = step1.FirstName_Txt.Text,
                         BarTahviliFamilyFerestande = step1.LastName_Txt.Text,
@@ -173,16 +183,19 @@ namespace Barbari_UI.Register_Bar_Tahvili
                         BarTahviliNamGerande = step2.FirstName_Txt.Text,
                         BarTahviliFamilyGerande = step2.LastName_Txt.Text,
                         BarTahviliMobileGerande = step2.Mobile_Txt.Text,
+                        BarTahviliNamRanande= step3.FirstName_Txt.Text,
+                        BarTahviliFamilyRanande= step3.LastName_Txt.Text,
+                        BarTahviliMobileRanande= step3.Mobile_Txt.Text,
                         BarTahviliAnbardari = decimal.Parse(step4.AnbarDari_Txt.Text),
                         BarTahviliBastebandi = decimal.Parse(step4.BasteBandi_Txt.Text),
                         BarTahviliShahri = decimal.Parse(step4.Shahri_Txt.Text),
                         BarTahviliBime = decimal.Parse(step4.Bime_Txt.Text),
                         BarTahviliPishKeraye = decimal.Parse(step4.PishKeraye_Txt.Text),
                         BarTahviliPasKeraye = decimal.Parse(step4.PasKeraye_Txt.Text),
+                        BarTahviliBarname = step4.CodeBarname_Txt.Text,
                         BarTahviliiSaat = step4.HourSodor_TmPicker.Text,
                         BarTahviliTarikh = step4.DateSodor_DtPicker.Text,
                         BarTahviliUserNameKarmand = WindowsAndPages.home_Window.User.UsersUserName,
-
                     };
 
                     List<KalaTahvili_Tbl> kalas = step4.GetKalas();
@@ -192,20 +205,21 @@ namespace Barbari_UI.Register_Bar_Tahvili
                     }
                     else
                     {
-                        //var result = Barbari_BLL.BarErsali.Insert(barErsali, kalas, (bool)step1.BimariToggle.IsChecked, (bool)step2.AddSecondMaghsadToggle.IsChecked);
-                        //if (result.Success)
-                        //{
-                        //    inserted = true;
-                        //    step1.Registered();
-                        //    step2.Registered();
-                        //    step3.Registered();
-                        //    step = 0;
-                        //    NextStep_Btn_Click(null, null);
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show(result.Message);
-                        //}
+                        var result = Barbari_BLL.BarTahvili.Insert(barTahvili, kalas);
+                        if (result.Success)
+                        {
+                            inserted = true;
+                            step1.Registered();
+                            step2.Registered();
+                            step3.Registered();
+                            step4.Registered();
+                            step = 0;
+                            NextStep_Btn_Click(null, null);
+                        }
+                        else
+                        {
+                            MessageBox.Show(result.Message);
+                        }
                     }
                 }
             }
@@ -215,7 +229,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             if (!createStep1)
             {
                 createStep1 = true;
-                step1 = new RegisterStep1_BarTahvili() { Height = 376, Width = 622 };
+                step1 = new RegisterStep1_BarTahvili() {Height= 256, Width = 622 };
                 ShowStep_Grid.Children.Clear();
                 ShowStep_Grid.Children.Add(step1);
             }
@@ -227,7 +241,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             Step1_Toggle.Background = ConverterColor("#2B54A3");
             Step2_Toggle.Background = ConverterColor("#BFBFBF");
             Step3_Toggle.Background = ConverterColor("#BFBFBF");
-            Step4_TxtBlock.Background = ConverterColor("#BFBFBF");
+            Step4_Toggle.Background = ConverterColor("#BFBFBF");
             Step1_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step2_TxtBlock.Foreground = ConverterColor("#BFBFBF");
             Step3_TxtBlock.Foreground = ConverterColor("#BFBFBF");
@@ -242,7 +256,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             if (!createStep2)
             {
                 createStep2 = true;
-                step2 = new RegisterStep2_BarTahvili() { Height = 376, Width = 622 };
+                step2 = new RegisterStep2_BarTahvili() { Height = 256, Width = 622 };
                 ShowStep_Grid.Children.Clear();
                 ShowStep_Grid.Children.Add(step2);
             }
@@ -254,7 +268,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             Step1_Toggle.Background = ConverterColor("#2B54A3");
             Step2_Toggle.Background = ConverterColor("#2B54A3");
             Step3_Toggle.Background = ConverterColor("#BFBFBF");
-            Step4_TxtBlock.Background = ConverterColor("#BFBFBF");
+            Step4_Toggle.Background = ConverterColor("#BFBFBF");
             Step1_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step2_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step3_TxtBlock.Foreground = ConverterColor("#BFBFBF");
@@ -287,6 +301,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             Step2_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step3_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step4_TxtBlock.Foreground = ConverterColor("#BFBFBF");
+            NextStep_Btn.Content = "بعدی"; 
             Step1_Toggle.IsChecked = true;
             Step2_Toggle.IsChecked = true;
             Step3_Toggle.IsChecked = false;
@@ -315,6 +330,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             Step2_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step3_TxtBlock.Foreground = ConverterColor("#2B54A3");
             Step4_TxtBlock.Foreground = ConverterColor("#2B54A3");
+            NextStep_Btn.Content = "صدور";
             Step1_Toggle.IsChecked = true;
             Step2_Toggle.IsChecked = true;
             Step3_Toggle.IsChecked = true;

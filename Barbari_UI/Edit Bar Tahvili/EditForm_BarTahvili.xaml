@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="Barbari_UI.Edit_Bar_Tahvili.EditForm_BarTahvili"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                   xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Barbari_UI.Edit_Bar_Tahvili"
+             mc:Ignorable="d" 
+               d:DesignHeight="1003" d:DesignWidth="615"
+             Loaded="UserControl_Loaded">
+    <Border CornerRadius="8" Background="#F7F7F7">
+        <Grid FlowDirection="RightToLeft">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85"/>
+                <RowDefinition/>
+                <RowDefinition Height="64"/>
+            </Grid.RowDefinitions>
+            <Border CornerRadius="16" Background="#FFFFFF" Width="551" Height="53" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Name="TahvilCustomerInfo_Border" HorizontalAlignment="Center" Height="45" Width="102" CornerRadius="12" Margin="4">
+                        <Button Name="TahvilCustomerInfo_Btn"  Height="45" Click="TahvilCustomerInfo_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="102" Content="اطلاعات مشتری" HorizontalAlignment="Center" Foreground="#2B2B2B" BorderThickness="0" FontFamily="IRANSansX"  />
+                    </Border>
+                    <Border Grid.Column="1" Name="BarInfo_Border" HorizontalAlignment="Center" Height="45" Width="102" CornerRadius="12" Margin="4">
+                        <Button Name="BarInfo_Btn"  Height="45" Click="BarInfo_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="102" Content="اطلاعات بار" HorizontalAlignment="Center" Foreground="#2B2B2B" BorderThickness="0" FontFamily="IRANSansX"  />
+                    </Border>
+                    <Border Grid.Column="2" Name="RanandeInfo_Border" Height="45" Width="102" CornerRadius="12" HorizontalAlignment="Center" Margin="4">
+                        <Button Name="RanandeInfo_Btn"  Height="45" Click="RanandeInfo_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="102" Content="اطلاعات راننده" HorizontalAlignment="Center" Foreground="#2B2B2B" BorderThickness="0" FontFamily="IRANSansX"  />
+                    </Border>
+
+                    <Border Grid.Column="3" Name="RecieverInfo_Border" HorizontalAlignment="Left" Height="45" Width="102" CornerRadius="12" Margin="4">
+                        <Button Name="RecieverInfo_Btn"  Height="45" Click="RecieverInfo_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="102" Content="اطلاعات گیرنده" HorizontalAlignment="Center" Foreground="#2B2B2B" BorderThickness="0" FontFamily="IRANSansX"  />
+                    </Border>
+                    <Border Grid.Column="4" Name="SenderInfo_Border" HorizontalAlignment="Center" Height="45" Width="102" CornerRadius="12" Margin="4">
+                        <Button Name="SenderInfo_Btn"  Height="45" Click="SenderInfo_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="102" Content="اطلاعات فرستنده" HorizontalAlignment="Center" Foreground="#2B2B2B" BorderThickness="0" FontFamily="IRANSansX"  />
+                    </Border>
+                </Grid>
+            </Border>
+            <Grid Name="ShowStep_Grid" Grid.Row="1"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button
+                        Name="Cancel_Btn"
+                        Grid.Column="1"
+         Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                Background="Transparent"
+                BorderThickness="0"
+                Content="لغو"
+                Foreground="#D90000"
+                Grid.Row="3"
+                        Width="56"
+                        Height="48"
+                FontSize="14"
+                FontFamily="IRANSansX"
+                HorizontalAlignment="Right"
+                        Margin="0 0 32 0"
+                VerticalAlignment="Top"
+                >
+
+                </Button>
+                <Border Grid.Column="0" Width="119" Height="48"  Background="#2B54A3" HorizontalAlignment="Left" CornerRadius="8" VerticalAlignment="Top" Margin="32 0 0 0">
+                    <Button Name="Save_Btn"  Height="48" Click="Save_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="119" Content="ذخیره تغییرات" HorizontalAlignment="Center" Foreground="#FFFFFF" BorderThickness="0" FontFamily="IRANSansX"  />
+                </Border>
+            </Grid>
+
+        </Grid>
+    </Border>
+</UserControl>

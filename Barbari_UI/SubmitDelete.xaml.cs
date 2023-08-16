@@ -24,7 +24,7 @@ namespace Barbari_UI
     /// </summary>
     public partial class SubmitDelete : UserControl
     {
-        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null , int CodeBarname = 0,int CodeKalaDaryafti = 0,int CodeBarnameKalaDaryafti = 0)
+        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null , int CodeBarname = 0,int CodeKalaDaryafti = 0,int CodeBarnameKalaDaryafti = 0, int CodeBar= 0, int CodeKalaTahvili = 0, int CodeBarKalaTahvili = 0)
         {
             user= User;
             city= City;
@@ -38,6 +38,9 @@ namespace Barbari_UI
             codeBaarname = CodeBarname;
             codeKalaDaryafti = CodeKalaDaryafti;
             codeBarnameKalaDaryafti = CodeBarnameKalaDaryafti;
+            codeBar= CodeBar;
+            codeBarKalaTahvili = CodeBarKalaTahvili;
+            codeKalaTahvili = CodeKalaTahvili;
             InitializeComponent();
         }
         Users_Tbl user;
@@ -52,6 +55,9 @@ namespace Barbari_UI
         int codeBaarname;
         int codeKalaDaryafti;
         int codeBarnameKalaDaryafti;
+        int codeBar;
+        int codeBarKalaTahvili;
+        int codeKalaTahvili;
         private void SubmitDelete_Btn_Click(object sender, RoutedEventArgs e)
         {
             
@@ -120,6 +126,19 @@ namespace Barbari_UI
                     WindowsAndPages.barErsali.Refresh("");
                 }
             }
+            else if (barTahvili != null)
+            {
+                var result = Barbari_BLL.BarTahvili.Delete(barTahvili.BarTahviliCodeBar);
+                if (!result.Success)
+                {
+                    MessageBox.Show(result.Message);
+                }
+                else
+                {
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    WindowsAndPages.barTahvili.Refresh("");
+                }
+            }
             else if (role != null)
             {
                 var result = Barbari_BLL.Roles.Delete(role.RolesNamRole);
@@ -146,6 +165,19 @@ namespace Barbari_UI
                     WindowsAndPages.barErsali.Refresh();
                 }
             }
+            else if (codeBar != 0)
+            {
+                var result = Barbari_DAL.BarTahvili.Back_To_Anbar(codeBar);
+                if (!result.Success)
+                {
+                    MessageBox.Show("خطایی رخ داده است لطفا با پشتیبان تماس بگیرید");
+                }
+                else
+                {
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    WindowsAndPages.barTahvili.Refresh("");
+                }
+            }
             else if (codeKalaDaryafti != 0 && codeBarnameKalaDaryafti!= 0)
             {
                 var result = Barbari_DAL.BarErsali.Delete_KalaDaryafti(codeBarnameKalaDaryafti,codeKalaDaryafti);
@@ -156,7 +188,18 @@ namespace Barbari_UI
                 else
                 {
                     DialogHost.CloseDialogCommand.Execute(null, null);
-                    WindowsAndPages.barErsali.Refresh();
+                }
+            }
+            else if (codeKalaTahvili != 0 && codeBarKalaTahvili != 0)
+            {
+                var result = Barbari_DAL.BarTahvili.Delete_KalaTahvili(codeBarKalaTahvili, codeKalaTahvili);
+                if (!result.Success)
+                {
+                    MessageBox.Show("خطایی رخ داده است لطفا با پشتیبان تماس بگیرید");
+                }
+                else
+                {
+                    DialogHost.CloseDialogCommand.Execute(null, null);
                 }
             }
         }
@@ -164,6 +207,13 @@ namespace Barbari_UI
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
            if (codeBaarname != 0)
+            {
+                Massage_TxtBlock.Text = "آیا از تغییر وضعیت بار مطمئن هستید؟";
+                SubmitDelete_Btn.Content = "بله";
+                SubmitDelete_Btn.FontSize = 20;
+                Massage_TxtBlock.FontSize = 20;
+            }
+            if (codeBar != 0)
             {
                 Massage_TxtBlock.Text = "آیا از تغییر وضعیت بار مطمئن هستید؟";
                 SubmitDelete_Btn.Content = "بله";

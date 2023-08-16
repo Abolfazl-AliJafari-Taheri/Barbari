@@ -10,94 +10,92 @@
            d:DesignHeight="854" d:DesignWidth="622"
              Loaded="UserControl_Loaded">
     <Border CornerRadius="8" Background="#F7F7F7">
-        <Grid FlowDirection="RightToLeft">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="552"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" x:Name="Kala_Grid" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="72"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0"  Margin="32 24 32 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="52"/>
-                        <ColumnDefinition Width="182.5"/>
-                        <ColumnDefinition Width="93"/>
-                        <ColumnDefinition Width="182.5"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" FontWeight="SemiBold" Text="ردیف" FontSize="16" FontFamily="IRANSansX" Height="22" Width="34"/>
-                    <TextBlock Grid.Column="1" FontWeight="SemiBold" Text="نام کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="44"/>
-                    <TextBlock Grid.Column="2" FontWeight="SemiBold" Text="تعداد کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="61"/>
-                    <TextBlock Grid.Column="3" FontWeight="SemiBold" Text="ارزش کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="59"/>
-                    <Image Grid.Column="4" HorizontalAlignment="Right" Height="32" Width="32" Source="/Source/Icones/Delete Kala Icon(Red).png"/>
-                </Grid>
-                <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Visible" Width="auto" MaxHeight="160">
-                    <StackPanel x:Name="ShowKala_StckPnl"  HorizontalAlignment="Left" Margin="32 0 0 0 "/>
-                </ScrollViewer>
-                <Grid Grid.Row="2" Margin="32 24 32 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="152.67"/>
-                        <ColumnDefinition Width="152.67"/>
-                        <ColumnDefinition Width="152.67"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="136.67">
-                        <TextBox x:Name="KalaName_Txt" materialDesign:HintAssist.Hint="نام کالا" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
-                    </Border>
-                    <Border Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="136.67">
-                        <TextBox x:Name="KalaNumber_Txt" materialDesign:HintAssist.Hint="تعداد کالا" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
-                    </Border>
-                    <Border Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="136.67">
-                        <TextBox x:Name="KalaPrice_Txt" materialDesign:HintAssist.Hint="ارزش کالا" Text="0" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="KalaPrice_Txt_TextChanged"  />
-                    </Border>
-                    <Border Grid.Column="3" Height="48" Width="100" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
-                        <Button x:Name="AddKala_Btn" Height="48" Padding="0" Width="100" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="AddKala_Btn_Click" >
-                            <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"  ><Run Text="افزدون کالا"/></TextBlock>
-                        </Button>
-                    </Border>
-                </Grid>
-            </Grid>
-            <Grid Grid.Row="1" x:Name="Feild_Grid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox x:Name="CodeBarname_Txt"  materialDesign:HintAssist.Hint="کد بارنامه"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0"  BorderThickness="0"   Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
-                </Border>
-                <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox x:Name="AnbarDari_Txt"   materialDesign:HintAssist.Hint="انبار داری" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  TextChanged="AnbarDari_Txt_TextChanged" Text="0" />
-                </Border>
-                <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox x:Name="BasteBandi_Txt" materialDesign:HintAssist.Hint="بسته بندی" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="BasteBandi_Txt_TextChanged" Text="0"/>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox x:Name="Shahri_Txt" materialDesign:HintAssist.Hint="شهری" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="Shahri_Txt_TextChanged" Text="0"/>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox x:Name="Bime_Txt" materialDesign:HintAssist.Hint="بیمه" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="Bime_Txt_TextChanged" Text="0"/>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox x:Name="PishKeraye_Txt" materialDesign:HintAssist.Hint="پیش کرایه" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" KeyUp="PishKeraye_Txt_KeyUp" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  TextChanged="PishKeraye_Txt_TextChanged" Text="0"/>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <TextBox x:Name="PasKeraye_Txt" materialDesign:HintAssist.Hint="پس کرایه" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" KeyUp="PasKeraye_Txt_KeyUp" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="PasKeraye_Txt_TextChanged" Text="0"/>
-                </Border>
-                <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <!--<TextBox Name="HourSodor_Txt" materialDesign:HintAssist.Hint="ساعت صدور" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />-->
-                    <materialDesign:TimePicker
+        <materialDesign:DialogHost Name="DialogHost"
+  DialogTheme="Light"
+  DialogContentUniformCornerRadius="8">
+            <Grid FlowDirection="RightToLeft">
+                <Grid FlowDirection="RightToLeft">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="552"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" x:Name="Kala_Grid" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="72"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"  Margin="32 24 32 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="52"/>
+                                <ColumnDefinition Width="365"/>
+                                <ColumnDefinition Width="93"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" FontWeight="SemiBold" Text="ردیف" FontSize="16" FontFamily="IRANSansX" Height="22" Width="34"/>
+                            <TextBlock Grid.Column="1" FontWeight="SemiBold" Text="نام کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="44"/>
+                            <TextBlock Grid.Column="2" FontWeight="SemiBold" Text="تعداد کالا" FontSize="16" FontFamily="IRANSansX" Height="22" Width="61"/>
+                            <Image Grid.Column="4" HorizontalAlignment="Right" Height="32" Width="32" Source="/Source/Icones/Delete Kala Icon(Red).png"/>
+                        </Grid>
+                        <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Visible" Width="auto" MaxHeight="160">
+                            <StackPanel x:Name="ShowKala_StckPnl"  HorizontalAlignment="Left" Margin="32 0 0 0 "/>
+                        </ScrollViewer>
+                        <Grid Grid.Row="2" Margin="32 24 32 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="229"/>
+                                <ColumnDefinition Width="229"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="213">
+                                <TextBox x:Name="KalaName_Txt" materialDesign:HintAssist.Hint="نام کالا" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
+                            </Border>
+                            <Border Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="213">
+                                <TextBox x:Name="KalaNumber_Txt" materialDesign:HintAssist.Hint="تعداد کالا" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
+                            </Border>
+                            <Border Grid.Column="3" Height="48" Width="100" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
+                                <Button x:Name="AddKala_Btn" Height="48" Padding="0" Width="100" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="AddKala_Btn_Click" >
+                                    <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"  ><Run Text="افزدون کالا"/></TextBlock>
+                                </Button>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" x:Name="Feild_Grid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <TextBox x:Name="CodeBarname_Txt"  materialDesign:HintAssist.Hint="کد بارنامه"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0"  BorderThickness="0"   Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <TextBox x:Name="AnbarDari_Txt"   materialDesign:HintAssist.Hint="انبار داری" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  TextChanged="AnbarDari_Txt_TextChanged" Text="0" />
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <TextBox x:Name="BasteBandi_Txt" materialDesign:HintAssist.Hint="بسته بندی" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="BasteBandi_Txt_TextChanged" Text="0"/>
+                        </Border>
+                        <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <TextBox x:Name="Shahri_Txt" materialDesign:HintAssist.Hint="شهری" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="Shahri_Txt_TextChanged" Text="0"/>
+                        </Border>
+                        <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <TextBox x:Name="Bime_Txt" materialDesign:HintAssist.Hint="بیمه" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="Bime_Txt_TextChanged" Text="0"/>
+                        </Border>
+                        <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <TextBox x:Name="PishKeraye_Txt" materialDesign:HintAssist.Hint="پیش کرایه" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" KeyUp="PishKeraye_Txt_KeyUp" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  TextChanged="PishKeraye_Txt_TextChanged" Text="0"/>
+                        </Border>
+                        <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <TextBox x:Name="PasKeraye_Txt" materialDesign:HintAssist.Hint="پس کرایه" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" KeyUp="PasKeraye_Txt_KeyUp" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="PasKeraye_Txt_TextChanged" Text="0"/>
+                        </Border>
+                        <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <!--<TextBox Name="HourSodor_Txt" materialDesign:HintAssist.Hint="ساعت صدور" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />-->
+                            <materialDesign:TimePicker
                         x:Name="HourSodor_TmPicker"
                         
                         Height="48"
@@ -111,10 +109,10 @@
                         Style="{StaticResource MaterialDesignFloatingHintTimePicker}" 
   Is24Hours="True"
   WithSeconds="False" />
-                </Border>
-                <Border Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                    <!--<TextBox Name="DateSodor_Txt" materialDesign:HintAssist.Hint="تاریخ صدور" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  />-->
-                    <!--<DatePicker Height="48" Padding="0" FlowDirection="RightToLeft"
+                        </Border>
+                        <Border Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <!--<TextBox Name="DateSodor_Txt" materialDesign:HintAssist.Hint="تاریخ صدور" Padding="0"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  />-->
+                            <!--<DatePicker Height="48" Padding="0" FlowDirection="RightToLeft"
                                 SelectedDateChanged="DateSodor_DtPicker_SelectedDateChanged"
                                 
                                 HorizontalAlignment="Center"
@@ -127,15 +125,15 @@
                                 Language="fa-IR"
   materialDesign:HintAssist.Hint="تاریخ صدور" >
                     </DatePicker>-->
-               
-                    <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="DateSodor_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="DateSodor_DtPicker_SelectedDateChanged"/>
-                </Border>
-                <Grid Grid.Row="6" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 24">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="72"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <ToggleButton
+
+                            <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="DateSodor_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="DateSodor_DtPicker_SelectedDateChanged"/>
+                        </Border>
+                        <Grid Grid.Row="6" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 24">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="72"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton
                             x:Name="SendSmsToggle"
                             Cursor="Hand"
                     FlowDirection="LeftToRight"
@@ -150,10 +148,12 @@
   ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"
                          
                     />
-                    <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14"><Run Text="ارسال پیامک"/></TextBlock>
-                </Grid>
+                            <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14"><Run Text="ارسال پیامک"/></TextBlock>
+                        </Grid>
 
+                    </Grid>
+                </Grid>
             </Grid>
-        </Grid>
+        </materialDesign:DialogHost>
     </Border>
 </UserControl>

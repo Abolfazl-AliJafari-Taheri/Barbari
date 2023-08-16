@@ -1,4 +1,5 @@
 ﻿using Barbari_DAL;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             {
                 if (WindowsAndPages.home_Window.Role != null)
                 {
-                    Delte_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+                    Delte_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarTahviliUpdate;
                 }
                 else
                 {
@@ -55,24 +56,17 @@ namespace Barbari_UI.Register_Bar_Tahvili
             Number_TxtBlock.Text = Kala.KalaTahviliTedadKala.ToString();
         }
 
-        private void Delte_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Delte_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (!edit)
-            {
-                this.Visibility = Visibility.Collapsed;
-                WindowsAndPages.registerBarErsali.step3.refreshKala();
-            }
+           if (!edit)
+           {
+               this.Visibility = Visibility.Collapsed;
+               WindowsAndPages.registerBarTahvili.step4.refreshKala();
+           }
             else
             {
-                var result = Barbari_BLL.BarTahvili.Delete_KalaTahvili(Kala.KalaTahviliBarname, Kala.KalaTahviliCodeKala);
-                if (result.Success)
-                {
-                    WindowsAndPages.editFormBarErsali.step3.RefreshKala();
-                }
-                else
-                {
-                    MessageBox.Show(result.Message);
-                }
+                await WindowsAndPages.editFormBarTahvili.step4.DialogHost.ShowDialog(new SubmitDelete(CodeBarKalaTahvili: Kala.KalaTahviliCodeBar, CodeKalaTahvili: Kala.KalaTahviliCodeKala) { Height = 160, Width = 400 });
+                WindowsAndPages.editFormBarTahvili.step4.RefreshKala();
             }
 
         }

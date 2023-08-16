@@ -64,61 +64,58 @@ namespace Barbari_UI.Register_Bar_Tahvili
             for (int i = 0; i < ShowKala_StckPnl.Children.Count; i++)
             {
 
-                if ((ShowKala_StckPnl.Children[i] as KalaComponent).Visibility == Visibility.Visible)
+                if ((ShowKala_StckPnl.Children[i] as KalaTahviliComponent).Visibility == Visibility.Visible)
                 {
-                    (ShowKala_StckPnl.Children[i] as KalaComponent).Row_TxtBlock.Text = Row.ToString();
+                    (ShowKala_StckPnl.Children[i] as KalaTahviliComponent).Row_TxtBlock.Text = Row.ToString();
                     Row++;
                 }
             }
-
-
         }
 
         private void AddKala_Btn_Click(object sender, RoutedEventArgs e)
         {
-            var result = Barbari_BLL.Validation.BarErsali_Validation_KalaDaryafti(KalaName_Txt.Text, KalaNumber_Txt.Text, KalaPrice_Txt.Text);
+            var result = Barbari_BLL.Validation.BarTahvili_Validation_KalaTahvili(KalaName_Txt.Text, KalaNumber_Txt.Text);
             if (result.Success)
             {
-                KalaDaryafti_Tbl kala = new KalaDaryafti_Tbl
-                {
-                    KalaDaryaftiBarname = int.Parse(CodeBarname_Txt.Text),
-                    KalaDaryaftiNamKala = KalaName_Txt.Text,
-                    KalaDaryaftiTedadKala = int.Parse(KalaNumber_Txt.Text),
-                    KalaDaryaftiArzeshKala = int.Parse(KalaPrice_Txt.Text),
-                };
-                if (edit)
-                {
-                    var resultInsertKala = Barbari_BLL.BarErsali.Insert_KalaDaryafti(kala);
-                    if (resultInsertKala.Success)
+
+                    KalaTahvili_Tbl kala = new KalaTahvili_Tbl()
                     {
-                        ShowKala_StckPnl.Children.Add(new KalaComponent(kala, row, edit)
-                        { Height = 72, Width = 558 });
-                        var resultUpdateKarmand = Barbari_BLL.BarErsali.Update_BarErsaliUserNameKarmand(BarTahvili.BarTahviliBarname, WindowsAndPages.home_Window.User.UsersUserName);
-                        if (!resultUpdateKarmand.Success)
+                        KalaTahviliNamKala = KalaName_Txt.Text,
+                        KalaTahviliTedadKala = int.Parse(KalaNumber_Txt.Text),
+                    };
+                    if (edit)
+                    {
+                    kala.KalaTahviliCodeBar = BarTahvili.BarTahviliCodeBar;
+                        var resultInsertKala = Barbari_BLL.BarTahvili.Insert_KalaTahvili(kala);
+                        if (resultInsertKala.Success)
                         {
-                            MessageBox.Show(resultUpdateKarmand.Message);
+                            ShowKala_StckPnl.Children.Add(new KalaTahviliComponent(kala, row, edit)
+                            { Height = 72, Width = 558 });
+                            var resultUpdateKarmand = Barbari_BLL.BarTahvili.Update_BarTahviliUserNameKarmand(BarTahvili.BarTahviliCodeBar, WindowsAndPages.home_Window.User.UsersUserName);
+                            if (!resultUpdateKarmand.Success)
+                            {
+                                MessageBox.Show(resultUpdateKarmand.Message);
+                            }
+                            KalaName_Txt.Clear();
+                            KalaNumber_Txt.Clear();
+                            row++;
                         }
-                        KalaName_Txt.Clear();
-                        KalaNumber_Txt.Clear();
-                        KalaPrice_Txt.Clear();
-                        row++;
+                        else
+                        {
+                            MessageBox.Show(resultInsertKala.Message);
+                        }
+
                     }
                     else
                     {
-                        MessageBox.Show(resultInsertKala.Message);
+                        ShowKala_StckPnl.Children.Add(new KalaTahviliComponent(kala, row, edit)
+                        { Height = 72, Width = 558 });
+                        KalaName_Txt.Clear();
+                        KalaNumber_Txt.Clear();
+                        row++;
+
                     }
-
-                }
-                else
-                {
-                    ShowKala_StckPnl.Children.Add(new KalaComponent(kala, row, edit)
-                    { Height = 72, Width = 558 });
-                    KalaName_Txt.Clear();
-                    KalaNumber_Txt.Clear();
-                    KalaPrice_Txt.Clear();
-                    row++;
-
-                }
+               
             }
             else
             {
@@ -145,25 +142,6 @@ namespace Barbari_UI.Register_Bar_Tahvili
             //dateLoaded = true;
             HourSodor_TmPicker.SelectedTime = DateTime.Now;
         }
-        public void RefreshKala()
-        {
-
-            var Kalas = Barbari_BLL.BarErsali.Select_KalaDaryafti(BarTahvili.BarTahviliBarname);
-            if (Kalas.Success)
-            {
-                row = 1;
-                ShowKala_StckPnl.Children.Clear();
-                for (int i = 0; i < Kalas.Data.Count; i++)
-                {
-                    ShowKala_StckPnl.Children.Add(new KalaComponent(Kalas.Data[i], row, edit) { Height = 72, Width = 558 });
-                    row++;
-                }
-            }
-            else
-            {
-                MessageBox.Show(Kalas.Message);
-            }
-        }
         void EditMode(BarTahvili_Tbl barTahvili)
         {
             RefreshKala();
@@ -177,6 +155,25 @@ namespace Barbari_UI.Register_Bar_Tahvili
             DateSodor_DtPicker.Text = barTahvili.BarTahviliTarikh.ToString();
             HourSodor_TmPicker.Text = barTahvili.BarTahviliiSaat.ToString();
         }
+        public void RefreshKala()
+        {
+
+            var Kalas = Barbari_BLL.BarTahvili.Select_KalaTahvili(BarTahvili.BarTahviliCodeBar);
+            if (Kalas.Success)
+            {
+                row = 1;
+                ShowKala_StckPnl.Children.Clear();
+                for (int i = 0; i < Kalas.Data.Count; i++)
+                {
+                    ShowKala_StckPnl.Children.Add(new KalaTahviliComponent(Kalas.Data[i], row, edit) { Height = 72, Width = 558 });
+                    row++;
+                }
+            }
+            else
+            {
+                MessageBox.Show(Kalas.Message);
+            }
+        }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
@@ -184,7 +181,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             {
                 if (WindowsAndPages.home_Window.Role != null)
                 {
-                    AddKala_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
+                    AddKala_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarTahviliUpdate;
                 }
                 else
                 {
@@ -195,7 +192,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             else
             {
                 FillDateTime();
-                GetCodeBraname();
+                //GetCodeBraname();
             }
 
         }
@@ -282,10 +279,9 @@ namespace Barbari_UI.Register_Bar_Tahvili
         public void Registered()
         {
             ShowKala_StckPnl.Children.Clear();
+            CodeBarname_Txt.Clear(); 
             KalaName_Txt.Clear();
             KalaNumber_Txt.Clear();
-            KalaPrice_Txt.Clear();
-            GetCodeBraname();
             AnbarDari_Txt.Text = 0.ToString();
             BasteBandi_Txt.Text = 0.ToString();
             Shahri_Txt.Text = 0.ToString();
@@ -301,14 +297,6 @@ namespace Barbari_UI.Register_Bar_Tahvili
         private void DateSodor_DtPicker_SelectedDateChanged(object sender, RoutedEventArgs e)
         {
             string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(DateSodor_DtPicker.Text));
-        }
-
-        private void KalaPrice_Txt_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(KalaPrice_Txt.Text))
-            {
-                KalaPrice_Txt.Text = 0.ToString();
-            }
         }
 
         //private void DateSodor_DtPicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

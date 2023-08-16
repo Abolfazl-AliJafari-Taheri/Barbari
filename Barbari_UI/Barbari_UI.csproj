@@ -116,6 +116,9 @@
     <Compile Include="BarTahvili.xaml.cs">
       <DependentUpon>BarTahvili.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BarTahviliComponent.xaml.cs">
+      <DependentUpon>BarTahviliComponent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CityAnbar.xaml.cs">
       <DependentUpon>CityAnbar.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,9 @@
     <Compile Include="ConvertDate.cs" />
     <Compile Include="Edit Bar Ersali\EditForm.xaml.cs">
       <DependentUpon>EditForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit Bar Tahvili\EditForm_BarTahvili.xaml.cs">
+      <DependentUpon>EditForm_BarTahvili.xaml</DependentUpon>
     </Compile>
     <Compile Include="Karmand.xaml.cs">
       <DependentUpon>Karmand.xaml</DependentUpon>
@@ -182,6 +188,9 @@
     </Compile>
     <Compile Include="Register Bar Tahvili\RegisterStep4_BarTahvili.xaml.cs">
       <DependentUpon>RegisterStep4_BarTahvili.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Register Bar Tahvili\TahvilCustomer.xaml.cs">
+      <DependentUpon>TahvilCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Role\AddRole.xaml.cs">
       <DependentUpon>AddRole.xaml</DependentUpon>
@@ -275,6 +284,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BarTahviliComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CityAnbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -284,6 +297,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Edit Bar Ersali\EditForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit Bar Tahvili\EditForm_BarTahvili.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,6 +385,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Register Bar Tahvili\RegisterStep4_BarTahvili.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Register Bar Tahvili\TahvilCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

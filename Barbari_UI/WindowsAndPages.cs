@@ -19,6 +19,8 @@ namespace Barbari_UI
         public static Page1 WhitePage;
         public static Setting setting;
         public static Register_Bar_Ersali.Register_Form registerBarErsali;
+        public static Register_Bar_Tahvili.RegisterForm_BarTahvili registerBarTahvili;
         public static Edit_Bar_Ersali.EditForm editFormBarErsali;
+        public static Edit_Bar_Tahvili.EditForm_BarTahvili editFormBarTahvili;
     }
 }

@@ -13,7 +13,7 @@
               >
             <Grid.RowDefinitions>
                 <RowDefinition Height="72"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="72"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -53,7 +53,7 @@
             <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="LastName_Txt" materialDesign:HintAssist.Hint="نام خانوادگی گیرنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" Tag="نام خانوادگی گیرنده"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"/>
             </Border>
-            <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 32 0 0" VerticalAlignment="Top" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+            <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 24 0 0" VerticalAlignment="Top" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="Mobile_Txt" MaxLength="11" materialDesign:HintAssist.Hint="شماره تلفن گیرنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
             </Border>
         </Grid>
