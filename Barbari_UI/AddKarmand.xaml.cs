@@ -136,7 +136,27 @@ namespace Barbari_UI
                 var result = Barbari_BLL.Users.Insert(karmand);
                 if (!result.Success)
                 {
-                    MessageBox.Show(result.Message);
+                    if(result.Data == null)
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        UserName_Txt.IsReadOnly = true;
+                        if(MessageBox.Show(result.Message,"هشدار",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                        {
+                            var repair = Barbari_BLL.Users.Recovery(UserName_Txt.Text);
+                            if(!repair.Success)
+                            {
+                                MessageBox.Show(repair.Message);
+                            }
+                            else
+                            {
+                                MessageBox.Show("با موفقیت بازگردانی شد پنجره را ببندید");
+                            }
+                        }
+                        UserName_Txt.IsReadOnly = false;
+                    }
                 }
                 else
                 {
