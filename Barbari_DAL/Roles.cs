@@ -34,7 +34,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Users_Tbls.Where(p => p.UsersRoles == search).ToList();
+                var query = linq.Users_Tbls.Where(p => p.UsersRoles == search && p.UsersDelete == false).ToList();
                 return new OperationResult<List<Users_Tbl>>
                 {
                     Data = query,
