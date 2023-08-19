@@ -31,10 +31,15 @@ namespace Barbari_UI.Role
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if(Role.RolesNamRole == "مدیر باربری")
+            {
+                Delete_Btn.IsEnabled = false;
+                Edit_Btn.IsEnabled = false;
+            }
             if (WindowsAndPages.home_Window.Role != null)
             {
-            Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
-            Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
+                Delete_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
+                Edit_Btn.IsEnabled = WindowsAndPages.home_Window.Role.TanzimatRoles;
             }
             else
             {

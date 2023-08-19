@@ -1,5 +1,6 @@
 ﻿using Barbari_BLL;
 using Barbari_DAL;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -128,6 +129,14 @@ namespace Barbari_UI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            var users = Barbari_BLL.Users.Select("");
+            if(users.Success)
+            {
+                if(users.Data.Count == 0)
+                {
+                    DialogHost.ShowDialog(new AddKarmand(true) { Height = 397, Width = 622 });
+                }
+            }
             var company = Barbari_BLL.Company.Select();
             if(company.Data != null)
             {

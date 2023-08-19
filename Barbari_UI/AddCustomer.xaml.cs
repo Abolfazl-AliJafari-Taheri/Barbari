@@ -167,12 +167,12 @@ namespace Barbari_UI
                 }
                 else
                 {
-                    FirstName_Txt.Text = "";
-                    LastName_Txt.Text = "";
-                    Code_Txt.Text = (Barbari_BLL.Customers.Select_CodeLast().Data + 1).ToString();
+                        FirstName_Txt.Text = "";
+                        LastName_Txt.Text = "";
+                        Code_Txt.Text = (Barbari_BLL.Customers.Select_CodeLast().Data + 1).ToString();
+                        City_Txt.Text = "";
+                        Mobile_Txt.Text = "";
 
-                    City_Txt.Text = "";
-                    Mobile_Txt.Text = "";
                     //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                     //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                     //Code_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));

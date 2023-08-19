@@ -97,7 +97,7 @@ namespace Barbari_UI
 
         private async void AddRanande_Btn_Click(object sender, RoutedEventArgs e)
         {
-            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddKarmand() { Height = 397, Width = 622 });
+            await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddKarmand(false) { Height = 397, Width = 622 });
             Refresh();
         }
 

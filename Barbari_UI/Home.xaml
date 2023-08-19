@@ -154,7 +154,7 @@
                                 <TextBlock Name="UserFullName_TxtBlock"  Text="نام و نام خانوادگی" FontSize="16" FontFamily="IRANSansX" Height="29" />
                                 <TextBlock Name="UserRoleName_TxtBlock"  Text="نقش کاربر" FontSize="16" FontFamily="IRANSansX" Height="29" Margin="0 3 0 0" />
                             </StackPanel>
-                            <TextBlock Name="CompanyName_TxtBlock" Grid.Column="2" Text="نام شرکت" FontSize="24" HorizontalAlignment="Center" FontFamily="IRANSansX" Height="36" FontWeight="UltraBold" />
+                            <TextBlock Name="CompanyName_TxtBlock" Grid.Column="2" Text="نام شرکت" FontSize="34" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="IRANSansX" Height="auto" FontWeight="UltraBold" />
                             <Border Grid.Column="3" Height="48" Width="144" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
                                 <Button Name="GetReport_Btn" Height="48" Padding="0" Width="144" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" >
                                     <Grid Width="144">

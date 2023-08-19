@@ -22,9 +22,10 @@ namespace Barbari_UI
     /// </summary>
     public partial class AddKarmand : UserControl
     {
-        public AddKarmand()
+        public AddKarmand(bool loginopened)
         {
             Karmand = new Users_Tbl();
+            loginOpened = loginopened;
             InitializeComponent();
         }
         public AddKarmand(Users_Tbl karmand)
@@ -34,6 +35,7 @@ namespace Barbari_UI
             InitializeComponent();
 
         }
+        bool loginOpened = false;
         bool edit = false;
         public Users_Tbl Karmand { get; set; }
         public void RemoveText(object sender, EventArgs e)
@@ -160,12 +162,20 @@ namespace Barbari_UI
                 }
                 else
                 {
-                    FirstName_Txt.Text = "";
-                    LastName_Txt.Text = "";
-                    UserName_Txt.Text = "";
-                    PassWord_Txt.Text = "";
-                    Mobile_Txt.Text = "";
-                    Roles_CmBox.Text = "";
+                    if(loginOpened)
+                    {
+                        DialogHost.CloseDialogCommand.Execute(null,null);
+                    }
+                    else
+                    {
+                        FirstName_Txt.Text = "";
+                        LastName_Txt.Text = "";
+                        UserName_Txt.Text = "";
+                        PassWord_Txt.Text = "";
+                        Mobile_Txt.Text = "";
+                        Roles_CmBox.Text = "";
+                    }
+
                     //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                     //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
                     //UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#B8B8B8"));
