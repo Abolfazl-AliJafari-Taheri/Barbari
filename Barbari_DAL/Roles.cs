@@ -90,6 +90,26 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult<Roles_Tbl> Select_First()
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.Roles_Tbls.First();
+                return new OperationResult<Roles_Tbl>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch
+            {
+                return new OperationResult<Roles_Tbl>
+                {
+                    Success = false,
+                };
+            }
+        }
         public static OperationResult<Roles_Tbl> Login_Roles(string search)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();

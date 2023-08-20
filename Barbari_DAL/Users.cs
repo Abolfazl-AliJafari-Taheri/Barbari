@@ -51,6 +51,26 @@ namespace Barbari_DAL
             }
             
         }
+        public static OperationResult<Users_Tbl> Select_First()
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.Users_Tbls.First();
+                return new OperationResult<Users_Tbl>
+                {
+                    Data = query,
+                    Success = true
+                };
+            }
+            catch
+            {
+                return new OperationResult<Users_Tbl>
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult Delete(string code)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
