@@ -135,7 +135,7 @@ namespace Barbari_BLL
                 , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString());
 
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande , barTahvili.BarTahviliFamilyRanande,
-                barTahvili.BarTahviliMobileRanande);
+                barTahvili.BarTahviliMobileRanande , barTahvili.BarErsaliCodeRanande.ToString());
 
             if (result1.Success == false)
             {
@@ -302,7 +302,7 @@ namespace Barbari_BLL
                 , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString());
 
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande, barTahvili.BarTahviliFamilyRanande,
-                barTahvili.BarTahviliMobileRanande);
+                barTahvili.BarTahviliMobileRanande, barTahvili.BarErsaliCodeRanande.ToString());
 
             if (TahvilMoshtari == true)
             {
