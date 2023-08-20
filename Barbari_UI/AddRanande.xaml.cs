@@ -130,15 +130,10 @@ namespace Barbari_UI
             }
         }
 
-        private void Mobile_Txt_TextInput(object sender, TextCompositionEventArgs e)
+        private void Mobile_Txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]");
             e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void Mobile_Txt_PreviewTextInput()
-        {
-
         }
         //bool Validait()
         //{
