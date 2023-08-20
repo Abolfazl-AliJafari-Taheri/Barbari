@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -247,6 +248,30 @@ namespace Barbari_UI
                 Warning_TxtBlock.Visibility = Visibility.Hidden;
             }
             
+        }
+
+        private void Mobile_Txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void UserName_Txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                if (IsPersianCharacter(e.Text)) 
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private bool IsPersianCharacter(string text)
+        {
+            var regex = new Regex(@"\p{IsArabic}"); 
+            return regex.IsMatch(text);
         }
     }
 }

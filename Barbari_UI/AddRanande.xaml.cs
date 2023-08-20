@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -129,9 +130,10 @@ namespace Barbari_UI
             }
         }
 
-        private void Mobile_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        private void Mobile_Txt_TextInput(object sender, TextCompositionEventArgs e)
         {
-
+            Regex regex = new Regex("[^0-9]");
+            e.Handled = regex.IsMatch(e.Text);
         }
         //bool Validait()
         //{

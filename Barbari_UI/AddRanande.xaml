@@ -31,7 +31,7 @@
                 <TextBox Name="Code_Txt" materialDesign:HintAssist.Hint="کد راننده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  IsReadOnly="True" />
             </Border>
             <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Mobile_Txt" materialDesign:HintAssist.Hint="شماره تلفن" MaxLength="11"   Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="Mobile_Txt_TextChanged"/>
+                <TextBox Name="Mobile_Txt" materialDesign:HintAssist.Hint="شماره تلفن" MaxLength="11"   Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  TextInput="Mobile_Txt_TextInput"/>
             </Border>
             <Border Grid.Column="0" Grid.Row="3" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 0 0 16" VerticalAlignment="Bottom"  CornerRadius="8" Background="#2B54A3">
                 <Button Name="Add_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Add_Btn_Click">
