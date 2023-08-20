@@ -45,6 +45,7 @@
       <Column Name="UsersMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
       <Column Name="UsersDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="UsersRoles" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UsersAsli" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Users_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="UsersUserName" OtherKey="BarErsaliUserNameKarmand" Type="BarErsali_Tbl" />
       <Association Name="Users_Tbl_BarTahvili_Tbl" Member="BarTahvili_Tbls" ThisKey="UsersUserName" OtherKey="BarTahviliUserNameKarmand" Type="BarTahvili_Tbl" />
       <Association Name="Roles_Tbl_Users_Tbl" Member="Roles_Tbl" ThisKey="UsersRoles" OtherKey="RolesNamRole" Type="Roles_Tbl" IsForeignKey="true" DeleteRule="SET NULL" />
@@ -171,6 +172,7 @@
       <Column Name="BarTahviliUpdate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="RolesGozaresh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RolesAsli" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Roles_Tbl_Users_Tbl" Member="Users_Tbls" ThisKey="RolesNamRole" OtherKey="UsersRoles" Type="Users_Tbl" />
     </Type>
   </Table>

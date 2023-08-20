@@ -51,12 +51,12 @@ namespace Barbari_DAL
             }
             
         }
-        public static OperationResult<Users_Tbl> Select_First()
+        public static OperationResult<Users_Tbl> Select_Asli(string userName)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Users_Tbls.First();
+                var query = linq.Users_Tbls.Where(p => p.UsersUserName == userName).Single();
                 return new OperationResult<Users_Tbl>
                 {
                     Data = query,

@@ -25,9 +25,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult<Users_Tbl> Select_First()
+        public static OperationResult<Users_Tbl> Select_Asli(string userName)
         {
-            var result = Barbari_DAL.Users.Select_First();
+            var result = Barbari_DAL.Users.Select_Asli(userName);
             if (result.Success == true)
             {
                 return result;
@@ -43,8 +43,8 @@ namespace Barbari_BLL
         }
         public static OperationResult Delete(string code)
         {
-            var result1 = Select_First();
-            if (result1.Data.UsersUserName == code)
+            var result1 = Select_Asli(code);
+            if (result1.Data.UsersAsli == true)
             {
                 return new OperationResult
                 {

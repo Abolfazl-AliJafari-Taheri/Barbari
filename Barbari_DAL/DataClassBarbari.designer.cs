@@ -1054,6 +1054,8 @@ namespace Barbari_DAL
 		
 		private string _UsersRoles;
 		
+		private bool _UsersAsli;
+		
 		private EntitySet<BarErsali_Tbl> _BarErsali_Tbls;
 		
 		private EntitySet<BarTahvili_Tbl> _BarTahvili_Tbls;
@@ -1078,6 +1080,8 @@ namespace Barbari_DAL
     partial void OnUsersDeleteChanged();
     partial void OnUsersRolesChanging(string value);
     partial void OnUsersRolesChanged();
+    partial void OnUsersAsliChanging(bool value);
+    partial void OnUsersAsliChanged();
     #endregion
 		
 		public Users_Tbl()
@@ -1228,6 +1232,26 @@ namespace Barbari_DAL
 					this._UsersRoles = value;
 					this.SendPropertyChanged("UsersRoles");
 					this.OnUsersRolesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsersAsli", DbType="Bit NOT NULL")]
+		public bool UsersAsli
+		{
+			get
+			{
+				return this._UsersAsli;
+			}
+			set
+			{
+				if ((this._UsersAsli != value))
+				{
+					this.OnUsersAsliChanging(value);
+					this.SendPropertyChanging();
+					this._UsersAsli = value;
+					this.SendPropertyChanged("UsersAsli");
+					this.OnUsersAsliChanged();
 				}
 			}
 		}
@@ -3239,6 +3263,8 @@ namespace Barbari_DAL
 		
 		private bool _RolesGozaresh;
 		
+		private bool _RolesAsli;
+		
 		private EntitySet<Users_Tbl> _Users_Tbls;
 		
     #region Extensibility Method Definitions
@@ -3303,6 +3329,8 @@ namespace Barbari_DAL
     partial void OnBarTahviliDeleteChanged();
     partial void OnRolesGozareshChanging(bool value);
     partial void OnRolesGozareshChanged();
+    partial void OnRolesAsliChanging(bool value);
+    partial void OnRolesAsliChanged();
     #endregion
 		
 		public Roles_Tbl()
@@ -3887,6 +3915,26 @@ namespace Barbari_DAL
 					this._RolesGozaresh = value;
 					this.SendPropertyChanged("RolesGozaresh");
 					this.OnRolesGozareshChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesAsli", DbType="Bit NOT NULL")]
+		public bool RolesAsli
+		{
+			get
+			{
+				return this._RolesAsli;
+			}
+			set
+			{
+				if ((this._RolesAsli != value))
+				{
+					this.OnRolesAsliChanging(value);
+					this.SendPropertyChanging();
+					this._RolesAsli = value;
+					this.SendPropertyChanged("RolesAsli");
+					this.OnRolesAsliChanged();
 				}
 			}
 		}

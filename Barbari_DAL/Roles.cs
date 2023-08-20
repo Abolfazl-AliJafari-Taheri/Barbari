@@ -90,12 +90,12 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<Roles_Tbl> Select_First()
+        public static OperationResult<Roles_Tbl> Select_Asli(string namRole)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.Roles_Tbls.First();
+                var query = linq.Roles_Tbls.Where(p => p.RolesNamRole == namRole).Single();
                 return new OperationResult<Roles_Tbl>
                 {
                     Success = true,

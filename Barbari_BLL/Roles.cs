@@ -57,9 +57,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult<Roles_Tbl> Select_First()
+        public static OperationResult<Roles_Tbl> Select_Asli(string namRole)
         {
-            var result = Barbari_DAL.Roles.Select_First();
+            var result = Barbari_DAL.Roles.Select_Asli(namRole);
             if (result.Success == true)
             {
                 return result;
@@ -91,8 +91,8 @@ namespace Barbari_BLL
         }
         public static OperationResult Delete(string nam_Roles)
         {
-            var result1 = Select_First();
-            if (result1.Data.RolesNamRole == nam_Roles)
+            var result1 = Select_Asli(nam_Roles);
+            if (result1.Data.RolesAsli == true)
             {
                 return new OperationResult
                 {
@@ -171,8 +171,8 @@ namespace Barbari_BLL
         }
         public static OperationResult Update(Roles_Tbl roles)
         {
-            var result2 = Select_First();
-            if (result2.Data.RolesNamRole == roles.RolesNamRole)
+            var result2 = Select_Asli(roles.RolesNamRole);
+            if (result2.Data.RolesAsli == true)
             {
                 return new OperationResult
                 {
