@@ -62,6 +62,7 @@
       <Column Name="BarTahviliFamilyGerande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliMobileGerande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliShahrGerande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BarErsaliCodeRanande" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BarTahviliNamRanande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliFamilyRanande" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliMobileRanande" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
@@ -78,6 +79,7 @@
       <Column Name="BarTahviliUserNameKarmand" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="BarTahvili_Tbl_KalaTahvili_Tbl" Member="KalaTahvili_Tbls" ThisKey="BarTahviliCodeBar" OtherKey="KalaTahviliCodeBar" Type="KalaTahvili_Tbl" />
       <Association Name="Users_Tbl_BarTahvili_Tbl" Member="Users_Tbl" ThisKey="BarTahviliUserNameKarmand" OtherKey="UsersUserName" Type="Users_Tbl" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Ranande_Tbl_BarTahvili_Tbl" Member="Ranande_Tbl" ThisKey="BarErsaliCodeRanande" OtherKey="RanandeCodeRanande" Type="Ranande_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.City_Tbl" Member="City_Tbls">
@@ -135,6 +137,7 @@
       <Column Name="RanandeMobile" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
       <Column Name="RanandeIsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Ranande_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="RanandeCodeRanande" OtherKey="BarErsaliCodeRanande" Type="BarErsali_Tbl" />
+      <Association Name="Ranande_Tbl_BarTahvili_Tbl" Member="BarTahvili_Tbls" ThisKey="RanandeCodeRanande" OtherKey="BarErsaliCodeRanande" Type="BarTahvili_Tbl" />
     </Type>
   </Table>
   <Table Name="dbo.Roles_Tbl" Member="Roles_Tbls">
