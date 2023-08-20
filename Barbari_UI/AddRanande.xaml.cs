@@ -99,7 +99,7 @@ namespace Barbari_UI
                         Ranande.RanandeFirstName = "";
                         Ranande.RanandeLastName = "";
                         Ranande.RanandeMobile = "";
-                        WindowsAndPages.ranandegan.Refresh();
+                        WindowsAndPages.ranandegan.Refresh("");
                         DialogHost.CloseDialogCommand.Execute(null, null);
                     }
                 

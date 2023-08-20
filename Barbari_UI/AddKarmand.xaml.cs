@@ -74,7 +74,11 @@ namespace Barbari_UI
             Roles_CmBox.Text = karmand.UsersRoles;
             Add_Btn.Content = "ویرایش کارمند";
             UserName_Txt.IsReadOnly = true;
-
+            var result = Barbari_BLL.Users.Select_First();
+            if(Karmand.UsersUserName==result.Data.UsersUserName)
+            {
+                Roles_CmBox.IsEnabled= false;
+            }
             //FirstName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             //LastName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
             //UserName_Txt.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));

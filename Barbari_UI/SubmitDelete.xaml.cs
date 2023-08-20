@@ -84,7 +84,7 @@ namespace Barbari_UI
                 else
                 {
                     DialogHost.CloseDialogCommand.Execute(null, null);
-                    WindowsAndPages.ranandegan.Refresh();
+                    WindowsAndPages.ranandegan.Refresh("");
                 }
             }
             else if (customer != null)
@@ -110,7 +110,7 @@ namespace Barbari_UI
                 else
                 {
                     DialogHost.CloseDialogCommand.Execute(null, null);
-                    WindowsAndPages.cityAnbar.Refresh();
+                    WindowsAndPages.cityAnbar.Refresh("");
                 }
             }
             else if (barErsali != null)

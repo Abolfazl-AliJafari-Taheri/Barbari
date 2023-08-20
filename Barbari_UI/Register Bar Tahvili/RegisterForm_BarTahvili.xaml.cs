@@ -118,7 +118,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             }
             else if (step == 3)
             {
-                var validaition = Barbari_BLL.Validation.BarTahvili_Validation_EtelatRanande(step3.FirstName_Txt.Text, step3.LastName_Txt.Text,step3.Mobile_Txt.Text);
+                var validaition = Barbari_BLL.Validation.BarTahvili_Validation_EtelatRanande(step3.FirstName_Txt.Text, step3.LastName_Txt.Text,step3.Mobile_Txt.Text,step3.Code_CmBox.Text);
                 if (validaition.Success)
                 {
                     return true;
@@ -197,7 +197,10 @@ namespace Barbari_UI.Register_Bar_Tahvili
                         BarTahviliTarikh = step4.DateSodor_DtPicker.Text,
                         BarTahviliUserNameKarmand = WindowsAndPages.home_Window.User.UsersUserName,
                     };
-
+                    if ((bool)step3.Registered_Ranande.IsChecked)
+                    {
+                        barTahvili.BarErsaliCodeRanande = int.Parse(step3.Code_CmBox.Text);
+                    }
                     List<KalaTahvili_Tbl> kalas = step4.GetKalas();
                     if (kalas.Count == 0)
                     {

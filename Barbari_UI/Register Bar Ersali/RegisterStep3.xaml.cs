@@ -36,7 +36,6 @@ namespace Barbari_UI.Register_Bar_Ersali
         public BarErsali_Tbl BarErsali { get; set; }
         bool edit = false;
         int row = 1;
-        bool dateLoaded = false;
         public void RemoveText(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;

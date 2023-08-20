@@ -221,7 +221,7 @@ namespace Barbari_UI.Edit_Bar_Tahvili
             if (createStep3)
             {
                 var validaition_Ranande = Barbari_BLL.Validation.BarTahvili_Validation_EtelatRanande(step3.FirstName_Txt.Text, step3.LastName_Txt.Text,
-    step3.Mobile_Txt.Text);
+    step3.Mobile_Txt.Text,step3.Code_CmBox.Text);
                 if (!validaition_Ranande.Success)
                 {
                     MessageBox.Show(validaition_Ranande.Message);

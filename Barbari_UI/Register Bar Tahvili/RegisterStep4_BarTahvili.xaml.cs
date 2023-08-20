@@ -36,7 +36,6 @@ namespace Barbari_UI.Register_Bar_Tahvili
         public BarTahvili_Tbl BarTahvili { get; set; }
         bool edit = false;
         int row = 1;
-        bool dateLoaded = false;
 
         private void PrintToggle_Checked(object sender, RoutedEventArgs e)
         {

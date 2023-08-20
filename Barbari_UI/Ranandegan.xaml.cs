@@ -28,9 +28,9 @@ namespace Barbari_UI
             InitializeComponent();
         }
 
-        public void Refresh()
+        public void Refresh(string Search)
         {
-            var ranandegan = Barbari_BLL.Ranande.Select();
+            var ranandegan = Barbari_BLL.Ranande.Select(Search);
             if (!ranandegan.Success)
             {
                 MessageBox.Show(ranandegan.Message);
@@ -78,18 +78,18 @@ namespace Barbari_UI
                 AddRanande_Btn.IsEnabled=false;
             }
       
-            Refresh(); 
+            Refresh(""); 
         }
 
         private async void AddRanande_Btn_Click(object sender, RoutedEventArgs e)
         {
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddRanande() { Height = 317, Width = 622 });
-            Refresh();
+            Refresh("");
         }
 
         private void Search_Txt_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Refresh(Search_Txt.Text);
         }
     }
 }

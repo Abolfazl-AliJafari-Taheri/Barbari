@@ -26,9 +26,9 @@ namespace Barbari_UI
         {
             InitializeComponent();
         }
-        public void Refresh()
+        public void Refresh(string Search)
         {
-            var anbars = Barbari_BLL.City.Select();
+            var anbars = Barbari_BLL.City.Select(Search);
             if (!anbars.Success)
             {
                 MessageBox.Show(anbars.Message);
@@ -75,13 +75,18 @@ namespace Barbari_UI
                 Add_Btn.IsEnabled = false;
             }
                 
-            Refresh();
+            Refresh("");
         }
 
         private async void AddRanande_Btn_Click(object sender, RoutedEventArgs e)
         {
             await WindowsAndPages.home_Window.DialogHost.ShowDialog(new AddAnbar() { Height = 309, Width = 622 });
-            Refresh();
+            Refresh("");
+        }
+
+        private void Search_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh(Search_Txt.Text);
         }
     }
 }

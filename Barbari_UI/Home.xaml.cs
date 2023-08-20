@@ -26,7 +26,7 @@ namespace Barbari_UI
             InitializeComponent();
             User = LoginedUser;
         }
-        bool logedout = false;
+
         bool createBarErsali = false;
         bool createBarTahvili = false;
         bool createMoshtari = false;
@@ -34,7 +34,7 @@ namespace Barbari_UI
         bool createRanande = false;
         bool createCityAnbar = false;
         bool createSetting = false;
-        bool createWhitePage = false;
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //e.Cancel = true;
