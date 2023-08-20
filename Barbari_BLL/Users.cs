@@ -43,7 +43,6 @@ namespace Barbari_BLL
         }
         public static OperationResult Delete(string code)
         {
-            var result = Barbari_DAL.Users.Delete(code);
             var result1 = Select_First();
             if (result1.Data.UsersUserName == code)
             {
@@ -53,21 +52,26 @@ namespace Barbari_BLL
                     Message = "کاربر اصلی را نمی توان پاک کرد"
                 };
             }
-            else if (result.Success == true)
-            {
-                return new OperationResult
-                {
-                    Success = true,
-                };
-            }
             else
             {
-                return new OperationResult
+                var result = Barbari_DAL.Users.Delete(code);
+                if (result.Success == true)
                 {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
+                    return new OperationResult
+                    {
+                        Success = true,
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
             }
+            
         }
         public static OperationResult Recovery(string code)
         {
