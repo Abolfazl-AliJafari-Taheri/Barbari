@@ -1359,7 +1359,7 @@ namespace Barbari_BLL
             }
         }
         public static OperationResult BarTahvili_Validation_EtelatRanande(string BarTahviliNamRanande ,
-            string BarTahviliFamilyRanande, string BarTahviliMobileRanande)
+            string BarTahviliFamilyRanande, string BarTahviliMobileRanande , string BarTahviliCodeRanande)
         {
             if (string.IsNullOrEmpty(BarTahviliNamRanande))
             {
@@ -1408,6 +1408,52 @@ namespace Barbari_BLL
                     Success = false,
                     Message = "شماره موبایل را درست وارد کنید"
                 };
+            }
+            else if (!string.IsNullOrEmpty(BarTahviliCodeRanande))
+            {
+                if (!CheckNumberFormat(BarTahviliCodeRanande))
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "داخل کد راننده فقط میشه عدد وارد کرد"
+                    };
+                }
+                var result = Barbari_DAL.Ranande.Select_Code(int.Parse(BarTahviliCodeRanande));
+                if (result.Success == true)
+                {
+                    if (result.Data.Any(p => p.RanandeIsDelete == true))
+                    {
+                        return new OperationResult
+                        {
+                            Success = false,
+                            Message = "این راننده در جدول راننده پاک شدند"
+                        };
+                    }
+                    else if (result.Data.Count == 0)
+                    {
+                        return new OperationResult
+                        {
+                            Success = false,
+                            Message = "این کد راننده در جدول راننده ثبت نشده"
+                        };
+                    }
+                    else
+                    {
+                        return new OperationResult
+                        {
+                            Success = true,
+                        };
+                    }
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
             }
             else
             {

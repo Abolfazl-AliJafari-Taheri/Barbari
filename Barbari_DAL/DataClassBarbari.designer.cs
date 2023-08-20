@@ -1363,6 +1363,8 @@ namespace Barbari_DAL
 		
 		private string _BarTahviliShahrGerande;
 		
+		private System.Nullable<int> _BarErsaliCodeRanande;
+		
 		private string _BarTahviliNamRanande;
 		
 		private string _BarTahviliFamilyRanande;
@@ -1395,6 +1397,8 @@ namespace Barbari_DAL
 		
 		private EntityRef<Users_Tbl> _Users_Tbl;
 		
+		private EntityRef<Ranande_Tbl> _Ranande_Tbl;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1419,6 +1423,8 @@ namespace Barbari_DAL
     partial void OnBarTahviliMobileGerandeChanged();
     partial void OnBarTahviliShahrGerandeChanging(string value);
     partial void OnBarTahviliShahrGerandeChanged();
+    partial void OnBarErsaliCodeRanandeChanging(System.Nullable<int> value);
+    partial void OnBarErsaliCodeRanandeChanged();
     partial void OnBarTahviliNamRanandeChanging(string value);
     partial void OnBarTahviliNamRanandeChanged();
     partial void OnBarTahviliFamilyRanandeChanging(string value);
@@ -1453,6 +1459,7 @@ namespace Barbari_DAL
 		{
 			this._KalaTahvili_Tbls = new EntitySet<KalaTahvili_Tbl>(new Action<KalaTahvili_Tbl>(this.attach_KalaTahvili_Tbls), new Action<KalaTahvili_Tbl>(this.detach_KalaTahvili_Tbls));
 			this._Users_Tbl = default(EntityRef<Users_Tbl>);
+			this._Ranande_Tbl = default(EntityRef<Ranande_Tbl>);
 			OnCreated();
 		}
 		
@@ -1652,6 +1659,30 @@ namespace Barbari_DAL
 					this._BarTahviliShahrGerande = value;
 					this.SendPropertyChanged("BarTahviliShahrGerande");
 					this.OnBarTahviliShahrGerandeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliCodeRanande", DbType="Int")]
+		public System.Nullable<int> BarErsaliCodeRanande
+		{
+			get
+			{
+				return this._BarErsaliCodeRanande;
+			}
+			set
+			{
+				if ((this._BarErsaliCodeRanande != value))
+				{
+					if (this._Ranande_Tbl.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBarErsaliCodeRanandeChanging(value);
+					this.SendPropertyChanging();
+					this._BarErsaliCodeRanande = value;
+					this.SendPropertyChanged("BarErsaliCodeRanande");
+					this.OnBarErsaliCodeRanandeChanged();
 				}
 			}
 		}
@@ -1983,6 +2014,40 @@ namespace Barbari_DAL
 						this._BarTahviliUserNameKarmand = default(string);
 					}
 					this.SendPropertyChanged("Users_Tbl");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ranande_Tbl_BarTahvili_Tbl", Storage="_Ranande_Tbl", ThisKey="BarErsaliCodeRanande", OtherKey="RanandeCodeRanande", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Ranande_Tbl Ranande_Tbl
+		{
+			get
+			{
+				return this._Ranande_Tbl.Entity;
+			}
+			set
+			{
+				Ranande_Tbl previousValue = this._Ranande_Tbl.Entity;
+				if (((previousValue != value) 
+							|| (this._Ranande_Tbl.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Ranande_Tbl.Entity = null;
+						previousValue.BarTahvili_Tbls.Remove(this);
+					}
+					this._Ranande_Tbl.Entity = value;
+					if ((value != null))
+					{
+						value.BarTahvili_Tbls.Add(this);
+						this._BarErsaliCodeRanande = value.RanandeCodeRanande;
+					}
+					else
+					{
+						this._BarErsaliCodeRanande = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Ranande_Tbl");
 				}
 			}
 		}
@@ -2914,6 +2979,8 @@ namespace Barbari_DAL
 		
 		private EntitySet<BarErsali_Tbl> _BarErsali_Tbls;
 		
+		private EntitySet<BarTahvili_Tbl> _BarTahvili_Tbls;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2933,6 +3000,7 @@ namespace Barbari_DAL
 		public Ranande_Tbl()
 		{
 			this._BarErsali_Tbls = new EntitySet<BarErsali_Tbl>(new Action<BarErsali_Tbl>(this.attach_BarErsali_Tbls), new Action<BarErsali_Tbl>(this.detach_BarErsali_Tbls));
+			this._BarTahvili_Tbls = new EntitySet<BarTahvili_Tbl>(new Action<BarTahvili_Tbl>(this.attach_BarTahvili_Tbls), new Action<BarTahvili_Tbl>(this.detach_BarTahvili_Tbls));
 			OnCreated();
 		}
 		
@@ -3049,6 +3117,19 @@ namespace Barbari_DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ranande_Tbl_BarTahvili_Tbl", Storage="_BarTahvili_Tbls", ThisKey="RanandeCodeRanande", OtherKey="BarErsaliCodeRanande")]
+		public EntitySet<BarTahvili_Tbl> BarTahvili_Tbls
+		{
+			get
+			{
+				return this._BarTahvili_Tbls;
+			}
+			set
+			{
+				this._BarTahvili_Tbls.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3076,6 +3157,18 @@ namespace Barbari_DAL
 		}
 		
 		private void detach_BarErsali_Tbls(BarErsali_Tbl entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ranande_Tbl = null;
+		}
+		
+		private void attach_BarTahvili_Tbls(BarTahvili_Tbl entity)
+		{
+			this.SendPropertyChanging();
+			entity.Ranande_Tbl = this;
+		}
+		
+		private void detach_BarTahvili_Tbls(BarTahvili_Tbl entity)
 		{
 			this.SendPropertyChanging();
 			entity.Ranande_Tbl = null;
