@@ -131,6 +131,15 @@ namespace Barbari_BLL
             }
             else
             {
+                var query = Barbari_DAL.Users.Select_DataFirst();
+                if (query.Data == null)
+                {
+                    user.UsersAsli = true;
+                }
+                else
+                {
+                    user.UsersAsli = false;
+                }
                 var result = Barbari_DAL.Users.Insert(user);
                 if (result.Success == true)
                 {
