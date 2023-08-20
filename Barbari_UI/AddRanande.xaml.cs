@@ -135,6 +135,11 @@ namespace Barbari_UI
             Regex regex = new Regex("[^0-9]");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void Mobile_Txt_PreviewTextInput()
+        {
+
+        }
         //bool Validait()
         //{
         //    if(FirstName_Txt.Text == FirstName_Txt.Tag.ToString())
