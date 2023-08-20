@@ -50,7 +50,7 @@ namespace Barbari_BLL
                 return new OperationResult
                 {
                     Success = false,
-                    Message = "کاربر اصلی را نمیتوان پاک کرد"
+                    Message = "کاربر اصلی را نمی توان پاک کرد"
                 };
             }
             else if (result.Success == true)

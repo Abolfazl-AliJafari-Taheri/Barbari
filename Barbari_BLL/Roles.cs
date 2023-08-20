@@ -91,7 +91,6 @@ namespace Barbari_BLL
         }
         public static OperationResult Delete(string nam_Roles)
         {
-            var result = Barbari_DAL.Roles.Delete(nam_Roles);
             var result1 = Select_First();
             if (result1.Data.RolesNamRole == nam_Roles)
             {
@@ -101,21 +100,26 @@ namespace Barbari_BLL
                     Message = "نقش اصلی را نمی توان پاک کرد"
                 };
             }
-            else if (result.Success == true)
-            {
-                return new OperationResult
-                {
-                    Success = true
-                };
-            }
             else
             {
-                return new OperationResult
+                var result = Barbari_DAL.Roles.Delete(nam_Roles);
+                if (result.Success == true)
                 {
-                    Success = false,
-                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
-                };
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                else
+                {
+                    return new OperationResult
+                    {
+                        Success = false,
+                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                    };
+                }
             }
+            
         }
         public static OperationResult Insert(Roles_Tbl roles)
         {
@@ -167,7 +171,6 @@ namespace Barbari_BLL
         }
         public static OperationResult Update(Roles_Tbl roles)
         {
-            var result1 = Validation.Roles_Validation(roles);
             var result2 = Select_First();
             if (result2.Data.RolesNamRole == roles.RolesNamRole)
             {
@@ -177,31 +180,35 @@ namespace Barbari_BLL
                     Message = "نقش اصلی را نمی توان ویرایش کرد"
                 };
             }
-            else if (result1.Success == false)
-            {
-                return new OperationResult<List<Users_Tbl>>
-                {
-                    Success = false,
-                    Message = result1.Message
-                };
-            }
             else
             {
-                var result = Barbari_DAL.Roles.Update(roles);
-                if (result.Success == true)
-                {
-                    return new OperationResult<List<Users_Tbl>>
-                    {
-                        Success = true,
-                    };
-                }
-                else
+                var result1 = Validation.Roles_Validation(roles);
+                if (result1.Success == false)
                 {
                     return new OperationResult<List<Users_Tbl>>
                     {
                         Success = false,
-                        Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                        Message = result1.Message
                     };
+                }
+                else
+                {
+                    var result = Barbari_DAL.Roles.Update(roles);
+                    if (result.Success == true)
+                    {
+                        return new OperationResult<List<Users_Tbl>>
+                        {
+                            Success = true,
+                        };
+                    }
+                    else
+                    {
+                        return new OperationResult<List<Users_Tbl>>
+                        {
+                            Success = false,
+                            Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                        };
+                    }
                 }
             }
         }
