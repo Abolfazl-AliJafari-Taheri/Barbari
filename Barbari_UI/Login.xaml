@@ -46,7 +46,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <!--<Image Grid.Column="0"   Width="20"  Margin="8,4,0,4" />-->
-                        <TextBox Name="Username_Txt" materialDesign:HintAssist.Hint="نام کاربری"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" PreviewKeyDown="Username_Txt_PreviewKeyDown" Margin="0" Grid.Column="1"  Width="311" Height="48"   BorderThickness="0"  FontSize="14" HorizontalScrollBarVisibility="Disabled" BorderBrush="#FF0040FF" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"  FontFamily="IRANSansX"  />
+                        <TextBox Name="Username_Txt" materialDesign:HintAssist.Hint="نام کاربری"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" PreviewKeyDown="Username_Txt_PreviewKeyDown" Margin="0" Grid.Column="1"  Width="311" Height="48"   BorderThickness="0"  FontSize="14" HorizontalScrollBarVisibility="Disabled" BorderBrush="#FF0040FF" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"  FontFamily="IRANSansX" PreviewTextInput="Username_Txt_PreviewTextInput" />
 
                     </Grid>
                 </Border>

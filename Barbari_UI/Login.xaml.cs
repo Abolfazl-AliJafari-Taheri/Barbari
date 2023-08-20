@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -164,6 +165,23 @@ namespace Barbari_UI
                 Logo_Img.Source = ConverterPhoto("/Source/Icones/AppIcon(White Border).png");
             }
 
+        }
+
+        private void Username_Txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                if (IsPersianCharacter(e.Text))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+        private bool IsPersianCharacter(string text)
+        {
+            var regex = new Regex(@"\p{IsArabic}");
+            return regex.IsMatch(text);
         }
     }
 }

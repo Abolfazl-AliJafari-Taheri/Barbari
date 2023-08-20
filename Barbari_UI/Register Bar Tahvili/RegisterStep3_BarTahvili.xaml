@@ -6,13 +6,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Barbari_UI.Register_Bar_Tahvili"
              mc:Ignorable="d" 
-              d:DesignHeight="168" d:DesignWidth="622"
+              d:DesignHeight="312" d:DesignWidth="622"
              Loaded="UserControl_Loaded">
     <Border Background="#F7F7F7" CornerRadius="8"  >
         <Grid  FlowDirection="RightToLeft" Name="Field_Grid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="77"/>
-                <RowDefinition Height="91"/>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="56"/>
+                <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="295"/>
@@ -24,8 +26,59 @@
             <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="LastName_Txt" materialDesign:HintAssist.Hint="نام خانوادگی راننده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  />
             </Border>
-            <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Mobile_Txt" materialDesign:HintAssist.Hint="شماره تلفن راننده"  MaxLength="11"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
+            <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <TextBox Name="Mobile_Txt" materialDesign:HintAssist.Hint="شماره تلفن راننده"  MaxLength="11"  Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" PreviewTextInput="Mobile_Txt_PreviewTextInput"/>
+            </Border>
+            <Grid Grid.Row="2" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton
+                            Name="Registered_Ranande"
+                            Cursor="Hand"
+                    FlowDirection="LeftToRight"
+                         VerticalAlignment="Center"
+                         Grid.Column="0"
+  IsChecked="False"
+                         Checked="Registered_Ranande_Checked"
+                            Unchecked="Registered_Ranande_Unchecked"
+                    HorizontalAlignment="Left"
+                    Width="56" Height="32"
+  Style="{StaticResource  MaterialDesignSwitchLightToggleButton}"
+  ToolTip="MaterialDesignSwitchDarkToggleButton" Background="#2B54A3"
+                         
+                    />
+                <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">راننده قبلا ثبت نام شده</TextBlock>
+            </Grid>
+            <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                <ComboBox
+                    KeyUp="Code_CmBox_KeyUp"
+                    IsEnabled="False"
+                      materialDesign:HintAssist.Hint="کد راننده"
+
+                    BorderThickness="0"
+  Width="247"
+                    Foreground="Black"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Name="Code_CmBox"
+                    Background="#FFFFFF"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="True"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}" SelectionChanged="Code_CmBox_SelectionChanged">
+                    <ComboBox.SelectedItem>
+                        <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
             </Border>
         </Grid>
     </Border>

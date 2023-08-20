@@ -146,7 +146,7 @@ namespace Barbari_UI.Edit_Bar_Tahvili
             else
             {
                 ShowStep_Grid.Children.Clear();
-                step3 = new RegisterStep3_BarTahvili(BarTahvili, true) {Height = 168, Width = 622/*, VerticalAlignment = VerticalAlignment.Top*/ };
+                step3 = new RegisterStep3_BarTahvili(BarTahvili, true) {Height = 312, Width = 622/*, VerticalAlignment = VerticalAlignment.Top*/ };
 
                 createStep3 = true;
                 ShowStep_Grid.Children.Add(step3);

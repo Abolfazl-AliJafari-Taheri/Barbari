@@ -158,7 +158,7 @@
                 <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">افزودن مقصد نهایی</TextBlock>
             </Grid>
             <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Mobile_Txt" MaxLength="11" materialDesign:HintAssist.Hint="شماره تلفن گیرنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
+                <TextBox Name="Mobile_Txt" MaxLength="11" materialDesign:HintAssist.Hint="شماره تلفن گیرنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" PreviewTextInput="Mobile_Txt_PreviewTextInput"/>
             </Border>
         </Grid>
     </Border>
