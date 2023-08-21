@@ -405,5 +405,36 @@ namespace Barbari_UI
             }
            
         }
+
+        private void GetReport_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            var rpt = StiReportHelper.GetReport("ReportRanande.mrt");
+            var query = Barbari_BLL.BarErsali.Select();
+            var query1 = Barbari_BLL.Company.Select();
+            if (query.Success == true)
+            {
+                
+                rpt.Dictionary.Variables["FirstNameAndLastNameRanade"].Value = "سلمان طاهری";
+                rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
+                rpt.Dictionary.Variables["tedad"].Value = query.Data.Count.ToString();
+                rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                if (query1.Data.CompanyIogo != null)
+                {
+                    string logopath = System.IO.Path.Combine(query1.Data.CompanyIogo);
+                    BitmapImage brush = new BitmapImage(new Uri(logopath, UriKind.Relative));
+                    rpt.Dictionary.Variables["LogoCompany"].ValueObject = brush;
+                }
+                rpt.RegData("BarErsali_Tbl", query.Data.Select(p => new
+                {
+                    p.BarErsaliBarname,
+                    p.BarErsaliNamFerestande,
+                    p.BarErsaliFamilyFerestande,
+                    p.BarErsaliNamGerande,
+                    p.BarErsaliFamilyGerande,
+                    p.BarErsaliTarikh
+                }));
+                rpt.Show();
+            }
+        }
     }
 }

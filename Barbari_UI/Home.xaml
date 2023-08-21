@@ -34,7 +34,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Image Name="Logo_Img" Height="107" Width="107" FlowDirection="LeftToRight">
-                            
+
                         </Image>
                         <Border  Name="Logo_Border" Grid.Row="0" Height="107" Width="107" FlowDirection="LeftToRight">
                         </Border>
@@ -156,13 +156,13 @@
                             </StackPanel>
                             <TextBlock Name="CompanyName_TxtBlock" Grid.Column="2" Text="نام شرکت" FontSize="34" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="IRANSansX" Height="auto" FontWeight="UltraBold" />
                             <Border Grid.Column="3" Height="48" Width="144" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
-                                <Button Name="GetReport_Btn" Height="48" Padding="0" Width="144" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" >
+                                <Button Name="GetReport_Btn" Height="48" Padding="0" Width="144" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="GetReport_Btn_Click" >
                                     <Grid Width="144">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="42"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 12 0" ><Run Text="گزارش گیری"/></TextBlock>
+                                        <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="24,0,0,2" ><Run Text="گزارش گیری"/></TextBlock>
                                         <Image Grid.Column="1" HorizontalAlignment="Left" Height="24" Width="24" Source="/Source/Icones/Get Report Button Icon(White Border).png" />
                                     </Grid>
                                 </Button>
