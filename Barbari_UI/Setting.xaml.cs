@@ -113,7 +113,6 @@ namespace Barbari_UI
                     {
                         MessageBox.Show("برای اعمال تغییرات برنامه را کامل ببندید و دوباره اجرا کنید");
                     }
-               
                 
             }
             catch(Exception) 

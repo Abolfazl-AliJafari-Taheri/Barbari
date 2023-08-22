@@ -43,6 +43,7 @@ namespace Barbari_UI
         }
         public Users_Tbl User{ get; set; }
         public Roles_Tbl Role{ get; set; }
+        public Company_Tbl Company { get; set; }
         private void SelectBarErsaliMenu()
         {
             BarErsaliMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Bar Ersali Menu Icon(Blue Border).png");
@@ -364,6 +365,7 @@ namespace Barbari_UI
             var company = Barbari_BLL.Company.Select();
             if(company.Data != null)
             {
+                Company = company.Data;
                 if (string.IsNullOrEmpty(company.Data.CompanyName))
                 {
                     CompanyName_TxtBlock.Text = "";
