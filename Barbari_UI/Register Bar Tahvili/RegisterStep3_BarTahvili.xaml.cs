@@ -37,6 +37,12 @@ namespace Barbari_UI.Register_Bar_Tahvili
         public BarTahvili_Tbl BarTahvili { get; set; }
         void EditMode()
         {
+            if (!string.IsNullOrEmpty(BarTahvili.BarErsaliCodeRanande.ToString()))
+            {
+                Registered_Ranande.IsChecked = true;
+                Code_CmBox.Text = BarTahvili.BarErsaliCodeRanande.ToString();
+
+            }
             FirstName_Txt.Text = BarTahvili.BarTahviliNamRanande;
             LastName_Txt.Text = BarTahvili.BarTahviliFamilyRanande;
             Mobile_Txt.Text = BarTahvili.BarTahviliMobileRanande;
@@ -47,6 +53,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             {
                 EditMode();
             }
+            FillComboBox();
         }
          
         public void Registered()
@@ -76,6 +83,11 @@ namespace Barbari_UI.Register_Bar_Tahvili
             Mobile_Txt.IsReadOnly = false;
             Code_CmBox.Text = "";
             Code_CmBox.IsEnabled = false;
+        }
+        void FillComboBox()
+        {
+            var ranande = Barbari_BLL.Ranande.Select_AllRanandeCode().Data;
+            Code_CmBox.ItemsSource = ranande;
         }
         private void Code_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

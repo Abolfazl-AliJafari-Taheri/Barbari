@@ -38,13 +38,6 @@
   IsEditable="True"
   ItemsSource="{Binding ShortStringList}"
   Style="{StaticResource MaterialDesignFilledComboBox}" >
-                    <ComboBox.SelectedItem>
-                        <Binding
-      Mode="TwoWay"
-      Path="SelectedValidationFilled"
-      UpdateSourceTrigger="PropertyChanged">
-                        </Binding>
-                    </ComboBox.SelectedItem>
                 </ComboBox>
             </Border>
             <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
