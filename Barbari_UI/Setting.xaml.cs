@@ -16,6 +16,7 @@ using System.IO;
 using Barbari_DAL;
 using Barbari_BLL;
 using MaterialDesignThemes.Wpf;
+using System.Text.RegularExpressions;
 
 namespace Barbari_UI
 {
@@ -69,6 +70,7 @@ namespace Barbari_UI
                 CompanyCity_Txt.Text = company.Data.CompanyCity;
                 CompanyName_Txt.Text = company.Data.CompanyName;
                 CompanyRules_Txt.Text = company.Data.CompanyRules;
+                CompanyPhoneNumber_Txt.Text = company.Data.CompanyTelephon;
                 if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
                 {
                     if (File.Exists(company.Data.CompanyIogo))
@@ -101,6 +103,7 @@ namespace Barbari_UI
                     company.CompanyCity = CompanyCity_Txt.Text;
                     company.CompanyName = CompanyName_Txt.Text;
                     company.CompanyIogo = logoAddress;
+                    company.CompanyTelephon = CompanyPhoneNumber_Txt.Text;
                     var result = Barbari_BLL.Company.Insert(company);
                     if (!result.Success)
                     {
@@ -174,6 +177,12 @@ namespace Barbari_UI
             {
                 MessageBox.Show(result.Message);
             }
+        }
+
+        private void CompanyPhoneNumber_Txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
