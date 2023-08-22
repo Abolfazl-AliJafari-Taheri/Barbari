@@ -2257,6 +2257,8 @@ namespace Barbari_DAL
 		
 		private string _CompanyCity;
 		
+		private string _CompanyTelephon;
+		
 		private string _CompanyRules;
 		
     #region Extensibility Method Definitions
@@ -2271,6 +2273,8 @@ namespace Barbari_DAL
     partial void OnCompanyNameChanged();
     partial void OnCompanyCityChanging(string value);
     partial void OnCompanyCityChanged();
+    partial void OnCompanyTelephonChanging(string value);
+    partial void OnCompanyTelephonChanged();
     partial void OnCompanyRulesChanging(string value);
     partial void OnCompanyRulesChanged();
     #endregion
@@ -2320,7 +2324,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyName", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string CompanyName
 		{
 			get
@@ -2340,7 +2344,7 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyCity", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyCity", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string CompanyCity
 		{
 			get
@@ -2356,6 +2360,26 @@ namespace Barbari_DAL
 					this._CompanyCity = value;
 					this.SendPropertyChanged("CompanyCity");
 					this.OnCompanyCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyTelephon", DbType="VarChar(11) NOT NULL", CanBeNull=false)]
+		public string CompanyTelephon
+		{
+			get
+			{
+				return this._CompanyTelephon;
+			}
+			set
+			{
+				if ((this._CompanyTelephon != value))
+				{
+					this.OnCompanyTelephonChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyTelephon = value;
+					this.SendPropertyChanged("CompanyTelephon");
+					this.OnCompanyTelephonChanged();
 				}
 			}
 		}

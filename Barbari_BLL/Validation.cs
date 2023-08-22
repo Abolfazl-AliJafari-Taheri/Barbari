@@ -1636,6 +1636,14 @@ namespace Barbari_BLL
                     Message = "نام شهر را وارد کنید"
                 };
             }
+            else if (string.IsNullOrEmpty(company.CompanyTelephon))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره تلفن را وارد کنید"
+                };
+            }
             else if (CheckRangeDataType(company.CompanyName, 50))
             {
                 return new OperationResult
@@ -1650,6 +1658,14 @@ namespace Barbari_BLL
                 {
                     Success = false,
                     Message = "شهر نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else if (CheckTelephonSabetFormat(company.CompanyTelephon))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "شماره تلفن را درست وارد کنید"
                 };
             }
             else
