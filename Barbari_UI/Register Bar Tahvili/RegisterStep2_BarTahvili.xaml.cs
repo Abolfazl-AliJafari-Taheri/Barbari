@@ -53,6 +53,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            CityMaghsad_CmBox.Text = WindowsAndPages.home_Window.Company.CompanyCity;
             if (edit)
             {
                 EditMode(BarTahvili);
