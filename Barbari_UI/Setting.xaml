@@ -24,9 +24,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock  Grid.Row="0" FontFamily="IRANSansX" FontSize="32" FontWeight="Medium" Text="اطلاعات شرکت" Height="45" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 24 0"/>
-            <Grid Grid.Row="1" Height="104" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Width="723" HorizontalAlignment="Right">
+            <Grid Grid.Row="1" Height="104" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Width="auto" HorizontalAlignment="Right">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="258"/>
                     <ColumnDefinition Width="258"/>
                     <ColumnDefinition Width="258"/>
                     <ColumnDefinition/>
@@ -42,7 +43,10 @@
                 <Border Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="234">
                     <TextBox Name="CompanyCity_Txt" materialDesign:HintAssist.Hint="شهر مبدا"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
                 </Border>
-                <Border Grid.Column="3" Height="48" Width="71" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="8" Background="#2B54A3"  >
+                <Border Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="234">
+                    <TextBox Name="CompanyPhoneNumber_Txt" materialDesign:HintAssist.Hint="شماره تلفن"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" MaxLength="11" PreviewTextInput="CompanyPhoneNumber_Txt_PreviewTextInput"/>
+                </Border>
+                <Border Grid.Column="4" Height="48" Width="71" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="8" Background="#2B54A3" Margin="24 0 0 0 " >
                     <Button Name="Save_Btn" Height="48" Padding="0" Width="71" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="Save_Btn_Click" VerticalAlignment="Top"   >
                         <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center">ذخیره</TextBlock>
                     </Button>
