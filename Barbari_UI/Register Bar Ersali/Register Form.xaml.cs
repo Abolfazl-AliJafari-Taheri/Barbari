@@ -151,6 +151,44 @@ namespace Barbari_UI.Register_Bar_Ersali
                         var result = Barbari_BLL.BarErsali.Insert(barErsali, kalas, (bool)step1.BimariToggle.IsChecked, (bool)step2.AddSecondMaghsadToggle.IsChecked);
                         if(result.Success)
                         {
+                            if ((bool)step3.PrintToggle.IsChecked)
+                            {
+                                var rpt = StiReportHelper.GetReport("ReportBarname.mrt");
+                                var query1 = Barbari_BLL.Company.Select();
+                                var query2 = Barbari_BLL.BarErsali.Select_KalaDaryafti(int.Parse(step3.CodeBarname_Txt.Text));
+                                if (query1.Success == true)
+                                {
+                                    //rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
+                                    //rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
+                                    rpt.Dictionary.Variables["TarikhSodor"].Value = step3.DateSodor_DtPicker.Text;
+                                    rpt.Dictionary.Variables["ShomareBarname"].Value = step3.CodeBarname_Txt.Text;
+                                    rpt.Dictionary.Variables["NamAndFamilyFerestande"].Value = step1.FirstName_Txt.Text +" "+ step1.LastName_Txt.Text;
+                                    rpt.Dictionary.Variables["ShomareFerestande"].Value = step1.Mobile_Txt.Text;
+                                    rpt.Dictionary.Variables["ShahrMabda"].Value = step1.CityMabda_CmBox.Text;
+                                    rpt.Dictionary.Variables["AnbarMabda"].Value = step1.AnbarMabda_CmBox.Text;
+                                    rpt.Dictionary.Variables["NamAndFamilyGerande"].Value = step2.FirstName_Txt.Text +" "+ step2.LastName_Txt.Text;
+                                    rpt.Dictionary.Variables["ShomareGerande"].Value = step2.Mobile_Txt.Text;
+                                    rpt.Dictionary.Variables["ShahrMaghsad"].Value = step2.CityMaghsad_CmBox.Text;
+                                    rpt.Dictionary.Variables["AnbarMaghsad"].Value = step2.AnbarMaghsad_CmBox.Text;
+                                    rpt.Dictionary.Variables["Bime"].Value = step3.Bime_Txt.Text;
+                                    rpt.Dictionary.Variables["Anbardari"].Value = step3.AnbarDari_Txt.Text;
+                                    rpt.Dictionary.Variables["Shahri"].Value = step3.Shahri_Txt.Text;
+                                    rpt.Dictionary.Variables["BasteBandi"].Value = step3.BasteBandi_Txt.Text;
+                                    rpt.Dictionary.Variables["PishKeraye"].Value = step3.PishKeraye_Txt.Text;
+                                    rpt.Dictionary.Variables["PasKeraye"].Value = step3.PasKeraye_Txt.Text;
+                                    int jam = int.Parse(step3.Bime_Txt.Text) + int.Parse(step3.AnbarDari_Txt.Text) + int.Parse(step3.AnbarDari_Txt.Text)
+                                        + int.Parse(step3.BasteBandi_Txt.Text) + int.Parse(step3.BasteBandi_Txt.Text) + int.Parse(step3.PasKeraye_Txt.Text);
+                                    rpt.Dictionary.Variables["JamEtelatBar"].Value = jam.ToString();
+
+                                    rpt.RegData("KalaDaryafti_Tbl", query2.Data.Select(p => new
+                                    {
+                                        p.KalaDaryaftiNamKala,
+                                        p.KalaDaryaftiTedadKala,
+                                    }));
+                                    rpt.Show();
+                                }
+
+                            }
                             inserted = true;
                             step1.Registered();
                             step2.Registered();
