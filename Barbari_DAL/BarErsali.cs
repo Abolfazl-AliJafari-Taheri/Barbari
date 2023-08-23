@@ -71,6 +71,26 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult<BarErsali_Tbl> Select_Search(int search)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarErsali_Tbls.Where(p => p.BarErsaliBarname == search).Single();
+                return new OperationResult<BarErsali_Tbl>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch (Exception)
+            {
+                return new OperationResult<BarErsali_Tbl>
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult<List<KalaDaryafti_Tbl>> Select_KalaDaryafti(int codeBarname)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();

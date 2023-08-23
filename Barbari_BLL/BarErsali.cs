@@ -41,6 +41,22 @@ namespace Barbari_BLL
                 }
             }
         }
+        public static OperationResult<BarErsali_Tbl> Select_Search(int search)
+        {
+            var result = Barbari_DAL.BarErsali.Select_Search(search);
+            if (result.Success == true)
+            {
+                return result;
+            }
+            else
+            {
+                return new OperationResult<BarErsali_Tbl>
+                {
+                    Success = false,
+                    Message = "خطایی رخ داده است لطفا با پشتیبان تماس بگیرید"
+                };
+            }
+        }
         public static OperationResult<List<KalaDaryafti_Tbl>> Select_KalaDaryafti(int codeBarname)
         {
             var result = Barbari_DAL.BarErsali.Select_KalaDaryafti(codeBarname);
