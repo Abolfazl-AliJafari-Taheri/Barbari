@@ -116,7 +116,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
             else
             {
                 ShowStep_Grid.Children.Clear();
-                tahvilRanande = new TahvilRanande(BarErsali, true) {Height = 368, Width = 622 , VerticalAlignment = VerticalAlignment.Top};
+                tahvilRanande = new TahvilRanande(BarErsali, true) {Height = 344, Width = 622 /*, VerticalAlignment = VerticalAlignment.Top*/};
                 tahvilRanande.Field_Grid.RowDefinitions[0].Height = GridLength.Auto;
                 createTahvil = true;
                 ShowStep_Grid.Children.Add(tahvilRanande);
@@ -482,6 +482,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
             if(!string.IsNullOrEmpty(BarErsali.BarErsaliNamRanande))
             {
                 tahvilRanande = new TahvilRanande(BarErsali,true);
+                tahvilRanande.Field_Grid.RowDefinitions[0].Height = GridLength.Auto;
                 tahvilRanande.UserControl_Loaded(null, null);
                 createTahvil = true;
                 RanandeInfo_Btn.IsEnabled= true;
