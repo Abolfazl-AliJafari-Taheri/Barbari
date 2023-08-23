@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Barbari_UI.Get_Reports"
              mc:Ignorable="d" 
-             d:DesignHeight="749" d:DesignWidth="338"
+             d:DesignHeight="813" d:DesignWidth="338"
              Loaded="UserControl_Loaded">
     <Border Background="#F7F7F7" CornerRadius="8">
         <Grid>
@@ -35,15 +35,46 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="64"/>
                             <RowDefinition Height="64"/>
+                            <RowDefinition Height="64"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="0"  HorizontalAlignment="Left" Margin="32 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                        <Border Grid.Row="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <ComboBox
+                                
+                    PreviewTextInput="Code_CmBox_PreviewTextInput"
+                    IsEnabled="True"
+                      materialDesign:HintAssist.Hint="کد راننده"
+
+                    BorderThickness="0"
+  Width="247"
+                    Foreground="Black"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Name="CodeRanande_CmBox"
+                    Background="#FFFFFF"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="False"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}">
+                                <ComboBox.SelectedItem>
+                                    <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </ComboBox.SelectedItem>
+                            </ComboBox>
+                        </Border>
+                        <Border Grid.Row="1"  HorizontalAlignment="Left" Margin="32 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                             <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="RanandeFromDate_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="RanandeFromDate_DtPicker_SelectedDateChanged_1"/>
                         </Border>
-                        <Border Grid.Row="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                        <Border Grid.Row="2" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                             <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="RanandeToDate_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="RanandeToDate_DtPicker_SelectedDateChanged"/>
                         </Border>
-                        <Border Grid.Row="2" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
+                        <Border Grid.Row="3" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
                             <Button Name="GetReportDriver_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="GetReportDriver_Btn_Click">
                                 <TextBlock FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right"><Run Text="دریافت گزارش"/></TextBlock>
                             </Button>
@@ -68,15 +99,46 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="64"/>
                             <RowDefinition Height="64"/>
+                            <RowDefinition Height="64"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="0"  HorizontalAlignment="Left" Margin="32 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                        <Border Grid.Row="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <ComboBox
+                                
+                    PreviewTextInput="Code_CmBox_PreviewTextInput"
+                    IsEnabled="True"
+                      materialDesign:HintAssist.Hint="کد مشتری"
+
+                    BorderThickness="0"
+  Width="247"
+                    Foreground="Black"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Name="CodeCustomer_CmBox"
+                    Background="#FFFFFF"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="False"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}">
+                                <ComboBox.SelectedItem>
+                                    <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </ComboBox.SelectedItem>
+                            </ComboBox>
+                        </Border>
+                        <Border Grid.Row="1"  HorizontalAlignment="Left" Margin="32 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                             <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="CustomerFromDate_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="RanandeFromDate_DtPicker_SelectedDateChanged"/>
                         </Border>
-                        <Border Grid.Row="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                        <Border Grid.Row="2" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                             <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="CustomerToDate_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="RanandeFromDate_DtPicker_SelectedDateChanged"/>
                         </Border>
-                        <Border Grid.Row="2" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
+                        <Border Grid.Row="3" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
                             <Button Name="GetReportCustomer_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="GetReportCustomer_Btn_Click">
                                 <TextBlock FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right"><Run Text="دریافت گزارش"/></TextBlock>
                             </Button>
@@ -101,15 +163,46 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="64"/>
                             <RowDefinition Height="64"/>
+                            <RowDefinition Height="64"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="0"  HorizontalAlignment="Left" Margin="32 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                        <Border Grid.Row="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <ComboBox
+                                
+                    PreviewTextInput="Code_CmBox_PreviewTextInput"
+                    IsEnabled="True"
+                      materialDesign:HintAssist.Hint="شهر"
+
+                    BorderThickness="0"
+  Width="247"
+                    Foreground="Black"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Name="CityOneDestination_CmBox"
+                    Background="#FFFFFF"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="False"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}">
+                                <ComboBox.SelectedItem>
+                                    <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </ComboBox.SelectedItem>
+                            </ComboBox>
+                        </Border>
+                        <Border Grid.Row="1"  HorizontalAlignment="Left" Margin="32 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                             <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="OneDestinationFromDate_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="RanandeFromDate_DtPicker_SelectedDateChanged"/>
                         </Border>
-                        <Border Grid.Row="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                        <Border Grid.Row="2" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                             <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="OneDestinationToDate_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="RanandeFromDate_DtPicker_SelectedDateChanged"/>
                         </Border>
-                        <Border Grid.Row="2" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
+                        <Border Grid.Row="3" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
                             <Button Name="GetReportOneDestination_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="GetReportOneDestination_Btn_Click">
                                 <TextBlock FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right"><Run Text="دریافت گزارش"/></TextBlock>
                             </Button>
@@ -233,15 +326,46 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="64"/>
                             <RowDefinition Height="64"/>
+                            <RowDefinition Height="64"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="0"  HorizontalAlignment="Left" Margin="32 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                        <Border Grid.Row="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                            <ComboBox
+                                
+                    PreviewTextInput="Code_CmBox_PreviewTextInput"
+                    IsEnabled="True"
+                      materialDesign:HintAssist.Hint="شهر"
+
+                    BorderThickness="0"
+  Width="247"
+                    Foreground="Black"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Name="CityMablaghShahri_CmBox"
+                    Background="#FFFFFF"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                    
+  materialDesign:TextFieldAssist.HasClearButton="True"
+  IsEditable="False"
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}">
+                                <ComboBox.SelectedItem>
+                                    <Binding
+      Mode="TwoWay"
+      Path="SelectedValidationFilled"
+      UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </ComboBox.SelectedItem>
+                            </ComboBox>
+                        </Border>
+                        <Border Grid.Row="1"  HorizontalAlignment="Left" Margin="32 0 32 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                             <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="MablaghShahriFromDate_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="RanandeFromDate_DtPicker_SelectedDateChanged"/>
                         </Border>
-                        <Border Grid.Row="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+                        <Border Grid.Row="2" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                             <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="MablaghShahriToDate_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="RanandeFromDate_DtPicker_SelectedDateChanged"/>
                         </Border>
-                        <Border Grid.Row="2" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
+                        <Border Grid.Row="3" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
                             <Button Name="GetReportMablaghShahri_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="GetReportMablaghShahri_Btn_Click">
                                 <TextBlock FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right"><Run Text="دریافت گزارش"/></TextBlock>
                             </Button>

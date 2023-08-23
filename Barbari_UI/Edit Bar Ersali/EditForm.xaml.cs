@@ -463,11 +463,13 @@ namespace Barbari_UI.Edit_Bar_Ersali
             if(!string.IsNullOrEmpty(BarErsali.BarErsaliNamRanande))
             {
                 tahvilRanande = new TahvilRanande(BarErsali,true);
+                tahvilRanande.UserControl_Loaded(null, null);
                 createTahvil = true;
                 RanandeInfo_Btn.IsEnabled= true;
             }
             else
             {
+                tahvilRanande = new TahvilRanande(BarErsali, false);
                 RanandeInfo_Btn.IsEnabled = false;
             }
             

@@ -36,11 +36,11 @@
                         <Image Height="18" Width="18"  Source="/Source/Icones/Search Feild Icon.png" />
 
                     </Button>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="جستجو"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" Name="Search_Txt"  BorderThickness="0" VerticalContentAlignment="Center" Margin="8 0 8 0"  FontFamily="IRANSansX" FontSize="14" TextChanged="Search_Txt_TextChanged"/>
+                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="جستجو"    Style="{StaticResource MaterialDesignFilledTextBox}"  Focusable="False" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" Name="Search_Txt"  BorderThickness="0" VerticalContentAlignment="Center" Margin="8 0 8 0"  FontFamily="IRANSansX" FontSize="14" TextChanged="Search_Txt_TextChanged"/>
                 </Grid>
             </Border>
             <Border Grid.Column="3" Height="48" Width="132" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 24 7" CornerRadius="8" Background="#2B54A3"  >
-                <Button Name="Add_Btn" Height="48" Padding="0" Width="132" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="Add_Btn_Click" VerticalAlignment="Top"   >
+                <Button Name="Add_Btn" Height="48" Padding="0" Width="132" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Focusable="False" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="Add_Btn_Click" VerticalAlignment="Top"   >
                     <Grid Width="132">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>

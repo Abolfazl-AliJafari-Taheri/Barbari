@@ -46,7 +46,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             Tahvil_Btn_Border.Visibility = Visibility.Collapsed;
             Title_TxtBlock.Visibility= Visibility.Collapsed;
         }
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        public void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             if(edit)
             {

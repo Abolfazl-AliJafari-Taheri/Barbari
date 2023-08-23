@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -184,10 +185,51 @@ namespace Barbari_UI.Get_Reports
         {
 
         }
+        void fillComboBoxe()
+        {
+            var citys = Barbari_BLL.City.Select_Shahr();
+            if(citys.Success)
+            {
+                CityOneDestination_CmBox.ItemsSource = citys.Data;
+                CityMablaghShahri_CmBox.ItemsSource = citys.Data;
+            }
+            else
+            {
+                MessageBox.Show(citys.Message);
+            }
+
+            var codeCustomers = Barbari_BLL.Customers.Select_AllCustomersCode();
+            if(codeCustomers.Success)
+            {
+                CodeCustomer_CmBox.ItemsSource = codeCustomers.Data;
+            }
+            else
+            {
+                MessageBox.Show(codeCustomers.Message);
+            }
+
+            var codeDrivers = Barbari_BLL.Ranande.Select_AllRanandeCode();
+            if(codeDrivers.Success)
+            {
+                CodeRanande_CmBox.ItemsSource = codeDrivers.Data;
+            }
+            else
+            {
+                MessageBox.Show(codeDrivers.Message);
+            }
+
+        }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             DriverReport_Toggle.IsChecked= true;
+            fillComboBoxe();
+        }
+
+        private void Code_CmBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

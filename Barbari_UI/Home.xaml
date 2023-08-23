@@ -9,7 +9,8 @@
         Title="Home" Height="1024" Width="1440"
         WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
-        Closing="Window_Closing">
+        Closing="Window_Closing"
+        >
     <Grid FlowDirection="RightToLeft"  Background="#F7F7F7">
         <materialDesign:DialogHost Name="DialogHost"
   DialogTheme="Light"
@@ -38,7 +39,7 @@
                         </Image>
                         <Border  Name="Logo_Border" Grid.Row="0" Height="107" Width="107" FlowDirection="LeftToRight">
                         </Border>
-                        <Button Name="BarErsaliMenu_Btn" Click="BarErsaliMenu_Btn_Click" Grid.Row="1" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                        <Button Name="BarErsaliMenu_Btn" Click="BarErsaliMenu_Btn_Click" Grid.Row="1" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Focusable="False">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
@@ -50,7 +51,7 @@
                                 <Image Name="BarErsaliMenuBtn_Line" Grid.Column="2" Height="52" Width="4" />
                             </Grid>
                         </Button>
-                        <Button Name="BarTahviliMenu_Btn" Click="BarTahviliMenu_Btn_Click"  Grid.Row="2" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                        <Button Name="BarTahviliMenu_Btn" Click="BarTahviliMenu_Btn_Click"  Grid.Row="2" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Focusable="False">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
@@ -62,7 +63,7 @@
                                 <Image Name="BarTahviliMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
                             </Grid>
                         </Button>
-                        <Button Name="MoshtariMenu_Btn" Click="MoshtariMenu_Btn_Click" Grid.Row="3" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                        <Button Name="MoshtariMenu_Btn" Click="MoshtariMenu_Btn_Click" Grid.Row="3" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Focusable="False">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
@@ -74,7 +75,7 @@
                                 <Image Name="MoshtariMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
                             </Grid>
                         </Button>
-                        <Button Name="KarmandanMenu_Btn" Click="KarmandanMenu_Btn_Click"  Grid.Row="4" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                        <Button Name="KarmandanMenu_Btn" Click="KarmandanMenu_Btn_Click"  Grid.Row="4" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Focusable="False">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
@@ -86,7 +87,7 @@
                                 <Image Name="KarmandanMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
                             </Grid>
                         </Button>
-                        <Button Name="RanandeganMenu_Btn" Click="RanandeganMenu_Btn_Click" Grid.Row="5" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                        <Button Name="RanandeganMenu_Btn" Click="RanandeganMenu_Btn_Click" Grid.Row="5" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Focusable="False">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
@@ -98,7 +99,7 @@
                                 <Image Name="RanandeganMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
                             </Grid>
                         </Button>
-                        <Button Name="CityAnbarMenu_Btn" Click="CityAnbarMenu_Btn_Click" Grid.Row="6" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                        <Button Name="CityAnbarMenu_Btn" Click="CityAnbarMenu_Btn_Click" Grid.Row="6" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Focusable="False">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
@@ -110,7 +111,7 @@
                                 <Image Name="CityAnbarMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
                             </Grid>
                         </Button>
-                        <Button Name="SettingMenu_Btn" Click="SettingMenu_Btn_Click" Grid.Row="7" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0">
+                        <Button Name="SettingMenu_Btn" Click="SettingMenu_Btn_Click" Grid.Row="7" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Focusable="False">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
@@ -122,7 +123,7 @@
                                 <Image Name="SettingMenuBtn_Line" Grid.Column="2" Height="52" Width="4"/>
                             </Grid>
                         </Button>
-                        <Button Name="LogoutMenu_Btn" Click="LogoutMenu_Btn_Click" Grid.Row="8" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Margin="0 0 0 32">
+                        <Button Name="LogoutMenu_Btn" Click="LogoutMenu_Btn_Click" Grid.Row="8" Height="52" VerticalAlignment="Bottom" Background="Transparent" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" BorderThickness="0" Margin="0 0 0 32" Focusable="False">
                             <Grid Width="249">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="48"/>
@@ -156,7 +157,7 @@
                             </StackPanel>
                             <TextBlock Name="CompanyName_TxtBlock" Grid.Column="2" Text="نام شرکت" FontSize="34" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="IRANSansX" Height="auto" FontWeight="UltraBold" />
                             <Border Grid.Column="3" Height="48" Width="144" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
-                                <Button Name="GetReport_Btn" Height="48" Padding="0" Width="144" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="GetReport_Btn_Click" >
+                                <Button Name="GetReport_Btn" Height="48" Padding="0" Width="144" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="GetReport_Btn_Click" Focusable="False">
                                     <Grid Width="144">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
