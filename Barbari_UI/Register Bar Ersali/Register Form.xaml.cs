@@ -154,16 +154,11 @@ namespace Barbari_UI.Register_Bar_Ersali
                             if ((bool)step3.PrintToggle.IsChecked)
                             {
                                 var query1 = Barbari_BLL.Company.Select();
-                                var query2 = Barbari_BLL.BarErsali.Select_KalaDaryafti(int.Parse(step3.CodeBarname_Txt.Text));
-                                if (query1.Success == true && query2.Success == true)
+                                if (query1.Success == true)
                                 {
                                     if ((bool)step2.AddSecondMaghsadToggle.IsChecked)
                                     {
                                         var rpt = StiReportHelper.GetReport("ReportBarnameRanande.mrt");
-                                        string logopath = System.IO.Path.Combine(query1.Data.CompanyIogo);
-                                        var uri = new Uri(logopath);
-                                        var bitmap = new BitmapImage(uri);
-                                        rpt.Dictionary.Variables["logo"].ValueObject = bitmap;
                                         rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
                                         rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
                                         rpt.Dictionary.Variables["TarikhSodor"].Value = step3.DateSodor_DtPicker.Text;
@@ -188,7 +183,7 @@ namespace Barbari_UI.Register_Bar_Ersali
                                         rpt.Dictionary.Variables["Tozihat"].Value = query1.Data.CompanyRules;
                                         rpt.Dictionary.Variables["ShahrMaghsadNahayi"].Value = step2.CityMaghsadFinal_CmBox.Text;
                                         rpt.Dictionary.Variables["AnbarMaghsadNahayi"].Value = step2.AnbarMaghsadFinal_CmBox.Text;
-                                        rpt.RegData("KalaDaryafti_Tbl", query2.Data.Select(p => new
+                                        rpt.RegData("KalaDaryafti_Tbl", kalas.Select(p => new
                                         {
                                             p.KalaDaryaftiNamKala,
                                             p.KalaDaryaftiTedadKala,
@@ -220,7 +215,7 @@ namespace Barbari_UI.Register_Bar_Ersali
                                             + int.Parse(step3.BasteBandi_Txt.Text) + int.Parse(step3.PishKeraye_Txt.Text) + int.Parse(step3.PasKeraye_Txt.Text);
                                         rpt.Dictionary.Variables["JamEtelatBar"].Value = jam.ToString();
                                         rpt.Dictionary.Variables["Tozihat"].Value = query1.Data.CompanyRules;
-                                        rpt.RegData("KalaDaryafti_Tbl", query2.Data.Select(p => new
+                                        rpt.RegData("KalaDaryafti_Tbl", kalas.Select(p => new
                                         {
                                             p.KalaDaryaftiNamKala,
                                             p.KalaDaryaftiTedadKala,
