@@ -182,5 +182,10 @@ namespace Barbari_UI.Register_Bar_Ersali
             Regex regex = new Regex("[^0-9]");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void PrintToggle_Checked()
+        {
+
+        }
     }
 }
