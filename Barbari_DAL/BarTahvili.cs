@@ -15,7 +15,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname.ToString().Contains(search)).OrderByDescending(p => p.BarTahviliCodeBar).Take(30).ToList();
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname.ToString().Contains(search)).OrderByDescending(p => p.BarTahviliCodeBar).Take(20).ToList();
                 return new OperationResult<List<BarTahvili_Tbl>>
                 {
                     Success = true,
@@ -36,7 +36,7 @@ namespace Barbari_DAL
             try
             {
                 var query = linq.BarTahvili_Tbls.Where(p => (p.BarTahviliNamFerestande + " " + p.BarTahviliFamilyFerestande).Contains(search)
-                || (p.BarTahviliNamGerande + " " + p.BarTahviliFamilyGerande).Contains(search)).OrderByDescending(p => p.BarTahviliCodeBar).Take(30).ToList();
+                || (p.BarTahviliNamGerande + " " + p.BarTahviliFamilyGerande).Contains(search)).OrderByDescending(p => p.BarTahviliCodeBar).Take(20).ToList();
                 return new OperationResult<List<BarTahvili_Tbl>>
                 {
                     Success = true,
