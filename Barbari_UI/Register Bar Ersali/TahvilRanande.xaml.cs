@@ -183,7 +183,12 @@ namespace Barbari_UI.Register_Bar_Ersali
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void PrintToggle_Checked()
+        private void PrintToggle_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PrintToggle_Unchecked(object sender, RoutedEventArgs e)
         {
 
         }
