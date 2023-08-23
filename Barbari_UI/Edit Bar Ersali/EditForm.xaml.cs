@@ -284,7 +284,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
                         var query2 = Barbari_BLL.BarErsali.Select_KalaDaryafti(int.Parse(step3.CodeBarname_Txt.Text));
                         if (query1.Success == true)
                         {
-                            if ((bool)step2.AddSecondMaghsadToggle.IsChecked)
+                            if (!string.IsNullOrEmpty(BarErsali.BarErsaliShahreMaghsad2))
                             {
                                 var rpt = StiReportHelper.GetReport("ReportBarnameRanande.mrt");
                                 //var logo = Image.FromFile()
@@ -365,6 +365,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+
             if(WindowsAndPages.home_Window.Role != null)
             {
                 Save_Btn.IsEnabled = WindowsAndPages.home_Window.Role.BarErsaliUpdate;
@@ -381,6 +382,8 @@ namespace Barbari_UI.Edit_Bar_Ersali
             {
                 RanandeInfo_Btn.IsEnabled = false;
             }
+            step3 = new RegisterStep3(BarErsali);
+            createStep3 = true;
             SenderInfo_Btn_Click(null,null);
         }
     }
