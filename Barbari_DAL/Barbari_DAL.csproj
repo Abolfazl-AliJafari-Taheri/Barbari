@@ -79,6 +79,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Ranande.cs" />
+    <Compile Include="Report.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="SqlTableRefresh.cs" />
     <Compile Include="Users.cs" />

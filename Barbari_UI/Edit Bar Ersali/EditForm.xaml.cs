@@ -3,6 +3,7 @@ using Barbari_UI.Register_Bar_Ersali;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -288,7 +289,11 @@ namespace Barbari_UI.Edit_Bar_Ersali
                             if (!string.IsNullOrEmpty(query3.Data.BarErsaliShahreMaghsad2))
                             {
                                 var rpt = StiReportHelper.GetReport("ReportBarnameRanande.mrt");
-                                //var logo = Image.FromFile()
+                                if (query1.Data.CompanyIogo != null)
+                                {
+                                    var logo = File.ReadAllBytes(query1.Data.CompanyIogo);
+                                    rpt.Dictionary.Variables["logo"].ValueObject = logo;
+                                }
                                 rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
                                 rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
                                 rpt.Dictionary.Variables["TarikhSodor"].Value = query3.Data.BarErsaliTarikh;
@@ -323,6 +328,11 @@ namespace Barbari_UI.Edit_Bar_Ersali
                             else
                             {
                                 var rpt = StiReportHelper.GetReport("ReportBarname.mrt");
+                                if (query1.Data.CompanyIogo != null)
+                                {
+                                    var logo = File.ReadAllBytes(query1.Data.CompanyIogo);
+                                    rpt.Dictionary.Variables["logo"].ValueObject = logo;
+                                }
                                 rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
                                 rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
                                 rpt.Dictionary.Variables["TarikhSodor"].Value = query3.Data.BarErsaliTarikh;
@@ -365,7 +375,11 @@ namespace Barbari_UI.Edit_Bar_Ersali
                             if (!string.IsNullOrEmpty(query3.Data.BarErsaliShahreMaghsad2))
                             {
                                 var rpt = StiReportHelper.GetReport("ReportBarnameRanande.mrt");
-                                //var logo = Image.FromFile()
+                                if (query1.Data.CompanyIogo != null)
+                                {
+                                    var logo = File.ReadAllBytes(query1.Data.CompanyIogo);
+                                    rpt.Dictionary.Variables["logo"].ValueObject = logo;
+                                }
                                 rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
                                 rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
                                 rpt.Dictionary.Variables["TarikhSodor"].Value = query3.Data.BarErsaliTarikh;
@@ -404,6 +418,11 @@ namespace Barbari_UI.Edit_Bar_Ersali
                             else
                             {
                                 var rpt = StiReportHelper.GetReport("ReportBarname.mrt");
+                                if (query1.Data.CompanyIogo != null)
+                                {
+                                    var logo = File.ReadAllBytes(query1.Data.CompanyIogo);
+                                    rpt.Dictionary.Variables["logo"].ValueObject = logo;
+                                }
                                 rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
                                 rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
                                 rpt.Dictionary.Variables["TarikhSodor"].Value = query3.Data.BarErsaliTarikh;
