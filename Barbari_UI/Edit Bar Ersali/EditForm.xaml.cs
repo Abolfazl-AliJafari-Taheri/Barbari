@@ -355,6 +355,91 @@ namespace Barbari_UI.Edit_Bar_Ersali
                         }
 
                     }
+                    if ((bool)tahvilRanande.PrintToggle.IsChecked)
+                    {
+                        var query1 = Barbari_BLL.Company.Select();
+                        var query2 = Barbari_BLL.BarErsali.Select_KalaDaryafti(BarErsali.BarErsaliBarname);
+                        var query3 = Barbari_BLL.BarErsali.Select_Search(BarErsali.BarErsaliBarname);
+                        if (query1.Success == true && query2.Success == true && query3.Success == true)
+                        {
+                            if (!string.IsNullOrEmpty(query3.Data.BarErsaliShahreMaghsad2))
+                            {
+                                var rpt = StiReportHelper.GetReport("ReportBarnameRanande.mrt");
+                                //var logo = Image.FromFile()
+                                rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
+                                rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
+                                rpt.Dictionary.Variables["TarikhSodor"].Value = query3.Data.BarErsaliTarikh;
+                                rpt.Dictionary.Variables["ShomareBarname"].Value = query3.Data.BarErsaliBarname.ToString();
+                                rpt.Dictionary.Variables["NamAndFamilyFerestande"].Value = query3.Data.BarErsaliNamFerestande + " " + query3.Data.BarErsaliFamilyFerestande;
+                                rpt.Dictionary.Variables["ShomareFerestande"].Value = query3.Data.BarErsaliMobileFerestande;
+                                rpt.Dictionary.Variables["ShahrMabda"].Value = query3.Data.BarErsaliShahreMabda;
+                                rpt.Dictionary.Variables["AnbarMabda"].Value = query3.Data.BarErsaliAnbarMabda;
+                                rpt.Dictionary.Variables["NamAndFamilyGerande"].Value = query3.Data.BarErsaliNamGerande + " " + query3.Data.BarErsaliFamilyGerande;
+                                rpt.Dictionary.Variables["ShomareGerande"].Value = query3.Data.BarErsaliMobileGerande;
+                                rpt.Dictionary.Variables["ShahrMaghsad"].Value = query3.Data.BarErsaliShahreMaghsad1;
+                                rpt.Dictionary.Variables["AnbarMaghsad"].Value = query3.Data.BarErsaliAnbarMaghsad1;
+                                rpt.Dictionary.Variables["Bime"].Value = query3.Data.BarErsaliBime.ToString();
+                                rpt.Dictionary.Variables["Anbardari"].Value = query3.Data.BarErsaliAnbardari.ToString();
+                                rpt.Dictionary.Variables["Shahri"].Value = query3.Data.BarErsaliShahri.ToString();
+                                rpt.Dictionary.Variables["BasteBandi"].Value = query3.Data.BarErsaliBastebandi.ToString();
+                                rpt.Dictionary.Variables["PishKeraye"].Value = query3.Data.BarErsaliPishKeraye.ToString();
+                                rpt.Dictionary.Variables["PasKeraye"].Value = query3.Data.BarErsaliPasKeraye.ToString();
+                                decimal jam = (decimal)query3.Data.BarErsaliBime + (decimal)query3.Data.BarErsaliAnbardari + (decimal)query3.Data.BarErsaliBastebandi
+                                    + (decimal)query3.Data.BarErsaliShahri + query3.Data.BarErsaliPishKeraye + query3.Data.BarErsaliPasKeraye + (decimal)query3.Data.BarErsaliKerayeRanande;
+                                rpt.Dictionary.Variables["JamEtelatBar"].Value = jam.ToString();
+                                rpt.Dictionary.Variables["Tozihat"].Value = query1.Data.CompanyRules;
+                                rpt.Dictionary.Variables["ShahrMaghsadNahayi"].Value = query3.Data.BarErsaliShahreMaghsad2;
+                                rpt.Dictionary.Variables["AnbarMaghsadNahayi"].Value = query3.Data.BarErsaliAnbarMaghsad2;
+                                rpt.Dictionary.Variables["NamAndFamilyRanande"].Value = query3.Data.BarErsaliNamRanande + " " + query3.Data.BarErsaliFamilyRanande;
+                                rpt.Dictionary.Variables["ShomareRanande"].Value = query3.Data.BarErsaliMobileRanande;
+                                rpt.Dictionary.Variables["TarikhDaryaftBar"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                                rpt.Dictionary.Variables["KerayeRanande"].Value = query3.Data.BarErsaliKerayeRanande.ToString();
+                                rpt.RegData("KalaDaryafti_Tbl", query2.Data.Select(p => new
+                                {
+                                    p.KalaDaryaftiNamKala,
+                                    p.KalaDaryaftiTedadKala,
+                                }));
+                                rpt.Show();
+                            }
+                            else
+                            {
+                                var rpt = StiReportHelper.GetReport("ReportBarname.mrt");
+                                rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
+                                rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
+                                rpt.Dictionary.Variables["TarikhSodor"].Value = query3.Data.BarErsaliTarikh;
+                                rpt.Dictionary.Variables["ShomareBarname"].Value = query3.Data.BarErsaliBarname.ToString();
+                                rpt.Dictionary.Variables["NamAndFamilyFerestande"].Value = query3.Data.BarErsaliNamFerestande + " " + query3.Data.BarErsaliFamilyFerestande;
+                                rpt.Dictionary.Variables["ShomareFerestande"].Value = query3.Data.BarErsaliMobileFerestande;
+                                rpt.Dictionary.Variables["ShahrMabda"].Value = query3.Data.BarErsaliShahreMabda;
+                                rpt.Dictionary.Variables["AnbarMabda"].Value = query3.Data.BarErsaliAnbarMabda;
+                                rpt.Dictionary.Variables["NamAndFamilyGerande"].Value = query3.Data.BarErsaliNamGerande + " " + query3.Data.BarErsaliFamilyGerande;
+                                rpt.Dictionary.Variables["ShomareGerande"].Value = query3.Data.BarErsaliMobileGerande;
+                                rpt.Dictionary.Variables["ShahrMaghsad"].Value = query3.Data.BarErsaliShahreMaghsad1;
+                                rpt.Dictionary.Variables["AnbarMaghsad"].Value = query3.Data.BarErsaliAnbarMaghsad1;
+                                rpt.Dictionary.Variables["Bime"].Value = query3.Data.BarErsaliBime.ToString();
+                                rpt.Dictionary.Variables["Anbardari"].Value = query3.Data.BarErsaliAnbardari.ToString();
+                                rpt.Dictionary.Variables["Shahri"].Value = query3.Data.BarErsaliShahri.ToString();
+                                rpt.Dictionary.Variables["BasteBandi"].Value = query3.Data.BarErsaliBastebandi.ToString();
+                                rpt.Dictionary.Variables["PishKeraye"].Value = query3.Data.BarErsaliPishKeraye.ToString();
+                                rpt.Dictionary.Variables["PasKeraye"].Value = query3.Data.BarErsaliPasKeraye.ToString();
+                                decimal jam = (decimal)query3.Data.BarErsaliBime + (decimal)query3.Data.BarErsaliAnbardari + (decimal)query3.Data.BarErsaliBastebandi
+                                    + (decimal)query3.Data.BarErsaliShahri + query3.Data.BarErsaliPishKeraye + query3.Data.BarErsaliPasKeraye + (decimal)query3.Data.BarErsaliKerayeRanande;
+                                rpt.Dictionary.Variables["JamEtelatBar"].Value = jam.ToString();
+                                rpt.Dictionary.Variables["Tozihat"].Value = query1.Data.CompanyRules;
+                                rpt.Dictionary.Variables["NamAndFamilyRanande"].Value = query3.Data.BarErsaliNamRanande + " " + query3.Data.BarErsaliFamilyRanande;
+                                rpt.Dictionary.Variables["ShomareRanande"].Value = query3.Data.BarErsaliMobileRanande;
+                                rpt.Dictionary.Variables["TarikhDaryaftBar"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                                rpt.Dictionary.Variables["KerayeRanande"].Value = query3.Data.BarErsaliKerayeRanande.ToString();
+                                rpt.RegData("KalaDaryafti_Tbl", query2.Data.Select(p => new
+                                {
+                                    p.KalaDaryaftiNamKala,
+                                    p.KalaDaryaftiTedadKala,
+                                }));
+                                rpt.Show();
+                            }
+                        }
+
+                    }
                     DialogHost.CloseDialogCommand.Execute(null, null);
                 }
                 else
