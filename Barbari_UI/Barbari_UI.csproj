@@ -152,6 +152,9 @@
     <Compile Include="Edit Bar Tahvili\EditForm_BarTahvili.xaml.cs">
       <DependentUpon>EditForm_BarTahvili.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Get Reports\GetReport_BarErsali.xaml.cs">
+      <DependentUpon>GetReport_BarErsali.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Karmand.xaml.cs">
       <DependentUpon>Karmand.xaml</DependentUpon>
     </Compile>
@@ -322,6 +325,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Edit Bar Tahvili\EditForm_BarTahvili.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Get Reports\GetReport_BarErsali.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
