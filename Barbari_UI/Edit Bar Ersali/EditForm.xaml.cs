@@ -481,12 +481,15 @@ namespace Barbari_UI.Edit_Bar_Ersali
             }
             if(!string.IsNullOrEmpty(BarErsali.BarErsaliNamRanande))
             {
+                tahvilRanande = new TahvilRanande(BarErsali,true);
+                createTahvil = true;
                 RanandeInfo_Btn.IsEnabled= true;
             }
             else
             {
                 RanandeInfo_Btn.IsEnabled = false;
             }
+            
             step3 = new RegisterStep3(BarErsali);
             createStep3 = true;
             step3.UserControl_Loaded(null, null);

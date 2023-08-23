@@ -1,4 +1,5 @@
 ﻿using Barbari_DAL;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,6 +36,13 @@ namespace Barbari_UI
         bool createCityAnbar = false;
         bool createSetting = false;
 
+        bool showBarErsali = false;
+        bool showBarTahvili = false;
+        bool showMoshtari = false;
+        bool showKarmand = false;
+        bool showRanande = false;
+        bool showCityAnbar = false;
+        bool showSetting = false;
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //e.Cancel = true;
@@ -46,6 +54,7 @@ namespace Barbari_UI
         public Company_Tbl Company { get; set; }
         private void SelectBarErsaliMenu()
         {
+            showBarErsali = true;
             BarErsaliMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Bar Ersali Menu Icon(Blue Border).png");
             BarErsaliMenuBtn_Text.Foreground = ConverterColor("#2B54A3");
             BarErsaliMenu_Btn.Background = ConverterColor("#D5DDED");
@@ -53,6 +62,7 @@ namespace Barbari_UI
         }
         private void UnSelectBarErsaliMenu()
         {
+            showBarErsali = false;
             BarErsaliMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Bar Ersali Menu Icon(Gray Border).png");
             BarErsaliMenu_Btn.Background = ConverterColor("#FFFFFF");
             BarErsaliMenuBtn_Text.Foreground = ConverterColor("#404040");
@@ -60,6 +70,7 @@ namespace Barbari_UI
         }
         private void SelectBarTahviliMenu()
         {
+            showBarTahvili = true;
             BarTahviliMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Bar Tahvili Menu Icon(Blue Border).png");
             BarTahviliMenuBtn_Text.Foreground = ConverterColor("#2B54A3");
             BarTahviliMenu_Btn.Background = ConverterColor("#D5DDED");
@@ -67,6 +78,7 @@ namespace Barbari_UI
         }
         private void UnSelectBarTahviliMenu()
         {
+            showBarTahvili = false;
             BarTahviliMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Bar Tahvili Menu Icon(Gray Border).png");
             BarTahviliMenuBtn_Text.Foreground = ConverterColor("#404040");
             BarTahviliMenu_Btn.Background = ConverterColor("#FFFFFF");
@@ -74,6 +86,7 @@ namespace Barbari_UI
         }
         private void SelectMoshtariMenu()
         {
+            showMoshtari = true;
             MoshtariMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Moshtari Menu Icon(Blue Border).png");
             MoshtariMenu_Btn.Background = ConverterColor("#D5DDED");
             MoshtariMenuBtn_Text.Foreground = ConverterColor("#2B54A3");
@@ -81,6 +94,7 @@ namespace Barbari_UI
         }
         private void UnSelectMoshtariMenu()
         {
+            showMoshtari = false;
             MoshtariMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Moshtari Menu Icon(Gray Border).png");
             MoshtariMenu_Btn.Background = ConverterColor("#FFFFFF");
             MoshtariMenuBtn_Text.Foreground = ConverterColor("#404040");
@@ -88,6 +102,7 @@ namespace Barbari_UI
         }
         private void SelectKarmandMenu()
         {
+            showKarmand = true;
             KarmandanMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Karmandan Menu Icon(Blue Border).png");
             KarmandanMenu_Btn.Background = ConverterColor("#D5DDED");
             KarmandanMenuBtn_Text.Foreground = ConverterColor("#2B54A3");
@@ -95,6 +110,7 @@ namespace Barbari_UI
         }
         private void UnSelectKarmandMenu()
         {
+            showKarmand = false;
             KarmandanMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Karmandan Menu Icon(Gray Border).png");
             KarmandanMenu_Btn.Background = ConverterColor("#FFFFFF");
             KarmandanMenuBtn_Text.Foreground = ConverterColor("#404040");
@@ -102,6 +118,7 @@ namespace Barbari_UI
         }
         private void SelectRanandeMenu()
         {
+            showRanande = true;
             RanandeganMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Ranande Menu Icon(Blue Border).png");
             RanandeganMenu_Btn.Background = ConverterColor("#D5DDED");
             RanandeganMenuBtn_Text.Foreground = ConverterColor("#2B54A3");
@@ -109,6 +126,7 @@ namespace Barbari_UI
         }
         private void UnSelectRanandeMenu()
         {
+            showRanande = false;
             RanandeganMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Ranande Menu Icon(Gray Border).png");
             RanandeganMenu_Btn.Background = ConverterColor("#FFFFFF");
             RanandeganMenuBtn_Text.Foreground = ConverterColor("#404040");
@@ -116,6 +134,7 @@ namespace Barbari_UI
         }
         private void SelectCityAnbarMenu()
         {
+            showCityAnbar = true;
             CityAnbarMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/City Anbar Menu Icon(Blue Border).png");
             CityAnbarMenu_Btn.Background = ConverterColor("#D5DDED");
             CityAnbarMenuBtn_Text.Foreground = ConverterColor("#2B54A3");
@@ -123,6 +142,7 @@ namespace Barbari_UI
         }
         private void UnSelectCityAnbarMenu()
         {
+            showCityAnbar = false;
             CityAnbarMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/City Anbar Menu Icon(Gray Border).png");
             CityAnbarMenu_Btn.Background = ConverterColor("#FFFFFF");
             CityAnbarMenuBtn_Text.Foreground = ConverterColor("#404040");
@@ -130,6 +150,7 @@ namespace Barbari_UI
         }
         private void SelectSettingMenu()
         {
+            showSetting = true;
             SettingMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Setting Menu Icon(Blue Border).png");
             SettingMenu_Btn.Background = ConverterColor("#D5DDED");
             SettingMenuBtn_Text.Foreground = ConverterColor("#2B54A3");
@@ -137,6 +158,7 @@ namespace Barbari_UI
         }
         private void UnSelectSettingMenu()
         {
+            showSetting = false;
             SettingMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Setting Menu Icon(Gray Border).png");
             SettingMenu_Btn.Background = ConverterColor("#FFFFFF");
             SettingMenuBtn_Text.Foreground = ConverterColor("#404040");
@@ -410,7 +432,34 @@ namespace Barbari_UI
 
         private void GetReport_Btn_Click(object sender, RoutedEventArgs e)
         {
-            
+            if(showBarErsali)
+            {
+                DialogHost.ShowDialog(new Get_Reports.GetReport_BarErsali() { Width = 338 });
+            }
+            else if(showBarTahvili)
+            {
+
+            }
+            else if (showMoshtari)
+            {
+
+            }
+            else if (showKarmand)
+            {
+
+            }
+            else if (showRanande)
+            {
+
+            }
+            else if (showCityAnbar)
+            {
+
+            }
+            else if (showSetting)
+            {
+
+            }
         }
     }
 }
