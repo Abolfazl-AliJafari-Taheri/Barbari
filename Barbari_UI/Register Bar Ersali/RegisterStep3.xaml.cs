@@ -195,7 +195,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             DateSodor_DtPicker.Text = BarErsali.BarErsaliTarikh.ToString();
             HourSodor_TmPicker.Text = BarErsali.BarErsaliSaat.ToString();
         }
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        public void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
             if(edit)

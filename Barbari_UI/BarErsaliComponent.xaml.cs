@@ -108,7 +108,7 @@ namespace Barbari_UI
             string content = Thvil_Btn.Content.ToString();
             if(content == "تحویل به راننده")
             {
-                await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali, false) { Height = 453, Width = 622 });
+                await WindowsAndPages.home_Window.DialogHost.ShowDialog(new TahvilRanande(BarErsali, false) { Height = 509, Width = 622 });
 
             }
             else
