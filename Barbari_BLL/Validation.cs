@@ -1702,6 +1702,150 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult Report_Ranande_Validation(string codeRanande , string azTarikh , string taTarikh)
+        {
+            if (string.IsNullOrEmpty(codeRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "کد راننده را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(azTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(taTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else if (!CheckNumberFormat(codeRanande))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل کد راننده فقط میشه عدد وارد کرد"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
+        public static OperationResult Report_Customer_Validation(string codeMoshtari, string azTarikh, string taTarikh)
+        {
+            if (string.IsNullOrEmpty(codeMoshtari))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "کد مشتری را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(azTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(taTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else if (!CheckNumberFormat(codeMoshtari))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "داخل کد مشتری فقط میشه عدد وارد کرد"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
+        public static OperationResult Report_Maghsad_Validation(string namMaghsad, string azTarikh, string taTarikh)
+        {
+            if (string.IsNullOrEmpty(namMaghsad))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام مقصد را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(azTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(taTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
+        public static OperationResult Report_VorodiBar_Validation(string azTarikh, string taTarikh)
+        {
+            if (string.IsNullOrEmpty(azTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(taTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
     }
     
 }

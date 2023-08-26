@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,10 +11,13 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Stimulsoft.Report.Func;
+
 
 namespace Barbari_UI.Get_Reports
 {
@@ -155,7 +160,45 @@ namespace Barbari_UI.Get_Reports
         }
         private void GetReportOneDestination_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            var result_Etelat = Barbari_BLL.Report.Select_Maghsad(CityOneDestination_CmBox.Text, OneDestinationFromDate_DtPicker.Text, OneDestinationToDate_DtPicker.Text);
+            if (result_Etelat.Success)
+            {
+                var rpt = StiReportHelper.GetReport("ReportMaghsad.mrt");
+                var result_Company = Barbari_BLL.Company.Select();
+                if (result_Company.Success == true)
+                {
+                    rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
+                    rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                    rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
+                    rpt.Dictionary.Variables["tedad"].Value = result_Etelat.Data.Count.ToString();
+                    rpt.Dictionary.Variables["NamShahrMaghsad"].Value = CityOneDestination_CmBox.Text;
+                    rpt.Dictionary.Variables["DarTarikh"].Value = OneDestinationFromDate_DtPicker.Text;
+                    if (result_Company.Data.CompanyIogo != null)
+                    {
+                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                    }
+                    rpt.RegData("BarErsali_Tbl", result_Etelat.Data.Select(p => new
+                    {
+                        p.BarErsaliBarname,
+                        p.BarErsaliNamFerestande,
+                        p.BarErsaliFamilyFerestande,
+                        p.BarErsaliNamGerande,
+                        p.BarErsaliFamilyGerande,
+                        p.BarErsaliShahreMabda,
+                        p.BarErsaliTarikh
+                    }));
+                    rpt.Show();
+                }
+                else
+                {
+                    MessageBox.Show(result_Company.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show(result_Etelat.Message);
+            }
         }
         private void GetReportMablaghShahri_Btn_Click(object sender, RoutedEventArgs e)
         {
@@ -174,15 +217,149 @@ namespace Barbari_UI.Get_Reports
 
         private void GetReportBarVorodiList_Btn_Click(object sender, RoutedEventArgs e)
         {
+            var result_Etelat = Barbari_BLL.Report.Select_VorodiBar(BarVorodiListFromDate_DtPicker.Text, BarVorodiListToDate_DtPicker.Text);
+            if (result_Etelat.Success)
+            {
+                var rpt = StiReportHelper.GetReport("ReportVorodeBar.mrt");
+                var result_Company = Barbari_BLL.Company.Select();
+                if (result_Company.Success == true)
+                {
+                    rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
+                    rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                    rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
+                    rpt.Dictionary.Variables["tedad"].Value = result_Etelat.Data.Count.ToString();
+                    rpt.Dictionary.Variables["azTarikh"].Value = BarVorodiListFromDate_DtPicker.Text;
+                    //rpt.Dictionary.Variables["TaTarikhe"].Value = BarVorodiListToDate_DtPicker.Text;
+                    if (result_Company.Data.CompanyIogo != null)
+                    {
+                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                    }
+                    foreach (var item in result_Etelat.Data)
+                    {
 
+                        item.BarErsaliPishKeraye += (decimal)item.BarErsaliBime + (decimal)item.BarErsaliAnbardari + (decimal)item.BarErsaliBastebandi
+                                            + (decimal)item.BarErsaliShahri + item.BarErsaliPasKeraye;
+
+                    }
+                    rpt.RegData("BarErsali_Tbl", result_Etelat.Data.Select(p => new
+                    {
+                        p.BarErsaliBarname,
+                        p.BarErsaliNamFerestande,
+                        p.BarErsaliFamilyFerestande,
+                        p.BarErsaliNamGerande,
+                        p.BarErsaliFamilyGerande,
+                        p.BarErsaliPishKeraye,
+                        p.BarErsaliTarikh
+                    }));
+                    rpt.Show();
+                }
+                else
+                {
+                    MessageBox.Show(result_Company.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show(result_Etelat.Message);
+            }
         }
 
         private void GetReportCustomer_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            var result_Etelat = Barbari_BLL.Report.Select_MoshtariSabet(CodeCustomer_CmBox.Text, CustomerFromDate_DtPicker.Text, CustomerToDate_DtPicker.Text);
+            if (result_Etelat.Success)
+            {
+                var rpt = StiReportHelper.GetReport("ReportMoshtari.mrt");
+                var result_Moshtari = Barbari_BLL.Customers.Select_Code_NotList(int.Parse(CodeCustomer_CmBox.Text));
+                var result_Company = Barbari_BLL.Company.Select();
+                if (result_Moshtari.Success == true && result_Company.Success == true)
+                {
+                    rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
+                    rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                    rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
+                    rpt.Dictionary.Variables["tedad"].Value = result_Etelat.Data.Count.ToString();
+                    rpt.Dictionary.Variables["FirstNameAndLastNameMoshtari"].Value = result_Moshtari.Data.CustomersFirstName + " " + result_Moshtari.Data.CustomersLastName;
+                    rpt.Dictionary.Variables["CodeEshterak"].Value = result_Moshtari.Data.CustomersCode.ToString();
+                    rpt.Dictionary.Variables["ShomareMoshtari"].Value = result_Moshtari.Data.CustomersMobile;
+                    rpt.Dictionary.Variables["azTarikh"].Value = CustomerFromDate_DtPicker.Text;
+                    rpt.Dictionary.Variables["TaTarikhe"].Value = CustomerToDate_DtPicker.Text;
+                    foreach (var item in result_Etelat.Data)
+                    {
+                        item.BarErsaliPishKeraye += (decimal)item.BarErsaliBime + (decimal)item.BarErsaliAnbardari + (decimal)item.BarErsaliBastebandi
+                                            + (decimal)item.BarErsaliShahri + item.BarErsaliPasKeraye;
+                        
+                    }
+                    if (result_Company.Data.CompanyIogo != null)
+                    {
+                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                    }
+                    rpt.RegData("BarErsali_Tbl", result_Etelat.Data.Select(p => new
+                    {
+                        p.BarErsaliBarname,
+                        p.BarErsaliNamGerande,
+                        p.BarErsaliFamilyGerande,
+                        p.BarErsaliTarikh,
+                        p.BarErsaliPishKeraye
+                    }));
+                    rpt.Show();
+                }
+                else
+                {
+                    MessageBox.Show(result_Company.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show(result_Etelat.Message);
+            }
         }
         private void GetReportDriver_Btn_Click(object sender, RoutedEventArgs e)
         {
+            var result_Etelat = Barbari_BLL.Report.Select_Ranande(CodeRanande_CmBox.Text, RanandeFromDate_DtPicker.Text, RanandeToDate_DtPicker.Text);
+            if (result_Etelat.Success)
+            {
+                var rpt = StiReportHelper.GetReport("ReportRanande.mrt");
+                var result_Ranande = Barbari_BLL.Ranande.Select_Code_NotList(int.Parse(CodeRanande_CmBox.Text));
+                var result_Company = Barbari_BLL.Company.Select();
+                if (result_Ranande.Success == true && result_Company.Success == true)
+                {
+                    rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
+                    rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                    rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
+                    rpt.Dictionary.Variables["tedad"].Value = result_Etelat.Data.Count.ToString();
+                    rpt.Dictionary.Variables["FirstNameAndLastNameRanade"].Value = result_Ranande.Data.RanandeFirstName + " " + result_Ranande.Data.RanandeLastName;
+                    rpt.Dictionary.Variables["CodeRanande"].Value = result_Ranande.Data.RanandeCodeRanande.ToString();
+                    rpt.Dictionary.Variables["ShomareRanande"].Value = result_Ranande.Data.RanandeMobile;
+                    rpt.Dictionary.Variables["azTarikh"].Value = RanandeFromDate_DtPicker.Text;
+                    rpt.Dictionary.Variables["TaTarikhe"].Value = RanandeToDate_DtPicker.Text;
+                    if (result_Company.Data.CompanyIogo != null)
+                    {
+                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                    }
+                    rpt.RegData("BarErsali_Tbl", result_Etelat.Data.Select(p => new
+                    {
+                        p.BarErsaliBarname,
+                        p.BarErsaliNamFerestande,
+                        p.BarErsaliFamilyFerestande,
+                        p.BarErsaliNamGerande,
+                        p.BarErsaliFamilyGerande,
+                        p.BarErsaliTarikh
+                    }));
+                    rpt.Show();
+                }
+                else
+                {
+                    MessageBox.Show(result_Company.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show(result_Etelat.Message);
+            }
+
 
         }
         void fillComboBoxe()
