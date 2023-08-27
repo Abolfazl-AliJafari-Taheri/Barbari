@@ -7,7 +7,8 @@
              xmlns:local="clr-namespace:Barbari_UI.Register_Bar_Ersali"
              xmlns:PersianDateControls="clr-namespace:Arash.PersianDateControls;assembly=PersianDateControls" x:Class="Barbari_UI.Register_Bar_Ersali.RegisterStep3"
              mc:Ignorable="d" 
-             d:DesignHeight="854" d:DesignWidth="622"
+             d:DesignHeight="780" d:DesignWidth="622"
+    MaxHeight="854"
              Loaded="UserControl_Loaded">
     <Border CornerRadius="8" Background="#F7F7F7">
         <materialDesign:DialogHost Name="DialogHost"

@@ -313,7 +313,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             if (!createStep3)
             {
                 createStep3 = true;
-                step3 = new RegisterStep3() { Height = 854, Width = 622 };
+                step3 = new RegisterStep3() {Width = 622 };
                 ShowStep_Grid.Children.Clear();
                 ShowStep_Grid.Children.Add(step3);
             }
