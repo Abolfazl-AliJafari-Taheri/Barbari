@@ -150,6 +150,7 @@ namespace Barbari_UI
         }
         private void SelectSettingMenu()
         {
+            GetReport_Btn_Border.Visibility= Visibility.Hidden;
             showSetting = true;
             SettingMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Setting Menu Icon(Blue Border).png");
             SettingMenu_Btn.Background = ConverterColor("#D5DDED");
@@ -158,6 +159,7 @@ namespace Barbari_UI
         }
         private void UnSelectSettingMenu()
         {
+            GetReport_Btn_Border.Visibility = Visibility.Visible;
             showSetting = false;
             SettingMenuBtn_Icon.Source = ConverterPhoto("/Source/Icones/Setting Menu Icon(Gray Border).png");
             SettingMenu_Btn.Background = ConverterColor("#FFFFFF");
@@ -438,6 +440,7 @@ namespace Barbari_UI
             }
             else if(showBarTahvili)
             {
+                DialogHost.ShowDialog(new Get_Reports.GetReport_BarTahvilis() { Width = 357 });
 
             }
             else if (showMoshtari)

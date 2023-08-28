@@ -156,7 +156,7 @@
                                 <TextBlock Name="UserRoleName_TxtBlock"  Text="نقش کاربر" FontSize="16" FontFamily="IRANSansX" Height="29" Margin="0 3 0 0" />
                             </StackPanel>
                             <TextBlock Name="CompanyName_TxtBlock" Grid.Column="2" Text="نام شرکت" FontSize="34" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="IRANSansX" Height="auto" FontWeight="UltraBold" />
-                            <Border Grid.Column="3" Height="48" Width="144" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
+                            <Border Name="GetReport_Btn_Border" Grid.Column="3" Height="48" Width="144" HorizontalAlignment="Left" CornerRadius="8" Background="#2B54A3"  >
                                 <Button Name="GetReport_Btn" Height="48" Padding="0" Width="144" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="GetReport_Btn_Click" Focusable="False">
                                     <Grid Width="144">
                                         <Grid.ColumnDefinitions>

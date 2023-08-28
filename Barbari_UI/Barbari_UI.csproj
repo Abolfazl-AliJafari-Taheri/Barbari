@@ -155,6 +155,9 @@
     <Compile Include="Get Reports\GetReport_BarErsali.xaml.cs">
       <DependentUpon>GetReport_BarErsali.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Get Reports\GetReport_BarTahvilis.xaml.cs">
+      <DependentUpon>GetReport_BarTahvilis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Karmand.xaml.cs">
       <DependentUpon>Karmand.xaml</DependentUpon>
     </Compile>
@@ -166,9 +169,6 @@
     </Compile>
     <Compile Include="MoshtariComponent.xaml.cs">
       <DependentUpon>MoshtariComponent.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
     <Compile Include="RanandeComponent.xaml.cs">
       <DependentUpon>RanandeComponent.xaml</DependentUpon>
@@ -332,6 +332,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Get Reports\GetReport_BarTahvilis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -353,10 +357,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MoshtariComponent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
