@@ -235,7 +235,7 @@ namespace Barbari_DAL
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
-                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliBarname == barTahvili.BarTahviliBarname).Single();
+                var query = linq.BarTahvili_Tbls.Where(p => p.BarTahviliCodeBar == barTahvili.BarTahviliCodeBar).Single();
                 query.BarTahviliRaveshEhrazHoviat = barTahvili.BarTahviliRaveshEhrazHoviat;
                 query.BarTahviliRaveshEhrazHoviatText = barTahvili.BarTahviliRaveshEhrazHoviatText;
                 linq.SubmitChanges();

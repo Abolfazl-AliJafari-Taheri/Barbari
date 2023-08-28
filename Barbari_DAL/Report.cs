@@ -34,6 +34,31 @@ namespace Barbari_DAL
                 };
             }
         }
+        public static OperationResult<List<BarTahvili_Tbl>> Select_BarTahvili_Ranande(int codeRanande, string azTarikh, string TaTarikh)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.Where
+                    (p =>
+                        p.BarErsaliCodeRanande == codeRanande &&
+                        p.BarTahviliTarikh.CompareTo(azTarikh) >= 0 && p.BarTahviliTarikh.CompareTo(TaTarikh) <= 0
+                ).ToList();
+                return new OperationResult<List<BarTahvili_Tbl>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch (Exception)
+            {
+
+                return new OperationResult<List<BarTahvili_Tbl>>
+                {
+                    Success = false
+                };
+            }
+        }
         public static OperationResult<List<BarErsali_Tbl>> Select_MoshtariSabet(int codeMoshtari, string azTarikh, string TaTarikh)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
@@ -210,6 +235,55 @@ namespace Barbari_DAL
             {
 
                 return new OperationResult<List<BarErsali_Tbl>>
+                {
+                    Success = false
+                };
+            }
+        }
+        public static OperationResult<List<BarTahvili_Tbl>> Select_BarTahvili_ListBar(string azTarikh, string TaTarikh)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.Where
+                    (p =>
+                        p.BarTahviliTarikh.CompareTo(azTarikh) >= 0 && p.BarTahviliTarikh.CompareTo(TaTarikh) <= 0
+                ).ToList();
+                return new OperationResult<List<BarTahvili_Tbl>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch (Exception)
+            {
+
+                return new OperationResult<List<BarTahvili_Tbl>>
+                {
+                    Success = false
+                };
+            }
+        }
+        public static OperationResult<List<BarTahvili_Tbl>> Select_BarTahviliMojodDarAnbar(string azTarikh, string TaTarikh)
+        {
+            DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
+            try
+            {
+                var query = linq.BarTahvili_Tbls.Where
+                    (p =>
+                        p.BarTahviliRaveshEhrazHoviat == null &&
+                        p.BarTahviliTarikh.CompareTo(azTarikh) >= 0 && p.BarTahviliTarikh.CompareTo(TaTarikh) <= 0
+                ).ToList();
+                return new OperationResult<List<BarTahvili_Tbl>>
+                {
+                    Success = true,
+                    Data = query
+                };
+            }
+            catch (Exception)
+            {
+
+                return new OperationResult<List<BarTahvili_Tbl>>
                 {
                     Success = false
                 };

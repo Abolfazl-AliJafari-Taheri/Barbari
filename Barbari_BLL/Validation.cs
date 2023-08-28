@@ -1880,6 +1880,32 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult Report_BariTahbili_ListBar(string azTarikh, string taTarikh)
+        {
+            if (string.IsNullOrEmpty(azTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(taTarikh))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "تاریخ را وارد کنید"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
     }
     
 }

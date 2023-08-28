@@ -218,8 +218,8 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
                     rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
                     rpt.Dictionary.Variables["Shahr"].Value = CityMablaghShahri_CmBox.Text;
-                    rpt.Dictionary.Variables["azTarikh"].Value = MablaghShahriFromDate_DtPicker.Text;
-                    rpt.Dictionary.Variables["TaTarikhe"].Value = MablaghShahriToDate_DtPicker.Text;
+                    rpt.Dictionary.Variables["AzTarikh"].Value = MablaghShahriFromDate_DtPicker.Text;
+                    rpt.Dictionary.Variables["TaTarikh"].Value = MablaghShahriToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
                         var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
