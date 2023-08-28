@@ -442,19 +442,162 @@ namespace Barbari_UI
             }
             else if (showMoshtari)
             {
+                var result_Etelat = Barbari_BLL.Customers.Select();
+                if (result_Etelat.Success)
+                {
+                    var rpt = StiReportHelper.GetReport("ReportMoshtariSabet.mrt");
+                    var result_Company = Barbari_BLL.Company.Select();
+                    if (result_Company.Success == true)
+                    {
+                        rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
+                        rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                        rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
+                        if (result_Company.Data.CompanyIogo != null)
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
+                        foreach (var item in result_Etelat.Data)
+                        {
 
+                            item.CustomersFirstName = item.CustomersFirstName + " " + item.CustomersLastName;
+                        }
+                        rpt.RegData("Customers_Tbl", result_Etelat.Data.Select(p => new
+                        {
+                            p.CustomersCode,
+                            p.CustomersFirstName,
+                            p.CustomersMobile,
+                            p.CustomersCity,
+                        }));
+                        rpt.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result_Company.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(result_Etelat.Message);
+                }
             }
             else if (showKarmand)
             {
+                var result_Etelat = Barbari_BLL.Users.Select();
+                if (result_Etelat.Success)
+                {
+                    var rpt = StiReportHelper.GetReport("ReportKarmandan.mrt");
+                    var result_Company = Barbari_BLL.Company.Select();
+                    if (result_Company.Success == true)
+                    {
+                        rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
+                        rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                        rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
+                        if (result_Company.Data.CompanyIogo != null)
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
+                        foreach (var item in result_Etelat.Data)
+                        {
 
+                            item.UsersFirstName = item.UsersFirstName + " " + item.UsersLastName;
+                        }   
+                        rpt.RegData("Users_Tbl", result_Etelat.Data.Select(p => new
+                        {
+                            p.UsersFirstName,
+                            p.UsersUserName,
+                            p.UsersPassWord,
+                            p.UsersMobile,
+                            p.UsersRoles
+                        }));
+                        rpt.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result_Company.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(result_Etelat.Message);
+                }
             }
             else if (showRanande)
             {
+                var result_Etelat = Barbari_BLL.Ranande.Select();
+                if (result_Etelat.Success)
+                {
+                    var rpt = StiReportHelper.GetReport("ReportRanandeGan.mrt");
+                    var result_Company = Barbari_BLL.Company.Select();
+                    if (result_Company.Success == true)
+                    {
+                        rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
+                        rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                        rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
+                        if (result_Company.Data.CompanyIogo != null)
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
+                        foreach (var item in result_Etelat.Data)
+                        {
 
+                            item.RanandeFirstName = item.RanandeFirstName + " " + item.RanandeLastName;
+                        }
+                        rpt.RegData("Ranande_Tbl", result_Etelat.Data.Select(p => new
+                        {
+                            p.RanandeCodeRanande,
+                            p.RanandeFirstName,
+                            p.RanandeMobile,
+                        }));
+                        rpt.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result_Company.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(result_Etelat.Message);
+                }
             }
             else if (showCityAnbar)
             {
-
+                var result_Etelat = Barbari_BLL.City.Select();
+                if (result_Etelat.Success)
+                {
+                    var rpt = StiReportHelper.GetReport("ReportShahroAnbar.mrt");
+                    var result_Company = Barbari_BLL.Company.Select();
+                    if (result_Company.Success == true)
+                    {
+                        rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
+                        rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
+                        rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
+                        if (result_Company.Data.CompanyIogo != null)
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
+                        rpt.RegData("City_Tbl", result_Etelat.Data.Select(p => new
+                        {
+                            p.CityShahr,
+                            p.CityAnbar,
+                            p.CityMobile,
+                            p.CityAdres,
+                        }));
+                        rpt.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result_Company.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(result_Etelat.Message);
+                }
             }
             else if (showSetting)
             {

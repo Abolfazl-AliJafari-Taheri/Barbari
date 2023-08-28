@@ -172,7 +172,8 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
                     rpt.Dictionary.Variables["tedad"].Value = result_Etelat.Data.Count.ToString();
                     rpt.Dictionary.Variables["NamShahrMaghsad"].Value = CityOneDestination_CmBox.Text;
-                    rpt.Dictionary.Variables["DarTarikh"].Value = OneDestinationFromDate_DtPicker.Text;
+                    rpt.Dictionary.Variables["AzTarikh"].Value = OneDestinationFromDate_DtPicker.Text;
+                    rpt.Dictionary.Variables["TaTarikh"].Value = OneDestinationToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
                         var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
