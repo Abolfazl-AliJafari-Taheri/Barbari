@@ -10,7 +10,8 @@
         WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
         Closing="Window_Closing"
-        >
+          WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize">
     <Grid FlowDirection="RightToLeft"  Background="#F7F7F7">
         <materialDesign:DialogHost Name="DialogHost"
   DialogTheme="Light"
