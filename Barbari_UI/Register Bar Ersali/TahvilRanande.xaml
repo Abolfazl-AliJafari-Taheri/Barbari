@@ -14,8 +14,8 @@
                 <RowDefinition Height="77"/>
                 <RowDefinition Height="72"/>
                 <RowDefinition Height="80"/>
-                <RowDefinition Height="56"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -52,13 +52,11 @@
                     />
                 <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14"><Run Text="چاپ بارنامه"/></TextBlock>
             </Grid>
-            <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+            <Border Name="Code_CmBox_Border" Visibility="Collapsed" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 16" VerticalAlignment="Top" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
                     KeyUp="Code_CmBox_KeyUp"
                     PreviewTextInput="Mobile_Txt_PreviewTextInput"
-                    IsEnabled="False"
                       materialDesign:HintAssist.Hint="کد راننده"
-
                     BorderThickness="0"
   Width="247"
                     Foreground="Black"
@@ -85,7 +83,7 @@
             <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="Price_Txt" BorderThickness="0" materialDesign:HintAssist.Hint="کرایه راننده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  />
             </Border>
-            <Grid Grid.Row="3" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 0">
+            <Grid Grid.Row="3" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="72"/>
                     <ColumnDefinition/>
@@ -110,7 +108,7 @@
             <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="Mobile_Txt" materialDesign:HintAssist.Hint="شماره تلفن راننده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" MaxLength="11" PreviewTextInput="Mobile_Txt_PreviewTextInput"/>
             </Border>
-            <Border Name="Tahvil_Btn_Border" Grid.Column="0" Grid.Row="6" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 0 0 16" VerticalAlignment="Bottom"  CornerRadius="8" Background="#2B54A3">
+            <Border Name="Tahvil_Btn_Border" Grid.Column="0" Grid.Row="6" Height="48" Width="118" HorizontalAlignment="Left" Margin="32 8 0 0" VerticalAlignment="Top"  CornerRadius="8" Background="#2B54A3">
                 <Button Name="Tahvil_Btn" Height="48" Padding="0" Width="118" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0" Click="Tahvil_Btn_Click">
                     <TextBlock FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right"><Run Text="تحویل به راننده"/></TextBlock>
                 </Button>
@@ -129,8 +127,8 @@
                 Height="48"
                 FontFamily="IRANSansX"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Margin="0 0 32 16"
+                VerticalAlignment="Top"
+                Margin="0 8 32 16"
                 >
 
             </Button>

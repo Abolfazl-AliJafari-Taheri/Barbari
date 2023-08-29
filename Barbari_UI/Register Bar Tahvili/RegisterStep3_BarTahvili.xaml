@@ -51,7 +51,7 @@
                     />
                 <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">راننده قبلا ثبت نام شده</TextBlock>
             </Grid>
-            <Border Name="Code_CmBox_Border" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+            <Border Name="Code_CmBox_Border" Visibility="Collapsed" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
                     KeyUp="Code_CmBox_KeyUp"
                       materialDesign:HintAssist.Hint="کد راننده"
