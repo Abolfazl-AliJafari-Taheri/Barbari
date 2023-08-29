@@ -287,7 +287,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             if (!createStep3)
             {
                 createStep3 = true;
-                step3 = new RegisterStep3_BarTahvili() { Height = 312, Width = 622 };
+                step3 = new RegisterStep3_BarTahvili() {  Width = 622 };
                 ShowStep_Grid.Children.Clear();
                 ShowStep_Grid.Children.Add(step3);
             }

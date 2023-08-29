@@ -70,7 +70,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             FirstName_Txt.IsReadOnly = true;
             LastName_Txt.IsReadOnly = true;
             Mobile_Txt.IsReadOnly = true;
-            Code_CmBox.IsEnabled = true;
+            Code_CmBox_Border.Visibility= Visibility.Visible;
         }
 
         private void Registered_Ranande_Unchecked(object sender, RoutedEventArgs e)
@@ -82,7 +82,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             LastName_Txt.IsReadOnly = false;
             Mobile_Txt.IsReadOnly = false;
             Code_CmBox.Text = "";
-            Code_CmBox.IsEnabled = false;
+            Code_CmBox_Border.Visibility= Visibility.Collapsed;
         }
         void FillComboBox()
         {

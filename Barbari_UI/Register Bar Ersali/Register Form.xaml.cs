@@ -264,7 +264,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             if (!createStep1)
             {
                 createStep1 = true;
-                step1 = new RegisterStep1() { Height = 376 ,Width = 622};
+                step1 = new RegisterStep1() {Width = 622};
                 ShowStep_Grid.Children.Clear();
                 ShowStep_Grid.Children.Add(step1);
             }
@@ -288,7 +288,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             if (!createStep2)
             {
                 createStep2 = true;
-                step2 = new RegisterStep2() { Height = 376 ,Width = 622 };
+                step2 = new RegisterStep2() { Width = 622 };
                 ShowStep_Grid.Children.Clear();
                 ShowStep_Grid.Children.Add(step2);
             }

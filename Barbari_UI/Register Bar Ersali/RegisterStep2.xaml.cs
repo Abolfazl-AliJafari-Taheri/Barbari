@@ -80,16 +80,16 @@ namespace Barbari_UI.Register_Bar_Ersali
         }
         private void AddSecondMaghsadToggle_Checked(object sender, RoutedEventArgs e)
         {
-            AnbarMaghsadFinal_CmBox.IsEnabled = true;
-            CityMaghsadFinal_CmBox.IsEnabled = true;
+            AnbarMaghsadFinal_CmBox_Border.Visibility = Visibility.Visible;
+            CityMaghsadFinal_CmBox_Border.Visibility = Visibility.Visible;
         }
 
         private void AddSecondMaghsadToggle_Unchecked(object sender, RoutedEventArgs e)
         {
             AnbarMaghsadFinal_CmBox.Text = "";
             CityMaghsadFinal_CmBox.Text = "";
-            AnbarMaghsadFinal_CmBox.IsEnabled = false;
-            CityMaghsadFinal_CmBox.IsEnabled = false;
+            AnbarMaghsadFinal_CmBox_Border.Visibility = Visibility.Collapsed;
+            CityMaghsadFinal_CmBox_Border.Visibility = Visibility.Collapsed;
         }
 
         private void CityMaghsad_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

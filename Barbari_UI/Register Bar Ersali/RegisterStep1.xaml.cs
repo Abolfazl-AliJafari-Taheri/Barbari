@@ -87,7 +87,7 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         private void BimariToggle_Checked(object sender, RoutedEventArgs e)
         {
-            Code_CmBox.IsEnabled = true;
+            Code_CmBox_Border.Visibility= Visibility.Visible;
             FirstName_Txt.IsReadOnly = true;
             LastName_Txt.IsReadOnly = true;
             Mobile_Txt.IsReadOnly = true;
@@ -95,7 +95,7 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         private void BimariToggle_Unchecked(object sender, RoutedEventArgs e)
         {
-            Code_CmBox.IsEnabled = false;
+            Code_CmBox_Border.Visibility = Visibility.Collapsed;
             Code_CmBox.Text = "";
             FirstName_Txt.IsReadOnly = false;
             LastName_Txt.IsReadOnly = false;
@@ -222,7 +222,6 @@ namespace Barbari_UI.Register_Bar_Ersali
 
         public void Registered()
         {
-            BimariToggle.IsChecked = true;
             BimariToggle.IsChecked = false;
             FillCompanyData();
         }

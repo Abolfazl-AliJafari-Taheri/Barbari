@@ -15,8 +15,8 @@
                 <RowDefinition Height="72"/>
                 <RowDefinition Height="72"/>
                 <RowDefinition Height="72"/>
-                <RowDefinition Height="56"/>
-                <RowDefinition />
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -85,7 +85,7 @@
                 <TextBox Name="Mobile_Txt"  materialDesign:HintAssist.Hint="شماره تلفن فرستنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0"  BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" MaxLength="11" PreviewTextInput="Mobile_Txt_PreviewTextInput"/>
             </Border>
             
-            <Grid Grid.Row="3" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 0">
+            <Grid Grid.Row="3" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="72"/>
                     <ColumnDefinition/>
@@ -107,14 +107,13 @@
                     />
                 <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">فرستنده مشتری ثابت است</TextBlock>
             </Grid>
-            <Border Grid.Row="4" Grid.Column="0"  HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+            <Border Name="Code_CmBox_Border" Visibility="Collapsed" Grid.Row="4" Grid.Column="0"  HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Top" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
                       materialDesign:HintAssist.Hint="کد مشتری"
                     PreviewTextInput="Mobile_Txt_PreviewTextInput"
                     KeyUp="Code_CmBox_KeyUp"
                     Name="Code_CmBox"
                     BorderThickness="0"
-                    IsEnabled="False"
   Width="247"
                     Foreground="Black"
                     VerticalContentAlignment="Center"

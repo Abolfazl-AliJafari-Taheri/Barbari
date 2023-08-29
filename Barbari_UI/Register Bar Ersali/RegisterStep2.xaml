@@ -14,7 +14,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="72"/>
                 <RowDefinition Height="64"/>
-                <RowDefinition Height="64"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
@@ -81,10 +81,9 @@
             <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="LastName_Txt" materialDesign:HintAssist.Hint="نام خانوادگی گیرنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" Tag="نام خانوادگی گیرنده"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"/>
             </Border>
-            <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+            <Border Name="CityMaghsadFinal_CmBox_Border" Visibility="Collapsed" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
                       materialDesign:HintAssist.Hint="شهر مقصد نهایی"
-                    IsEnabled="False"
                     Name="CityMaghsadFinal_CmBox"
                     BorderThickness="0"
   Width="247"
@@ -108,10 +107,9 @@
                     </ComboBox.SelectedItem>
                 </ComboBox>
             </Border>
-            <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+            <Border Name="AnbarMaghsadFinal_CmBox_Border" Visibility="Collapsed" Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" Margin="32 16 0 0" VerticalAlignment="Top" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <ComboBox
                     materialDesign:HintAssist.Hint="انبار مقصد نهایی"
-                    IsEnabled="False"
                     Name="AnbarMaghsadFinal_CmBox"
                     BorderThickness="0"
   Width="247"
@@ -157,7 +155,7 @@
                     />
                 <TextBlock Grid.Column="1" Width="153" Height="20" FontFamily="IRANSansX" FontSize="14">افزودن مقصد نهایی</TextBlock>
             </Grid>
-            <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 0 0 24" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
+            <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="32 32 0 24" VerticalAlignment="Top" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
                 <TextBox Name="Mobile_Txt" MaxLength="11" materialDesign:HintAssist.Hint="شماره تلفن گیرنده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" PreviewTextInput="Mobile_Txt_PreviewTextInput"/>
             </Border>
         </Grid>

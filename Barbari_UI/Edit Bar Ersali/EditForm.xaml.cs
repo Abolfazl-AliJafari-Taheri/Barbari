@@ -50,7 +50,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
             else
             {
                 ShowStep_Grid.Children.Clear();
-                step1 = new RegisterStep1(BarErsali) { Height = 376 ,Width = 622 };
+                step1 = new RegisterStep1(BarErsali) { Width = 622 };
                 createStep1= true;
                 ShowStep_Grid.Children.Add(step1);
             }
@@ -72,7 +72,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
             else
             {
                 ShowStep_Grid.Children.Clear();
-                step2 = new RegisterStep2(BarErsali) { Height = 376 ,Width = 622 };
+                step2 = new RegisterStep2(BarErsali) { Width = 622 };
                 createStep2 = true;
                 ShowStep_Grid.Children.Add(step2);
             }
@@ -94,7 +94,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
             else
             {
                 ShowStep_Grid.Children.Clear();
-                step3 = new RegisterStep3(BarErsali);
+                step3 = new RegisterStep3(BarErsali) { Width = 622};
                 createStep3 = true;
                 ShowStep_Grid.Children.Add(step3);
             }
