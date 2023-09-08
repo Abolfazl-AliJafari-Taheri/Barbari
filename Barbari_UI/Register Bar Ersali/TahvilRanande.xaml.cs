@@ -109,8 +109,11 @@ namespace Barbari_UI.Register_Bar_Ersali
                                 var rpt = StiReportHelper.GetReport("ReportBarnameRanande.mrt");
                                 if (query1.Data.CompanyIogo != null)
                                 {
-                                    var logo = File.ReadAllBytes(query1.Data.CompanyIogo);
-                                    rpt.Dictionary.Variables["logo"].ValueObject = logo;
+                                    if (File.Exists(query1.Data.CompanyIogo))
+                                    {
+                                        var logo = File.ReadAllBytes(query1.Data.CompanyIogo);
+                                        rpt.Dictionary.Variables["logo"].ValueObject = logo;
+                                    }
                                 }
                                 rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
                                 rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;
@@ -152,8 +155,11 @@ namespace Barbari_UI.Register_Bar_Ersali
                                 var rpt = StiReportHelper.GetReport("ReportBarname.mrt");
                                 if (query1.Data.CompanyIogo != null)
                                 {
-                                    var logo = File.ReadAllBytes(query1.Data.CompanyIogo);
-                                    rpt.Dictionary.Variables["logo"].ValueObject = logo;
+                                    if (File.Exists(query1.Data.CompanyIogo))
+                                    {
+                                        var logo = File.ReadAllBytes(query1.Data.CompanyIogo);
+                                        rpt.Dictionary.Variables["logo"].ValueObject = logo;
+                                    }  
                                 }
                                 rpt.Dictionary.Variables["NamSherkat"].Value = query1.Data.CompanyName;
                                 rpt.Dictionary.Variables["TelephoneSherkat"].Value = query1.Data.CompanyTelephon;

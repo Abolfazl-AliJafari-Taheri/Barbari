@@ -93,8 +93,11 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TaTarikhe"].Value = OneDriverListBarToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     foreach (var item in result_Etelat.Data)
                     {
@@ -148,8 +151,11 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TaTarikhe"].Value = ListBarToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     foreach (var item in result_Etelat.Data)
                     {
@@ -198,8 +204,11 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TaTarikhe"].Value = ListBarToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     foreach (var item in result_Etelat.Data)
                     {
