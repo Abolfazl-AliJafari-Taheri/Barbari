@@ -9,7 +9,7 @@
                         d:DesignHeight="160" d:DesignWidth="400"
              Loaded="UserControl_Loaded">
     <Border Background="#FFFFFF" CornerRadius="8">
-        <Grid>
+        <Grid Name="Show_Grid">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="72"/>
@@ -20,12 +20,12 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Height="56" Width="137.5" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Top" Background="Transparent" BorderBrush="#2B54A3" BorderThickness="0.5" CornerRadius="8">
+                <Border Name="Cancel_Btn_Grid" Grid.Column="0" Height="56" Width="137.5" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Top" Background="Transparent" BorderBrush="#2B54A3" BorderThickness="0.5" CornerRadius="8">
                     <Button Name="Cancel_Btn"  Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"  Height="56" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" BorderThickness="0"> 
                         <TextBlock FontFamily="IRANSansX" FontSize="20" Foreground="#2B54A3" VerticalAlignment="Center">لغو</TextBlock>
                     </Button>
                 </Border>
-                <Border Grid.Column="1" Height="56" Width="137.5" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Top" Background="#2B54A3" CornerRadius="8">
+                <Border Name="SubmitDelete_Btn_Grid" Grid.Column="1" Height="56" Width="137.5" HorizontalAlignment="Right" Margin="0 0 32 0" VerticalAlignment="Top" Background="#2B54A3" CornerRadius="8">
                     <Button Name="SubmitDelete_Btn"    Height="56" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Click="SubmitDelete_Btn_Click" Background="Transparent"  BorderThickness="0">
                         <TextBlock FontFamily="IRANSansX" FontSize="20" Foreground="#FFFFFF" VerticalAlignment="Center">حذف</TextBlock>
                     </Button>

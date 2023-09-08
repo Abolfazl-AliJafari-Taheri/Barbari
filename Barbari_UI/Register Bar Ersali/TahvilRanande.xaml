@@ -81,7 +81,7 @@
                 </ComboBox>
             </Border>
             <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="32 0 0 0" VerticalAlignment="Bottom" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="263">
-                <TextBox Name="Price_Txt" BorderThickness="0" materialDesign:HintAssist.Hint="کرایه راننده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14"  />
+                <TextBox Name="Price_Txt" BorderThickness="0" materialDesign:HintAssist.Hint="کرایه راننده"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" Margin="16 0 16 0" VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" TextChanged="Price_Txt_TextChanged"  />
             </Border>
             <Grid Grid.Row="3" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 16">
                 <Grid.ColumnDefinitions>

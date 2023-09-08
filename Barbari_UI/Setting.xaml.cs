@@ -111,7 +111,7 @@ namespace Barbari_UI
                     }
                     else
                     {
-                        MessageBox.Show("برای اعمال تغییرات برنامه را کامل ببندید و دوباره اجرا کنید");
+                        WindowsAndPages.home_Window.DialogHost.ShowDialog(new SubmitDelete(CloseApp: true) { Height = 200 ,Width = 700 });
                     }
                 
             }

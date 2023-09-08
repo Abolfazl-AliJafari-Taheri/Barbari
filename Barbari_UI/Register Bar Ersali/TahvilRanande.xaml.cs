@@ -287,5 +287,11 @@ namespace Barbari_UI.Register_Bar_Ersali
         {
 
         }
+
+        private void Price_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            double number = double.Parse(Price_Txt.Text);
+            Price_Txt.ToolTip = number.ToString("#,##0");
+        }
     }
 }
