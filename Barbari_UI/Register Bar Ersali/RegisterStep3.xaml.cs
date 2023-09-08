@@ -231,7 +231,9 @@ namespace Barbari_UI.Register_Bar_Ersali
                         PishKeraye_Txt.Text = 0.ToString();
                 }
             }
-           
+            double number = double.Parse(PasKeraye_Txt.Text);
+            string letter = Barbari_DAL.Possibilities.Convert(PasKeraye_Txt.Text);
+            PasKeraye_Txt.ToolTip = letter + "\n" + number.ToString("#,##0");
         }
 
         private void PishKeraye_Txt_TextChanged(object sender, TextChangedEventArgs e)
@@ -248,6 +250,9 @@ namespace Barbari_UI.Register_Bar_Ersali
                 }
                 
             }
+            double number = double.Parse(PishKeraye_Txt.Text);
+            string letter = Barbari_DAL.Possibilities.Convert(PasKeraye_Txt.Text);
+            PasKeraye_Txt.ToolTip = letter + "\n" + number.ToString("#,##0");
         }
 
         private void PishKeraye_Txt_KeyUp(object sender, KeyEventArgs e)
@@ -256,6 +261,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 e.Handled= true;
             }
+
         }
 
         private void PasKeraye_Txt_KeyUp(object sender, KeyEventArgs e)
@@ -272,6 +278,10 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 AnbarDari_Txt.Text = 0.ToString();
             }
+         
+            double number = double.Parse(AnbarDari_Txt.Text);
+            string letter = Barbari_DAL.Possibilities.Convert(AnbarDari_Txt.Text);
+            AnbarDari_Txt.ToolTip = letter +"\n"+ number.ToString("#,##0");
         }
 
         private void BasteBandi_Txt_TextChanged(object sender, TextChangedEventArgs e)
@@ -280,6 +290,9 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 BasteBandi_Txt.Text = 0.ToString();
             }
+            double number = double.Parse(BasteBandi_Txt.Text);
+            string letter = Barbari_DAL.Possibilities.Convert(BasteBandi_Txt.Text);
+            BasteBandi_Txt.ToolTip = letter + "\n" + number.ToString("#,##0");
         }
 
         private void Shahri_Txt_TextChanged(object sender, TextChangedEventArgs e)
@@ -288,6 +301,10 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 Shahri_Txt.Text = 0.ToString();
             }
+            double number = double.Parse(Shahri_Txt.Text);
+            string letter = Barbari_DAL.Possibilities.Convert(Shahri_Txt.Text);
+            Shahri_Txt.ToolTip = letter + "\n" + number.ToString("#,##0");
+
         }
 
         private void Bime_Txt_TextChanged(object sender, TextChangedEventArgs e)
@@ -296,6 +313,9 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 Bime_Txt.Text = 0.ToString();
             }
+            double number = double.Parse(Bime_Txt.Text);
+            string letter = Barbari_DAL.Possibilities.Convert(Bime_Txt.Text);
+            Bime_Txt.ToolTip = letter + "\n" + number.ToString("#,##0");
         }
         public void Registered()
         {
@@ -327,12 +347,21 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 KalaPrice_Txt.Text = 0.ToString();
             }
+            double number = double.Parse(KalaPrice_Txt.Text);
+            string letter = Barbari_DAL.Possibilities.Convert(KalaPrice_Txt.Text);
+            KalaPrice_Txt.ToolTip = letter + "\n" + number.ToString("#,##0");
+
         }
 
         private void CodeBarname_Txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void CodeBarname_Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
 
         //private void DateSodor_DtPicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

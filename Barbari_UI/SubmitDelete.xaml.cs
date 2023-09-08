@@ -24,7 +24,7 @@ namespace Barbari_UI
     /// </summary>
     public partial class SubmitDelete : UserControl
     {
-        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null , int CodeBarname = 0,int CodeKalaDaryafti = 0,int CodeBarnameKalaDaryafti = 0, int CodeBar= 0, int CodeKalaTahvili = 0, int CodeBarKalaTahvili = 0)
+        public SubmitDelete(Users_Tbl User =null, City_Tbl City = null, BarErsali_Tbl BarErsali = null, BarTahvili_Tbl BarTahvili = null , Customers_Tbl Customer = null , Ranande_Tbl Driver = null , KalaDaryafti_Tbl KalaDaryafti = null,KalaTahvili_Tbl KalaTahvili = null,Roles_Tbl Role = null , int CodeBarname = 0,int CodeKalaDaryafti = 0,int CodeBarnameKalaDaryafti = 0, int CodeBar= 0, int CodeKalaTahvili = 0, int CodeBarKalaTahvili = 0,bool CloseApp = false)
         {
             user= User;
             city= City;
@@ -41,6 +41,7 @@ namespace Barbari_UI
             codeBar= CodeBar;
             codeBarKalaTahvili = CodeBarKalaTahvili;
             codeKalaTahvili = CodeKalaTahvili;
+            closeApp = CloseApp;
             InitializeComponent();
         }
         Users_Tbl user;
@@ -58,6 +59,7 @@ namespace Barbari_UI
         int codeBar;
         int codeBarKalaTahvili;
         int codeKalaTahvili;
+        bool closeApp;
         private void SubmitDelete_Btn_Click(object sender, RoutedEventArgs e)
         {
             
@@ -202,6 +204,10 @@ namespace Barbari_UI
                     DialogHost.CloseDialogCommand.Execute(null, null);
                 }
             }
+            else if (closeApp)
+            {
+                Application.Current.Shutdown();
+            }
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -213,12 +219,32 @@ namespace Barbari_UI
                 SubmitDelete_Btn.FontSize = 20;
                 Massage_TxtBlock.FontSize = 20;
             }
-            if (codeBar != 0)
+            else if (codeBar != 0)
             {
                 Massage_TxtBlock.Text = "آیا از تغییر وضعیت بار مطمئن هستید؟";
                 SubmitDelete_Btn.Content = "بله";
                 SubmitDelete_Btn.FontSize = 20;
                 Massage_TxtBlock.FontSize = 20;
+            }
+           else if(closeApp)
+            {
+                Show_Grid.RowDefinitions[1].Height = new GridLength(90);
+                SubmitDelete_Btn.Height = 76;
+                SubmitDelete_Btn.Width = 150;
+                SubmitDelete_Btn.FontSize = 25;
+                SubmitDelete_Btn_Grid.CornerRadius= new CornerRadius(12);
+                SubmitDelete_Btn_Grid.Height = 76;
+                SubmitDelete_Btn_Grid.Width = 150;
+
+                Cancel_Btn.Height = 76;
+                Cancel_Btn.Width = 150;
+                Cancel_Btn.FontSize = 25;
+                Cancel_Btn_Grid.CornerRadius = new CornerRadius(12);
+                Cancel_Btn_Grid.Height = 76;
+                Cancel_Btn_Grid.Width = 150;
+                Massage_TxtBlock.Text = "برای اعمال تغییرات برنامه را کامل ببندید و دوباره اجرا کنید";
+                SubmitDelete_Btn.Content = "بستن";
+                
             }
         }
     }
