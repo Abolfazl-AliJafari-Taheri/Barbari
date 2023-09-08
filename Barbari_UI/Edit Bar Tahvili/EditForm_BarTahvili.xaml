@@ -71,7 +71,6 @@
                     <Button Name="Save_Btn"  Height="48" Click="Save_Btn_Click" FontSize="14" Padding="0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Transparent" Width="119" Content="ذخیره تغییرات" HorizontalAlignment="Center" Foreground="#FFFFFF" BorderThickness="0" FontFamily="IRANSansX"  />
                 </Border>
             </Grid>
-
         </Grid>
     </Border>
 </UserControl>
