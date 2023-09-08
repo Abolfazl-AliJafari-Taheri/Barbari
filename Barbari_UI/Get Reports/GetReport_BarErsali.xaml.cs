@@ -176,8 +176,11 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TaTarikh"].Value = OneDestinationToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     foreach (var item in result_Etelat.Data)
                     {
@@ -222,8 +225,11 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TaTarikh"].Value = MablaghShahriToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     foreach (var item in result_Etelat.Data)
                     {
@@ -268,8 +274,12 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["DarTarikh"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
+                        
                     }
                     foreach (var item in result_Etelat.Data)
                     {
@@ -325,8 +335,11 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TaTarikh"].Value = KalaKhorojiListToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     foreach (var item in result_Etelat.Data)
                     {
@@ -379,8 +392,11 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TaTarikh"].Value = BarVorodiListToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     foreach (var item in result_Etelat.Data)
                     {
@@ -447,8 +463,11 @@ namespace Barbari_UI.Get_Reports
                     }
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     rpt.RegData("BarErsali_Tbl", result_Etelat.Data.Select(p => new
                     {
@@ -490,8 +509,11 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["TaTarikhe"].Value = RanandeToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
                     {
-                        var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                        rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        if (File.Exists(result_Company.Data.CompanyIogo))
+                        {
+                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                        }
                     }
                     foreach (var item in result_Etelat.Data)
                     {
