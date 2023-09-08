@@ -67,7 +67,6 @@ namespace Barbari_UI.Register_Bar_Tahvili
             FirstName_Txt.Clear();
             LastName_Txt.Clear();
             Mobile_Txt.Clear();
-            Code_CmBox.Text = "";
             FirstName_Txt.IsReadOnly = true;
             LastName_Txt.IsReadOnly = true;
             Mobile_Txt.IsReadOnly = true;

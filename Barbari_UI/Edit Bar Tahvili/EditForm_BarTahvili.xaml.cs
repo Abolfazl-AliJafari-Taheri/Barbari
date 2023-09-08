@@ -272,7 +272,7 @@ namespace Barbari_UI.Edit_Bar_Tahvili
                 }
                 if (createStep3)
                 {
-                    BarTahvili.BarErsaliCodeRanande = step3.Code_CmBox.Text;
+                    BarTahvili.BarErsaliCodeRanande = int.Parse(step3.Code_CmBox.Text);
                     BarTahvili.BarTahviliNamRanande = step3.FirstName_Txt.Text;
                     BarTahvili.BarTahviliFamilyRanande = step3.LastName_Txt.Text;
                     BarTahvili.BarTahviliMobileRanande = step3.Mobile_Txt.Text;
