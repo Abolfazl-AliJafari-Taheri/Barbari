@@ -251,8 +251,8 @@ namespace Barbari_UI.Register_Bar_Ersali
                 
             }
             double number = double.Parse(PishKeraye_Txt.Text);
-            string letter = Barbari_DAL.Possibilities.Convert(PasKeraye_Txt.Text);
-            PasKeraye_Txt.ToolTip = letter + "\n" + number.ToString("#,##0");
+            string letter = Barbari_DAL.Possibilities.Convert(PishKeraye_Txt.Text);
+            PishKeraye_Txt.ToolTip = letter + "\n" + number.ToString("#,##0");
         }
 
         private void PishKeraye_Txt_KeyUp(object sender, KeyEventArgs e)
