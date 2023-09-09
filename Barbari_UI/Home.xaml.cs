@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Barbari_UI
 {
@@ -470,7 +471,7 @@ namespace Barbari_UI
                         }
                         else
                         {
-                            var logo = File.ReadAllBytes("/Source/Icones/AppIcon(Black Border).png");
+                            var logo = File.ReadAllBytes(Path.Combine(Environment.CurrentDirectory,"/Source/Icones/AppIcon(Black Border).png"));
                             rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
                         }
 

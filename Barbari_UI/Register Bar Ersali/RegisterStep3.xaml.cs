@@ -197,7 +197,7 @@ namespace Barbari_UI.Register_Bar_Ersali
         }
         public void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
+            DateSodor_DtPicker.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
             if(edit)
             {
                 if(WindowsAndPages.home_Window.Role != null)
@@ -334,11 +334,6 @@ namespace Barbari_UI.Register_Bar_Ersali
             PrintToggle.IsChecked= false;
             SendSmsToggle.IsChecked= false;
             
-        }
-
-        private void DateSodor_DtPicker_SelectedDateChanged(object sender, RoutedEventArgs e)
-        {
-            string.Format("{0:yyyy/MM/dd}", Convert.ToDateTime(DateSodor_DtPicker.Text));
         }
 
         private void KalaPrice_Txt_TextChanged(object sender, TextChangedEventArgs e)

@@ -111,7 +111,6 @@
                         Foreground="Black"
                         Margin="16 0 16 0"
                         HorizontalContentAlignment="Left"
-  materialDesign:HintAssist.Hint="ساعت صدور"
                         FlowDirection="LeftToRight"
                         Style="{StaticResource MaterialDesignFloatingHintTimePicker}" 
   Is24Hours="True"
@@ -132,7 +131,7 @@
                                 Language="fa-IR"
   materialDesign:HintAssist.Hint="تاریخ صدور" >
                     </DatePicker>-->
-                        <my:DatePicker Name="DateSodor_DtPicker" FlowDirection="LeftToRight" Height="48" Margin="10 0 10 0" BorderThickness="0"/>
+                        <my:DatePicker Name="DateSodor_DtPicker" FlowDirection="LeftToRight" Height="48" Margin="10 0 10 0" BorderThickness="0" FontFamily="IRANSansX"  FontSize="14" Foreground="Black"/>
                     </Border>
                     <Grid Grid.Row="5" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 0">
                         <Grid.ColumnDefinitions>
