@@ -210,7 +210,7 @@ namespace Barbari_UI.Get_Reports
         }
         private void GetReportMablaghShahri_Btn_Click(object sender, RoutedEventArgs e)
         {
-            var result_Etelat = Barbari_BLL.Report.Select_MablaghShahri(CityMablaghShahri_CmBox.Text,MablaghShahriFromDate_DtPicker.Text, MablaghShahriToDate_DtPicker.Text);
+            var result_Etelat = Barbari_BLL.Report.Select_MablaghShahri(MablaghShahriFromDate_DtPicker.Text, MablaghShahriToDate_DtPicker.Text);
             if (result_Etelat.Success)
             {
                 var rpt = StiReportHelper.GetReport("ReportMablaghShahri.mrt");
@@ -220,7 +220,6 @@ namespace Barbari_UI.Get_Reports
                     rpt.Dictionary.Variables["NamSherkat"].Value = result_Company.Data.CompanyName;
                     rpt.Dictionary.Variables["TarikhChap"].Value = Barbari_DAL.Possibilities.ConvertToPersian(DateTime.Now);
                     rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
-                    rpt.Dictionary.Variables["Shahr"].Value = CityMablaghShahri_CmBox.Text;
                     rpt.Dictionary.Variables["AzTarikh"].Value = MablaghShahriFromDate_DtPicker.Text;
                     rpt.Dictionary.Variables["TaTarikh"].Value = MablaghShahriToDate_DtPicker.Text;
                     if (result_Company.Data.CompanyIogo != null)
@@ -548,7 +547,6 @@ namespace Barbari_UI.Get_Reports
             if(citys.Success)
             {
                 CityOneDestination_CmBox.ItemsSource = citys.Data;
-                CityMablaghShahri_CmBox.ItemsSource = citys.Data;
             }
             else
             {

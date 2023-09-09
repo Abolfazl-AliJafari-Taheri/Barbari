@@ -175,12 +175,13 @@ namespace Barbari_UI
                         MessageBox.Show(insertFirstRole.Message);
                     }
                 }
-                else
-                {
-                    MessageBox.Show(roles.Message);
-                }
+               
             }
-            if(users.Success)
+            else
+            {
+                MessageBox.Show(roles.Message);
+            }
+            if (users.Success)
             {
                 if(users.Data.Count == 0)
                 {
