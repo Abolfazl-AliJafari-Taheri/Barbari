@@ -209,12 +209,12 @@ namespace Barbari_BLL
             }
 
         }
-        public static OperationResult<List<BarErsali_Tbl>> Select_MablaghShahri(string namShahr, string azTarikh, string TaTarikh)
+        public static OperationResult<List<BarErsali_Tbl>> Select_MablaghShahri(string azTarikh, string TaTarikh)
         {
-            var result_Validation = Validation.Report_VorodiBar_MablaghShahri(namShahr,azTarikh, TaTarikh);
+            var result_Validation = Validation.Report_VorodiBar_MablaghShahri(azTarikh, TaTarikh);
             if (result_Validation.Success == true)
             {
-                var result = Barbari_DAL.Report.Select_MablaghShahri(namShahr,azTarikh, TaTarikh);
+                var result = Barbari_DAL.Report.Select_MablaghShahri(azTarikh, TaTarikh);
                 if (result.Success == true)
                 {
                     return result;

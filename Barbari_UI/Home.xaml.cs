@@ -457,8 +457,11 @@ namespace Barbari_UI
                         rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
                         if (result_Company.Data.CompanyIogo != null)
                         {
-                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                            if (File.Exists(result_Company.Data.CompanyIogo))
+                            {
+                                var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                                rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                            }
                         }
                         foreach (var item in result_Etelat.Data)
                         {
@@ -498,8 +501,11 @@ namespace Barbari_UI
                         rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
                         if (result_Company.Data.CompanyIogo != null)
                         {
-                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                            if (File.Exists(result_Company.Data.CompanyIogo))
+                            {
+                                var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                                rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                            }
                         }
                         foreach (var item in result_Etelat.Data)
                         {
@@ -540,8 +546,11 @@ namespace Barbari_UI
                         rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
                         if (result_Company.Data.CompanyIogo != null)
                         {
-                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                            if (File.Exists(result_Company.Data.CompanyIogo))
+                            {
+                                var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                                rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                            }
                         }
                         foreach (var item in result_Etelat.Data)
                         {
@@ -580,8 +589,11 @@ namespace Barbari_UI
                         rpt.Dictionary.Variables["TelephonCompany"].Value = result_Company.Data.CompanyTelephon;
                         if (result_Company.Data.CompanyIogo != null)
                         {
-                            var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
-                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                            if (File.Exists(result_Company.Data.CompanyIogo))
+                            {
+                                var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
+                                rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
+                            }
                         }
                         rpt.RegData("City_Tbl", result_Etelat.Data.Select(p => new
                         {

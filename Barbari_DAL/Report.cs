@@ -212,17 +212,13 @@ namespace Barbari_DAL
                 };
             }
         }
-        public static OperationResult<List<BarErsali_Tbl>> Select_MablaghShahri(string namShahr, string azTarikh, string TaTarikh)
+        public static OperationResult<List<BarErsali_Tbl>> Select_MablaghShahri(string azTarikh, string TaTarikh)
         {
             DataClassBarbariDataContext linq = new DataClassBarbariDataContext();
             try
             {
                 var query = linq.BarErsali_Tbls.Where
                     (p =>
-                        p.BarErsaliShahreMaghsad1 == namShahr &&
-                        p.BarErsaliTarikh.CompareTo(azTarikh) >= 0 && p.BarErsaliTarikh.CompareTo(TaTarikh) <= 0
-                        ||
-                        p.BarErsaliShahreMaghsad2 == namShahr &&
                         p.BarErsaliTarikh.CompareTo(azTarikh) >= 0 && p.BarErsaliTarikh.CompareTo(TaTarikh) <= 0
                 ).ToList();
                 return new OperationResult<List<BarErsali_Tbl>>

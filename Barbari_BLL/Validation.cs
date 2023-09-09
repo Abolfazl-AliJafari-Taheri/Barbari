@@ -1846,17 +1846,9 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Report_VorodiBar_MablaghShahri(string Shahr, string azTarikh, string taTarikh)
+        public static OperationResult Report_VorodiBar_MablaghShahri(string azTarikh, string taTarikh)
         {
-            if (string.IsNullOrEmpty(Shahr))
-            {
-                return new OperationResult
-                {
-                    Success = false,
-                    Message = "شهر را وارد کنید"
-                };
-            }
-            else if (string.IsNullOrEmpty(azTarikh))
+            if (string.IsNullOrEmpty(azTarikh))
             {
                 return new OperationResult
                 {
