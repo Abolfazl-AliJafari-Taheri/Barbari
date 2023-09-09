@@ -19,7 +19,7 @@ namespace PersianToolkit.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,38 +61,22 @@ namespace PersianToolkit.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [
-        ///  {
-        ///    &quot;mode&quot;: &quot;Persian&quot;,
-        ///    &quot;holiday&quot;: true,
-        ///    &quot;month&quot;: 1,
-        ///    &quot;day&quot;: 1,
-        ///    &quot;type&quot;: &quot;Iran&quot;,
-        ///    &quot;title&quot;: &quot;آغاز عید نوروز&quot;
-        ///  },
+        ///   Looks up a localized string similar to {
+        ///  &quot;Persian Calendar&quot;: [
         ///
-        ///  {
-        ///    &quot;mode&quot;: &quot;Persian&quot;,
-        ///    &quot;holiday&quot;: true,
-        ///    &quot;month&quot;: 1,
-        ///    &quot;day&quot;: 2,
-        ///    &quot;type&quot;: &quot;Iran&quot;,
-        ///    &quot;title&quot;: &quot;عید نوروز&quot;
-        ///  },
+        ///    { &quot;holiday&quot;: true, &quot;month&quot;: 1, &quot;day&quot;: 1, &quot;type&quot;: &quot;Iran&quot;,
+        ///      &quot;title&quot;: &quot;آغاز عید نوروز&quot; },
         ///
-        ///  {
-        ///    &quot;mode&quot;: &quot;Persian&quot;,
-        ///    &quot;holiday&quot;: false,
-        ///    &quot;month&quot;: 1,
-        ///    &quot;day&quot;: 2,
-        ///    &quot;type&quot;: &quot;Iran&quot;,
-        ///    &quot;title&quot;: &quot;هجوم به مدرسهٔ فیضیهٔ قم (۱۳۴۲ ه‍.ش)&quot;
-        ///  },
+        ///    { &quot;holiday&quot;: true, &quot;month&quot;: 1, &quot;day&quot;: 2, &quot;type&quot;: &quot;Iran&quot;,
+        ///      &quot;title&quot;: &quot;عید نوروز&quot; },
         ///
-        ///  {
-        ///    &quot;mode&quot;: &quot;Persian&quot;,
-        ///    &quot;holiday&quot;: false,
-        ///    &quot;month [rest of string was truncated]&quot;;.
+        ///    { &quot;holiday&quot;: false, &quot;month&quot;: 1, &quot;day&quot;: 2, &quot;type&quot;: &quot;Iran&quot;,
+        ///      &quot;title&quot;: &quot;هجوم به مدرسهٔ فیضیهٔ قم (۱۳۴۲ ه‍.ش)&quot; },
+        ///
+        ///    { &quot;holiday&quot;: false, &quot;month&quot;: 1, &quot;day&quot;: 2, &quot;type&quot;: &quot;Iran&quot;,
+        ///      &quot;title&quot;: &quot;آغاز عملیات فتح‌المبین (۱۳۶۱ ه‍.ش)&quot; },
+        ///
+        ///    { &quot;holiday&quot;: true, &quot;month&quot;: 1, &quot;day&quot;: 3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string events {
             get {
