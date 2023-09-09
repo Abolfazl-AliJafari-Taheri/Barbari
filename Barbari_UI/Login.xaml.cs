@@ -130,13 +130,66 @@ namespace Barbari_UI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            var roles = Barbari_BLL.Roles.Select("");
             var users = Barbari_BLL.Users.Select("");
+            if(roles.Success)
+            {
+                if(roles.Data.Count == 0)
+                {
+                    Roles_Tbl role = new Roles_Tbl()
+                    {
+                        RolesAsli = true,
+                        RolesNamRole = "مدیر",
+                        BarErsaliDelete = true,
+                        BarErsaliInsert = true,
+                        BarErsaliUpdate = true,
+                        BarTahviliDelete = true,
+                        BarTahviliInsert = true,
+                        BarTahviliUpdate = true,
+                        CityDelete = true,
+                        CityInsert = true,
+                        CityUpdate = true,
+                        CustomersDelete = true,
+                        CustomersInsert = true,
+                        CustomersUpdate = true,
+                        RanandeDelete = true,
+                        RanandeInsert = true,
+                        RanandeUpdate = true,
+                        RolesBarErsali = true,
+                        RolesBarTahvili = true,
+                        RolesCity = true,
+                        RolesCustomers = true,
+                        RolesGozaresh = true,
+                        RolesRanande = true,
+                        RolesTanzimat = true,
+                        RolesUsers = true,
+                        TanzimatlogoAndName = true,
+                        TanzimatRoles = true,
+                        UsersDelete = true,
+                        UsersInsert = true,
+                        UsersUpdate = true
+                    };
+                    var insertFirstRole = Barbari_BLL.Roles.Insert(role);
+                    if(!insertFirstRole.Success)
+                    {
+                        MessageBox.Show(insertFirstRole.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(roles.Message);
+                }
+            }
             if(users.Success)
             {
                 if(users.Data.Count == 0)
                 {
                     DialogHost.ShowDialog(new AddKarmand(true) { Height = 397, Width = 622 });
                 }
+            }
+            else
+            {
+                MessageBox.Show(users.Message);
             }
             var company = Barbari_BLL.Company.Select();
             if(company.Data != null)
