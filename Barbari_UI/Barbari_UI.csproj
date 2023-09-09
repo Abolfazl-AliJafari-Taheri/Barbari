@@ -270,10 +270,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PersianToolkit\PersianToolkit\PersianToolkit.csproj">
-      <Project>{a6a9c9f9-704b-4a3a-8b16-88021da8f57f}</Project>
-      <Name>PersianToolkit</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Barbari_BLL\Barbari_BLL.csproj">
       <Project>{e549a114-0bc6-4a86-801b-d487011a12ea}</Project>
       <Name>Barbari_BLL</Name>
@@ -281,6 +277,10 @@
     <ProjectReference Include="..\Barbari_DAL\Barbari_DAL.csproj">
       <Project>{70b23c79-ee45-4bd5-a497-a2b553a2e15a}</Project>
       <Name>Barbari_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersianToolkit\PersianToolkit.csproj">
+      <Project>{A6A9C9F9-704B-4A3A-8B16-88021DA8F57F}</Project>
+      <Name>PersianToolkit</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

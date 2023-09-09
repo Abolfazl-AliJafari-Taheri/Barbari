@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6A9C9F9-704B-4A3A-8B16-88021DA8F57F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PersianToolkit</RootNamespace>
+    <AssemblyName>PersianToolkit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyAttrs.cs" />
+    <Compile Include="Time\CalendarWithClock.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Automation\Peers\CalendarAutomationPeer.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Automation\Peers\CalendarButtonAutomationPeer.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Automation\Peers\CalendarDayButtonAutomationPeer.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\Calendar.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarBlackoutDatesCollection.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarButton.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarDateChangedEventArgs.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarDateRange.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarDateRangeChangingEventArgs.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarDayButton.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarItem.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarMode.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarModeChangedEventArgs.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarSelectionChangedEventArgs.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\CalendarSelectionMode.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\DateTimeHelper.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\KeyboardHelper.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\PersianCalendarHelper.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\SelectedDatesCollection.cs" />
+    <Compile Include="Calendar\Microsoft\Windows\Controls\VisualStates.cs" />
+    <Compile Include="DatePicker\Microsoft\Windows\Automation\Peers\DatePickerAutomationPeer.cs" />
+    <Compile Include="DatePicker\Microsoft\Windows\Controls\DatePicker.cs" />
+    <Compile Include="DatePicker\Microsoft\Windows\Controls\DatePickerDateValidationErrorEventArgs.cs" />
+    <Compile Include="DatePicker\Microsoft\Windows\Controls\DatePickerFormat.cs" />
+    <Compile Include="DatePicker\Microsoft\Windows\Controls\DatePickerTextBox.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HijriDate\DateTimeOffsetPart.cs" />
+    <Compile Include="HijriDate\DateTimeUtils.cs" />
+    <Compile Include="HijriDate\IslamicDateUtils.cs" />
+    <Compile Include="HijriDate\IslamicDay.cs" />
+    <Compile Include="HijriDate\PersianDay.cs" />
+    <Compile Include="HijriDate\PersianMonth.cs" />
+    <Compile Include="HijriDate\PersianYear.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resources\SR.cs" />
+    <Compile Include="Resources\SRID.cs" />
+    <Compile Include="Time\Clock\ArithmeticHelper.cs" />
+    <Compile Include="Time\Clock\CirclePanel.cs" />
+    <Compile Include="Time\Clock\Clock.cs" />
+    <Compile Include="Time\Clock\ClockBase.cs" />
+    <Compile Include="Time\Clock\ClockRadioButton.cs" />
+    <Compile Include="Time\Clock\FunctionEventArgs.cs" />
+    <Compile Include="Tools\BackgroundSwitchElement.cs" />
+    <Compile Include="Tools\BorderCircularConverter.cs" />
+    <Compile Include="Tools\BorderElement.cs" />
+    <Compile Include="Converter\String2VisibilityConverter.cs" />
+    <Compile Include="Converter\String2VisibilityReConverter.cs" />
+    <Compile Include="Tools\ColorStyle.cs" />
+    <Compile Include="Tools\ConfigHelper.cs" />
+    <Compile Include="Tools\CalendarAttached.cs" />
+    <Compile Include="Tools\HolidayHelper.cs" />
+    <Compile Include="Tools\IconElement.cs" />
+    <Compile Include="Tools\InfoElement.cs" />
+    <Compile Include="Tools\ResourceHelper.cs" />
+    <Compile Include="Tools\ResourceToken.cs" />
+    <Compile Include="Tools\SimplePanel.cs" />
+    <Compile Include="Tools\SkinType.cs" />
+    <Compile Include="Tools\TitleAlignment.cs" />
+    <Compile Include="Tools\TitleElement.cs" />
+    <Compile Include="Tools\ValueBoxes.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\events.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExceptionStringTable.txt">
+      <Type>Resx</Type>
+      <WithCulture>false</WithCulture>
+      <ManifestResourceName>ExceptionStringTable</ManifestResourceName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Styles\Base\BaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Basic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\LabelBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\ButtonBaseBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\ButtonBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Colors\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Colors\ColorsDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Colors\ColorsViolet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\CalendarWithClock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\DatePickerBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Geometries.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Basic\Sizes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SkinDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SkinDefault.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SkinViolet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Label.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if /I "$(ConfigurationName)" == "Release" Eazfuscator.NET.exe "$(TargetPath)" --msbuild-project-path "$(ProjectPath)" --msbuild-project-configuration "$(ConfigurationName)" --msbuild-project-platform "$(PlatformName)" --msbuild-solution-path "$(SolutionPath)" -n --newline-flush -v 2019.1</PostBuildEvent>
+  </PropertyGroup>
+</Project>

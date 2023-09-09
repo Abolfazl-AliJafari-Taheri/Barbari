@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbari_BLL", "Barbari_BLL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbari_DAL", "Barbari_DAL\Barbari_DAL.csproj", "{70B23C79-EE45-4BD5-A497-A2B553A2E15A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersianToolkit", "..\PersianToolkit\PersianToolkit\PersianToolkit.csproj", "{A6A9C9F9-704B-4A3A-8B16-88021DA8F57F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersianToolkit", "PersianToolkit\PersianToolkit.csproj", "{A6A9C9F9-704B-4A3A-8B16-88021DA8F57F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

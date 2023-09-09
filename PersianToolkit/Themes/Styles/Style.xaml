@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+      
+        <ResourceDictionary Source="Button.xaml"/>
+        <ResourceDictionary Source="Label.xaml"/>
+        <ResourceDictionary Source="Calendar.xaml"/>
+        <ResourceDictionary Source="CalendarWithClock.xaml"/>
+        <ResourceDictionary Source="DatePicker.xaml"/>
+        <ResourceDictionary Source="Clock.xaml"/>
+      
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
