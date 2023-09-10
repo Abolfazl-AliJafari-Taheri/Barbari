@@ -14,7 +14,7 @@ namespace Barbari_DAL
             try
             {
                 var query = linq.Customers_Tbls.Where(p => p.CustomersLastName.Contains(search) && p.CustomersIsDelete == false).
-                    OrderBy(p => p.CustomersLastName).ThenBy(p => p.CustomersFirstName).ToList();
+                    OrderByDescending(p => p.CustomersCode).Take(20).ToList();
                 return new OperationResult<List<Customers_Tbl>>
                 {
                     Data = query,
