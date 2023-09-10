@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -727,7 +728,7 @@ namespace Barbari_BLL
             }
         }
         public static OperationResult BarErsali_Validation_EtelatBar(string BarErsaliPishKeraye, string BarErsaliPasKeraye, string BarErsaliBime,
-            string BarErsaliAnbardari , string BarErsaliShahri , string BarErsaliBastebandi)
+            string BarErsaliAnbardari , string BarErsaliShahri , string BarErsaliBastebandi , string Tarikh)
         {
             if (string.IsNullOrEmpty(BarErsaliPishKeraye))
             {
@@ -849,11 +850,19 @@ namespace Barbari_BLL
                     Message = "بسته بندی نباید بیشتر از 12 عدد باشه"
                 };
             }
+            else  if (DateTime.TryParseExact(Tarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
             else
             {
                 return new OperationResult
                 {
-                    Success = true,
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
                 };
             }
         }
@@ -1204,7 +1213,7 @@ namespace Barbari_BLL
             }
         }
         public static OperationResult barTahvili_Validation_EtelatBar(string CodeBarname, string BarTahviliPishKeraye, string BarTahviliPasKeraye
-            , string BarTahviliBime, string BarTahviliAnbardari, string BarTahviliShahri, string BarTahviliBastebandi)
+            , string BarTahviliBime, string BarTahviliAnbardari, string BarTahviliShahri, string BarTahviliBastebandi , string Tarikh)
         {
             if (string.IsNullOrEmpty(CodeBarname))
             {
@@ -1350,11 +1359,19 @@ namespace Barbari_BLL
                     Message = "بسته بندی نباید بیشتر از 12 عدد باشه"
                 };
             }
+            else if (DateTime.TryParseExact(Tarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
             else
             {
                 return new OperationResult
                 {
-                    Success = true,
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
                 };
             }
         }
@@ -1623,7 +1640,7 @@ namespace Barbari_BLL
                 };
             }
         }
-        public static OperationResult Report_Ranande_Validation(string codeRanande , string azTarikh , string taTarikh)
+        public static OperationResult Report_Ranande_Validation(string codeRanande, string azTarikh, string taTarikh)
         {
             if (string.IsNullOrEmpty(codeRanande))
             {
@@ -1657,11 +1674,27 @@ namespace Barbari_BLL
                     Message = "داخل کد راننده فقط میشه عدد وارد کرد"
                 };
             }
+            else if (DateTime.TryParseExact(azTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+            {
+                if (DateTime.TryParseExact(taTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result2))
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
+                };
+            }
             else
             {
                 return new OperationResult
                 {
-                    Success = true
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
                 };
             }
         }
@@ -1699,11 +1732,27 @@ namespace Barbari_BLL
                     Message = "داخل کد مشتری فقط میشه عدد وارد کرد"
                 };
             }
+            else  if (DateTime.TryParseExact(azTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+            {
+                if (DateTime.TryParseExact(taTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result2))
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
+                };
+            }
             else
             {
                 return new OperationResult
                 {
-                    Success = true
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
                 };
             }
         }
@@ -1733,11 +1782,27 @@ namespace Barbari_BLL
                     Message = "تاریخ را وارد کنید"
                 };
             }
+            else  if (DateTime.TryParseExact(azTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+            {
+                if (DateTime.TryParseExact(taTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result2))
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
+                };
+            }
             else
             {
                 return new OperationResult
                 {
-                    Success = true
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
                 };
             }
         }
@@ -1759,11 +1824,27 @@ namespace Barbari_BLL
                     Message = "تاریخ را وارد کنید"
                 };
             }
+            else if (DateTime.TryParseExact(azTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+            {
+                if (DateTime.TryParseExact(taTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result2))
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
+                };
+            }
             else
             {
                 return new OperationResult
                 {
-                    Success = true
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
                 };
             }
         }
@@ -1785,11 +1866,27 @@ namespace Barbari_BLL
                     Message = "تاریخ را وارد کنید"
                 };
             }
+            else if (DateTime.TryParseExact(azTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+            {
+                if (DateTime.TryParseExact(taTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result2))
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
+                };
+            }
             else
             {
                 return new OperationResult
                 {
-                    Success = true
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
                 };
             }
         }
@@ -1811,11 +1908,27 @@ namespace Barbari_BLL
                     Message = "تاریخ را وارد کنید"
                 };
             }
+            else if (DateTime.TryParseExact(azTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+            {
+                if (DateTime.TryParseExact(taTarikh, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result2))
+                {
+                    return new OperationResult
+                    {
+                        Success = true
+                    };
+                }
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
+                };
+            }
             else
             {
                 return new OperationResult
                 {
-                    Success = true
+                    Success = false,
+                    Message = "yyyy/MM/dd = فرمت تاریخ را درست وارد کنید"
                 };
             }
         }

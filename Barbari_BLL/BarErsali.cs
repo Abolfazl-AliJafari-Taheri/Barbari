@@ -161,7 +161,7 @@ namespace Barbari_BLL
                 barErsali.BarErsaliNamGerande, barErsali.BarErsaliFamilyGerande, barErsali.BarErsaliMobileGerande, barErsali.BarErsaliShahreMaghsad2 ,barErsali.BarErsaliAnbarMaghsad2, maghsadNahayi);
 
             var result3 = Validation.BarErsali_Validation_EtelatBar(barErsali.BarErsaliPishKeraye.ToString(), barErsali.BarErsaliPasKeraye.ToString(), barErsali.BarErsaliBime.ToString(),
-                barErsali.BarErsaliAnbardari.ToString(), barErsali.BarErsaliShahri.ToString(), barErsali.BarErsaliBastebandi.ToString());
+                barErsali.BarErsaliAnbardari.ToString(), barErsali.BarErsaliShahri.ToString(), barErsali.BarErsaliBastebandi.ToString(), barErsali.BarErsaliTarikh);
 
             if (result1.Success == false)
             {
@@ -320,7 +320,7 @@ namespace Barbari_BLL
                 barErsali.BarErsaliNamGerande, barErsali.BarErsaliFamilyGerande, barErsali.BarErsaliMobileGerande, barErsali.BarErsaliShahreMaghsad2, barErsali.BarErsaliAnbarMaghsad2, maghsadNahayi);
 
             var result3 = Validation.BarErsali_Validation_EtelatBar(barErsali.BarErsaliPishKeraye.ToString(), barErsali.BarErsaliPasKeraye.ToString(), barErsali.BarErsaliBime.ToString(),
-                barErsali.BarErsaliAnbardari.ToString(), barErsali.BarErsaliShahri.ToString(), barErsali.BarErsaliBastebandi.ToString());
+                barErsali.BarErsaliAnbardari.ToString(), barErsali.BarErsaliShahri.ToString(), barErsali.BarErsaliBastebandi.ToString(), barErsali.BarErsaliTarikh);
             if (tahvilBeRanande == true)
             {
                 var result4 = Validation.BarErsali_Validation_TahvilRanande(barErsali.BarErsaliNamRanande, barErsali.BarErsaliFamilyRanande,

@@ -133,7 +133,8 @@ namespace Barbari_UI.Register_Bar_Tahvili
             {
                 var validaition = Barbari_BLL.Validation.barTahvili_Validation_EtelatBar(step4.CodeBarname_Txt.Text,step4.PishKeraye_Txt.Text, step4.PasKeraye_Txt.Text,
                     step4.Bime_Txt.Text, step4.AnbarDari_Txt.Text,
-                    step4.Shahri_Txt.Text, step4.BasteBandi_Txt.Text);
+                    step4.Shahri_Txt.Text, step4.BasteBandi_Txt.Text ,
+                    step4.DateSodor_DtPicker.Text);
                 if (validaition.Success)
                 {
                     return true;

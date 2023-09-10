@@ -186,6 +186,10 @@ namespace Barbari_UI.Get_Reports
                     MessageBox.Show(result_Company.Message);
                 }
             }
+            else
+            {
+                MessageBox.Show(result_Etelat.Message);
+            }
         }
         private void GetReportListBar_Btn_Click(object sender, RoutedEventArgs e)
         {

@@ -132,7 +132,7 @@ namespace Barbari_BLL
                 barTahvili.BarTahviliNamGerande, barTahvili.BarTahviliFamilyGerande, barTahvili.BarTahviliMobileGerande);
 
             var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliBarname , barTahvili.BarTahviliPishKeraye.ToString() , barTahvili.BarTahviliPasKeraye.ToString()
-                , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString());
+                , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString(), barTahvili.BarTahviliTarikh);
 
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande , barTahvili.BarTahviliFamilyRanande,
                 barTahvili.BarTahviliMobileRanande , barTahvili.BarErsaliCodeRanande.ToString());
@@ -299,7 +299,7 @@ namespace Barbari_BLL
                 barTahvili.BarTahviliNamGerande, barTahvili.BarTahviliFamilyGerande, barTahvili.BarTahviliMobileGerande);
 
             var result3 = Validation.barTahvili_Validation_EtelatBar(barTahvili.BarTahviliBarname , barTahvili.BarTahviliPishKeraye.ToString(), barTahvili.BarTahviliPasKeraye.ToString()
-                , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString());
+                , barTahvili.BarTahviliBime.ToString(), barTahvili.BarTahviliAnbardari.ToString(), barTahvili.BarTahviliShahri.ToString(), barTahvili.BarTahviliBastebandi.ToString(), barTahvili.BarTahviliTarikh);
 
             var result4 = Validation.BarTahvili_Validation_EtelatRanande(barTahvili.BarTahviliNamRanande, barTahvili.BarTahviliFamilyRanande,
                 barTahvili.BarTahviliMobileRanande, barTahvili.BarErsaliCodeRanande.ToString());
