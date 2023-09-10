@@ -73,7 +73,7 @@ namespace Barbari_UI.Register_Bar_Ersali
             {
                 var validaition = Barbari_BLL.Validation.BarErsali_Validation_EtelatBar(step3.PishKeraye_Txt.Text, step3.PasKeraye_Txt.Text,
                     step3.Bime_Txt.Text, step3.AnbarDari_Txt.Text,
-                    step3.Shahri_Txt.Text, step3.BasteBandi_Txt.Text);
+                    step3.Shahri_Txt.Text, step3.BasteBandi_Txt.Text, step3.DateSodor_DtPicker.Text);
                 if (validaition.Success)
                 {
                     return true;

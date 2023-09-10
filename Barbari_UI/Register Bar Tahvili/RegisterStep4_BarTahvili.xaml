@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<UserControl xmlns:my="http://github.com/ghost1372/PersianToolkit" 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -125,8 +125,8 @@
                                 Language="fa-IR"
   materialDesign:HintAssist.Hint="تاریخ صدور" >
                     </DatePicker>-->
+                            <my:DatePicker Name="DateSodor_DtPicker" FlowDirection="LeftToRight" Height="48" Margin="10 0 10 0" BorderThickness="0" FontFamily="IRANSansX"  FontSize="14" Foreground="Black"/>
 
-                            <PersianDateControls:PersianDatePicker Grid.Row="6"  Language="fa-IR" BorderThickness="0" Name="DateSodor_DtPicker" Width="231" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="16 0 16 0" FontFamily="IRANSansX" FontSize="14" SelectedDateChanged="DateSodor_DtPicker_SelectedDateChanged"/>
                         </Border>
                         <Grid Grid.Row="6" Grid.Column="0" Width="225" Height="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32 0 0 24">
                             <Grid.ColumnDefinitions>

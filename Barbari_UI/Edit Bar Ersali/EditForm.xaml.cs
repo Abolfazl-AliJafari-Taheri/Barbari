@@ -190,7 +190,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
             {
                 var validaition_Bar = Barbari_BLL.Validation.BarErsali_Validation_EtelatBar(step3.PishKeraye_Txt.Text, step3.PasKeraye_Txt.Text,
     step3.Bime_Txt.Text, step3.AnbarDari_Txt.Text,
-    step3.Shahri_Txt.Text, step3.BasteBandi_Txt.Text);
+    step3.Shahri_Txt.Text, step3.BasteBandi_Txt.Text,step3.DateSodor_DtPicker.Text);
                 if (!validaition_Bar.Success)
                 {
                     MessageBox.Show(validaition_Bar.Message);
