@@ -463,16 +463,6 @@ namespace Barbari_UI
                                 var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
                                 rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
                             }
-                            else
-                            {
-                                var logo = File.ReadAllBytes(Path.Combine(Environment.CurrentDirectory, "/Source/Icones/AppIcon(Black Border).png"));
-                                rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
-                            }
-                        }
-                        else
-                        {
-                            var logo = File.ReadAllBytes(Path.Combine(Environment.CurrentDirectory,"/Source/Icones/AppIcon(Black Border).png"));
-                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
                         }
 
                         foreach (var item in result_Etelat.Data)
@@ -518,16 +508,6 @@ namespace Barbari_UI
                                 var logo = File.ReadAllBytes(result_Company.Data.CompanyIogo);
                                 rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
                             }
-                            else
-                            {
-                                var logo = File.ReadAllBytes("/Source/Icones/AppIcon(Black Border).png");
-                                rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
-                            }
-                        }
-                        else
-                        {
-                            var logo = File.ReadAllBytes("/Source/Icones/AppIcon(Black Border).png");
-                            rpt.Dictionary.Variables["LogoCompany"].ValueObject = logo;
                         }
                         foreach (var item in result_Etelat.Data)
                         {
