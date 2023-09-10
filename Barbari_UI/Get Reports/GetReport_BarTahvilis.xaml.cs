@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersianToolkit;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -265,6 +266,7 @@ namespace Barbari_UI.Get_Reports
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            ConfigHelper.Instance.SetLanguage(ConfigHelper.Language.Persian);
             ListBarReport_Toggle.IsChecked = true;
             fillComboBoxe();
         }

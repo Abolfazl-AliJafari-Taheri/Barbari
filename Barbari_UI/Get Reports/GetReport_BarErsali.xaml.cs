@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersianToolkit;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -577,6 +578,7 @@ namespace Barbari_UI.Get_Reports
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            ConfigHelper.Instance.SetLanguage(ConfigHelper.Language.Persian);
             DriverReport_Toggle.IsChecked= true;
             fillComboBoxe();
         }

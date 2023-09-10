@@ -1,5 +1,7 @@
 ﻿using Barbari_DAL;
 using Barbari_UI.Register_Bar_Ersali;
+using FormComponent;
+using PersianToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -176,7 +178,8 @@ namespace Barbari_UI.Register_Bar_Tahvili
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            //DateSodor_Txt.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
+            ConfigHelper.Instance.SetLanguage(ConfigHelper.Language.Persian);
+            DateSodor_DtPicker.Text = ConvertDate.MiladiToShamsiNumberDate(DateTime.Now);
             if (edit)
             {
                 if (WindowsAndPages.home_Window.Role != null)
