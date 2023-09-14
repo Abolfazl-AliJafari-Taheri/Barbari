@@ -230,6 +230,9 @@
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SMS\ISms.cs" />
+    <Compile Include="SMS\Kavenegar.cs" />
+    <Compile Include="SMS\SmsSender.cs" />
     <Compile Include="StiReportHelper.cs" />
     <Compile Include="SubmitDelete.xaml.cs">
       <DependentUpon>SubmitDelete.xaml</DependentUpon>
