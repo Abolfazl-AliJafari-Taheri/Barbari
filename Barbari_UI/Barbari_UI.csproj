@@ -232,6 +232,7 @@
     </Compile>
     <Compile Include="SMS\ISms.cs" />
     <Compile Include="SMS\Kavenegar.cs" />
+    <Compile Include="SMS\MeliPayamak.cs" />
     <Compile Include="SMS\SmsSender.cs" />
     <Compile Include="StiReportHelper.cs" />
     <Compile Include="SubmitDelete.xaml.cs">
