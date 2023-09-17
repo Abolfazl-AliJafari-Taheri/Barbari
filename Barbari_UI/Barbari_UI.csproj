@@ -234,6 +234,7 @@
     <Compile Include="SMS\Kavenegar.cs" />
     <Compile Include="SMS\MeliPayamak.cs" />
     <Compile Include="SMS\SmsSender.cs" />
+    <Compile Include="SMS\sms_ir.cs" />
     <Compile Include="StiReportHelper.cs" />
     <Compile Include="SubmitDelete.xaml.cs">
       <DependentUpon>SubmitDelete.xaml</DependentUpon>
