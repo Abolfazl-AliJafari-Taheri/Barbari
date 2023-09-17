@@ -177,4 +177,11 @@
       <Association Name="Roles_Tbl_Users_Tbl" Member="Users_Tbls" ThisKey="RolesNamRole" OtherKey="UsersRoles" Type="Users_Tbl" />
     </Type>
   </Table>
+  <Table Name="dbo.SMS_Tbl" Member="SMS_Tbls">
+    <Type Name="SMS_Tbl">
+      <Column Name="SMSCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SMSName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SMSURL" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

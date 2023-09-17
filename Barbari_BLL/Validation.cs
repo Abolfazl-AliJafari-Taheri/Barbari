@@ -1614,6 +1614,40 @@ namespace Barbari_BLL
                 };
             }
         }
+        public static OperationResult SMS_Validation(SMS_Tbl SMS)
+        {
+            if (string.IsNullOrEmpty(SMS.SMSName))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام را وارد کنید"
+                };
+            }
+            else if (string.IsNullOrEmpty(SMS.SMSURL))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = " را وارد کنید API-KEY"
+                };
+            }
+            else if (CheckRangeDataType(SMS.SMSName, 50))
+            {
+                return new OperationResult
+                {
+                    Success = false,
+                    Message = "نام نباید بیشتر از 50 حرف باشد"
+                };
+            }
+            else
+            {
+                return new OperationResult
+                {
+                    Success = true
+                };
+            }
+        }
         public static OperationResult Roles_Validation(Roles_Tbl roles)
         {
             if (string.IsNullOrEmpty(roles.RolesNamRole))

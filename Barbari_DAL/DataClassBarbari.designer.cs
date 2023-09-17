@@ -60,6 +60,9 @@ namespace Barbari_DAL
     partial void InsertRoles_Tbl(Roles_Tbl instance);
     partial void UpdateRoles_Tbl(Roles_Tbl instance);
     partial void DeleteRoles_Tbl(Roles_Tbl instance);
+    partial void InsertSMS_Tbl(SMS_Tbl instance);
+    partial void UpdateSMS_Tbl(SMS_Tbl instance);
+    partial void DeleteSMS_Tbl(SMS_Tbl instance);
     #endregion
 		
 		public DataClassBarbariDataContext() : 
@@ -169,6 +172,14 @@ namespace Barbari_DAL
 			get
 			{
 				return this.GetTable<Roles_Tbl>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SMS_Tbl> SMS_Tbls
+		{
+			get
+			{
+				return this.GetTable<SMS_Tbl>();
 			}
 		}
 	}
@@ -4006,6 +4017,116 @@ namespace Barbari_DAL
 		{
 			this.SendPropertyChanging();
 			entity.Roles_Tbl = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SMS_Tbl")]
+	public partial class SMS_Tbl : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SMSCode;
+		
+		private string _SMSName;
+		
+		private string _SMSURL;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSMSCodeChanging(int value);
+    partial void OnSMSCodeChanged();
+    partial void OnSMSNameChanging(string value);
+    partial void OnSMSNameChanged();
+    partial void OnSMSURLChanging(string value);
+    partial void OnSMSURLChanged();
+    #endregion
+		
+		public SMS_Tbl()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMSCode", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SMSCode
+		{
+			get
+			{
+				return this._SMSCode;
+			}
+			set
+			{
+				if ((this._SMSCode != value))
+				{
+					this.OnSMSCodeChanging(value);
+					this.SendPropertyChanging();
+					this._SMSCode = value;
+					this.SendPropertyChanged("SMSCode");
+					this.OnSMSCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMSName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SMSName
+		{
+			get
+			{
+				return this._SMSName;
+			}
+			set
+			{
+				if ((this._SMSName != value))
+				{
+					this.OnSMSNameChanging(value);
+					this.SendPropertyChanging();
+					this._SMSName = value;
+					this.SendPropertyChanged("SMSName");
+					this.OnSMSNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMSURL", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string SMSURL
+		{
+			get
+			{
+				return this._SMSURL;
+			}
+			set
+			{
+				if ((this._SMSURL != value))
+				{
+					this.OnSMSURLChanging(value);
+					this.SendPropertyChanging();
+					this._SMSURL = value;
+					this.SendPropertyChanged("SMSURL");
+					this.OnSMSURLChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

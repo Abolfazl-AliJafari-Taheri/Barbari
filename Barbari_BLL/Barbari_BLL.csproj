@@ -50,6 +50,7 @@
     <Compile Include="Ranande.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="Roles.cs" />
+    <Compile Include="SMS.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="Validation.cs" />
   </ItemGroup>
