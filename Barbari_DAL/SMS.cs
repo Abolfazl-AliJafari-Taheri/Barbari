@@ -14,21 +14,11 @@ namespace Barbari_DAL
             try
             {
                 var query = linq.SMS_Tbls.OrderByDescending(p => p.SMSCode).FirstOrDefault();
-                if (query != null)
+                return new OperationResult<SMS_Tbl>
                 {
-                    return new OperationResult<SMS_Tbl>
-                    {
-                        Success = true,
-                        Data = query
-                    };
-                }
-                else
-                {
-                    return new OperationResult<SMS_Tbl>
-                    {
-                        Success = false,
-                    };
-                }
+                    Success = true,
+                    Data = query
+                };
             }
             catch
             {

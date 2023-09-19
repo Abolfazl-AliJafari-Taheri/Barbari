@@ -16,14 +16,6 @@ namespace Barbari_BLL
             {
                 return result;
             }
-            else if(result.Success == false && result.Data == null)
-            {
-                return new OperationResult<Company_Tbl>
-                { 
-                    Success = false,
-                    Message = "لطفا اطلاعات شرکت را وارد کنید"
-                };
-            }
             else
             {
                 return new OperationResult<Company_Tbl>
