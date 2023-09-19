@@ -16,14 +16,6 @@ namespace Barbari_BLL
             {
                 return result;
             }
-            else if (result.Success == false && result.Data == null)
-            {
-                return new OperationResult<SMS_Tbl>
-                {
-                    Success = false,
-                    Message = "لطفا اطلاعات ارسال پیامک را وارد کنید"
-                };
-            }
             else
             {
                 return new OperationResult<SMS_Tbl>

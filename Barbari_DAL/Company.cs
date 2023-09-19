@@ -15,24 +15,11 @@ namespace Barbari_DAL
             try
             {
                 var query = linq.Company_Tbls.OrderByDescending(p => p.CompanyCode).FirstOrDefault();
-                if (query != null)
+                return new OperationResult<Company_Tbl>
                 {
-                    return new OperationResult<Company_Tbl>
-                    {
-                        Success = true,
-                        Data = query
-                    };
-                }
-                else
-                {
-                    return new OperationResult<Company_Tbl>
-                    {
-                        Success = false,
-                        
-                    };
-                }
-                
-                
+                    Success = true,
+                    Data = query
+                };
             }
             catch 
             {
