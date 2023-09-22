@@ -17,6 +17,7 @@ using Barbari_DAL;
 using Barbari_BLL;
 using MaterialDesignThemes.Wpf;
 using System.Text.RegularExpressions;
+using Barbari_UI.SMS;
 
 namespace Barbari_UI
 {
@@ -62,34 +63,54 @@ namespace Barbari_UI
                 Add_Btn.IsEnabled = false;
                 Save_Btn.IsEnabled = false;
             }
-            
-            var company = Barbari_BLL.Company.Select();
-            if(company.Data != null)
+            var sms = Barbari_BLL.SMS.Select();
+            if(sms.Success)
             {
-                logoAddress = company.Data.CompanyIogo;
-                CompanyCity_Txt.Text = company.Data.CompanyCity;
-                CompanyName_Txt.Text = company.Data.CompanyName;
-                CompanyRules_Txt.Text = company.Data.CompanyRules;
-                CompanyPhoneNumber_Txt.Text = company.Data.CompanyTelephon;
-                if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
+                if(sms.Data !=null)
                 {
-                    if (File.Exists(company.Data.CompanyIogo))
+                    CityMabda_CmBox.Text = sms.Data.SMSName;
+                    SmsSenderUrl_Txt.Text = sms.Data.SMSURL;
+
+                }
+            }
+            else
+            {
+                MessageBox.Show(sms.Message);
+            }
+            var company = Barbari_BLL.Company.Select();
+            if (company.Success)
+            {
+                if (company.Data != null)
+                {
+                    logoAddress = company.Data.CompanyIogo;
+                    CompanyCity_Txt.Text = company.Data.CompanyCity;
+                    CompanyName_Txt.Text = company.Data.CompanyName;
+                    CompanyRules_Txt.Text = company.Data.CompanyRules;
+                    CompanyPhoneNumber_Txt.Text = company.Data.CompanyTelephon;
+                    if (company.Data.CompanyIogo != "" && company.Data.CompanyIogo != null)
                     {
-                        var brush = new ImageBrush();
-                        brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
-                        Logo_Border.Background = brush;
-                        Logo_Img.Source = null;
+                        if (File.Exists(company.Data.CompanyIogo))
+                        {
+                            var brush = new ImageBrush();
+                            brush.ImageSource = new BitmapImage(new Uri(company.Data.CompanyIogo, UriKind.Relative));
+                            Logo_Border.Background = brush;
+                            Logo_Img.Source = null;
+                        }
+                    }
+                    else
+                    {
+                        BitmapImage bitmapImage = new BitmapImage();
+                        bitmapImage.BeginInit();
+                        bitmapImage.UriSource = new Uri("/Source/Icones/Insert Icon Setting(Gray Border).png", UriKind.Relative);
+                        bitmapImage.EndInit();
+                        Logo_Img.Source = bitmapImage;
+                        Logo_Border.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#E6E6E6"));
                     }
                 }
-                else
-                {
-                    BitmapImage bitmapImage = new BitmapImage();
-                    bitmapImage.BeginInit();
-                    bitmapImage.UriSource = new Uri("/Source/Icones/Insert Icon Setting(Gray Border).png", UriKind.Relative);
-                    bitmapImage.EndInit();
-                    Logo_Img.Source = bitmapImage;
-                    Logo_Border.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#E6E6E6"));
-                }
+            }
+            else
+            {
+                MessageBox.Show(company.Message);
             }
             RefreshRoles();
         }
@@ -182,6 +203,27 @@ namespace Barbari_UI
         {
             Regex regex = new Regex("[^0-9]");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void SaveSms_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            SMS_Tbl sms = new SMS_Tbl()
+            {
+                SMSName = CityMabda_CmBox.Text,
+                SMSURL = SmsSenderUrl_Txt.Text
+            };
+            OperationResult validationResult = Barbari_BLL.Validation.SMS_Validation(sms);
+            OperationResult result;
+            if (validationResult.Success)
+            {
+                result = Barbari_BLL.SMS.Insert(sms);
+                if(!result.Success)
+                {
+                    MessageBox.Show(result.Message);
+                }
+            }
+            else
+                MessageBox.Show(validationResult.Message);
         }
     }
 }

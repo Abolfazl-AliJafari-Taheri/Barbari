@@ -15,7 +15,9 @@
             <RowDefinition Height="86"/>
             <RowDefinition Height="189"/>
             <RowDefinition Height="192"/>
+            <RowDefinition Height="124"/>
             <RowDefinition Height="*"/>
+
         </Grid.RowDefinitions>
         <TextBlock  Grid.Row="0" FontFamily="IRANSansX" FontSize="44" Margin="0 0 24 0" FontWeight="Medium" Text="تنظیمات" Height="62" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Grid Grid.Row="1" >
@@ -63,7 +65,51 @@
                 <TextBox Name="CompanyRules_Txt" materialDesign:HintAssist.Hint="قوانین شرکت"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 8 16 0" AcceptsReturn="True"  VerticalContentAlignment="Top" FontFamily="IRANSansX" FontSize="14" />
             </Border>
         </Grid>
-        <Grid Grid.Row="3" >
+        <Grid Grid.Row="3" FlowDirection="RightToLeft">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock  Grid.Row="0" FontFamily="IRANSansX" FontSize="24" FontWeight="Medium" Text="تنظیمات سامانه پیامکی" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="24 0 0 0"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="258"/>
+                    <ColumnDefinition Width="258"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" HorizontalAlignment="Left" Margin="24 0 0 0"  Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="234">
+                    <ComboBox
+                      materialDesign:HintAssist.Hint="نام سامانه پیامکی"
+  materialDesign:TextFieldAssist.HasClearButton="True"
+Width="216"
+                    Name="CityMabda_CmBox"
+                    BorderThickness="0"
+                    Foreground="Black"
+                    VerticalContentAlignment="Center"
+                    Padding="9 0 5 10"
+                    Background="#FFFFFF"
+                    FontFamily="IRANSansX"
+                    FontSize="14"
+                   
+  ItemsSource="{Binding ShortStringList}"
+  Style="{StaticResource MaterialDesignFilledComboBox}" >
+                        <ComboBoxItem>کاوه نگار</ComboBoxItem>
+                        <ComboBoxItem>ملی پیامک</ComboBoxItem>
+                        <ComboBoxItem>پیام کوتاه</ComboBoxItem>
+                    </ComboBox>
+                </Border>
+                <Border Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="24 0 0 0" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="234">
+                    <TextBox Name="SmsSenderUrl_Txt" materialDesign:HintAssist.Hint="لینک"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
+                </Border>
+                <Border Grid.Column="2" Height="48" Width="71" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" Background="#2B54A3" Margin="24 0 0 0 " >
+                    <Button Name="SaveSms_Btn" Height="48" Padding="0" Width="71" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Focusable="False" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Click="SaveSms_Btn_Click" VerticalAlignment="Top"   >
+                        <TextBlock Grid.Column="0" FontSize="14" FontFamily="IRANSansX"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center">ذخیره</TextBlock>
+                    </Button>
+                </Border>
+            </Grid>
+           
+        </Grid>
+        <Grid Grid.Row="4" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
