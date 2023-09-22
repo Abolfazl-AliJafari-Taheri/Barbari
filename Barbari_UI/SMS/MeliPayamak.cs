@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Barbari_UI.SMS
 {
-    public class MeliPayamak
+    public class MeliPayamak : ISms
     {
         public async Task<HttpResponseMessage> SendMessageAsync(string apiUrl, string phoneNumber, string message)
         {

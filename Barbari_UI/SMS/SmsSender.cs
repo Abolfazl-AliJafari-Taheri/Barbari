@@ -8,6 +8,30 @@ using System.Threading.Tasks;
 
 namespace Barbari_UI.SMS
 {
+    public interface ICreator
+    {
+        ISms FacatoryMethod();
+    }
+    public class Creator : ICreator
+    {
+        public ISms FacatoryMethod()
+        {
+            var result = Barbari_BLL.SMS.Select();
+            if (result.Data.SMSName == "کاوه نگار")
+            {
+                return new Kavenegar();
+            }
+            else if (result.Data.SMSName == "ملی پیامک")
+            {
+                return new MeliPayamak();
+            }
+            else
+            {
+                return new sms_ir();
+            }
+        }
+    }
+
     public class SmsSender
     {
         private ISms _ISms;
