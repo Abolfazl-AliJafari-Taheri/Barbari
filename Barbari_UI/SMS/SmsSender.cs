@@ -10,25 +10,49 @@ namespace Barbari_UI.SMS
 {
     public interface ICreator
     {
-        ISms FacatoryMethod();
+        OperationResult<ISms> FacatoryMethod();
     }
     public class Creator : ICreator
     {
-        public ISms FacatoryMethod()
+        public OperationResult<ISms> FacatoryMethod()
         {
             var result = Barbari_BLL.SMS.Select();
-            if (result.Data.SMSName == "کاوه نگار")
+            if (result.Data == null)
             {
-                return new Kavenegar();
-            }
-            else if (result.Data.SMSName == "ملی پیامک")
-            {
-                return new MeliPayamak();
+                if (result.Data.SMSName == "کاوه نگار")
+                {
+                    return new OperationResult<ISms>
+                    {
+                        Data = new Kavenegar(),
+                        Success = true
+                    };
+                }
+                else if (result.Data.SMSName == "ملی پیامک")
+                {
+                    return new OperationResult<ISms>
+                    {
+                        Data = new MeliPayamak(),
+                        Success = true
+                    };
+                }
+                else
+                {
+                    return new OperationResult<ISms>
+                    {
+                        Data = new sms_ir(),
+                        Success = true
+                    };
+                }
             }
             else
             {
-                return new sms_ir();
+                return new OperationResult<ISms>
+                {
+                    Success = false,
+                    Message = "لطفا ابتدا تنظیمات سامانه پیامکی را تنظیم کنید"
+                };
             }
+            
         }
     }
 
