@@ -29,9 +29,9 @@
       <Column Name="BarErsaliAnbardari" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
       <Column Name="BarErsaliShahri" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
       <Column Name="BarErsaliBastebandi" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="BarErsaliSendSms" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="BarErsaliUserNameKarmand" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="BarErsali_Tbl_KalaDaryafti_Tbl" Member="KalaDaryafti_Tbls" ThisKey="BarErsaliBarname" OtherKey="KalaDaryaftiBarname" Type="KalaDaryafti_Tbl" />
-      <Association Name="Users_Tbl_BarErsali_Tbl" Member="Users_Tbl" ThisKey="BarErsaliUserNameKarmand" OtherKey="UsersUserName" Type="Users_Tbl" IsForeignKey="true" />
       <Association Name="Customers_Tbl_BarErsali_Tbl" Member="Customers_Tbl" ThisKey="BarErsaliCodeFerestande" OtherKey="CustomersCode" Type="Customers_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Ranande_Tbl_BarErsali_Tbl" Member="Ranande_Tbl" ThisKey="BarErsaliCodeRanande" OtherKey="RanandeCodeRanande" Type="Ranande_Tbl" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
@@ -46,7 +46,6 @@
       <Column Name="UsersDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="UsersRoles" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="UsersAsli" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Users_Tbl_BarErsali_Tbl" Member="BarErsali_Tbls" ThisKey="UsersUserName" OtherKey="BarErsaliUserNameKarmand" Type="BarErsali_Tbl" />
       <Association Name="Users_Tbl_BarTahvili_Tbl" Member="BarTahvili_Tbls" ThisKey="UsersUserName" OtherKey="BarTahviliUserNameKarmand" Type="BarTahvili_Tbl" />
       <Association Name="Roles_Tbl_Users_Tbl" Member="Roles_Tbl" ThisKey="UsersRoles" OtherKey="RolesNamRole" Type="Roles_Tbl" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
@@ -77,6 +76,7 @@
       <Column Name="BarTahviliBastebandi" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
       <Column Name="BarTahviliRaveshEhrazHoviat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BarTahviliRaveshEhrazHoviatText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BarTahviliSendSms" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="BarTahviliUserNameKarmand" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="BarTahvili_Tbl_KalaTahvili_Tbl" Member="KalaTahvili_Tbls" ThisKey="BarTahviliCodeBar" OtherKey="KalaTahviliCodeBar" Type="KalaTahvili_Tbl" />
       <Association Name="Users_Tbl_BarTahvili_Tbl" Member="Users_Tbl" ThisKey="BarTahviliUserNameKarmand" OtherKey="UsersUserName" Type="Users_Tbl" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />

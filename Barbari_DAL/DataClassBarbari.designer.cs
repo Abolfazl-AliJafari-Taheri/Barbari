@@ -244,11 +244,11 @@ namespace Barbari_DAL
 		
 		private System.Nullable<decimal> _BarErsaliBastebandi;
 		
+		private bool _BarErsaliSendSms;
+		
 		private string _BarErsaliUserNameKarmand;
 		
 		private EntitySet<KalaDaryafti_Tbl> _KalaDaryafti_Tbls;
-		
-		private EntityRef<Users_Tbl> _Users_Tbl;
 		
 		private EntityRef<Customers_Tbl> _Customers_Tbl;
 		
@@ -312,6 +312,8 @@ namespace Barbari_DAL
     partial void OnBarErsaliShahriChanged();
     partial void OnBarErsaliBastebandiChanging(System.Nullable<decimal> value);
     partial void OnBarErsaliBastebandiChanged();
+    partial void OnBarErsaliSendSmsChanging(bool value);
+    partial void OnBarErsaliSendSmsChanged();
     partial void OnBarErsaliUserNameKarmandChanging(string value);
     partial void OnBarErsaliUserNameKarmandChanged();
     #endregion
@@ -319,7 +321,6 @@ namespace Barbari_DAL
 		public BarErsali_Tbl()
 		{
 			this._KalaDaryafti_Tbls = new EntitySet<KalaDaryafti_Tbl>(new Action<KalaDaryafti_Tbl>(this.attach_KalaDaryafti_Tbls), new Action<KalaDaryafti_Tbl>(this.detach_KalaDaryafti_Tbls));
-			this._Users_Tbl = default(EntityRef<Users_Tbl>);
 			this._Customers_Tbl = default(EntityRef<Customers_Tbl>);
 			this._Ranande_Tbl = default(EntityRef<Ranande_Tbl>);
 			OnCreated();
@@ -873,6 +874,26 @@ namespace Barbari_DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliSendSms", DbType="Bit NOT NULL")]
+		public bool BarErsaliSendSms
+		{
+			get
+			{
+				return this._BarErsaliSendSms;
+			}
+			set
+			{
+				if ((this._BarErsaliSendSms != value))
+				{
+					this.OnBarErsaliSendSmsChanging(value);
+					this.SendPropertyChanging();
+					this._BarErsaliSendSms = value;
+					this.SendPropertyChanged("BarErsaliSendSms");
+					this.OnBarErsaliSendSmsChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarErsaliUserNameKarmand", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string BarErsaliUserNameKarmand
 		{
@@ -884,10 +905,6 @@ namespace Barbari_DAL
 			{
 				if ((this._BarErsaliUserNameKarmand != value))
 				{
-					if (this._Users_Tbl.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnBarErsaliUserNameKarmandChanging(value);
 					this.SendPropertyChanging();
 					this._BarErsaliUserNameKarmand = value;
@@ -907,40 +924,6 @@ namespace Barbari_DAL
 			set
 			{
 				this._KalaDaryafti_Tbls.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Users_Tbl_BarErsali_Tbl", Storage="_Users_Tbl", ThisKey="BarErsaliUserNameKarmand", OtherKey="UsersUserName", IsForeignKey=true)]
-		public Users_Tbl Users_Tbl
-		{
-			get
-			{
-				return this._Users_Tbl.Entity;
-			}
-			set
-			{
-				Users_Tbl previousValue = this._Users_Tbl.Entity;
-				if (((previousValue != value) 
-							|| (this._Users_Tbl.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Users_Tbl.Entity = null;
-						previousValue.BarErsali_Tbls.Remove(this);
-					}
-					this._Users_Tbl.Entity = value;
-					if ((value != null))
-					{
-						value.BarErsali_Tbls.Add(this);
-						this._BarErsaliUserNameKarmand = value.UsersUserName;
-					}
-					else
-					{
-						this._BarErsaliUserNameKarmand = default(string);
-					}
-					this.SendPropertyChanged("Users_Tbl");
-				}
 			}
 		}
 		
@@ -1067,8 +1050,6 @@ namespace Barbari_DAL
 		
 		private bool _UsersAsli;
 		
-		private EntitySet<BarErsali_Tbl> _BarErsali_Tbls;
-		
 		private EntitySet<BarTahvili_Tbl> _BarTahvili_Tbls;
 		
 		private EntityRef<Roles_Tbl> _Roles_Tbl;
@@ -1097,7 +1078,6 @@ namespace Barbari_DAL
 		
 		public Users_Tbl()
 		{
-			this._BarErsali_Tbls = new EntitySet<BarErsali_Tbl>(new Action<BarErsali_Tbl>(this.attach_BarErsali_Tbls), new Action<BarErsali_Tbl>(this.detach_BarErsali_Tbls));
 			this._BarTahvili_Tbls = new EntitySet<BarTahvili_Tbl>(new Action<BarTahvili_Tbl>(this.attach_BarTahvili_Tbls), new Action<BarTahvili_Tbl>(this.detach_BarTahvili_Tbls));
 			this._Roles_Tbl = default(EntityRef<Roles_Tbl>);
 			OnCreated();
@@ -1267,19 +1247,6 @@ namespace Barbari_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Users_Tbl_BarErsali_Tbl", Storage="_BarErsali_Tbls", ThisKey="UsersUserName", OtherKey="BarErsaliUserNameKarmand")]
-		public EntitySet<BarErsali_Tbl> BarErsali_Tbls
-		{
-			get
-			{
-				return this._BarErsali_Tbls;
-			}
-			set
-			{
-				this._BarErsali_Tbls.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Users_Tbl_BarTahvili_Tbl", Storage="_BarTahvili_Tbls", ThisKey="UsersUserName", OtherKey="BarTahviliUserNameKarmand")]
 		public EntitySet<BarTahvili_Tbl> BarTahvili_Tbls
 		{
@@ -1345,18 +1312,6 @@ namespace Barbari_DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_BarErsali_Tbls(BarErsali_Tbl entity)
-		{
-			this.SendPropertyChanging();
-			entity.Users_Tbl = this;
-		}
-		
-		private void detach_BarErsali_Tbls(BarErsali_Tbl entity)
-		{
-			this.SendPropertyChanging();
-			entity.Users_Tbl = null;
 		}
 		
 		private void attach_BarTahvili_Tbls(BarTahvili_Tbl entity)
@@ -1426,6 +1381,8 @@ namespace Barbari_DAL
 		
 		private string _BarTahviliRaveshEhrazHoviatText;
 		
+		private bool _BarTahviliSendSms;
+		
 		private string _BarTahviliUserNameKarmand;
 		
 		private EntitySet<KalaTahvili_Tbl> _KalaTahvili_Tbls;
@@ -1486,6 +1443,8 @@ namespace Barbari_DAL
     partial void OnBarTahviliRaveshEhrazHoviatChanged();
     partial void OnBarTahviliRaveshEhrazHoviatTextChanging(string value);
     partial void OnBarTahviliRaveshEhrazHoviatTextChanged();
+    partial void OnBarTahviliSendSmsChanging(bool value);
+    partial void OnBarTahviliSendSmsChanged();
     partial void OnBarTahviliUserNameKarmandChanging(string value);
     partial void OnBarTahviliUserNameKarmandChanged();
     #endregion
@@ -1978,6 +1937,26 @@ namespace Barbari_DAL
 					this._BarTahviliRaveshEhrazHoviatText = value;
 					this.SendPropertyChanged("BarTahviliRaveshEhrazHoviatText");
 					this.OnBarTahviliRaveshEhrazHoviatTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarTahviliSendSms", DbType="Bit NOT NULL")]
+		public bool BarTahviliSendSms
+		{
+			get
+			{
+				return this._BarTahviliSendSms;
+			}
+			set
+			{
+				if ((this._BarTahviliSendSms != value))
+				{
+					this.OnBarTahviliSendSmsChanging(value);
+					this.SendPropertyChanging();
+					this._BarTahviliSendSms = value;
+					this.SendPropertyChanged("BarTahviliSendSms");
+					this.OnBarTahviliSendSmsChanged();
 				}
 			}
 		}

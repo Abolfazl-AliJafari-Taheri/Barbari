@@ -324,6 +324,7 @@ namespace Barbari_DAL
                 query.BarTahviliBastebandi = barTahvili.BarTahviliBastebandi;
                 query.BarTahviliRaveshEhrazHoviat = barTahvili.BarTahviliRaveshEhrazHoviat;
                 query.BarTahviliRaveshEhrazHoviatText = barTahvili.BarTahviliRaveshEhrazHoviatText;
+                query.BarTahviliSendSms = barTahvili.BarTahviliSendSms;
                 linq.SubmitChanges();
                 return new OperationResult
                 {

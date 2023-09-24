@@ -387,6 +387,7 @@ namespace Barbari_DAL
                 query.BarErsaliShahri = barErsali.BarErsaliShahri;
                 query.BarErsaliBastebandi = barErsali.BarErsaliBastebandi;
                 query.BarErsaliUserNameKarmand = barErsali.BarErsaliUserNameKarmand;
+                query.BarErsaliSendSms = barErsali.BarErsaliSendSms;
                 linq.SubmitChanges();
                 return new OperationResult
                 {
