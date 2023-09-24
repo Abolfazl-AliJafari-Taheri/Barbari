@@ -74,7 +74,7 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="258"/>
-                    <ColumnDefinition Width="258"/>
+                    <ColumnDefinition Width="458"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" HorizontalAlignment="Left" Margin="24 0 0 0"  Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="234">
@@ -98,7 +98,7 @@ Width="216"
                         <ComboBoxItem>ایده پردازان</ComboBoxItem>
                     </ComboBox>
                 </Border>
-                <Border Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="24 0 0 0" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="234">
+                <Border Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="24 0 0 0" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="434">
                     <TextBox Name="SmsSenderUrl_Txt" materialDesign:HintAssist.Hint="لینک"    Style="{StaticResource MaterialDesignFilledTextBox}" TextWrapping="Wrap" Background="#FFFFFF" Foreground="Black" Padding="0" BorderThickness="0" Margin="16 0 16 0"  VerticalContentAlignment="Center" FontFamily="IRANSansX" FontSize="14" />
                 </Border>
                 <Border Grid.Column="2" Height="48" Width="71" HorizontalAlignment="Left" VerticalAlignment="Center" CornerRadius="8" Background="#2B54A3" Margin="24 0 0 0 " >
