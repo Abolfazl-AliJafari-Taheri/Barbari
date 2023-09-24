@@ -1,5 +1,6 @@
 ﻿using Barbari_DAL;
 using Barbari_UI.Register_Bar_Ersali;
+using Barbari_UI.SMS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -209,21 +210,59 @@ namespace Barbari_UI.Register_Bar_Tahvili
                     }
                     else
                     {
-                        var result = Barbari_BLL.BarTahvili.Insert(barTahvili, kalas);
-                        if (result.Success)
+                        if ((bool)step4.SendSmsToggle.IsChecked)
                         {
-                            inserted = true;
-                            step1.Registered();
-                            step2.Registered();
-                            step3.Registered();
-                            step4.Registered();
-                            step = 0;
-                            NextStep_Btn_Click(null, null);
+
+
+                            var result = Barbari_BLL.BarTahvili.Insert(barTahvili, kalas);
+                            if (result.Success)
+                            {
+                                var smsSetting = Barbari_BLL.SMS.Select();
+                                if (smsSetting.Success)
+                                {
+                                    if (smsSetting.Data != null)
+                                    {
+                                        Creator creator = new Creator();
+                                        ISms sms = creator.FacatoryMethod().Data;
+                                        SmsSender smsSender = new SmsSender(sms);
+                                        string senderFullName = barTahvili.BarTahviliNamFerestande + " " + barTahvili.BarTahviliFamilyFerestande;
+                                        string receiverFullName = barTahvili.BarTahviliNamGerande + " " + barTahvili.BarTahviliFamilyGerande;
+                                        string messageSender ="با سلام مشتری گرامی"+" "+senderFullName+" مرسوله شما با شماره بارنامه "+" "+ barTahvili.BarTahviliBarname + " به مقصد رسید\n " + "شرکت باربری"+" "+ WindowsAndPages.home_Window.CompanyName_TxtBlock.Text ;
+                                         string messageReceiver ="با سلام مشتری گرامی"+" "+ receiverFullName + " مرسوله شما از طرف "+" "+senderFullName+" "+"با شماره بارنامه "+" "+ barTahvili.BarTahviliBarname + "به مقصد رسید جهت دریافت مراجعه کنید\n"+ "شرکت باربری"+" "+ WindowsAndPages.home_Window.CompanyName_TxtBlock.Text;
+                                        var smsReaultSender = smsSender.SendAsync(smsSetting.Data.SMSURL, barTahvili.BarTahviliMobileFerestande, messageSender);
+                                        var smsReaultReceiver = smsSender.SendAsync(smsSetting.Data.SMSURL, barTahvili.BarTahviliMobileGerande, messageReceiver);
+                                        if (!smsReaultSender.Result.Success)
+                                        {
+                                            MessageBox.Show(smsReaultSender.Result.Message);
+                                        }
+                                        if (!smsReaultReceiver.Result.Success)
+                                        {
+                                            MessageBox.Show(smsReaultReceiver.Result.Message);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("لطفا ابتدا تنظیمات سامانه پیامکی را کامل کنید");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show(smsSetting.Message);
+                                }
+                                inserted = true;
+                                step1.Registered();
+                                step2.Registered();
+                                step3.Registered();
+                                step4.Registered();
+                                step = 0;
+                                NextStep_Btn_Click(null, null);
+                            }
+                            else
+                            {
+                                MessageBox.Show(result.Message);
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show(result.Message);
-                        }
+
                     }
                 }
             }

@@ -110,10 +110,12 @@ namespace Barbari_UI.Register_Bar_Ersali
             var company = Barbari_BLL.Company.Select();
             if (company.Success)
             {
-                CityMabda_CmBox.Text = company.Data.CompanyCity;
-                AnbarMabda_CmBox.Text = company.Data.CompanyName;
-                CityMabda_CmBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
-                AnbarMabda_CmBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+                if(company.Data !=null)
+                {
+                    CityMabda_CmBox.Text = company.Data.CompanyCity;
+                    AnbarMabda_CmBox.Text = company.Data.CompanyName;
+                }
+               
             }
         }
         void EditMode(BarErsali_Tbl barErsali)

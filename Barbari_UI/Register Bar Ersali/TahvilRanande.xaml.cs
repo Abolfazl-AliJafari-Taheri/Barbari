@@ -1,4 +1,5 @@
 ﻿using Barbari_DAL;
+using Barbari_UI.SMS;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -195,7 +196,34 @@ namespace Barbari_UI.Register_Bar_Ersali
                                 rpt.Show();
                             }
                         }
-
+                        if(BarErsali.BarErsaliSendSms)
+                        {
+                            var smsSetting = Barbari_BLL.SMS.Select();
+                            if(smsSetting.Success)
+                            {
+                                if(smsSetting.Data != null)
+                                {
+                                    Creator creator = new Creator();
+                                    ISms sms = creator.FacatoryMethod().Data;
+                                    SmsSender smsSender = new SmsSender(sms);
+                                    string senderFullName = BarErsali.BarErsaliNamFerestande + "" + BarErsali.BarErsaliFamilyFerestande;
+                                    string messageSender = "با سلام مشتری گرامی" + " " + senderFullName + " \n مرسوله شما با شماره بارنامه " + " " + BarErsali.BarErsaliBarname + " " + " با موفقیت ارسال شد\nشرکت باربری" + " " + WindowsAndPages.home_Window.CompanyName_TxtBlock.Text;
+                                    var smsReault = smsSender.SendAsync(smsSetting.Data.SMSURL,BarErsali.BarErsaliMobileFerestande, messageSender);
+                                    if (!smsReault.Result.Success)
+                                    {
+                                        MessageBox.Show(smsReault.Result.Message);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("لطفا ابتدا تنظیمات سامانه پیامکی را کامل کنید");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show(smsSetting.Message);
+                            }
+                        }
                     }
                     DialogHost.CloseDialogCommand.Execute(null, null);
                 }
@@ -209,7 +237,7 @@ namespace Barbari_UI.Register_Bar_Ersali
                 MessageBox.Show(validation.Message);
             }
         }
-
+       
         private void Code_CmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (Code_CmBox.SelectedItem != null)

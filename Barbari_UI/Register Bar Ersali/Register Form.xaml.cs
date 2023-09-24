@@ -129,7 +129,7 @@ namespace Barbari_UI.Register_Bar_Ersali
                         BarErsaliSaat = step3.HourSodor_TmPicker.Text,
                         BarErsaliTarikh = step3.DateSodor_DtPicker.Text,
                         BarErsaliUserNameKarmand = WindowsAndPages.home_Window.User.UsersUserName,
-                        
+                        BarErsaliSendSms = (bool)step3.SendSmsToggle.IsChecked
                     };
                     if ((bool)step1.BimariToggle.IsChecked)
                     {

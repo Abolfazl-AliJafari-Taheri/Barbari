@@ -95,7 +95,6 @@ Width="216"
   Style="{StaticResource MaterialDesignFilledComboBox}" >
                         <ComboBoxItem>کاوه نگار</ComboBoxItem>
                         <ComboBoxItem>ملی پیامک</ComboBoxItem>
-                        <ComboBoxItem>پیام کوتاه</ComboBoxItem>
                     </ComboBox>
                 </Border>
                 <Border Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="24 0 0 0" Background="#FFFFFF" BorderBrush="#E6E6E6" BorderThickness="1" CornerRadius="8" Height="48" Width="234">

@@ -258,6 +258,7 @@ namespace Barbari_UI.Edit_Bar_Ersali
                     BarErsali.BarErsaliPasKeraye = decimal.Parse(step3.PasKeraye_Txt.Text);
                     BarErsali.BarErsaliSaat = step3.HourSodor_TmPicker.Text;
                     BarErsali.BarErsaliTarikh = step3.DateSodor_DtPicker.Text;
+                    BarErsali.BarErsaliSendSms = (bool)step3.SendSmsToggle.IsChecked;
                 }
                 BarErsali.BarErsaliUserNameKarmand = WindowsAndPages.home_Window.User.UsersUserName;
                 if (createTahvil)

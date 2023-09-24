@@ -230,6 +230,8 @@
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SMS\Creator.cs" />
+    <Compile Include="SMS\ICreator.cs" />
     <Compile Include="SMS\ISms.cs" />
     <Compile Include="SMS\Kavenegar.cs" />
     <Compile Include="SMS\MeliPayamak.cs" />

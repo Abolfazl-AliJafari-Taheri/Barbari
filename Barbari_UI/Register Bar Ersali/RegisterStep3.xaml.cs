@@ -186,15 +186,16 @@ namespace Barbari_UI.Register_Bar_Ersali
         void EditMode(BarErsali_Tbl barErsali)
         {
             RefreshKala();
-            CodeBarname_Txt.Text = BarErsali.BarErsaliBarname.ToString();
-            AnbarDari_Txt.Text = BarErsali.BarErsaliAnbardari.ToString();
-            BasteBandi_Txt.Text = BarErsali.BarErsaliBastebandi.ToString();
-            Shahri_Txt.Text = BarErsali.BarErsaliShahri.ToString();
-            Bime_Txt.Text = BarErsali.BarErsaliBime.ToString();
-            PishKeraye_Txt.Text = BarErsali.BarErsaliPishKeraye.ToString();
-            PasKeraye_Txt.Text = BarErsali.BarErsaliPasKeraye.ToString();
-            DateSodor_DtPicker.Text = BarErsali.BarErsaliTarikh.ToString();
-            HourSodor_TmPicker.Text = BarErsali.BarErsaliSaat.ToString();
+            CodeBarname_Txt.Text = barErsali.BarErsaliBarname.ToString();
+            AnbarDari_Txt.Text = barErsali.BarErsaliAnbardari.ToString();
+            BasteBandi_Txt.Text = barErsali.BarErsaliBastebandi.ToString();
+            Shahri_Txt.Text = barErsali.BarErsaliShahri.ToString();
+            Bime_Txt.Text = barErsali.BarErsaliBime.ToString();
+            PishKeraye_Txt.Text = barErsali.BarErsaliPishKeraye.ToString();
+            PasKeraye_Txt.Text = barErsali.BarErsaliPasKeraye.ToString();
+            DateSodor_DtPicker.Text = barErsali.BarErsaliTarikh.ToString();
+            HourSodor_TmPicker.Text = barErsali.BarErsaliSaat.ToString();
+            SendSmsToggle.IsChecked = barErsali.BarErsaliSendSms;
         }
         public void UserControl_Loaded(object sender, RoutedEventArgs e)
         {

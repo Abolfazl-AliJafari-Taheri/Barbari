@@ -156,6 +156,7 @@ namespace Barbari_UI.Register_Bar_Tahvili
             PasKeraye_Txt.Text = barTahvili.BarTahviliPasKeraye.ToString();
             DateSodor_DtPicker.Text = barTahvili.BarTahviliTarikh.ToString();
             HourSodor_TmPicker.Text = barTahvili.BarTahviliiSaat.ToString();
+            SendSmsToggle.IsChecked = barTahvili.BarTahviliSendSms;
         }
         public void RefreshKala()
         {
