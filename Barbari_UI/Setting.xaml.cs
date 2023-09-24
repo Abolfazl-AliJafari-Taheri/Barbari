@@ -221,6 +221,10 @@ namespace Barbari_UI
                 {
                     MessageBox.Show(result.Message);
                 }
+                else
+                {
+                    MessageBox.Show("تنظیمات سامانه پیامکی با موفقیت ثبت شد.");
+                }
             }
             else
                 MessageBox.Show(validationResult.Message);
